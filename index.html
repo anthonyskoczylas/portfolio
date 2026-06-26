@@ -157,6 +157,29 @@
   .feat.big{padding:34px}
   .feat.big h4{font-size:24px;margin-top:14px}
   .feat.big p{font-size:16px}
+
+  /* pricing */
+  .prices{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px;align-items:stretch}
+  .price-card{position:relative;display:flex;flex-direction:column;
+    padding:32px 28px;border:1px solid var(--line);border-radius:16px;background:var(--white);
+    transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s, border-color .35s}
+  .price-card:hover{transform:translateY(-6px);box-shadow:0 26px 50px -28px rgba(14,21,18,.4)}
+  .price-card.featured{border-color:var(--accent);box-shadow:0 24px 50px -30px rgba(31,107,84,.5)}
+  .price-card .pc-tag{font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--sand)}
+  .price-card.featured .pc-tag{color:var(--accent)}
+  .price-card h4{font-family:'Fraunces',serif;font-weight:500;font-size:24px;margin:6px 0 14px}
+  .price{font-family:'Fraunces',serif;font-weight:500;font-size:44px;line-height:1;color:var(--ink)}
+  .price small{display:block;font-family:'Inter',sans-serif;font-size:13.5px;font-weight:500;color:var(--ink-soft);margin-top:8px;letter-spacing:0}
+  .price-card ul{list-style:none;margin:22px 0 26px;padding:0;display:flex;flex-direction:column;gap:11px}
+  .price-card li{position:relative;padding-left:26px;font-size:15px;color:var(--ink-soft);line-height:1.45}
+  .price-card li::before{content:"";position:absolute;left:0;top:7px;width:14px;height:14px;border-radius:50%;
+    background:var(--accent);
+    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E") center/12px no-repeat;
+    mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E") center/12px no-repeat}
+  .price-card .btn{margin-top:auto;justify-content:center}
+  .pc-badge{position:absolute;top:-11px;right:22px;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    color:#fff;background:var(--accent);padding:6px 13px;border-radius:999px}
+  .price-note{margin-top:22px;font-size:14px;color:var(--ink-soft);text-align:center}
   .feat{padding:28px;border:1px solid var(--line);border-radius:14px;background:var(--white)}
   .feat .n{font-family:'Fraunces',serif;font-size:15px;color:var(--sand);font-weight:600}
   .feat h4{font-family:'Fraunces',serif;font-size:21px;font-weight:500;margin:12px 0 8px}
@@ -429,6 +452,59 @@
         <p>I can plug in smart automation that answers common questions, replies to messages, follows up with leads, and helps handle bookings — day and night. It quietly runs the repetitive stuff so you get more free time and never miss a customer.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section style="background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Simple pricing</div>
+      <h2>One fair price. No surprises.</h2>
+      <p>No retainers, no hidden fees. Pick what you need — and the website always comes with Google setup on the house.</p>
+    </div>
+    <div class="prices">
+      <div class="price-card featured reveal" style="--d:0s">
+        <span class="pc-badge">Most popular</span>
+        <span class="pc-tag">The website</span>
+        <h4>Your custom site</h4>
+        <div class="price">$500<small>One-time. Yours to keep — no monthly fees.</small></div>
+        <ul>
+          <li>Custom design, built around your business</li>
+          <li>Fast and mobile-first</li>
+          <li>Bilingual English / Spanish</li>
+          <li>WhatsApp & booking built in</li>
+          <li>Live on your own domain</li>
+        </ul>
+        <a class="btn btn-primary" href="#contact">Start your site</a>
+      </div>
+
+      <div class="price-card reveal" style="--d:.12s">
+        <span class="pc-tag">Get found</span>
+        <h4>Google Business setup</h4>
+        <div class="price">Free<small>Included with every website.</small></div>
+        <ul>
+          <li>Get listed on Google & Maps</li>
+          <li>Profile set up and polished</li>
+          <li>Start collecting real reviews</li>
+          <li>Show up when tourists search</li>
+        </ul>
+        <a class="btn btn-ghost" href="#contact">Included</a>
+      </div>
+
+      <div class="price-card reveal" style="--d:.24s">
+        <span class="pc-tag">Save time</span>
+        <h4>AI automation</h4>
+        <div class="price">Let's talk<small>Built around how your business runs.</small></div>
+        <ul>
+          <li>Auto-replies to common questions</li>
+          <li>Follows up with leads for you</li>
+          <li>Helps handle bookings, day & night</li>
+          <li>Quote based on what you need</li>
+        </ul>
+        <a class="btn btn-ghost" href="#contact">Ask about it</a>
+      </div>
+    </div>
+    <div class="price-note reveal">Every project starts with a free first look — no charge, no pressure.</div>
   </div>
 </section>
 
