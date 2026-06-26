@@ -34,35 +34,74 @@
   em{font-style:italic;color:var(--accent)}
   a{color:inherit}
 
-  /* NAV */
+  /* NAV — transparent over the dark hero, solid paper once scrolled */
   nav{
-    position:sticky;top:0;z-index:50;
-    background:rgba(246,244,238,.82);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:transparent;border-bottom:1px solid transparent;
   }
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
-  .brand{font-family:'Fraunces',serif;font-size:19px;font-weight:600;letter-spacing:-0.02em}
-  .brand span{color:var(--accent)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{font-family:'Fraunces',serif;font-size:19px;font-weight:600;letter-spacing:-0.02em;color:#f3f1ea}
+  .brand span{color:var(--sand)}
   .nav-cta{
     font-size:14px;font-weight:600;
     padding:9px 18px;border-radius:999px;
-    background:var(--ink);color:var(--paper);
-    text-decoration:none;transition:background .2s;
+    background:rgba(255,255,255,.12);color:#f3f1ea;border:1px solid rgba(255,255,255,.25);
+    text-decoration:none;transition:.25s;backdrop-filter:blur(6px);
   }
-  .nav-cta:hover{background:var(--accent)}
+  .nav-cta:hover{background:var(--accent);border-color:var(--accent)}
+  nav.scrolled{background:rgba(246,244,238,.85);backdrop-filter:blur(10px);border-bottom-color:var(--line)}
+  nav.scrolled .brand{color:var(--ink)}
+  nav.scrolled .brand span{color:var(--accent)}
+  nav.scrolled .nav-cta{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  nav.scrolled .nav-cta:hover{background:var(--accent);border-color:var(--accent)}
 
-  /* HERO */
-  header.hero{padding:96px 0 64px;border-bottom:1px solid var(--line)}
+  /* HERO — cinematic dark */
+  header.hero{
+    position:relative;overflow:hidden;isolation:isolate;
+    background:#0a120f;color:#f3f1ea;
+    min-height:92vh;display:flex;align-items:center;
+    padding:130px 0 80px;border-bottom:none;
+  }
+  .hero-bg{position:absolute;inset:0;z-index:0;background:#0a120f}
+  .hero-bg .blob{position:absolute;border-radius:50%;filter:blur(72px);opacity:.5;mix-blend-mode:screen;will-change:transform}
+  .hero-bg .blob.a{width:46vw;height:46vw;background:#2c8a6c;top:-14%;left:-8%;animation:drift1 22s ease-in-out infinite}
+  .hero-bg .blob.b{width:42vw;height:42vw;background:#c9a26a;bottom:-18%;right:-6%;opacity:.4;animation:drift2 26s ease-in-out infinite}
+  .hero-bg .blob.c{width:38vw;height:38vw;background:#1f6b54;top:28%;right:24%;opacity:.45;animation:drift3 30s ease-in-out infinite}
+  @keyframes drift1{50%{transform:translate(14%,16%) scale(1.18)}}
+  @keyframes drift2{50%{transform:translate(-12%,-14%) scale(1.12)}}
+  @keyframes drift3{50%{transform:translate(-16%,12%) scale(1.2)}}
+  .hero-bg .grain{position:absolute;inset:0;opacity:.06;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .hero-bg .vign{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 10%, transparent 40%, rgba(5,9,7,.55) 100%)}
+  header.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;width:100%}
+  .hero-copy{max-width:60ch}
   .eyebrow{
-    font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--accent);margin-bottom:22px;
+    font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--sand);margin-bottom:22px;
   }
-  header.hero h1{font-size:clamp(40px,6.4vw,76px);max-width:14ch}
+  header.hero h1{font-size:clamp(42px,6vw,78px);max-width:15ch;color:#f6f4ee}
+  header.hero h1 em{color:var(--sand)}
   header.hero p.lead{
-    margin-top:26px;max-width:54ch;font-size:19px;color:var(--ink-soft);
+    margin-top:24px;max-width:52ch;font-size:18.5px;color:rgba(243,241,234,.72);
   }
-  .hero-actions{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+  /* floating proof: real site shots in browser frames */
+  .hero-proof{position:relative;height:100%;min-height:360px}
+  .proof-card{position:absolute;border-radius:12px;overflow:hidden;
+    box-shadow:0 30px 70px -24px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.12);
+    background:#0a120f}
+  .proof-card img{display:block;width:100%}
+  .proof-card.p1{width:78%;top:2%;right:0;transform:rotate(3deg);animation:bob1 8s ease-in-out infinite}
+  .proof-card.p2{width:60%;bottom:4%;left:-2%;transform:rotate(-4deg);animation:bob2 9s ease-in-out infinite}
+  .proof-card .bar{height:22px;background:#10201a;display:flex;align-items:center;gap:5px;padding:0 10px}
+  .proof-card .bar i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25)}
+  @keyframes bob1{50%{transform:rotate(3deg) translateY(-14px)}}
+  @keyframes bob2{50%{transform:rotate(-4deg) translateY(12px)}}
+  @media(max-width:900px){
+    header.hero .wrap{grid-template-columns:1fr}
+    .hero-proof{display:none}
+    header.hero{min-height:auto;padding:120px 0 64px}
+  }
+  .hero-actions{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
   .btn{
     display:inline-flex;align-items:center;gap:9px;
     font-size:15px;font-weight:600;text-decoration:none;
@@ -78,6 +117,14 @@
   }
   .hero-meta b{display:block;font-family:'Fraunces',serif;font-size:30px;color:var(--ink);font-weight:500;line-height:1}
   .hero-meta span{display:block;margin-top:6px}
+
+  /* dark-hero overrides */
+  header.hero .btn-ghost{border-color:rgba(255,255,255,.3);color:#f3f1ea}
+  header.hero .btn-ghost:hover{border-color:#fff;transform:translateY(-2px)}
+  .hero-stats{margin-top:46px;display:flex;gap:38px;flex-wrap:wrap}
+  .hero-stats .hs b{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:clamp(28px,3vw,38px);line-height:1;color:#f6f4ee}
+  .hero-stats .hs span{display:block;margin-top:7px;font-size:13.5px;color:rgba(243,241,234,.6)}
+  @media(max-width:760px){.hero-stats{gap:26px 30px}}
 
   /* SECTION */
   section{padding:84px 0}
@@ -332,34 +379,34 @@
 </nav>
 
 <header class="hero">
-  <div class="wrap hero-anim">
-    <div class="eyebrow">Web design · Pacific Coast, Costa Rica</div>
-    <h1>Websites that make local businesses look <em>world-class</em>.</h1>
-    <p class="lead">I build fast, custom, bilingual sites for hotels, surf schools, restaurants and tour operators around Jacó and the Central Pacific. No templates, no monthly lock-in, no clutter — just a site that earns bookings.</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="#work">See the work</a>
-      <a class="btn btn-ghost" href="#contact">Start a project</a>
+  <div class="hero-bg" aria-hidden="true">
+    <span class="blob a"></span><span class="blob b"></span><span class="blob c"></span>
+    <div class="grain"></div><div class="vign"></div>
+  </div>
+  <div class="wrap">
+    <div class="hero-copy hero-anim">
+      <div class="eyebrow">Web design · Pacific Coast, Costa Rica</div>
+      <h1>Websites that make local businesses look <em>world-class</em>.</h1>
+      <p class="lead">Fast, custom, bilingual sites for hotels, surf schools, restaurants and tour operators around Jacó and the Central Pacific. No templates, no monthly lock-in — just a site that earns bookings.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#work">See the work</a>
+        <a class="btn btn-ghost" href="#contact">Start a project</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hs"><b data-count="5" data-suffix="+">0</b><span>Sites live</span></div>
+        <div class="hs"><b data-count="2">0</b><span>Languages</span></div>
+        <div class="hs"><b data-count="7" data-suffix="-day">0</b><span>Turnaround</span></div>
+        <div class="hs"><b data-count="100" data-suffix="%">0</b><span>Custom built</span></div>
+      </div>
     </div>
-    <div class="hero-meta">
-      <div><b>Built in CR</b><span>Local, on the ground in Jacó</span></div>
-      <div><b>EN / ES</b><span>Bilingual by default</span></div>
-      <div><b>Live in days</b><span>Not weeks of meetings</span></div>
+    <div class="hero-proof" aria-hidden="true">
+      <div class="proof-card p1"><div class="bar"><i></i><i></i><i></i></div><img src="img/coconut-after.png" alt=""></div>
+      <div class="proof-card p2"><div class="bar"><i></i><i></i><i></i></div><img src="img/jacotransport.png" alt=""></div>
     </div>
   </div>
 </header>
 
-<section style="padding:56px 0">
-  <div class="wrap">
-    <div class="stats reveal">
-      <div class="stat"><b data-count="5" data-suffix="+">0</b><span>Sites live on the coast</span></div>
-      <div class="stat"><b data-count="2">0</b><span>Languages, every build</span></div>
-      <div class="stat"><b data-count="7" data-suffix="-day">0</b><span>Typical turnaround</span></div>
-      <div class="stat"><b data-count="100" data-suffix="%">0</b><span>Custom — zero templates</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="work" style="padding-top:28px">
+<section id="work">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="kicker">Selected work</div>
@@ -605,14 +652,16 @@
     update();
   })();
 
-  // Count-up stats when they scroll into view.
+  // Count-up stats (hero) — animate each number once it's on screen.
   (function(){
     const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
-    const nums = [...document.querySelectorAll('.stat b[data-count]')];
+    const nums = [...document.querySelectorAll('b[data-count]')];
+    if(!nums.length) return;
     const run = (el)=>{
+      if(el._ran) return; el._ran = true;
       const target = +el.dataset.count, suf = el.dataset.suffix || '';
       if(reduce){ el.textContent = target + suf; return; }
-      const dur = 1200, t0 = performance.now();
+      const dur = 1300, t0 = performance.now();
       const tick = (now)=>{
         const p = Math.min(1, (now - t0) / dur);
         const eased = 1 - Math.pow(1 - p, 3);
@@ -621,18 +670,15 @@
       };
       requestAnimationFrame(tick);
     };
-    const stats = document.querySelector('.stats');
-    if(!stats) return;
-    let done = false;
-    const go = ()=>{ if(done) return; done = true; nums.forEach(run); };
     if('IntersectionObserver' in window){
-      const io = new IntersectionObserver((e)=>{ e.forEach(x=>{ if(x.isIntersecting){ go(); io.disconnect(); } }); }, {threshold:0.4});
-      io.observe(stats);
+      const io = new IntersectionObserver((e)=>{ e.forEach(x=>{ if(x.isIntersecting){ run(x.target); io.unobserve(x.target); } }); }, {threshold:0.5});
+      nums.forEach(n=>io.observe(n));
     }
-    const sweep = ()=>{ const r = stats.getBoundingClientRect(); if(r.top < innerHeight*0.85 && r.bottom > 0) go(); };
+    // Failsafes: hero numbers are visible at load; run anything in view + a hard timer.
+    const sweep = ()=>nums.forEach(n=>{ const r = n.getBoundingClientRect(); if(r.top < innerHeight*0.9 && r.bottom > 0) run(n); });
+    window.addEventListener('load', ()=>setTimeout(sweep, 250));
     window.addEventListener('scroll', sweep, {passive:true});
-    window.addEventListener('load', ()=>setTimeout(sweep, 200));
-    setTimeout(go, 5000);
+    setTimeout(()=>nums.forEach(run), 5000);
   })();
 
   // Scroll reveal — fade/slide elements in as they enter the viewport.
