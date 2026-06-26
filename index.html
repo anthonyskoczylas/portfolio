@@ -270,21 +270,59 @@
   .ba.touched .knob::after{animation:none;opacity:0}
   @keyframes pulse{0%{opacity:.7;transform:scale(.85)}70%{opacity:0;transform:scale(1.5)}100%{opacity:0}}
 
+  /* scroll progress bar */
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;
+    background:linear-gradient(90deg,var(--accent),var(--sand));transition:width .08s linear}
+
+  /* editorial case numbers */
+  #work{counter-reset:caseno}
+  .case{position:relative;counter-increment:caseno}
+  .case::after{content:counter(caseno,decimal-leading-zero);position:absolute;top:-4px;right:0;
+    font-family:'Fraunces',serif;font-weight:500;font-size:clamp(38px,7vw,70px);line-height:1;
+    color:var(--line);opacity:0;transform:translateY(-10px);pointer-events:none;
+    transition:opacity .85s cubic-bezier(.2,.7,.2,1), transform .85s cubic-bezier(.2,.7,.2,1)}
+  .case.in::after{opacity:.65;transform:none}
+
+  /* media wipe reveal (images + slider) */
+  .media-rev{clip-path:inset(0 0 100% 0);transition:clip-path 1.05s cubic-bezier(.2,.7,.2,1)}
+  .media-rev.in{clip-path:inset(0 0 0 0)}
+
+  /* clickable showcase image + hover overlay */
+  a.shot{display:block;position:relative;text-decoration:none;color:#fff}
+  a.shot::before{content:"";position:absolute;inset:0;z-index:2;opacity:0;transition:opacity .4s;
+    background:linear-gradient(to top,rgba(14,21,18,.6),transparent 48%)}
+  a.shot:hover::before{opacity:1}
+  .shot-go{position:absolute;left:0;right:0;bottom:18px;z-index:3;text-align:center;
+    font-size:14.5px;font-weight:600;opacity:0;transform:translateY(10px);
+    transition:opacity .4s, transform .4s}
+  a.shot:hover .shot-go{opacity:1;transform:none}
+
+  /* animated stats band */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+    padding:38px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .stat b{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,5vw,52px);line-height:1;color:var(--ink)}
+  .stat span{display:block;margin-top:8px;font-size:14px;color:var(--ink-soft)}
+
   @media(max-width:760px){
     .grid3{grid-template-columns:1fr}
     .hero-meta{gap:28px}
     .cta{padding:48px 24px}
     nav .nav-cta{display:none}
+    .stats{grid-template-columns:1fr 1fr;gap:30px 16px}
   }
   @media(prefers-reduced-motion:reduce){
     *,*::before,*::after{animation:none!important;transition:none!important}
     .reveal{opacity:1!important;transform:none!important}
     .hero-anim>*{opacity:1!important;transform:none!important}
     header.hero h1 em::after{transform:scaleX(1)!important}
+    .case::after{opacity:.65!important;transform:none!important}
+    .media-rev{clip-path:none!important}
   }
 </style>
 </head>
 <body>
+
+<div id="progress"></div>
 
 <nav>
   <div class="wrap">
@@ -310,7 +348,18 @@
   </div>
 </header>
 
-<section id="work">
+<section style="padding:56px 0">
+  <div class="wrap">
+    <div class="stats reveal">
+      <div class="stat"><b data-count="5" data-suffix="+">0</b><span>Sites live on the coast</span></div>
+      <div class="stat"><b data-count="2">0</b><span>Languages, every build</span></div>
+      <div class="stat"><b data-count="7" data-suffix="-day">0</b><span>Typical turnaround</span></div>
+      <div class="stat"><b data-count="100" data-suffix="%">0</b><span>Custom — zero templates</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="work" style="padding-top:28px">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="kicker">Selected work</div>
@@ -324,7 +373,7 @@
       <h3>Coconut Office</h3>
       <p class="role">Playa Hermosa surf-and-work retreat. The old site was cluttered, dated, and hard to trust. I rebuilt it into one cinematic, bilingual page that sells the lifestyle.</p>
 
-      <div class="ba" id="ba1">
+      <div class="ba media-rev" id="ba1">
         <img class="before-img" src="img/coconut-after.png" alt="Coconut Office — new website">
         <div class="after-wrap" id="aw1">
           <div class="after-img-sizer" id="as1">
@@ -351,9 +400,10 @@
       <h3>Jaco Transport</h3>
       <p class="role">A full booking platform for a private-transport company — cinematic video hero, live route pricing, online reservations, and a behind-the-scenes dispatch and driver app. A real working business, not a brochure.</p>
 
-      <div class="shot">
+      <a class="shot media-rev" href="https://jacotransport.com" target="_blank" rel="noopener">
         <img src="img/jacotransport.png" alt="Jaco Transport website">
-      </div>
+        <span class="shot-go">Visit live site ↗</span>
+      </a>
 
       <div class="case-foot">
         <span class="chip">Online booking</span>
@@ -369,9 +419,10 @@
       <h3>Infinite Discoveries</h3>
       <p class="role">A booking site for a fishing-charter and tour broker — moody full-screen hero, a catalog of tours with instant request forms, and one-tap WhatsApp. Bilingual, fast, and built to turn browsers into bookings.</p>
 
-      <div class="shot">
+      <a class="shot media-rev" href="https://infinitediscoveriescr.com" target="_blank" rel="noopener">
         <img src="img/infinitediscoveries.png" alt="Infinite Discoveries website">
-      </div>
+        <span class="shot-go">Visit live site ↗</span>
+      </a>
 
       <div class="case-foot">
         <span class="chip">Tour catalog</span>
@@ -387,9 +438,10 @@
       <h3>Little Waves Surf School</h3>
       <p class="role">María's surf school in Jacó had no website at all. I built her a bilingual one-pager with real prices, photos, a looping wave video, and one-tap WhatsApp booking — live on her own domain.</p>
 
-      <div class="shot">
+      <a class="shot media-rev" href="https://littlewavessurf.com" target="_blank" rel="noopener">
         <img src="img/littlewaves.png" alt="Little Waves Surf School website">
-      </div>
+        <span class="shot-go">Visit live site ↗</span>
+      </a>
 
       <div class="case-foot">
         <span class="chip">From zero to live</span>
@@ -405,9 +457,10 @@
       <h3>Byron — Surf Photography</h3>
       <p class="role">A cinematic one-page site for a Playa Hermosa surf photographer — dark full-bleed hero, a live Instagram feed that updates itself, and one-tap WhatsApp to book a shoot. Lets the work speak.</p>
 
-      <div class="shot">
+      <a class="shot media-rev" href="https://instagram.com/surfing_photone" target="_blank" rel="noopener">
         <img src="img/byron.png" alt="Byron surf photography website">
-      </div>
+        <span class="shot-go">See his Instagram ↗</span>
+      </a>
 
       <div class="case-foot">
         <span class="chip">Live Instagram feed</span>
@@ -539,10 +592,53 @@
     onScroll();
   })();
 
+  // Scroll progress bar.
+  (function(){
+    const bar = document.getElementById('progress');
+    const update = ()=>{
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    };
+    window.addEventListener('scroll', update, {passive:true});
+    window.addEventListener('resize', update);
+    update();
+  })();
+
+  // Count-up stats when they scroll into view.
+  (function(){
+    const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+    const nums = [...document.querySelectorAll('.stat b[data-count]')];
+    const run = (el)=>{
+      const target = +el.dataset.count, suf = el.dataset.suffix || '';
+      if(reduce){ el.textContent = target + suf; return; }
+      const dur = 1200, t0 = performance.now();
+      const tick = (now)=>{
+        const p = Math.min(1, (now - t0) / dur);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased) + suf;
+        if(p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    const stats = document.querySelector('.stats');
+    if(!stats) return;
+    let done = false;
+    const go = ()=>{ if(done) return; done = true; nums.forEach(run); };
+    if('IntersectionObserver' in window){
+      const io = new IntersectionObserver((e)=>{ e.forEach(x=>{ if(x.isIntersecting){ go(); io.disconnect(); } }); }, {threshold:0.4});
+      io.observe(stats);
+    }
+    const sweep = ()=>{ const r = stats.getBoundingClientRect(); if(r.top < innerHeight*0.85 && r.bottom > 0) go(); };
+    window.addEventListener('scroll', sweep, {passive:true});
+    window.addEventListener('load', ()=>setTimeout(sweep, 200));
+    setTimeout(go, 5000);
+  })();
+
   // Scroll reveal — fade/slide elements in as they enter the viewport.
   // Primary: IntersectionObserver. Plus failsafes so content can never stay hidden.
   (function(){
-    const els = [...document.querySelectorAll('.reveal')];
+    const els = [...document.querySelectorAll('.reveal, .media-rev')];
     const show = (e)=>e.classList.add('in');
     if(!('IntersectionObserver' in window)){ els.forEach(show); return; }
     const io = new IntersectionObserver((entries)=>{
