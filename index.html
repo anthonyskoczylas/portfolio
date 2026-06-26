@@ -170,11 +170,90 @@
   footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--ink-soft);font-size:14px}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
 
+  /* ---------- MOTION / POLISH ---------- */
+  nav{transition:box-shadow .3s ease, background .3s ease}
+  nav.scrolled{box-shadow:0 10px 30px -22px rgba(14,21,18,.5)}
+
+  /* scroll reveal */
+  .reveal{opacity:0;transform:translateY(26px);
+    transition:opacity .85s cubic-bezier(.2,.7,.2,1), transform .85s cubic-bezier(.2,.7,.2,1);
+    transition-delay:var(--d,0s);will-change:opacity,transform}
+  .reveal.in{opacity:1;transform:none}
+
+  /* hero entrance (runs on load) */
+  .hero-anim>*{opacity:0;transform:translateY(22px);
+    animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+  .hero-anim>*:nth-child(1){animation-delay:.05s}
+  .hero-anim>*:nth-child(2){animation-delay:.16s}
+  .hero-anim>*:nth-child(3){animation-delay:.28s}
+  .hero-anim>*:nth-child(4){animation-delay:.40s}
+  .hero-anim>*:nth-child(5){animation-delay:.52s}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  /* animated underline on the hero accent word */
+  header.hero h1 em{position:relative;display:inline-block}
+  header.hero h1 em::after{content:"";position:absolute;left:0;bottom:.06em;height:3px;width:100%;
+    background:var(--sand);transform:scaleX(0);transform-origin:left;border-radius:2px;
+    animation:wipe 1s cubic-bezier(.2,.7,.2,1) 1s forwards}
+  @keyframes wipe{to{transform:scaleX(1)}}
+
+  /* buttons: lift + shadow */
+  .btn{transition:transform .25s cubic-bezier(.2,.7,.2,1), background .2s, border-color .2s, box-shadow .25s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary:hover{box-shadow:0 14px 28px -12px rgba(31,107,84,.6)}
+
+  /* hero stat numbers count feel — subtle hover */
+  .hero-meta div{transition:transform .3s}
+  .hero-meta div:hover{transform:translateY(-3px)}
+
+  /* showcase image: slow ken-burns zoom on hover */
+  .shot{transition:box-shadow .4s, transform .4s cubic-bezier(.2,.7,.2,1)}
+  .shot img{transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+  .shot:hover{box-shadow:0 34px 80px -30px rgba(14,21,18,.55)}
+  .shot:hover img{transform:scale(1.04)}
+
+  /* chips: gentle lift */
+  .chip{transition:transform .2s, background .2s, color .2s, border-color .2s}
+  .case-foot .chip:hover{transform:translateY(-2px);background:var(--accent);color:#fff;border-color:var(--accent)}
+
+  /* live-link: growing underline + arrow nudge */
+  .live-link{position:relative}
+  .live-link::after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:100%;
+    background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+  .live-link:hover{text-decoration:none}
+  .live-link:hover::after{transform:scaleX(1)}
+
+  /* feature cards: lift + accent top edge */
+  .feat{position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s}
+  .feat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);
+    transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+  .feat:hover{transform:translateY(-6px);box-shadow:0 26px 50px -28px rgba(14,21,18,.4)}
+  .feat:hover::before{transform:scaleX(1)}
+
+  /* before/after slider polish */
+  .ba .after-wrap{transition:width .5s cubic-bezier(.2,.7,.2,1)}
+  .ba .handle{transition:left .5s cubic-bezier(.2,.7,.2,1)}
+  .ba.dragging .after-wrap,.ba.dragging .handle{transition:none}
+  .ba .knob{transition:transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s}
+  .ba:hover .knob{transform:scale(1.08)}
+  .ba .knob svg{width:20px;height:20px;display:block}
+  /* idle pulse ring until first interaction */
+  .ba .knob::after{content:"";position:absolute;inset:-6px;border-radius:50%;
+    border:2px solid rgba(255,255,255,.65);opacity:0;animation:pulse 2.2s ease-out infinite}
+  .ba.touched .knob::after{animation:none;opacity:0}
+  @keyframes pulse{0%{opacity:.7;transform:scale(.85)}70%{opacity:0;transform:scale(1.5)}100%{opacity:0}}
+
   @media(max-width:760px){
     .grid3{grid-template-columns:1fr}
     .hero-meta{gap:28px}
     .cta{padding:48px 24px}
     nav .nav-cta{display:none}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1!important;transform:none!important}
+    .hero-anim>*{opacity:1!important;transform:none!important}
+    header.hero h1 em::after{transform:scaleX(1)!important}
   }
 </style>
 </head>
@@ -188,7 +267,7 @@
 </nav>
 
 <header class="hero">
-  <div class="wrap">
+  <div class="wrap hero-anim">
     <div class="eyebrow">Web design · Pacific Coast, Costa Rica</div>
     <h1>Websites that make local businesses look <em>world-class</em>.</h1>
     <p class="lead">I build fast, custom, bilingual sites for hotels, surf schools, restaurants and tour operators around Jacó and the Central Pacific. No templates, no monthly lock-in, no clutter — just a site that earns bookings.</p>
@@ -206,14 +285,14 @@
 
 <section id="work">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head reveal">
       <div class="kicker">Selected work</div>
       <h2>Real local businesses. Real before & after.</h2>
       <p>Every project here is a live site for a real business on the coast. Drag the slider to see the difference.</p>
     </div>
 
     <!-- CASE 1: Coconut Office -->
-    <div class="case">
+    <div class="case reveal">
       <span class="case-tag">Redesign · Coworking & Coliving</span>
       <h3>Coconut Office</h3>
       <p class="role">Playa Hermosa surf-and-work retreat. The old site was cluttered, dated, and hard to trust. I rebuilt it into one cinematic, bilingual page that sells the lifestyle.</p>
@@ -227,7 +306,7 @@
         </div>
         <span class="label before">Before</span>
         <span class="label after">After</span>
-        <div class="handle" id="h1"><div class="knob">⇆</div></div>
+        <div class="handle" id="h1"><div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 4 12 9 18"></polyline><polyline points="15 6 20 12 15 18"></polyline></svg></div></div>
       </div>
       <div class="hint">← Drag to compare →</div>
 
@@ -240,7 +319,7 @@
     </div>
 
     <!-- CASE 2: Jaco Transport -->
-    <div class="case" style="margin-top:84px">
+    <div class="case reveal" style="margin-top:84px">
       <span class="case-tag">New build · Airport Transfers & Tours</span>
       <h3>Jaco Transport</h3>
       <p class="role">A full booking platform for a private-transport company — cinematic video hero, live route pricing, online reservations, and a behind-the-scenes dispatch and driver app. A real working business, not a brochure.</p>
@@ -258,7 +337,7 @@
     </div>
 
     <!-- CASE 3: Infinite Discoveries -->
-    <div class="case" style="margin-top:84px">
+    <div class="case reveal" style="margin-top:84px">
       <span class="case-tag">New build · Fishing Charters & Tours</span>
       <h3>Infinite Discoveries</h3>
       <p class="role">A booking site for a fishing-charter and tour broker — moody full-screen hero, a catalog of tours with instant request forms, and one-tap WhatsApp. Bilingual, fast, and built to turn browsers into bookings.</p>
@@ -276,7 +355,7 @@
     </div>
 
     <!-- CASE 4: Little Waves -->
-    <div class="case" style="margin-top:84px">
+    <div class="case reveal" style="margin-top:84px">
       <span class="case-tag">New build · Surf School</span>
       <h3>Little Waves Surf School</h3>
       <p class="role">María's surf school in Jacó had no website at all. I built her a bilingual one-pager with real prices, photos, a looping wave video, and one-tap WhatsApp booking — live on her own domain.</p>
@@ -294,7 +373,7 @@
     </div>
 
     <!-- CASE 5: Byron -->
-    <div class="case" style="margin-top:84px">
+    <div class="case reveal" style="margin-top:84px">
       <span class="case-tag">New build · Surf Photographer</span>
       <h3>Byron — Surf Photography</h3>
       <p class="role">A cinematic one-page site for a Playa Hermosa surf photographer — dark full-bleed hero, a live Instagram feed that updates itself, and one-tap WhatsApp to book a shoot. Lets the work speak.</p>
@@ -315,21 +394,21 @@
 
 <section style="background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head reveal">
       <div class="kicker">Why work with me</div>
       <h2>A site that works as hard as you do.</h2>
     </div>
     <div class="grid3">
-      <div class="feat"><div class="n">01</div><h4>Local, not outsourced</h4><p>I live and surf here. We meet in person, in English or Spanish, and I get how the tourist season actually works.</p></div>
-      <div class="feat"><div class="n">02</div><h4>Built to book</h4><p>Every page points to one thing — getting the customer to message, call, or reserve. Clean, fast, mobile-first.</p></div>
-      <div class="feat"><div class="n">03</div><h4>You own it</h4><p>Your domain, your site, no monthly platform fees. One fair price, and it's yours.</p></div>
+      <div class="feat reveal" style="--d:0s"><div class="n">01</div><h4>Local, not outsourced</h4><p>I live and surf here. We meet in person, in English or Spanish, and I get how the tourist season actually works.</p></div>
+      <div class="feat reveal" style="--d:.12s"><div class="n">02</div><h4>Built to book</h4><p>Every page points to one thing — getting the customer to message, call, or reserve. Clean, fast, mobile-first.</p></div>
+      <div class="feat reveal" style="--d:.24s"><div class="n">03</div><h4>You own it</h4><p>Your domain, your site, no monthly platform fees. One fair price, and it's yours.</p></div>
     </div>
   </div>
 </section>
 
 <section id="contact">
   <div class="wrap">
-    <div class="cta">
+    <div class="cta reveal">
       <h2>Let's get your business <em>online</em>.</h2>
       <p>Free first look — send me your business and I'll show you what your new site could be, no charge.</p>
       <div class="hero-actions">
@@ -350,30 +429,56 @@
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // Before/After slider — works with mouse, touch, and resize.
+  // Nav shadow once scrolled past the top.
+  (function(){
+    const nav = document.querySelector('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  })();
+
+  // Scroll reveal — fade/slide elements in as they enter the viewport.
+  // Primary: IntersectionObserver. Plus failsafes so content can never stay hidden.
+  (function(){
+    const els = [...document.querySelectorAll('.reveal')];
+    const show = (e)=>e.classList.add('in');
+    if(!('IntersectionObserver' in window)){ els.forEach(show); return; }
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{ if(en.isIntersecting){ show(en.target); io.unobserve(en.target); } });
+    }, {threshold:0.14, rootMargin:'0px 0px -6% 0px'});
+    els.forEach(e=>io.observe(e));
+
+    // Failsafe 1: reveal anything already within the viewport on load.
+    const sweep = ()=>els.forEach(e=>{
+      if(e.classList.contains('in')) return;
+      const r = e.getBoundingClientRect();
+      if(r.top < innerHeight * 0.94 && r.bottom > 0) show(e);
+    });
+    window.addEventListener('load', ()=>setTimeout(sweep, 150));
+    window.addEventListener('scroll', sweep, {passive:true});
+    // Failsafe 2: if the observer never fires (some headless/embedded views), reveal all.
+    setTimeout(()=>els.forEach(show), 5000);
+  })();
+
+  // Before/After slider — mouse, touch, resize; animated jumps; idle nudge.
   (function(){
     const ba = document.getElementById('ba1');
-    const aw = document.getElementById('aw1');   // clip wrapper (the "after" reveal)
-    const as = document.getElementById('as1');   // inner sizer that holds after img at full width
+    const aw = document.getElementById('aw1');   // clip wrapper (the "before" reveal on the left)
+    const as = document.getElementById('as1');   // inner sizer that holds image at full width
     const h  = document.getElementById('h1');
-    let dragging = false;
+    let dragging = false, touched = false;
 
-    function sizeAfter(){
-      // make the after image always span the full component width,
-      // then counter-translate so it stays put while the wrapper clips it.
-      as.style.width = ba.clientWidth + 'px';
-    }
+    function sizeAfter(){ as.style.width = ba.clientWidth + 'px'; }
+    function apply(pct){ aw.style.width = pct + '%'; h.style.left = pct + '%'; }
     function setPos(clientX){
       const r = ba.getBoundingClientRect();
       let x = (clientX - r.left) / r.width;
       x = Math.max(0, Math.min(1, x));
-      const pct = x * 100;
-      aw.style.width = pct + '%';
-      as.style.transform = 'translateX(0)';
-      h.style.left = pct + '%';
+      apply(x * 100);
     }
-    function start(){ dragging = true; document.body.style.cursor='ew-resize'; }
-    function end(){ dragging = false; document.body.style.cursor=''; }
+    function firstTouch(){ if(!touched){ touched = true; ba.classList.add('touched'); } }
+    function start(){ dragging = true; ba.classList.add('dragging'); document.body.style.cursor='ew-resize'; firstTouch(); }
+    function end(){ dragging = false; ba.classList.remove('dragging'); document.body.style.cursor=''; }
     function move(e){
       if(!dragging) return;
       const cx = e.touches ? e.touches[0].clientX : e.clientX;
@@ -381,17 +486,37 @@
     }
 
     h.addEventListener('mousedown', start);
-    h.addEventListener('touchstart', start, {passive:true});
+    h.addEventListener('touchstart', function(){ start(); }, {passive:true});
     window.addEventListener('mouseup', end);
     window.addEventListener('touchend', end);
     window.addEventListener('mousemove', move);
     window.addEventListener('touchmove', move, {passive:true});
-    // also allow click-anywhere on the bar to jump
     ba.addEventListener('mousedown', function(e){ start(); setPos(e.clientX); });
 
     window.addEventListener('resize', sizeAfter);
     window.addEventListener('load', sizeAfter);
     sizeAfter();
+
+    // Reveal labels + a one-time animated nudge so people notice it slides.
+    let revealed = false;
+    function reveal(nudge){
+      if(revealed) return; revealed = true;
+      ba.classList.add('in');
+      if(nudge && !matchMedia('(prefers-reduced-motion:reduce)').matches){
+        setTimeout(()=>{ if(touched) return; apply(62); setTimeout(()=>{ if(!touched) apply(50); }, 650); }, 450);
+      }
+    }
+    if('IntersectionObserver' in window){
+      const io = new IntersectionObserver((ents)=>{
+        ents.forEach(en=>{ if(en.isIntersecting){ io.unobserve(ba); reveal(true); } });
+      }, {threshold:0.35});
+      io.observe(ba);
+    }
+    // Failsafes: reveal labels on scroll-into-view, and unconditionally after 5s.
+    const baSweep = ()=>{ const r = ba.getBoundingClientRect(); if(r.top < innerHeight*0.85 && r.bottom > 0) reveal(true); };
+    window.addEventListener('scroll', baSweep, {passive:true});
+    window.addEventListener('load', ()=>setTimeout(baSweep, 150));
+    setTimeout(()=>reveal(false), 5000);
   })();
 </script>
 </body>
