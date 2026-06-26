@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anthony Skoczylas — Websites for Costa Rica Businesses</title>
+<meta name="description" content="Custom-built, fast, bilingual websites for hotels, surf schools, restaurants and tour operators on the Pacific coast of Costa Rica. See the before and after.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0e1512;
+    --ink-soft:#3a4540;
+    --paper:#f6f4ee;
+    --paper-2:#eeeae0;
+    --line:#d9d3c6;
+    --accent:#1f6b54;
+    --accent-soft:#2c8a6c;
+    --sand:#c9a26a;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.05;letter-spacing:-0.01em}
+  em{font-style:italic;color:var(--accent)}
+  a{color:inherit}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,244,238,.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{font-family:'Fraunces',serif;font-size:19px;font-weight:600;letter-spacing:-0.02em}
+  .brand span{color:var(--accent)}
+  .nav-cta{
+    font-size:14px;font-weight:600;
+    padding:9px 18px;border-radius:999px;
+    background:var(--ink);color:var(--paper);
+    text-decoration:none;transition:background .2s;
+  }
+  .nav-cta:hover{background:var(--accent)}
+
+  /* HERO */
+  header.hero{padding:96px 0 64px;border-bottom:1px solid var(--line)}
+  .eyebrow{
+    font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:22px;
+  }
+  header.hero h1{font-size:clamp(40px,6.4vw,76px);max-width:14ch}
+  header.hero p.lead{
+    margin-top:26px;max-width:54ch;font-size:19px;color:var(--ink-soft);
+  }
+  .hero-actions{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:15px;font-weight:600;text-decoration:none;
+    padding:14px 26px;border-radius:999px;transition:.2s;
+  }
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:var(--accent-soft)}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--ink)}
+  .hero-meta{
+    margin-top:48px;display:flex;gap:40px;flex-wrap:wrap;
+    font-size:14px;color:var(--ink-soft);
+  }
+  .hero-meta b{display:block;font-family:'Fraunces',serif;font-size:30px;color:var(--ink);font-weight:500;line-height:1}
+  .hero-meta span{display:block;margin-top:6px}
+
+  /* SECTION */
+  section{padding:84px 0}
+  .sec-head{max-width:60ch;margin-bottom:44px}
+  .sec-head .kicker{
+    font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--sand);margin-bottom:16px;
+  }
+  .sec-head h2{font-size:clamp(30px,4.4vw,46px)}
+  .sec-head p{margin-top:16px;font-size:17px;color:var(--ink-soft);max-width:50ch}
+
+  /* CASE CARD */
+  .case{border-top:1px solid var(--line);padding-top:0}
+  .case-tag{
+    display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--accent);background:var(--paper-2);border:1px solid var(--line);
+    padding:6px 13px;border-radius:999px;margin-bottom:18px;
+  }
+  .case h3{font-size:clamp(26px,3.6vw,38px)}
+  .case .role{margin-top:10px;color:var(--ink-soft);font-size:16px;max-width:58ch}
+
+  /* BEFORE/AFTER SLIDER */
+  .ba{
+    position:relative;margin-top:34px;border-radius:16px;overflow:hidden;
+    box-shadow:0 24px 60px -28px rgba(14,21,18,.45);
+    border:1px solid var(--line);
+    user-select:none;aspect-ratio:1440/900;background:#222;
+  }
+  .ba img{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;display:block;pointer-events:none;
+  }
+  .ba .after-wrap{position:absolute;inset:0;width:50%;overflow:hidden;border-right:2px solid #fff}
+  /* sizer is pinned to the full component width so the after image never squishes when the wrapper clips it */
+  .ba .after-img-sizer{position:absolute;top:0;left:0;height:100%}
+  .ba .after-img-sizer img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .ba .label{
+    position:absolute;top:16px;z-index:4;
+    font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    padding:7px 13px;border-radius:999px;color:#fff;backdrop-filter:blur(4px);
+  }
+  .ba .label.before{left:16px;background:rgba(14,21,18,.6)}
+  .ba .label.after{right:16px;background:rgba(31,107,84,.78)}
+  .ba .handle{
+    position:absolute;top:0;bottom:0;left:50%;width:44px;margin-left:-22px;z-index:5;
+    cursor:ew-resize;display:flex;align-items:center;justify-content:center;
+  }
+  .ba .handle::before{content:"";position:absolute;top:0;bottom:0;left:21px;width:2px;background:#fff}
+  .ba .knob{
+    width:44px;height:44px;border-radius:50%;background:#fff;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 16px rgba(0,0,0,.3);color:var(--ink);font-size:15px;font-weight:700;
+  }
+  .hint{margin-top:14px;font-size:13.5px;color:var(--ink-soft);text-align:center}
+
+  /* showcase single */
+  .shot{
+    margin-top:34px;border-radius:16px;overflow:hidden;
+    box-shadow:0 24px 60px -28px rgba(14,21,18,.45);border:1px solid var(--line);
+  }
+  .shot img{width:100%;display:block}
+
+  .case-foot{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .chip{
+    font-size:13px;color:var(--ink-soft);background:var(--paper-2);
+    border:1px solid var(--line);padding:7px 14px;border-radius:999px;
+  }
+  .live-link{
+    margin-left:auto;font-size:14.5px;font-weight:600;color:var(--accent);
+    text-decoration:none;display:inline-flex;align-items:center;gap:7px;
+  }
+  .live-link:hover{text-decoration:underline}
+
+  /* services / why */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px}
+  .feat{padding:28px;border:1px solid var(--line);border-radius:14px;background:var(--white)}
+  .feat .n{font-family:'Fraunces',serif;font-size:15px;color:var(--sand);font-weight:600}
+  .feat h4{font-family:'Fraunces',serif;font-size:21px;font-weight:500;margin:12px 0 8px}
+  .feat p{font-size:15px;color:var(--ink-soft)}
+
+  /* CTA */
+  .cta{background:var(--ink);color:var(--paper);border-radius:22px;padding:64px 48px;text-align:center;margin:40px 0}
+  .cta h2{font-size:clamp(30px,4.6vw,48px);color:var(--paper)}
+  .cta h2 em{color:var(--sand)}
+  .cta p{margin:18px auto 0;max-width:46ch;color:#c2cbc6;font-size:17px}
+  .cta .hero-actions{justify-content:center;margin-top:34px}
+  .cta .btn-ghost{border-color:#3a4540;color:var(--paper)}
+  .cta .btn-ghost:hover{border-color:var(--paper)}
+
+  footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--ink-soft);font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+
+  @media(max-width:760px){
+    .grid3{grid-template-columns:1fr}
+    .hero-meta{gap:28px}
+    .cta{padding:48px 24px}
+    nav .nav-cta{display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Anthony <span>Skoczylas</span></div>
+    <a class="nav-cta" href="#contact">Get a website</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Web design · Pacific Coast, Costa Rica</div>
+    <h1>Websites that make local businesses look <em>world-class</em>.</h1>
+    <p class="lead">I build fast, custom, bilingual sites for hotels, surf schools, restaurants and tour operators around Jacó and the Central Pacific. No templates, no monthly lock-in, no clutter — just a site that earns bookings.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#work">See the work</a>
+      <a class="btn btn-ghost" href="#contact">Start a project</a>
+    </div>
+    <div class="hero-meta">
+      <div><b>Built in CR</b><span>Local, on the ground in Jacó</span></div>
+      <div><b>EN / ES</b><span>Bilingual by default</span></div>
+      <div><b>Live in days</b><span>Not weeks of meetings</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Selected work</div>
+      <h2>Real local businesses. Real before & after.</h2>
+      <p>Every project here is a live site for a real business on the coast. Drag the slider to see the difference.</p>
+    </div>
+
+    <!-- CASE 1: Coconut Office -->
+    <div class="case">
+      <span class="case-tag">Redesign · Coworking & Coliving</span>
+      <h3>Coconut Office</h3>
+      <p class="role">Playa Hermosa surf-and-work retreat. The old site was cluttered, dated, and hard to trust. I rebuilt it into one cinematic, bilingual page that sells the lifestyle.</p>
+
+      <div class="ba" id="ba1">
+        <img class="before-img" src="img/coconut-after.png" alt="Coconut Office — new website">
+        <div class="after-wrap" id="aw1">
+          <div class="after-img-sizer" id="as1">
+            <img src="img/coconut-before.png" alt="Coconut Office — old website">
+          </div>
+        </div>
+        <span class="label before">Before</span>
+        <span class="label after">After</span>
+        <div class="handle" id="h1"><div class="knob">⇆</div></div>
+      </div>
+      <div class="hint">← Drag to compare →</div>
+
+      <div class="case-foot">
+        <span class="chip">Cinematic hero</span>
+        <span class="chip">Bilingual EN / ES</span>
+        <span class="chip">Built for bookings</span>
+        <span class="chip">SEO + schema</span>
+      </div>
+    </div>
+
+    <!-- CASE 2: Jaco Transport -->
+    <div class="case" style="margin-top:84px">
+      <span class="case-tag">New build · Airport Transfers & Tours</span>
+      <h3>Jaco Transport</h3>
+      <p class="role">A full booking platform for a private-transport company — cinematic video hero, live route pricing, online reservations, and a behind-the-scenes dispatch and driver app. A real working business, not a brochure.</p>
+
+      <div class="shot">
+        <img src="img/jacotransport.png" alt="Jaco Transport website">
+      </div>
+
+      <div class="case-foot">
+        <span class="chip">Online booking</span>
+        <span class="chip">Live route pricing</span>
+        <span class="chip">Driver + dispatch app</span>
+        <a class="live-link" href="https://jacotransport.com" target="_blank" rel="noopener">Visit live site →</a>
+      </div>
+    </div>
+
+    <!-- CASE 3: Infinite Discoveries -->
+    <div class="case" style="margin-top:84px">
+      <span class="case-tag">New build · Fishing Charters & Tours</span>
+      <h3>Infinite Discoveries</h3>
+      <p class="role">A booking site for a fishing-charter and tour broker — moody full-screen hero, a catalog of tours with instant request forms, and one-tap WhatsApp. Bilingual, fast, and built to turn browsers into bookings.</p>
+
+      <div class="shot">
+        <img src="img/infinitediscoveries.png" alt="Infinite Discoveries website">
+      </div>
+
+      <div class="case-foot">
+        <span class="chip">Tour catalog</span>
+        <span class="chip">Bilingual EN / ES</span>
+        <span class="chip">Booking requests</span>
+        <a class="live-link" href="https://infinitediscoveriescr.com" target="_blank" rel="noopener">Visit live site →</a>
+      </div>
+    </div>
+
+    <!-- CASE 4: Little Waves -->
+    <div class="case" style="margin-top:84px">
+      <span class="case-tag">New build · Surf School</span>
+      <h3>Little Waves Surf School</h3>
+      <p class="role">María's surf school in Jacó had no website at all. I built her a bilingual one-pager with real prices, photos, a looping wave video, and one-tap WhatsApp booking — live on her own domain.</p>
+
+      <div class="shot">
+        <img src="img/littlewaves.png" alt="Little Waves Surf School website">
+      </div>
+
+      <div class="case-foot">
+        <span class="chip">From zero to live</span>
+        <span class="chip">WhatsApp booking</span>
+        <span class="chip">Real prices & photos</span>
+        <a class="live-link" href="https://littlewavessurf.com" target="_blank" rel="noopener">Visit live site →</a>
+      </div>
+    </div>
+
+    <!-- CASE 5: Byron -->
+    <div class="case" style="margin-top:84px">
+      <span class="case-tag">New build · Surf Photographer</span>
+      <h3>Byron — Surf Photography</h3>
+      <p class="role">A cinematic one-page site for a Playa Hermosa surf photographer — dark full-bleed hero, a live Instagram feed that updates itself, and one-tap WhatsApp to book a shoot. Lets the work speak.</p>
+
+      <div class="shot">
+        <img src="img/byron.png" alt="Byron surf photography website">
+      </div>
+
+      <div class="case-foot">
+        <span class="chip">Live Instagram feed</span>
+        <span class="chip">Cinematic hero</span>
+        <span class="chip">WhatsApp booking</span>
+        <a class="live-link" href="https://instagram.com/surfing_photone" target="_blank" rel="noopener">See his Instagram →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Why work with me</div>
+      <h2>A site that works as hard as you do.</h2>
+    </div>
+    <div class="grid3">
+      <div class="feat"><div class="n">01</div><h4>Local, not outsourced</h4><p>I live and surf here. We meet in person, in English or Spanish, and I get how the tourist season actually works.</p></div>
+      <div class="feat"><div class="n">02</div><h4>Built to book</h4><p>Every page points to one thing — getting the customer to message, call, or reserve. Clean, fast, mobile-first.</p></div>
+      <div class="feat"><div class="n">03</div><h4>You own it</h4><p>Your domain, your site, no monthly platform fees. One fair price, and it's yours.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="cta">
+      <h2>Let's get your business <em>online</em>.</h2>
+      <p>Free first look — send me your business and I'll show you what your new site could be, no charge.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://wa.me/13213561951" target="_blank" rel="noopener" id="wa">Message on WhatsApp</a>
+        <a class="btn btn-ghost" href="mailto:anthonyskoczylas@yahoo.com">Email me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="yr"></span> Anthony Skoczylas · Web design · Jacó, Costa Rica</div>
+    <div>anthonyskoczylas@yahoo.com</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Before/After slider — works with mouse, touch, and resize.
+  (function(){
+    const ba = document.getElementById('ba1');
+    const aw = document.getElementById('aw1');   // clip wrapper (the "after" reveal)
+    const as = document.getElementById('as1');   // inner sizer that holds after img at full width
+    const h  = document.getElementById('h1');
+    let dragging = false;
+
+    function sizeAfter(){
+      // make the after image always span the full component width,
+      // then counter-translate so it stays put while the wrapper clips it.
+      as.style.width = ba.clientWidth + 'px';
+    }
+    function setPos(clientX){
+      const r = ba.getBoundingClientRect();
+      let x = (clientX - r.left) / r.width;
+      x = Math.max(0, Math.min(1, x));
+      const pct = x * 100;
+      aw.style.width = pct + '%';
+      as.style.transform = 'translateX(0)';
+      h.style.left = pct + '%';
+    }
+    function start(){ dragging = true; document.body.style.cursor='ew-resize'; }
+    function end(){ dragging = false; document.body.style.cursor=''; }
+    function move(e){
+      if(!dragging) return;
+      const cx = e.touches ? e.touches[0].clientX : e.clientX;
+      setPos(cx);
+    }
+
+    h.addEventListener('mousedown', start);
+    h.addEventListener('touchstart', start, {passive:true});
+    window.addEventListener('mouseup', end);
+    window.addEventListener('touchend', end);
+    window.addEventListener('mousemove', move);
+    window.addEventListener('touchmove', move, {passive:true});
+    // also allow click-anywhere on the bar to jump
+    ba.addEventListener('mousedown', function(e){ start(); setPos(e.clientX); });
+
+    window.addEventListener('resize', sizeAfter);
+    window.addEventListener('load', sizeAfter);
+    sizeAfter();
+  })();
+</script>
+</body>
+</html>
