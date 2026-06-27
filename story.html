@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0e1512; --ink-soft:#3a4540; --paper:#f6f4ee; --paper-2:#eeeae0;
+    --line:#d9d3c6; --accent:#1f6b54; --accent-soft:#2c8a6c; --sand:#c9a26a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    width:1080px;height:1920px;color:var(--ink);overflow:hidden;position:relative;
+    font-family:'Inter',sans-serif;
+    background:
+      radial-gradient(1100px 760px at 84% 6%, rgba(44,138,108,.18), transparent 60%),
+      radial-gradient(900px 720px at 8% 96%, rgba(201,162,106,.22), transparent 62%),
+      linear-gradient(160deg, #faf8f2 0%, var(--paper) 42%, var(--paper-2) 100%);
+  }
+  /* fine film grain */
+  body::after{
+    content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.5;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+  }
+  /* editorial hairline frame */
+  .border{position:absolute;inset:38px;border:1px solid rgba(31,107,84,.28);border-radius:26px;z-index:1;pointer-events:none}
+  .frame{position:absolute;inset:0;padding:150px 80px 130px;display:flex;flex-direction:column;z-index:2}
+
+  .blob{display:none}
+
+  .eyebrow{font-size:23px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:14px}
+  .eyebrow::before{content:"";width:46px;height:2px;background:var(--sand)}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:84px;line-height:1.02;letter-spacing:-0.02em;margin-top:28px;max-width:14ch}
+  h1 em{font-style:italic;color:var(--accent)}
+  .lead{margin-top:24px;font-size:27px;line-height:1.5;color:var(--ink-soft);max-width:25ch}
+  .svc{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+  .svc span{font-size:21px;font-weight:600;color:var(--accent);background:rgba(31,107,84,.08);border:1px solid rgba(31,107,84,.28);padding:11px 20px;border-radius:999px;letter-spacing:.01em}
+
+  /* montage */
+  .stage{position:relative;flex:1;margin:36px 0 30px}
+  .card{position:absolute;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#222;box-shadow:0 40px 90px -36px rgba(14,21,18,.55)}
+  .card .bar{height:34px;background:#15201b;display:flex;align-items:center;gap:9px;padding:0 16px}
+  .card .bar i{width:12px;height:12px;border-radius:50%;display:block;background:#3a4540}
+  .card img{display:block;width:100%}
+  .tag{position:absolute;z-index:6;font-size:18px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--accent);padding:9px 18px;border-radius:999px;box-shadow:0 10px 24px -8px rgba(31,107,84,.7)}
+
+  .c1{width:560px;left:0;top:18px;transform:rotate(-4deg)}
+  .c2{width:520px;right:0;top:150px;transform:rotate(4deg)}
+  .c3{width:480px;left:120px;bottom:6px;transform:rotate(-2deg);z-index:5}
+
+  /* footer block */
+  .foot{position:relative;z-index:8}
+  .stats{display:flex;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:36px}
+  .stat{flex:1;padding:24px 6px;text-align:center;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:0}
+  .stat b{font-family:'Fraunces',serif;font-size:40px;font-weight:500;display:block;line-height:1}
+  .stat span{display:block;margin-top:8px;font-size:18px;color:var(--ink-soft);letter-spacing:.02em}
+
+  .cta{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .cta .who{font-family:'Fraunces',serif;font-size:30px;font-weight:600}
+  .cta .who span{display:block;font-family:'Inter';font-size:21px;font-weight:500;color:var(--accent);margin-top:4px;letter-spacing:.01em}
+  .pill{background:var(--ink);color:var(--paper);font-size:26px;font-weight:600;padding:22px 38px;border-radius:999px;display:flex;align-items:center;gap:14px}
+  .pill .wa{width:30px;height:30px;fill:#25D366}
+  .url{margin-top:30px;text-align:center;font-size:24px;font-weight:600;letter-spacing:.04em;color:var(--accent)}
+</style>
+</head>
+<body>
+  <div class="border"></div>
+
+  <div class="frame">
+    <div class="eyebrow">Web Design · Costa Rica</div>
+    <h1>I build websites that <em>book</em> more customers.</h1>
+    <p class="lead">Fast, bilingual sites for hotels, surf schools, restaurants &amp; tours on the coast.</p>
+    <div class="svc"><span>Websites</span><span>Ads that sell</span><span>More 5★ reviews</span></div>
+
+    <div class="stage">
+      <span class="tag" style="left:30px;top:-8px">Live sites ↓</span>
+      <div class="card c1">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <img src="img/jacotransport.png" alt="">
+      </div>
+      <div class="card c2">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <img src="img/littlewaves.png" alt="">
+      </div>
+      <div class="card c3">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <img src="img/infinitediscoveries.png" alt="">
+      </div>
+    </div>
+
+    <div class="foot">
+      <div class="stats">
+        <div class="stat"><b>6+</b><span>Live sites</span></div>
+        <div class="stat"><b>EN/ES</b><span>Bilingual</span></div>
+        <div class="stat"><b>You own it</b><span>No monthly fees</span></div>
+      </div>
+      <div class="cta">
+        <div class="who">Anthony Skoczylas<span>@Tonysko__</span></div>
+        <div class="pill">
+          <svg class="wa" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zM6.597 20.13c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.59 5.39l-.999 3.648 3.908-.825z"/></svg>
+          Free first look
+        </div>
+      </div>
+      <div class="url">anthonyskoczylas.github.io/portfolio</div>
+    </div>
+  </div>
+</body>
+</html>

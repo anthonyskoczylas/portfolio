@@ -23,6 +23,7 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
+  html,body{overflow-x:hidden;max-width:100%}
   body{
     font-family:'Inter',system-ui,sans-serif;
     color:var(--ink);
@@ -359,6 +360,26 @@
     .cta{padding:48px 24px}
     nav .nav-cta{display:none}
     .stats{grid-template-columns:1fr 1fr;gap:30px 16px}
+
+    /* stack multi-column grids so cards aren't squished */
+    .grid2,.prices{grid-template-columns:1fr}
+
+    /* tighter rhythm + breathing room on phones */
+    .wrap{padding:0 20px}
+    section{padding:58px 0}
+    .sec-head{margin-bottom:32px}
+    nav .wrap{height:62px}
+
+    /* keep the big editorial case number from sitting behind the tag pill */
+    .case{padding-top:64px}
+    .case::after{top:6px;right:2px;font-size:44px}
+
+    /* stack each new case closer */
+    .case[style]{margin-top:54px!important}
+
+    /* slider handle a little bigger for thumbs */
+    .ba .handle{width:54px;margin-left:-27px}
+    .ba .knob{width:48px;height:48px}
   }
   @media(prefers-reduced-motion:reduce){
     *,*::before,*::after{animation:none!important;transition:none!important}
