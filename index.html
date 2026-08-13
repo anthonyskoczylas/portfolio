@@ -392,6 +392,51 @@
     .case::after{opacity:.65!important;transform:none!important}
     .media-rev{clip-path:none!important}
   }
+
+  /* ---------- FLAGSHIP · Great Marlin (the star) ---------- */
+  .flagship{position:relative;isolation:isolate;overflow:hidden;
+    background:#06141e;color:#f3f1ea;padding:100px 0 104px;
+    border-bottom:1px solid rgba(255,255,255,.08)}
+  .flagship::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(70% 60% at 80% 28%, rgba(19,144,180,.22), transparent 62%),
+      radial-gradient(60% 55% at 6% 94%, rgba(210,165,95,.13), transparent 60%)}
+  .flagship .wrap{position:relative;z-index:2}
+  .fl-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px 28px;flex-wrap:wrap}
+  .fl-head .kicker{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--sand);margin-bottom:14px}
+  .flagship h2{font-family:'Fraunces',Georgia,serif;font-weight:500;letter-spacing:-0.01em;
+    font-size:clamp(36px,5.4vw,64px);line-height:1;color:#f6f4ee}
+  .flagship h2 em{color:var(--sand);font-style:italic}
+  .fl-badge{flex:none;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+    color:#06141e;background:var(--sand);padding:9px 16px;border-radius:999px;
+    box-shadow:0 12px 26px -12px rgba(210,165,95,.7)}
+  .fl-lead{margin-top:22px;max-width:66ch;font-size:18px;color:rgba(243,241,234,.75)}
+  /* image is present immediately — no wipe, no slide (animate text, not the photo) */
+  .fl-media{display:block;position:relative;margin-top:36px;border-radius:18px;overflow:hidden;
+    border:1px solid rgba(255,255,255,.12);text-decoration:none;color:#fff;background:#06141e;
+    box-shadow:0 46px 100px -42px rgba(0,0,0,.85);
+    transition:box-shadow .45s cubic-bezier(.2,.7,.2,1)}
+  .fl-media img{display:block;width:100%;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+  .fl-media::before{content:"";position:absolute;inset:0;z-index:2;opacity:0;transition:opacity .4s;
+    background:linear-gradient(to top,rgba(6,20,30,.74),transparent 46%)}
+  .fl-media:hover{box-shadow:0 60px 120px -44px rgba(0,0,0,.9)}
+  .fl-media:hover::before{opacity:1}
+  .fl-media:hover img{transform:scale(1.035)}
+  .fl-go{position:absolute;left:0;right:0;bottom:20px;z-index:3;text-align:center;
+    font-size:15px;font-weight:600;opacity:0;transform:translateY(10px);
+    transition:opacity .4s, transform .4s}
+  .fl-media:hover .fl-go{opacity:1;transform:none}
+  .fl-foot{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .flagship .chip{color:rgba(243,241,234,.82);background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.16)}
+  .flagship .chip:hover{transform:translateY(-2px);background:var(--accent);color:#fff;border-color:var(--accent)}
+  .fl-btn{margin-left:auto}
+  @media(max-width:760px){
+    .flagship{padding:64px 0 68px}
+    .fl-head{align-items:flex-start}
+    .fl-btn{margin-left:0;width:100%;justify-content:center;margin-top:4px}
+  }
 </style>
 </head>
 <body>
@@ -424,7 +469,7 @@
         <a class="btn btn-ghost" href="#contact">Start a project</a>
       </div>
       <div class="hero-stats">
-        <div class="hs"><b data-count="5" data-suffix="+">0</b><span>Sites live</span></div>
+        <div class="hs"><b data-count="6" data-suffix="+">0</b><span>Sites live</span></div>
         <div class="hs"><b>Any</b><span>Language you need</span></div>
         <div class="hs"><b>Days</b><span>Not weeks</span></div>
         <div class="hs"><b data-count="100" data-suffix="%">0</b><span>Custom built</span></div>
@@ -436,6 +481,34 @@
     </div>
   </div>
 </header>
+
+<section class="flagship" id="flagship">
+  <div class="wrap">
+    <div class="fl-head reveal">
+      <div>
+        <div class="kicker">The flagship · My own brand</div>
+        <h2>Great <em>Marlin</em></h2>
+      </div>
+      <span class="fl-badge">The best site I've built</span>
+    </div>
+
+    <p class="fl-lead reveal">My own private sportfishing charter out of Herradura Bay — and the site I poured everything into. A cinematic CGI hero, original sound design, and a scroll experience that feels like a luxury yacht brand, not a fishing website. This is the ceiling of what I can build for you.</p>
+
+    <a class="fl-media" href="https://greatmarlin.com" target="_blank" rel="noopener">
+      <img src="img/greatmarlin-hero.png" alt="Great Marlin — luxury sportfishing charter website">
+      <span class="fl-go">Visit greatmarlin.com ↗</span>
+    </a>
+
+    <div class="fl-foot reveal">
+      <span class="chip">Cinematic CGI hero</span>
+      <span class="chip">Original sound design</span>
+      <span class="chip">Feadship-inspired</span>
+      <span class="chip">Bilingual EN / ES</span>
+      <span class="chip">Built to book</span>
+      <a class="btn btn-primary fl-btn" href="https://greatmarlin.com" target="_blank" rel="noopener">Visit greatmarlin.com →</a>
+    </div>
+  </div>
+</section>
 
 <section id="work">
   <div class="wrap">
