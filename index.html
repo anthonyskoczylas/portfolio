@@ -469,7 +469,7 @@
         <a class="btn btn-ghost" href="#contact">Start a project</a>
       </div>
       <div class="hero-stats">
-        <div class="hs"><b data-count="6" data-suffix="+">0</b><span>Sites live</span></div>
+        <div class="hs"><b data-count="7" data-suffix="+">0</b><span>Sites live</span></div>
         <div class="hs"><b>Any</b><span>Language you need</span></div>
         <div class="hs"><b>Days</b><span>Not weeks</span></div>
         <div class="hs"><b data-count="100" data-suffix="%">0</b><span>Custom built</span></div>
@@ -518,8 +518,36 @@
       <p>Every project here is a live site for a real business on the coast. Drag the slider to see the difference.</p>
     </div>
 
-    <!-- CASE 1: Coconut Office -->
+    <!-- CASE 0: Go Fish Costa Rica -->
     <div class="case reveal">
+      <span class="case-tag">Redesign · Fishing Charters & Adventures · Tamarindo</span>
+      <h3>Go Fish Costa Rica</h3>
+      <p class="role">Fifteen years of TripAdvisor Travelers' Choice, stuck on a dated brochure site. I rebuilt it as ninety pages that tell one charter day from dawn to sunset: seventeen boats with real rates and a live price estimate, sixteen adventures, a four-step trip planner, and their reviews and awards front and center. Every request lands in their inbox ready to confirm.</p>
+
+      <div class="ba media-rev" id="ba2">
+        <img class="before-img" src="img/gofishcr-after.jpg" alt="Go Fish Costa Rica — new website">
+        <div class="after-wrap" id="aw2">
+          <div class="after-img-sizer" id="as2">
+            <img src="img/gofishcr-before.jpg" alt="Go Fish Costa Rica — old website">
+          </div>
+        </div>
+        <span class="label before">Before</span>
+        <span class="label after">After</span>
+        <div class="handle" id="h2"><div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 4 12 9 18"></polyline><polyline points="15 6 20 12 15 18"></polyline></svg></div></div>
+      </div>
+      <div class="hint">← Drag to compare →</div>
+
+      <div class="case-foot">
+        <span class="chip">90 pages</span>
+        <span class="chip">17 boats, live pricing</span>
+        <span class="chip">4-step trip planner</span>
+        <span class="chip">SEO + schema</span>
+        <a class="live-link" href="https://anthonyskoczylas.github.io/gofishcr/" target="_blank" rel="noopener">Visit live site →</a>
+      </div>
+    </div>
+
+    <!-- CASE 1: Coconut Office -->
+    <div class="case reveal" style="margin-top:84px">
       <span class="case-tag">Redesign · Coworking & Coliving</span>
       <h3>Coconut Office</h3>
       <p class="role">The perfect surf retreat — steps from Playa Hermosa's world-class break, where you surf at sunrise, work to an ocean breeze, and end the day with a community that feels like family. I rebuilt their site into one cinematic, bilingual page that sells that lifestyle.</p>
@@ -812,11 +840,11 @@
   })();
 
   // Before/After slider — mouse, touch, resize; animated jumps; idle nudge.
-  (function(){
-    const ba = document.getElementById('ba1');
-    const aw = document.getElementById('aw1');   // clip wrapper (the "before" reveal on the left)
-    const as = document.getElementById('as1');   // inner sizer that holds image at full width
-    const h  = document.getElementById('h1');
+  function initBA(n){
+    const ba = document.getElementById('ba'+n);
+    const aw = document.getElementById('aw'+n);   // clip wrapper (the "before" reveal on the left)
+    const as = document.getElementById('as'+n);   // inner sizer that holds image at full width
+    const h  = document.getElementById('h'+n);
     let dragging = false, touched = false;
 
     function sizeAfter(){ as.style.width = ba.clientWidth + 'px'; }
@@ -868,7 +896,8 @@
     window.addEventListener('scroll', baSweep, {passive:true});
     window.addEventListener('load', ()=>setTimeout(baSweep, 150));
     setTimeout(()=>reveal(false), 5000);
-  })();
+  }
+  initBA(1); initBA(2);
 </script>
 </body>
 </html>
