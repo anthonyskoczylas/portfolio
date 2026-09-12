@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website proposal for Go Fish Costa Rica · Coastal CR</title>
+<meta name="description" content="Website proposal prepared by Coastal CR for Steve & Liisa Quinn, Go Fish Costa Rica. One-time fee, lifetime ownership.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#eef4f8;--paper-2:#e4edf3;--white:#fff;--ink:#0b1c28;--ink-soft:#425663;--line:#c7dae6;--accent:#0e6f90;--accent-soft:#1390b4;--sand:#d2a55f;--ok:#1f7a4d;--radius:16px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:Fraunces,Georgia,serif;font-weight:500;line-height:1.1;margin:0 0 .4em;letter-spacing:-.01em}
+h1{font-size:clamp(38px,5.4vw,66px)}
+h2{font-size:clamp(28px,3.4vw,40px)}
+h3{font-size:22px}
+h4{font-size:18px;font-family:Inter,sans-serif;font-weight:600}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+em{font-style:italic;color:var(--accent)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+.kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:12px}
+section{padding:72px 0}
+section+section{border-top:1px solid var(--line)}
+.muted{color:var(--ink-soft)}
+.small{font-size:14px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:600;text-decoration:none;font-size:15px;border:1.5px solid var(--accent);transition:transform .15s,background .15s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-soft);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--accent)}
+.btn-ghost:hover{background:#fff}
+.btn-sand{background:var(--sand);border-color:var(--sand);color:var(--ink)}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+
+/* top bar */
+.bar{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.bar img{height:44px}
+.bar .meta{font-size:13px;color:var(--ink-soft);text-align:right}
+
+/* cover */
+.cover{padding:48px 0 64px}
+.cover .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.cover .lead{font-size:20px;color:var(--ink-soft);max-width:34ch}
+.shot{border-radius:var(--radius);overflow:hidden;box-shadow:0 30px 60px -30px rgba(11,28,40,.45),0 0 0 1px var(--line);background:#fff}
+.shot img{display:block;width:100%;height:auto}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.fact b{display:block;font-family:Fraunces,serif;font-size:30px;font-weight:500;line-height:1}
+.fact span{font-size:13px;color:var(--ink-soft)}
+
+/* summary card */
+.summary{background:var(--ink);color:#fff;border-radius:var(--radius);padding:40px;display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+.summary h2{color:#fff}
+.summary p{color:#c9d8e2}
+.summary .price{font-family:Fraunces,serif;font-size:64px;line-height:1;font-weight:500;color:var(--sand)}
+.summary .price small{display:block;font-family:Inter,sans-serif;font-size:14px;color:#c9d8e2;margin-top:8px}
+.summary .was{color:#8fa6b5;text-decoration:line-through;font-size:15px}
+
+/* feature ledger */
+.ledger{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px}
+.item{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 24px}
+.item h4{margin-bottom:6px}
+.item p{margin:0;color:var(--ink-soft);font-size:15px}
+.item .n{display:inline-block;font-family:Fraunces,serif;color:var(--accent);font-size:13px;letter-spacing:.08em;margin-bottom:8px}
+.shots2{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-top:36px;align-items:start}
+.shots3{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px}
+.cap{font-size:13px;color:var(--ink-soft);margin-top:8px}
+
+/* seo checklist */
+.check{list-style:none;padding:0;margin:24px 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 28px}
+.check li{position:relative;padding-left:30px;font-size:15.5px}
+.check li::before{content:"";position:absolute;left:0;top:6px;width:18px;height:18px;border-radius:50%;background:var(--ok);-webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='12'/></svg>") center/contain no-repeat}
+.check li::after{content:"";position:absolute;left:5px;top:10px;width:8px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg)}
+.check b{display:block}
+.check span{color:var(--ink-soft)}
+.note{background:#fff;border-left:4px solid var(--sand);border-radius:0 12px 12px 0;padding:18px 22px;margin-top:28px;font-size:15px}
+
+/* pricing */
+.tiers{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+.tier{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.tier.you{border:2px solid var(--accent);position:relative}
+.tier .tag{position:absolute;top:-13px;left:24px;background:var(--accent);color:#fff;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:4px 12px;border-radius:999px}
+.tier .p{font-family:Fraunces,serif;font-size:44px;font-weight:500;line-height:1;margin:10px 0 4px}
+.tier .p small{font-family:Inter,sans-serif;font-size:14px;color:var(--ink-soft);display:block;margin-top:6px;font-weight:400}
+.tier ul{padding-left:18px;margin:16px 0 0;color:var(--ink-soft);font-size:15px}
+.tier li{margin:6px 0}
+.tier .tot{border-top:1px solid var(--line);margin-top:18px;padding-top:14px;font-size:14px;color:var(--ink-soft)}
+.tier .tot b{color:var(--ink);font-size:18px;font-family:Fraunces,serif;font-weight:500}
+
+/* steps */
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px}
+.step::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:Fraunces,serif;color:var(--accent);font-size:14px;letter-spacing:.1em;display:block;margin-bottom:8px}
+.step h4{margin-bottom:6px}
+.step p{margin:0;font-size:14.5px;color:var(--ink-soft)}
+.step .who{display:inline-block;margin-top:10px;font-size:12px;padding:3px 10px;border-radius:999px;background:var(--paper-2);color:var(--ink-soft)}
+
+/* pay */
+.pay{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.pm{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px}
+.pm h4{margin-bottom:4px}
+.pm .v{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;background:var(--paper);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:8px 10px;display:inline-block;margin-top:8px;cursor:pointer}
+.pm .v:hover{background:#fff}
+.pm p{font-size:14px;color:var(--ink-soft);margin:6px 0 0}
+
+/* accept */
+.accept{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px;display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+.sig{border-top:1px solid var(--line);padding-top:16px;margin-top:22px;font-size:14px;color:var(--ink-soft)}
+.sig b{color:var(--ink);display:block;font-size:16px}
+footer{padding:36px 0 60px;font-size:13px;color:var(--ink-soft)}
+
+@media (max-width:820px){
+  .cover .grid,.summary,.ledger,.shots2,.shots3,.check,.tiers,.steps,.pay,.accept{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr 1fr}
+  .summary{padding:28px}
+  .summary .price{font-size:52px}
+  section{padding:52px 0}
+  .bar .meta{display:none}
+}
+@media print{
+  body{background:#fff;font-size:13px}
+  section{padding:28px 0;break-inside:avoid}
+  .btn,.no-print{display:none!important}
+  .shot{box-shadow:none}
+  .summary{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="bar">
+    <a href="https://coastalcr.com"><img src="../../logo/coastalcr-light.png" alt="Coastal CR"></a>
+    <div class="meta">Proposal CCR-2026-0912<br>Prepared September 12, 2026 · Valid 30 days</div>
+  </div>
+</div>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="kicker">Website proposal · Go Fish Costa Rica</div>
+        <h1>Your new website is built. <em>Here is what it does and what it costs.</em></h1>
+        <p class="lead">Prepared for Steve &amp; Liisa Quinn by Anthony Skoczylas, Coastal CR. The site is already live on a preview address so you can click through everything before you decide.</p>
+        <div class="row">
+          <a class="btn btn-primary" href="https://anthonyskoczylas.github.io/gofishcr/" target="_blank" rel="noopener">Open the live preview</a>
+          <a class="btn btn-ghost" href="#price">Jump to the price</a>
+        </div>
+      </div>
+      <div class="shot"><img src="img/home.jpg" alt="Go Fish Costa Rica new homepage: over-under photo of a sailfish beneath a sportfishing boat off Tamarindo"></div>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>90</b><span>pages, every one written and designed</span></div>
+      <div class="fact"><b>17</b><span>boat pages with real rates and a booking panel</span></div>
+      <div class="fact"><b>16</b><span>adventure pages, each bookable</span></div>
+      <div class="fact"><b>444</b><span>of your own photos, optimized for speed</span></div>
+      <div class="fact"><b>29</b><span>blog posts carried over, nothing lost</span></div>
+      <div class="fact"><b>$0</b><span>per month to host, forever</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SHORT VERSION -->
+<section>
+  <div class="wrap">
+    <div class="summary">
+      <div>
+        <div class="kicker" style="color:var(--sand)">The short version</div>
+        <h2>One payment. You own it for life.</h2>
+        <p>My standard deal for a site this size is $1,000 to build plus $200 to $400 every month to manage it. That is $3,400 to $5,800 in the first year alone, and it keeps going every year after.</p>
+        <p>Because it is you two, I am doing it as a single one-time fee instead. No monthly bill, no contract, no hosting invoice. The site, the domain setup and the Google setup are yours outright.</p>
+      </div>
+      <div>
+        <div class="was">Normally $1,000 + $200–400 / month</div>
+        <div class="price">$1,500<small>one time · lifetime · no monthly fees</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section>
+  <div class="wrap">
+    <div class="kicker">What you are getting</div>
+    <h2>Every reason this is a good buy.</h2>
+    <p class="muted" style="max-width:60ch">Your old site listed the boats. This one sells the day. Every piece below is already built and working on the preview.</p>
+
+    <div class="ledger">
+      <div class="item"><span class="n">01</span><h4>A homepage that tells the story of one charter day</h4><p>Dawn at the beach, picking the boat, lines in, the shelf, the hookup, lunch, Playa Grande from the air, sunset sail. Visitors scroll through the day they are about to book. It is your real boat in the video and your real sailfish, marlin and roosterfish in the photos.</p></div>
+      <div class="item"><span class="n">02</span><h4>A page for every boat, with real rates</h4><p>All 17 boats, each with its own photos, specs, base, half / three-quarter / full-day pricing, what is included, and a live price estimate as the guest picks the trip length and group size.</p></div>
+      <div class="item"><span class="n">03</span><h4>A four-step trip planner</h4><p>Guest picks fishing, catamaran or adventure, then base, dates and group size. The site shows only the boats that fit, then sends you a clean, prefilled request by email. No online payment to manage, no missed details.</p></div>
+      <div class="item"><span class="n">04</span><h4>Every request asks about transportation</h4><p>Each booking form asks whether the guest needs a ride. That answer lands in the same email, so airport runs and hotel pickups become a second sale instead of a forgotten question.</p></div>
+      <div class="item"><span class="n">05</span><h4>16 adventures, 10 restaurants, fish calendar, weather</h4><p>Zipline, ATV, catamaran, Rio Celeste, Monteverde, turtles, surf lessons and more, each with its own page and request button. Ten Tamarindo restaurants with phone and map. A month-by-month fish guide and a live wind and swell forecast.</p></div>
+      <div class="item"><span class="n">06</span><h4>Your reviews and awards, front and center</h4><p>TripAdvisor 5.0 with 590 reviews, Travelers' Choice fifteen years running, the Ducks Unlimited ten-year Approved Outfitter award and the $1.7 million raised for conservation. Real proof, on the homepage and on every boat page.</p></div>
+      <div class="item"><span class="n">07</span><h4>Instagram feed built in</h4><p>Your latest @gofishcostarica posts show on the homepage automatically once the feed is connected. Post a marlin, the website updates itself.</p></div>
+      <div class="item"><span class="n">08</span><h4>Built for phones first</h4><p>Most of your guests are looking at this on a phone from a hotel pool. The booking bar stays in reach, photos load light, and everything was tested on phone widths before desktop.</p></div>
+      <div class="item"><span class="n">09</span><h4>Nothing to break, nothing to renew</h4><p>No WordPress, no plugins, no theme updates, no security patches, no hosting plan. The site is plain, fast files served free. It cannot be hacked the way a WordPress site can, and it will still load in ten years.</p></div>
+      <div class="item"><span class="n">10</span><h4>Your blog, carried over intact</h4><p>All 29 posts moved across with their photos. Fifteen years of writing is fifteen years of Google trust. We keep it.</p></div>
+    </div>
+
+    <div class="shots2">
+      <div><div class="shot"><img src="img/boat.jpg" alt="Boat page with photos, rates table and a booking panel"></div><div class="cap">A boat page: gallery, specs, rates, and the request panel that follows the guest down the page.</div></div>
+      <div><div class="shot"><img src="img/mobile.jpg" alt="Homepage on a phone"></div><div class="cap">Same homepage on a phone.</div></div>
+    </div>
+    <div class="shots3">
+      <div><div class="shot"><img src="img/charters.jpg" alt="Charter listing filtered by base and group size"></div><div class="cap">The fleet, filterable by base and group size.</div></div>
+      <div><div class="shot"><img src="img/planner.jpg" alt="Four-step trip planner"></div><div class="cap">The four-step planner.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GOOGLE -->
+<section>
+  <div class="wrap">
+    <div class="kicker">Getting found</div>
+    <h2>Built to show up on Google.</h2>
+    <p class="muted" style="max-width:62ch">Google ranks pages, not websites. The more good pages you have answering real searches, the more ways you get found. Here is what is already in place, in plain language.</p>
+
+    <ul class="check">
+      <li><b>One page per search</b><span>"Tamarindo fishing charter", "35 Cabo Flamingo", "sunset catamaran Tamarindo", "Rio Celeste from Tamarindo". 90 pages means 90 doors into your site instead of one.</span></li>
+      <li><b>Titles and descriptions on every page</b><span>Each page tells Google exactly what it is and what a searcher will get. That is the text that shows up in the results list.</span></li>
+      <li><b>Structured data Google can read</b><span>Your business, address, hours, phone, star rating, and the price of every boat are written in Google's own format. This is what lets prices and stars appear right in the search result.</span></li>
+      <li><b>Sitemap and robots file</b><span>A map of all 90 pages handed to Google directly, so it indexes everything instead of finding pages by accident.</span></li>
+      <li><b>Fast loading</b><span>Speed is a ranking factor. 444 photos were compressed to a third of their size, video is streamed only when it is on screen, and there is no bloated platform underneath.</span></li>
+      <li><b>Phone-first layout</b><span>Google judges your site by its phone version. This one was built for phones and then widened, not the other way round.</span></li>
+      <li><b>Secure address (https)</b><span>The padlock in the browser. Google prefers it and guests trust it.</span></li>
+      <li><b>Descriptions on every photo</b><span>Google cannot see pictures. Each photo has a written description, which also puts you in Google Images for "sailfish Tamarindo".</span></li>
+      <li><b>Clean sharing on WhatsApp and Facebook</b><span>When a guest shares a boat page, it shows the boat photo and rate, not a broken link.</span></li>
+      <li><b>Google Business Profile, set up and polished</b><span>The map listing with reviews, photos and hours. This is what shows up first for "fishing charter Tamarindo" on a phone. Included, I do it for you.</span></li>
+      <li><b>Google Search Console connected</b><span>The free dashboard that shows which searches bring people in. I set it up and send you the login.</span></li>
+      <li><b>Old links redirected</b><span>At launch, every address from the old site points to the matching new page, so nothing you have earned on Google is lost in the move.</span></li>
+    </ul>
+
+    <div class="note"><b>Honest note.</b> Nobody can promise a number one spot, and anyone who does is selling you something. What I can promise is that this site gives Google everything it asks for, which is more than most charter sites in Guanacaste do, and that your fifteen years of reviews and blog posts now sit on a foundation that can carry them.</div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section id="price">
+  <div class="wrap">
+    <div class="kicker">Investment</div>
+    <h2>What it normally costs, and what it costs you.</h2>
+
+    <div class="tiers">
+      <div class="tier">
+        <h3>Standard: custom site + management</h3>
+        <div class="p">$1,000<small>to build, then</small></div>
+        <div class="p" style="font-size:32px">$200–400 <span style="font-size:16px;font-family:Inter,sans-serif;color:var(--ink-soft)">/ month</span></div>
+        <ul>
+          <li>Custom design and build</li>
+          <li>Hosting, domain and security handled</li>
+          <li>Rate changes, new boats, new photos, new posts on request</li>
+          <li>Google Business and Search Console upkeep</li>
+          <li>Ongoing support</li>
+        </ul>
+        <div class="tot">First year <b>$3,400 – $5,800</b> · every year after $2,400 – $4,800</div>
+      </div>
+
+      <div class="tier you">
+        <span class="tag">For Steve &amp; Liisa</span>
+        <h3>One-time lifetime fee</h3>
+        <div class="p">$1,500<small>once, that is it</small></div>
+        <ul>
+          <li>Everything in the standard build, already done</li>
+          <li>Go-live on gofishcr.com, WhatsApp button, Instagram feed connected</li>
+          <li>Google Business Profile and Search Console set up</li>
+          <li>Old links redirected so nothing is lost</li>
+          <li>30 days of unlimited tweaks after launch</li>
+          <li>Hosting free for life: no monthly bill from me or anyone</li>
+          <li>Small updates after that (a rate change, a new boat, a photo swap) on a friends basis. Bigger projects quoted separately.</li>
+        </ul>
+        <div class="tot">Total, ever <b>$1,500</b></div>
+      </div>
+    </div>
+    <p class="small muted" style="margin-top:18px">For reference, the $500 site listed on coastalcr.com is a one-page starter for small local businesses. Your site is 90 pages with a booking engine, which is the full custom tier.</p>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section>
+  <div class="wrap">
+    <div class="kicker">What happens next</div>
+    <h2>Live on gofishcr.com within a week of your go.</h2>
+    <div class="steps">
+      <div class="step"><h4>Click through the preview</h4><p>Send me anything you want changed: wording, a price, a photo. Most fixes are same day.</p><span class="who">You</span></div>
+      <div class="step"><h4>Say yes and send payment</h4><p>Use the accept button below and any payment option that suits you.</p><span class="who">You</span></div>
+      <div class="step"><h4>Point the domain</h4><p>Two small settings at wherever gofishcr.com is registered. I send exact instructions, or do it with you on a call in ten minutes.</p><span class="who">Together</span></div>
+      <div class="step"><h4>Connect WhatsApp and Instagram</h4><p>I need the WhatsApp number you want guests to message, and one login to link @gofishcostarica.</p><span class="who">You send, I connect</span></div>
+      <div class="step"><h4>Google setup</h4><p>Business Profile polished, sitemap submitted, Search Console handed over, old links redirected.</p><span class="who">Me</span></div>
+      <div class="step"><h4>Launch</h4><p>The new site replaces the old one. I stay on call for 30 days of tweaks.</p><span class="who">Me</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT -->
+<section id="pay">
+  <div class="wrap">
+    <div class="kicker">Payment</div>
+    <h2>Pay however is easiest.</h2>
+    <p class="muted">Payment to Infinite Discoveries LLC (Coastal CR is the web design side of the company). A receipt follows every payment.</p>
+    <div class="pay">
+      <div class="pm"><h4>Zelle</h4><p>From any US bank app. No fees.</p><button class="v" data-copy="3213561951" type="button">+1 321-356-1951</button><p>Memo: Go Fish website</p></div>
+      <div class="pm"><h4>Venmo</h4><p>No fees, instant.</p><button class="v" data-copy="@tonyskoo" type="button">@tonyskoo</button><p>Memo: Go Fish website</p></div>
+      <div class="pm"><h4>PayPal</h4><p>Card or PayPal balance. Works from anywhere.</p><a class="btn btn-primary" style="margin-top:10px" href="https://paypal.me/tonyskoczylas/1500USD" target="_blank" rel="noopener">Pay $1,500 via PayPal</a><p>paypal.me/tonyskoczylas</p></div>
+    </div>
+    <p class="small muted" style="margin-top:16px">Bank wire or SINPE Móvil also fine, ask and I send the details. Tap a Zelle or Venmo handle to copy it.</p>
+  </div>
+</section>
+
+<!-- ACCEPT -->
+<section>
+  <div class="wrap">
+    <div class="accept">
+      <div>
+        <div class="kicker">Ready when you are</div>
+        <h2>Accept the proposal.</h2>
+        <p class="muted">One click sends me an email saying you are in. Or just reply on WhatsApp. Either works.</p>
+        <div class="row no-print">
+          <a class="btn btn-primary" href="mailto:anthonyskoczylas@yahoo.com?subject=Go%20Fish%20website%20%E2%80%94%20accepted&body=Hi%20Tony%2C%0A%0AWe%20accept%20the%20Go%20Fish%20Costa%20Rica%20website%20proposal%20(CCR-2026-0912)%20at%20%241%2C500%20one-time.%0A%0AWe%20will%20pay%20by%3A%20%0AWhatsApp%20number%20for%20the%20site%3A%20%0A%0ASteve%20%26%20Liisa">Accept by email</a>
+          <a class="btn btn-ghost" href="https://wa.me/13213561951?text=Hi%20Tony%2C%20we%20accept%20the%20Go%20Fish%20website%20proposal." target="_blank" rel="noopener">Accept on WhatsApp</a>
+        </div>
+        <div class="sig"><b>Anthony Skoczylas</b>Coastal CR · Infinite Discoveries LLC · Playa Hermosa, Jacó, Costa Rica<br><a href="mailto:anthonyskoczylas@yahoo.com">anthonyskoczylas@yahoo.com</a> · <a href="https://wa.me/13213561951">+1 321-356-1951</a> · <a href="https://coastalcr.com">coastalcr.com</a></div>
+      </div>
+      <div class="shot"><img src="img/home.jpg" alt="Go Fish Costa Rica homepage preview"></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">Proposal CCR-2026-0912 · Prepared September 12, 2026 for Steve &amp; Liisa Quinn, Go Fish Costa Rica, Tamarindo · Valid 30 days · Prices in USD.</div></footer>
+
+<script>
+document.querySelectorAll('[data-copy]').forEach(function(b){
+  b.addEventListener('click', function(){
+    var t=b.textContent; navigator.clipboard && navigator.clipboard.writeText(b.dataset.copy);
+    b.textContent='Copied'; setTimeout(function(){ b.textContent=t; }, 1200);
+  });
+});
+</script>
+</body>
+</html>
