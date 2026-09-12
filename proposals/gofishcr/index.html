@@ -66,8 +66,10 @@ section+section{border-top:1px solid var(--line)}
 .item h4{margin-bottom:6px}
 .item p{margin:0;color:var(--ink-soft);font-size:15px}
 .item .n{display:inline-block;font-family:Fraunces,serif;color:var(--accent);font-size:13px;letter-spacing:.08em;margin-bottom:8px}
-.shots2{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-top:36px;align-items:start}
-.shots3{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px}
+.shots2{display:grid;grid-template-columns:1fr 380px;gap:18px;margin-top:36px;align-items:start}
+.shots2 .stack{display:grid;gap:18px}
+.shots3{margin-top:18px}
+.shots3 .shot{max-width:820px}
 .cap{font-size:13px;color:var(--ink-soft);margin-top:8px}
 
 /* seo checklist */
@@ -114,7 +116,8 @@ section+section{border-top:1px solid var(--line)}
 footer{padding:36px 0 60px;font-size:13px;color:var(--ink-soft)}
 
 @media (max-width:820px){
-  .cover .grid,.summary,.ledger,.shots2,.shots3,.check,.tiers,.steps,.pay,.accept{grid-template-columns:1fr}
+  .cover .grid,.summary,.ledger,.shots2,.check,.tiers,.steps,.pay,.accept{grid-template-columns:1fr}
+  .shots2>div:last-child{max-width:340px}
   .facts{grid-template-columns:1fr 1fr}
   .summary{padding:28px}
   .summary .price{font-size:52px}
@@ -152,7 +155,7 @@ footer{padding:36px 0 60px;font-size:13px;color:var(--ink-soft)}
           <a class="btn btn-ghost" href="#price">Jump to the price</a>
         </div>
       </div>
-      <div class="shot"><img src="img/home.jpg" alt="Go Fish Costa Rica new homepage: over-under photo of a sailfish beneath a sportfishing boat off Tamarindo"></div>
+      <div class="shot"><img src="img/home.jpg?v=2" alt="Go Fish Costa Rica new homepage: over-under photo of a sailfish beneath a sportfishing boat off Tamarindo"></div>
     </div>
     <div class="facts">
       <div class="fact"><b>90</b><span>pages, every one written and designed</span></div>
@@ -205,12 +208,14 @@ footer{padding:36px 0 60px;font-size:13px;color:var(--ink-soft)}
     </div>
 
     <div class="shots2">
-      <div><div class="shot"><img src="img/boat.jpg" alt="Boat page with photos, rates table and a booking panel"></div><div class="cap">A boat page: gallery, specs, rates, and the request panel that follows the guest down the page.</div></div>
-      <div><div class="shot"><img src="img/mobile.jpg" alt="Homepage on a phone"></div><div class="cap">Same homepage on a phone.</div></div>
+      <div class="stack">
+        <div><div class="shot"><img src="img/boat.jpg?v=2" alt="Boat page with photos, rates table and a booking panel"></div><div class="cap">A boat page: gallery, specs, rates, and the request panel that follows the guest down the page.</div></div>
+        <div><div class="shot"><img src="img/charters.jpg?v=2" alt="Charter listing filtered by base and group size"></div><div class="cap">The fleet, filterable by base and group size.</div></div>
+      </div>
+      <div><div class="shot"><img src="img/mobile.jpg?v=2" alt="Homepage on a phone"></div><div class="cap">Same homepage on a phone: the boat and the sailfish both in frame.</div></div>
     </div>
     <div class="shots3">
-      <div><div class="shot"><img src="img/charters.jpg" alt="Charter listing filtered by base and group size"></div><div class="cap">The fleet, filterable by base and group size.</div></div>
-      <div><div class="shot"><img src="img/planner.jpg" alt="Four-step trip planner"></div><div class="cap">The four-step planner.</div></div>
+      <div><div class="shot"><img src="img/planner.jpg?v=2" alt="Four-step trip planner"></div><div class="cap">The four-step planner.</div></div>
     </div>
   </div>
 </section>
@@ -326,7 +331,7 @@ footer{padding:36px 0 60px;font-size:13px;color:var(--ink-soft)}
         </div>
         <div class="sig"><b>Anthony Skoczylas</b>Coastal CR · Infinite Discoveries LLC · Playa Hermosa, Jacó, Costa Rica<br><a href="mailto:anthonyskoczylas@yahoo.com">anthonyskoczylas@yahoo.com</a> · <a href="https://wa.me/13213561951">+1 321-356-1951</a> · <a href="https://coastalcr.com">coastalcr.com</a></div>
       </div>
-      <div class="shot"><img src="img/home.jpg" alt="Go Fish Costa Rica homepage preview"></div>
+      <div class="shot"><img src="img/home.jpg?v=2" alt="Go Fish Costa Rica homepage preview"></div>
     </div>
   </div>
 </section>
