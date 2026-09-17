@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Photos and details · Coastal CR</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Upload the photos and details for your business website with Coastal CR.">
+<meta name="theme-color" content="#eef4f8">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#eef4f8;--paper-2:#e4edf3;--white:#fff;--ink:#0b1c28;--ink-soft:#425663;--line:#c7dae6;--accent:#0e6f90;--accent-soft:#1390b4;--sand:#d2a55f;--ok:#1f7a4d;--bad:#b3261e;--radius:16px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+h1,h2{font-family:Fraunces,Georgia,serif;font-weight:500;line-height:1.1;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(30px,7vw,44px)}
+h1 em{font-style:italic;color:var(--accent)}
+h2{font-size:22px}
+p{margin:0}
+a{color:var(--accent)}
+.wrap{max-width:640px;margin:0 auto;padding:0 16px}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-family:Fraunces,serif;font-size:18px;font-weight:600;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+.brand span{color:var(--accent)}
+.brand img{width:28px;height:28px;border-radius:7px}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--white)}
+.lang button{appearance:none;border:0;background:transparent;font:inherit;font-size:13px;font-weight:600;padding:8px 14px;color:var(--ink-soft);cursor:pointer;min-height:40px}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+header.hero{padding:20px 0 8px}
+.kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px}
+.sub{color:var(--ink-soft);margin-top:12px;font-size:16px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:20px 16px;margin-top:16px}
+.step{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.num{width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-weight:600;font-size:14px;display:grid;place-items:center;flex:none}
+label{display:block;font-weight:600;font-size:14px;margin:14px 0 6px}
+label small{font-weight:400;color:var(--ink-soft)}
+.hint{font-size:14px;color:var(--ink-soft);margin:-2px 0 8px}
+input,textarea{width:100%;font:inherit;font-size:17px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:13px 14px;min-height:50px;outline:0;transition:border-color .15s,box-shadow .15s}
+textarea{min-height:88px;resize:vertical;line-height:1.45}
+input:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(14,111,144,.15);background:#fff}
+input.bad,textarea.bad{border-color:var(--bad)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.drop{position:relative;border:2px dashed var(--line);border-radius:var(--radius);background:var(--paper);padding:26px 16px;text-align:center;cursor:pointer;transition:.15s;min-height:132px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.drop:hover,.drop.over{border-color:var(--accent);background:#fff}
+.drop svg{width:34px;height:34px;color:var(--accent)}
+.drop strong{font-size:16px}
+.drop .dragtxt{font-size:14px;color:var(--ink-soft)}
+.drop input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer}
+.tips{font-size:14px;color:var(--ink-soft);margin-top:12px}
+.count{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:14px;font-weight:600}
+.count button{appearance:none;border:0;background:transparent;font:inherit;font-size:14px;color:var(--accent);font-weight:600;cursor:pointer;padding:6px 0;min-height:36px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+@media(min-width:520px){.grid{grid-template-columns:repeat(4,1fr)}}
+.th{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;background:var(--paper-2)}
+.th img{width:100%;height:100%;object-fit:cover;display:block}
+.th .rm{position:absolute;top:6px;right:6px;width:30px;height:30px;border-radius:50%;border:0;background:rgba(11,28,40,.78);color:#fff;font-size:18px;line-height:1;cursor:pointer;display:grid;place-items:center}
+.th .st{position:absolute;inset:0;display:none;place-items:center;background:rgba(238,244,248,.7);font-size:13px;font-weight:600;color:var(--ink)}
+.th[data-st="prep"] .st,.th[data-st="up"] .st,.th[data-st="ok"] .st,.th[data-st="err"] .st{display:grid}
+.th[data-st="ok"] .st{background:rgba(31,122,77,.55);color:#fff}
+.th[data-st="err"] .st{background:rgba(179,38,30,.6);color:#fff}
+.th[data-st="prep"] .rm,.th[data-st="up"] .rm,.th[data-st="ok"] .rm{display:none}
+.spin{width:22px;height:22px;border:3px solid rgba(11,28,40,.2);border-top-color:var(--accent);border-radius:50%;animation:sp .8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 22px;border-radius:999px;font-weight:600;text-decoration:none;font-size:16px;border:1.5px solid var(--accent);cursor:pointer;font-family:inherit;min-height:52px;transition:transform .15s,background .15s}
+.btn-primary{background:var(--accent);color:#fff;width:100%}
+.btn-primary:hover{background:var(--accent-soft)}
+.btn-primary:disabled{opacity:.55;cursor:default}
+.btn-ghost{background:transparent;color:var(--accent)}
+.btn-wa{background:#1f7a4d;border-color:#1f7a4d;color:#fff;width:100%}
+.btn svg{width:20px;height:20px}
+.foot{margin:28px 0 8px;font-size:14px;color:var(--ink-soft);text-align:center}
+.foot a{font-weight:600}
+.msg{margin-top:12px;font-size:15px;padding:12px 14px;border-radius:12px;display:none}
+.msg.show{display:block}
+.msg.bad{background:#fbe9e7;color:var(--bad)}
+.msg.warn{background:#fff4e0;color:#7a4b00}
+.prog{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom));display:none;z-index:20}
+.prog.show{display:block}
+.prog .txt{font-size:14px;font-weight:600;margin-bottom:8px;display:flex;justify-content:space-between}
+.prog .track{height:8px;border-radius:999px;background:var(--paper-2);overflow:hidden}
+.prog .fill{height:100%;width:0;background:var(--accent);transition:width .25s}
+.done{text-align:center;padding:36px 16px}
+.done .ok{width:64px;height:64px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;margin:0 auto 16px}
+.done .ok svg{width:34px;height:34px}
+.done h2{font-size:34px;margin-bottom:10px}
+.done p{color:var(--ink-soft);margin-bottom:18px}
+.done .more{font-size:14px;margin-top:16px}
+.hidden{display:none !important}
+.state{padding:32px 16px;text-align:center}
+.state h2{margin-bottom:8px}
+.state p{color:var(--ink-soft);margin-bottom:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <a class="brand" href="https://coastalcr.com"><img src="../logo/coastalcr-mark.png" alt=""> Coastal <span>CR</span></a>
+    <div class="lang" role="group" aria-label="Language / Idioma">
+      <button type="button" data-lang="en" aria-pressed="true">English</button>
+      <button type="button" data-lang="es" aria-pressed="false">Español</button>
+    </div>
+  </div>
+
+  <div id="loading" class="state"><div class="spin" style="margin:0 auto 12px"></div><p data-t="loading">One moment…</p></div>
+
+  <div id="badlink" class="state hidden">
+    <h2 data-t="badLink">This link is not active.</h2>
+    <p data-t="badLinkSub">Message Tony on WhatsApp and he will send you a new one.</p>
+    <a id="badlinkWa" class="btn btn-wa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.1.6 2.8.5a2.4 2.4 0 0 0 1.6-1.1c.2-.6.2-1 .1-1.1l-.5-.2z"/></svg><span data-t="tell2">Message Tony</span></a>
+  </div>
+
+  <div id="offline" class="state hidden">
+    <h2 data-t="offline">No connection.</h2>
+    <p data-t="offlineSub">Check your internet and try again.</p>
+    <button type="button" class="btn btn-ghost" id="retryLoad" data-t="retry">Retry</button>
+  </div>
+
+  <form id="form" class="hidden" novalidate>
+    <header class="hero">
+      <div class="kicker" data-t="kicker">Your website · Coastal CR</div>
+      <h1><span data-t="title">Photos and details for</span> <em id="biz">…</em></h1>
+      <p class="sub" data-t="sub">About 10 minutes from your phone. Everything can be changed later.</p>
+    </header>
+
+    <section class="card">
+      <div class="step"><div class="num">1</div><h2 data-t="s1">Contact</h2></div>
+      <label for="name" data-t="name">Your name</label>
+      <input id="name" name="name" autocomplete="name" required>
+      <label for="wa" data-t="wa">WhatsApp</label>
+      <input id="wa" name="wa" type="tel" inputmode="tel" autocomplete="tel" placeholder="+506 8888 8888" required>
+      <label for="email"><span data-t="email">Email</span> <small data-t="opt">(optional)</small></label>
+      <input id="email" name="email" type="email" inputmode="email" autocomplete="email">
+      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+    </section>
+
+    <section class="card">
+      <div class="step"><div class="num">2</div><h2 data-t="s2">Your business</h2></div>
+      <label for="hours" data-t="hours">Hours</label>
+      <textarea id="hours" name="hours" data-tp="hoursPh"></textarea>
+      <label for="prices" data-t="prices">Prices</label>
+      <textarea id="prices" name="prices" data-tp="pricesPh"></textarea>
+      <label for="reviews" data-t="reviews">Reviews</label>
+      <p class="hint" data-t="reviewsHint">Paste 3 you like, or your Google or TripAdvisor link.</p>
+      <textarea id="reviews" name="reviews"></textarea>
+      <label for="socials" data-t="socials">Social and links</label>
+      <textarea id="socials" name="socials" data-tp="socialsPh" style="min-height:66px"></textarea>
+      <label for="address"><span data-t="address">Address or how to find you</span> <small data-t="opt">(optional)</small></label>
+      <input id="address" name="address" autocomplete="street-address">
+      <label for="notes"><span data-t="notes">Anything else</span> <small data-t="opt">(optional)</small></label>
+      <textarea id="notes" name="notes" data-tp="notesPh" style="min-height:66px"></textarea>
+    </section>
+
+    <section class="card">
+      <div class="step"><div class="num">3</div><h2 data-t="s3">Photos</h2></div>
+      <div class="drop" id="drop">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>
+        <strong data-t="pick">Tap to choose photos</strong>
+        <span class="dragtxt" data-t="drag">or drag them here</span>
+        <input id="file" type="file" accept="image/*" multiple aria-label="Photos">
+      </div>
+      <p class="tips" data-t="tips">10 to 25 photos: the outside, rooms, pool, food, the view, your team. Horizontal looks best. They are shrunk right here before uploading, so it is quick.</p>
+      <div class="count"><span id="count"></span><button type="button" id="clear" class="hidden" data-t="clear">Remove all</button></div>
+      <div class="grid" id="grid"></div>
+      <div class="msg" id="pmsg"></div>
+    </section>
+
+    <section class="card">
+      <button type="submit" class="btn btn-primary" id="send" data-t="send">Send everything</button>
+      <div class="msg" id="fmsg"></div>
+    </section>
+
+    <p class="foot"><span data-t="help">Problems? Send the photos to Tony on WhatsApp.</span> <a id="helpWa" href="#" target="_blank" rel="noopener">WhatsApp</a></p>
+  </form>
+
+  <div id="done" class="card done hidden">
+    <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h2 data-t="doneTitle">Done</h2>
+    <p id="doneTxt"></p>
+    <a id="doneWa" class="btn btn-wa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.1.6 2.8.5a2.4 2.4 0 0 0 1.6-1.1c.2-.6.2-1 .1-1.1l-.5-.2z"/></svg><span data-t="tell">Let Tony know on WhatsApp</span></a>
+    <p class="more" data-t="more">More photos later? This same link keeps working.</p>
+  </div>
+</div>
+
+<div class="prog" id="prog"><div class="txt"><span id="ptxt"></span><span id="ppct"></span></div><div class="track"><div class="fill" id="pfill"></div></div></div>
+
+<script>
+// Coastal CR photo + info intake. Static page: photos go straight from the phone to
+// Supabase Storage, one row per submission. The publishable key below is public by
+// design; database policies limit it to inserts for active client links only.
+const CFG = {
+  url: 'https://oxyxcfxjduaegzmxgtqk.supabase.co',
+  key: 'sb_publishable_DSopuNj2AbprCWWnObOrQA_kEDZMiC3',
+  bucket: 'intake',
+  tonyWa: '13213561951',
+  maxEdge: 2000, quality: 0.82, concurrency: 3, retries: 3, maxPhotos: 60
+};
+
+const T = {
+  es: {
+    loading:'Un momento…', kicker:'Tu sitio web · Coastal CR', title:'Fotos e información para',
+    sub:'Toma unos 10 minutos desde el celular. Todo se puede cambiar después.',
+    s1:'Contacto', name:'Tu nombre', wa:'WhatsApp', email:'Correo', opt:'(opcional)',
+    s2:'Tu negocio', hours:'Horarios', hoursPh:'Ej: Recepción 7am a 9pm. Restaurante 7am a 10pm. Cerrado martes.',
+    prices:'Precios', pricesPh:'Ej: Habitación doble $55 · Temporada alta $70 · Tour medio día $450',
+    reviews:'Reseñas', reviewsHint:'Copia 3 que te gusten, o pega tu enlace de Google o TripAdvisor.',
+    socials:'Redes y enlaces', socialsPh:'Instagram, Facebook, Airbnb, Booking…',
+    address:'Dirección o cómo llegar', notes:'Algo más', notesPh:'Ej: Aceptamos mascotas. Desayuno incluido. Hablamos inglés.',
+    s3:'Fotos', pick:'Toca para elegir fotos', drag:'o arrástralas aquí',
+    tips:'Entre 10 y 25 fotos: fachada, habitaciones, piscina, comida, la vista, tu equipo. Horizontales se ven mejor. Se reducen de tamaño aquí mismo antes de subir, así es rápido.',
+    clear:'Quitar todas', count0:'Sin fotos todavía', count:n=>n===1?'1 foto':`${n} fotos`,
+    send:'Enviar todo', sending:'Enviando…', preparing:(i,n)=>`Preparando foto ${i} de ${n}…`, uploading:(i,n)=>`Subiendo foto ${i} de ${n}…`, saving:'Guardando información…',
+    needName:'Escribe tu nombre.', needWa:'Escribe tu WhatsApp.', noPhotos:'¿Enviar sin fotos? Puedes volver a usar este enlace después para subirlas.',
+    tooMany:m=>`Máximo ${m} fotos por envío.`, notImage:'Solo fotos (JPG, PNG, HEIC).',
+    failSome:n=>`No se subieron ${n} fotos. Revisa tu conexión y toca Reintentar.`, retry:'Reintentar',
+    failSave:'Algo falló al guardar. Intenta de nuevo o escríbele a Tony por WhatsApp.',
+    doneTitle:'Listo', done:n=>n?`Recibimos ${n} fotos y tu información. Tony te escribe por WhatsApp.`:'Recibimos tu información. Tony te escribe por WhatsApp.',
+    tell:'Avisar a Tony por WhatsApp', tell2:'Escribir a Tony', tellMsg:b=>`Hola Tony, ya subí las fotos e info de ${b}.`,
+    more:'¿Más fotos después? Este mismo enlace sigue funcionando.',
+    badLink:'Este enlace no está activo.', badLinkSub:'Escríbele a Tony por WhatsApp y te manda uno nuevo.', badLinkMsg:'Hola Tony, mi enlace para subir fotos no funciona.',
+    offline:'Sin conexión.', offlineSub:'Revisa tu internet e intenta de nuevo.',
+    help:'¿Problemas? Mándale las fotos a Tony por WhatsApp.', helpMsg:b=>`Hola Tony, tengo un problema subiendo las fotos de ${b}.`,
+    leave:'Todavía se están subiendo las fotos.', tabTitle:'Fotos e información · Coastal CR'
+  },
+  en: {
+    loading:'One moment…', kicker:'Your website · Coastal CR', title:'Photos and details for',
+    sub:'About 10 minutes from your phone. Everything can be changed later.',
+    s1:'Contact', name:'Your name', wa:'WhatsApp', email:'Email', opt:'(optional)',
+    s2:'Your business', hours:'Hours', hoursPh:'Eg: Front desk 7am to 9pm. Restaurant 7am to 10pm. Closed Tuesdays.',
+    prices:'Prices', pricesPh:'Eg: Double room $55 · High season $70 · Half-day tour $450',
+    reviews:'Reviews', reviewsHint:'Paste 3 you like, or your Google or TripAdvisor link.',
+    socials:'Social and links', socialsPh:'Instagram, Facebook, Airbnb, Booking…',
+    address:'Address or how to find you', notes:'Anything else', notesPh:'Eg: Pets welcome. Breakfast included. We speak English.',
+    s3:'Photos', pick:'Tap to choose photos', drag:'or drag them here',
+    tips:'10 to 25 photos: the outside, rooms, pool, food, the view, your team. Horizontal looks best. They are shrunk right here before uploading, so it is quick.',
+    clear:'Remove all', count0:'No photos yet', count:n=>n===1?'1 photo':`${n} photos`,
+    send:'Send everything', sending:'Sending…', preparing:(i,n)=>`Preparing photo ${i} of ${n}…`, uploading:(i,n)=>`Uploading photo ${i} of ${n}…`, saving:'Saving details…',
+    needName:'Please add your name.', needWa:'Please add your WhatsApp.', noPhotos:'Send without photos? You can reuse this link later to add them.',
+    tooMany:m=>`Maximum ${m} photos per send.`, notImage:'Photos only (JPG, PNG, HEIC).',
+    failSome:n=>`${n} photos did not upload. Check your connection and tap Retry.`, retry:'Retry',
+    failSave:'Something failed while saving. Try again or message Tony on WhatsApp.',
+    doneTitle:'Done', done:n=>n?`We received ${n} photos and your details. Tony will message you on WhatsApp.`:'We received your details. Tony will message you on WhatsApp.',
+    tell:'Let Tony know on WhatsApp', tell2:'Message Tony', tellMsg:b=>`Hi Tony, I just uploaded the photos and details for ${b}.`,
+    more:'More photos later? This same link keeps working.',
+    badLink:'This link is not active.', badLinkSub:'Message Tony on WhatsApp and he will send you a new one.', badLinkMsg:'Hi Tony, my photo upload link is not working.',
+    offline:'No connection.', offlineSub:'Check your internet and try again.',
+    help:'Problems? Send the photos to Tony on WhatsApp.', helpMsg:b=>`Hi Tony, I am having trouble uploading the photos for ${b}.`,
+    leave:'Photos are still uploading.', tabTitle:'Photos and details · Coastal CR'
+  }
+};
+
+const $ = s => document.querySelector(s);
+const saved = k => { try { return localStorage.getItem(k); } catch { return null; } };
+const params = new URLSearchParams(location.search);
+const slug = (params.get('c') || '').toLowerCase().replace(/[^a-z0-9-]/g, '');
+// English by default. ?lang=es makes a Spanish link; the Español button is remembered on that phone.
+let lang = ['es','en'].includes(params.get('lang')) ? params.get('lang') : (saved('ccr-lang') || 'en');
+let biz = '';
+let photos = [];       // {id, file, url, st, path, out}
+let busy = false;
+let subId = null;
+const t = k => T[lang][k];
+const wa = msg => `https://wa.me/${CFG.tonyWa}?text=${encodeURIComponent(msg)}`;
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const H = extra => ({ apikey: CFG.key, Authorization: `Bearer ${CFG.key}`, ...extra });
+
+function applyLang(){
+  document.documentElement.lang = lang;
+  document.title = t('tabTitle');
+  try { localStorage.setItem('ccr-lang', lang); } catch {}
+  document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+  document.querySelectorAll('[data-t]').forEach(el => { const v = t(el.dataset.t); if (typeof v === 'string') el.textContent = v; });
+  document.querySelectorAll('[data-tp]').forEach(el => { el.placeholder = t(el.dataset.tp) || ''; });
+  $('#badlinkWa').href = wa(t('badLinkMsg'));
+  $('#helpWa').href = wa(t('helpMsg')(biz || slug));
+  renderCount();
+}
+document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => { lang = b.dataset.lang; applyLang(); }));
+
+function show(id){ ['loading','badlink','offline','form','done'].forEach(x => $('#'+x).classList.toggle('hidden', x !== id)); }
+
+// ---- draft persistence (text only) ----
+const FIELDS = ['name','wa','email','hours','prices','reviews','socials','address','notes'];
+const DKEY = () => `ccr-intake-${slug}`;
+function saveDraft(){ const d = {}; FIELDS.forEach(f => d[f] = $('#'+f).value); try { localStorage.setItem(DKEY(), JSON.stringify(d)); } catch {} }
+function loadDraft(){ try { const d = JSON.parse(localStorage.getItem(DKEY()) || '{}'); FIELDS.forEach(f => { if (d[f]) $('#'+f).value = d[f]; }); } catch {} }
+FIELDS.forEach(f => $('#'+f).addEventListener('input', saveDraft));
+
+// ---- load: validate link ----
+async function init(){
+  applyLang();
+  if (!slug) { show('badlink'); return; }
+  show('loading');
+  let r;
+  try {
+    r = await fetch(`${CFG.url}/rest/v1/rpc/intake_client_name`, { method:'POST', headers: H({'Content-Type':'application/json'}), body: JSON.stringify({ p_slug: slug }) });
+  } catch { show('offline'); return; }
+  const name = r.ok ? await r.json() : null;
+  if (!name) { show('badlink'); return; }
+  biz = name;
+  $('#biz').textContent = biz;
+  $('#helpWa').href = wa(t('helpMsg')(biz));
+  loadDraft();
+  show('form');
+}
+$('#retryLoad').addEventListener('click', init);
+
+// ---- photos ----
+function renderCount(){
+  const n = photos.length;
+  $('#count').textContent = n ? t('count')(n) : t('count0');
+  $('#clear').classList.toggle('hidden', n === 0 || busy);
+}
+function addFiles(list){
+  const msg = $('#pmsg'); msg.className = 'msg';
+  let rejected = 0;
+  for (const f of list) {
+    if (!f.type.startsWith('image/') && !/\.(heic|heif|jpe?g|png|webp)$/i.test(f.name)) { rejected++; continue; }
+    if (photos.length >= CFG.maxPhotos) { msg.textContent = t('tooMany')(CFG.maxPhotos); msg.className = 'msg warn show'; break; }
+    const id = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2));
+    photos.push({ id, file: f, url: URL.createObjectURL(f), st: 'ready', path: null, out: null });
+  }
+  if (rejected) { msg.textContent = t('notImage'); msg.className = 'msg warn show'; }
+  renderGrid();
+}
+function renderGrid(){
+  const g = $('#grid'); g.innerHTML = '';
+  for (const p of photos) {
+    const d = document.createElement('div'); d.className = 'th'; d.dataset.st = p.st; d.dataset.id = p.id;
+    const img = document.createElement('img'); img.src = p.url; img.alt = ''; img.loading = 'lazy';
+    img.onerror = () => { img.remove(); };  // HEIC on a browser that cannot preview it: keep the tile, no thumb
+    const rm = document.createElement('button'); rm.type = 'button'; rm.className = 'rm'; rm.textContent = '×'; rm.setAttribute('aria-label', 'Remove / Quitar');
+    rm.addEventListener('click', () => { if (busy) return; URL.revokeObjectURL(p.url); photos = photos.filter(x => x !== p); renderGrid(); });
+    const st = document.createElement('div'); st.className = 'st'; d.append(img, rm, st);
+    setTile(d, p.st);
+    g.appendChild(d);
+  }
+  renderCount();
+}
+function setTile(el, st){
+  el.dataset.st = st;
+  const s = el.querySelector('.st');
+  s.innerHTML = st === 'prep' || st === 'up' ? '<div class="spin"></div>' : st === 'ok' ? '✓' : st === 'err' ? '!' : '';
+}
+function tileOf(p){ return document.querySelector(`.th[data-id="${p.id}"]`); }
+$('#file').addEventListener('change', e => { addFiles(e.target.files); e.target.value = ''; });
+$('#clear').addEventListener('click', () => { if (busy) return; photos.forEach(p => URL.revokeObjectURL(p.url)); photos = []; renderGrid(); });
+const drop = $('#drop');
+['dragenter','dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('over'); }));
+['dragleave','drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('over'); }));
+drop.addEventListener('drop', e => { if (e.dataTransfer?.files?.length) addFiles(e.dataTransfer.files); });
+
+// Shrink on the phone: longest edge 2000px, JPEG. PNG under 2MB stays PNG (logos).
+function loadImg(file){
+  return new Promise((res, rej) => {
+    const img = new Image();
+    const u = URL.createObjectURL(file);
+    img.onload = () => { URL.revokeObjectURL(u); res(img); };
+    img.onerror = () => { URL.revokeObjectURL(u); rej(new Error('decode')); };
+    img.src = u;
+  });
+}
+const extOf = f => { const m = /\.([a-z0-9]+)$/i.exec(f.name); return m ? m[1].toLowerCase().replace('jpeg','jpg') : 'jpg'; };
+async function prepare(p){
+  const f = p.file;
+  if (f.type === 'image/png' && f.size < 2 * 1024 * 1024) return { blob: f, ext: 'png', type: 'image/png' };
+  let img;
+  try { img = await loadImg(f); } catch { return { blob: f, ext: extOf(f), type: f.type || 'image/jpeg' }; }
+  const w = img.naturalWidth, h = img.naturalHeight;
+  if (!w || !h) return { blob: f, ext: extOf(f), type: f.type || 'image/jpeg' };
+  const s = Math.min(1, CFG.maxEdge / Math.max(w, h));
+  const cw = Math.round(w * s), ch = Math.round(h * s);
+  const c = document.createElement('canvas'); c.width = cw; c.height = ch;
+  c.getContext('2d').drawImage(img, 0, 0, cw, ch);
+  const blob = await new Promise(r => c.toBlob(r, 'image/jpeg', CFG.quality));
+  c.width = c.height = 0;
+  if (!blob) return { blob: f, ext: extOf(f), type: f.type || 'image/jpeg' };
+  if (s === 1 && f.type === 'image/jpeg' && blob.size >= f.size) return { blob: f, ext: 'jpg', type: 'image/jpeg' };
+  return { blob, ext: 'jpg', type: 'image/jpeg' };
+}
+const safeName = n => (n.replace(/\.[^.]+$/, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40) || 'foto');
+async function upload(p){
+  for (let a = 1; a <= CFG.retries; a++) {
+    try {
+      const r = await fetch(`${CFG.url}/storage/v1/object/${CFG.bucket}/${p.path}`, { method: 'POST', headers: H({ 'Content-Type': p.out.type, 'cache-control': '3600' }), body: p.out.blob });
+      if (r.ok || r.status === 409) return true;             // 409 = already there from an earlier attempt
+      if ([400, 403, 413, 415].includes(r.status)) return false; // not retryable
+    } catch {}
+    await sleep(700 * a);
+  }
+  return false;
+}
+
+// ---- progress ----
+function prog(text, done, total){
+  const el = $('#prog'); el.classList.add('show');
+  $('#ptxt').textContent = text;
+  const pct = total ? Math.round(done / total * 100) : 0;
+  $('#ppct').textContent = total ? `${pct}%` : '';
+  $('#pfill').style.width = `${pct}%`;
+}
+function progOff(){ $('#prog').classList.remove('show'); }
+window.addEventListener('beforeunload', e => { if (busy) { e.preventDefault(); e.returnValue = t('leave'); } });
+
+// ---- submit ----
+$('#form').addEventListener('submit', async e => {
+  e.preventDefault();
+  if (busy) return;
+  const fmsg = $('#fmsg'); fmsg.className = 'msg';
+  if ($('.hp').value) return;                                   // bot
+  const name = $('#name').value.trim(), waNum = $('#wa').value.trim();
+  $('#name').classList.toggle('bad', !name); $('#wa').classList.toggle('bad', !waNum);
+  if (!name) { fmsg.textContent = t('needName'); fmsg.className = 'msg bad show'; $('#name').focus(); return; }
+  if (!waNum) { fmsg.textContent = t('needWa'); fmsg.className = 'msg bad show'; $('#wa').focus(); return; }
+  if (!photos.length && !confirm(t('noPhotos'))) return;
+
+  busy = true; renderCount();
+  const btn = $('#send'); btn.disabled = true; btn.textContent = t('sending');
+  subId = subId || (crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2, 10));
+  const todo = photos.filter(p => p.st !== 'ok');
+  const total = photos.length;
+  let done = photos.length - todo.length, active = 0, idx = 0;
+  const failed = [];
+  const waitSlot = async () => { while (active >= CFG.concurrency) await sleep(60); };
+
+  for (const p of todo) {
+    idx++;
+    const tile = tileOf(p);
+    if (tile) setTile(tile, 'prep'); p.st = 'prep';
+    prog(t('preparing')(done + 1, total), done, total);
+    if (!p.out) p.out = await prepare(p);
+    if (!p.path) p.path = `${slug}/${subId}/${String(photos.indexOf(p) + 1).padStart(2, '0')}-${safeName(p.file.name)}.${p.out.ext}`;
+    await waitSlot();
+    active++;
+    p.st = 'up'; if (tile) setTile(tile, 'up');
+    prog(t('uploading')(done + 1, total), done, total);
+    upload(p).then(ok => {
+      active--; done += ok ? 1 : 0;
+      p.st = ok ? 'ok' : 'err'; const tl = tileOf(p); if (tl) setTile(tl, p.st);
+      if (!ok) failed.push(p);
+      prog(t('uploading')(Math.min(done + 1, total), total), done, total);
+    });
+  }
+  while (active > 0) await sleep(80);
+
+  if (failed.length) {
+    progOff(); busy = false; renderCount();
+    btn.disabled = false; btn.textContent = t('retry');
+    fmsg.textContent = t('failSome')(failed.length); fmsg.className = 'msg bad show';
+    return;
+  }
+
+  prog(t('saving'), total, total);
+  const row = {
+    id: subId, client_slug: slug, business_name: biz, lang,
+    contact_name: name, whatsapp: waNum, email: $('#email').value.trim() || null,
+    hours: $('#hours').value.trim() || null, prices: $('#prices').value.trim() || null,
+    reviews: $('#reviews').value.trim() || null, socials: $('#socials').value.trim() || null,
+    address: $('#address').value.trim() || null, notes: $('#notes').value.trim() || null,
+    photo_count: photos.length, photo_paths: photos.map(p => p.path),
+    user_agent: navigator.userAgent.slice(0, 200)
+  };
+  let saved = false;
+  for (let a = 1; a <= CFG.retries && !saved; a++) {
+    try {
+      const r = await fetch(`${CFG.url}/rest/v1/intake_submissions`, { method: 'POST', headers: H({ 'Content-Type': 'application/json', Prefer: 'return=minimal' }), body: JSON.stringify(row) });
+      if (r.ok || r.status === 409) saved = true; else if (r.status >= 500) await sleep(700 * a); else break;
+    } catch { await sleep(700 * a); }
+  }
+  progOff(); busy = false; renderCount();
+  if (!saved) {
+    btn.disabled = false; btn.textContent = t('retry');
+    fmsg.textContent = t('failSave'); fmsg.className = 'msg bad show';
+    return;
+  }
+  try { localStorage.removeItem(DKEY()); } catch {}
+  $('#doneTxt').textContent = t('done')(photos.length);
+  $('#doneWa').href = wa(t('tellMsg')(biz));
+  show('done');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+init();
+</script>
+</body>
+</html>
