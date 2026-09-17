@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Care plan terms · Coastal CR</title>
+<meta name="description" content="What the Coastal CR care plan includes, what it costs, and how to cancel. Plain language, one page.">
+<meta name="theme-color" content="#eef4f8">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#eef4f8;--paper-2:#e4edf3;--white:#fff;--ink:#0b1c28;--ink-soft:#425663;--line:#c7dae6;--accent:#0e6f90;--accent-soft:#1390b4;--sand:#d2a55f;--ok:#1f7a4d;--radius:16px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2{font-family:Fraunces,Georgia,serif;font-weight:500;line-height:1.1;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(32px,6vw,52px)}
+h1 em{font-style:italic;color:var(--accent)}
+h2{font-size:24px;margin-bottom:12px}
+p{margin:0}
+a{color:var(--accent)}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-family:Fraunces,serif;font-size:18px;font-weight:600;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+.brand span{color:var(--accent)}
+.brand .mark{width:28px;height:28px;flex:none}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--white)}
+.lang button{appearance:none;border:0;background:transparent;font:inherit;font-size:13px;font-weight:600;padding:8px 14px;color:var(--ink-soft);cursor:pointer;min-height:40px}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+header.hero{padding:28px 0 8px}
+.kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:12px}
+.lead{color:var(--ink-soft);margin-top:14px;font-size:18px;max-width:58ch}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0 8px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.fact b{display:block;font-family:Fraunces,serif;font-size:28px;font-weight:500;line-height:1}
+.fact span{font-size:13px;color:var(--ink-soft)}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;margin-top:16px}
+.check,.plain,.steps{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.check li{position:relative;padding-left:32px;font-size:16px}
+.check li::before{content:"";position:absolute;left:0;top:4px;width:20px;height:20px;border-radius:50%;background:var(--ok)}
+.check li::after{content:"";position:absolute;left:6px;top:9px;width:8px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg)}
+.plain li{position:relative;padding-left:32px;font-size:16px}
+.plain li::before{content:"";position:absolute;left:0;top:4px;width:20px;height:20px;border-radius:50%;background:var(--paper-2);border:1px solid var(--line)}
+.plain li::after{content:"";position:absolute;left:5px;top:13px;width:10px;height:2px;background:var(--ink-soft)}
+.steps{counter-reset:s}
+.steps li{position:relative;padding-left:40px;font-size:16px}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-weight:600;font-size:14px;display:grid;place-items:center}
+li b{display:block;color:var(--ink)}
+li span{color:var(--ink-soft)}
+.note{background:#fff;border-left:4px solid var(--sand);border-radius:0 12px 12px 0;padding:16px 18px;margin-top:16px;font-size:15px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;border-radius:999px;font-weight:600;text-decoration:none;font-size:15px;border:1.5px solid var(--accent);cursor:pointer;font-family:inherit;background:transparent;color:var(--accent);min-height:46px}
+.btn:hover{background:#fff}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.foot{margin:28px 0 48px;font-size:14px;color:var(--ink-soft)}
+.foot b{color:var(--ink)}
+@media (max-width:560px){.facts{grid-template-columns:1fr 1fr}}
+@media print{
+  body{background:#fff;font-size:12.5px}
+  .wrap{max-width:none;padding:0}
+  .bar{height:auto;padding:0 0 10px}
+  .no-print{display:none!important}
+  .card{border:1px solid #ccc;padding:10px 12px;margin-top:8px}
+  li,.fact,.note{break-inside:avoid}
+  h2{break-after:avoid}
+  .hero{padding:0}
+  .facts{margin:12px 0 4px}
+  .fact b{font-size:20px}
+  h1{font-size:28px}
+  h2{font-size:17px;margin-bottom:6px}
+  .lead{font-size:13px;margin-top:8px}
+  .check,.plain{grid-template-columns:1fr 1fr;gap:4px 16px;align-items:start}
+  .steps{grid-template-columns:1fr 1fr 1fr;gap:4px 16px}
+  li{font-size:11.5px;line-height:1.35}
+  .check li,.plain li{padding-left:24px}
+  .check li::before,.plain li::before{width:16px;height:16px;top:2px}
+  .check li::after{left:4px;top:6px;width:7px;height:4px}
+  .plain li::after{left:4px;top:9px;width:8px}
+  .steps li{padding-left:30px}
+  .steps li::before{width:22px;height:22px;font-size:12px}
+  .lead{max-width:none}
+  .note{padding:8px 12px;margin-top:8px;font-size:11.5px}
+  .foot{font-size:11px}
+  .foot{margin:14px 0 0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <a class="brand" href="https://coastalcr.com"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0e6f90"/><path d="M10 38 C18 30 22 46 32 38 S46 30 54 38" fill="none" stroke="#eef4f8" stroke-width="4.5" stroke-linecap="round"/><path d="M10 26 C18 18 22 34 32 26 S46 18 54 26" fill="none" stroke="#d2a55f" stroke-width="4.5" stroke-linecap="round"/></svg> Coastal <span>CR</span></a>
+    <div class="lang no-print" role="group" aria-label="Language / Idioma">
+      <button type="button" data-lang="en" aria-pressed="true">English</button>
+      <button type="button" data-lang="es" aria-pressed="false">Español</button>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="kicker" data-t="kicker">Coastal CR · Care plan</div>
+    <h1 data-t="h1">The care plan, <em>in plain language.</em></h1>
+    <p class="lead" data-t="lead">You run the business. I keep the website fresh, safe and online. You message me instead of learning to edit a website. From $200 a month; your exact amount is on your proposal.</p>
+    <div class="facts">
+      <div class="fact"><b data-t="f1b">2 h</b><span data-t="f1s">of changes every month</span></div>
+      <div class="fact"><b data-t="f2b">24 h</b><span data-t="f2s">turnaround on business days, same day if urgent</span></div>
+      <div class="fact"><b data-t="f3b">Any time</b><span data-t="f3s">cancel with one message</span></div>
+    </div>
+  </header>
+
+  <section class="card">
+    <h2 data-t="incH">What is included</h2>
+    <ul class="check">
+      <li><b data-t="i1b">Hosting and security</b><span data-t="i1s">Your site lives on fast, free hosting with a secure address. Nothing to update or patch, and I keep a full backup of every version.</span></li>
+      <li><b data-t="i2b">Domain renewal</b><span data-t="i2s">I renew your domain every year and keep it in your name. Standard domains, about $20 a year, are included. Unusual ones are billed at cost.</span></li>
+      <li><b data-t="i3b">Changes, up to 2 hours a month</b><span data-t="i3s">Prices, hours, photos, wording, a seasonal promo, a new review, a menu update. Send it, it gets done. Hours do not roll over. Anything bigger is quoted first.</span></li>
+      <li><b data-t="i4b">Turnaround</b><span data-t="i4s">Most changes within 24 hours on business days. A wrong price or a site that is down gets fixed the same day, any day.</span></li>
+      <li><b data-t="i5b">Uptime watch</b><span data-t="i5s">An automatic check pings your site around the clock. If it ever goes down, I know before you do.</span></li>
+      <li><b data-t="i6b">One Google Business post a month</b><span data-t="i6s">A photo and a few lines on your Google map listing, which keeps the listing active. Send me something, or I pick from the site.</span></li>
+      <li><b data-t="i7b">A yearly refresh</b><span data-t="i7s">Once a year we look at photos, wording and speed together and freshen what has aged.</span></li>
+      <li><b data-t="i8b">Advice on request</b><span data-t="i8s">Adding a new tour? Changing prices? Ask. Short answers are free and part of the plan.</span></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2 data-t="notH">What is not included</h2>
+    <ul class="plain">
+      <li><span data-t="n1">New pages, big new sections or a full redesign. Quoted first, usually small.</span></li>
+      <li><span data-t="n2">Writing a blog, running ads, or social media beyond the one Google post.</span></li>
+      <li><span data-t="n3">Photography and video.</span></li>
+      <li><span data-t="n4">Third-party costs: booking systems, paid tools, Google Ads budget, premium domains.</span></li>
+      <li><span data-t="n5">Print work such as cards and flyers. Separate quote.</span></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2 data-t="howH">How to ask for a change</h2>
+    <ol class="steps">
+      <li><b data-t="h1b">Message me on WhatsApp</b><span data-t="h1s">Text, a voice note, or a screenshot with a circle on it.</span></li>
+      <li><b data-t="h2b">I confirm and give a time</b><span data-t="h2s">Small things land the same or next business day.</span></li>
+      <li><b data-t="h3b">I send you the link when it is live</b><span data-t="h3s">Not right? Say so and I adjust.</span></li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2 data-t="monH">Money</h2>
+    <ul class="check">
+      <li><span data-t="m1">From $200 a month. Your exact amount is on your proposal and does not go up without a new agreement.</span></li>
+      <li><span data-t="m2">Pay monthly in advance, or yearly in advance for the price of 10 months. Two months free.</span></li>
+      <li><span data-t="m3">Zelle, Venmo, PayPal, SINPE Móvil or bank transfer. A receipt after every payment.</span></li>
+      <li><span data-t="m4">Due on the same day each month or year as your start date. Seven days of grace, no late fees.</span></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2 data-t="endH">Ending the plan</h2>
+    <ul class="check">
+      <li><span data-t="e1">Cancel any time with a message. Monthly: the plan ends at the end of the paid month. Yearly: unused full months are refunded at the monthly rate.</span></li>
+      <li><span data-t="e2">If you stop, your site stays yours and stays online. Hosting is free for life. Changes are then quoted per request, and the domain renewal becomes yours to pay.</span></li>
+      <li><span data-t="e3">Starting again later is fine. No setup fee.</span></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2 data-t="ownH">What is yours</h2>
+    <ul class="check">
+      <li><span data-t="o1">The website, its files, its domain, its photos and words, and your Google listing are yours, care plan or not. Ask and I hand over everything within a week.</span></li>
+      <li><span data-t="o2">A small "site by Coastal CR" line stays in the footer. Ask and I remove it.</span></li>
+    </ul>
+    <div class="note" data-t="note">Plain-language terms, not legal small print. If anything here is unclear, ask before you pay, and if we ever disagree, the answer that is fairest to you wins.</div>
+    <div class="row no-print">
+      <button type="button" class="btn" id="print" data-t="print">Save as PDF</button>
+      <a class="btn" href="https://wa.me/13213561951?text=Hi%20Tony%2C%20a%20question%20about%20the%20care%20plan." target="_blank" rel="noopener" data-t="ask" data-t-href="askHref">Ask a question on WhatsApp</a>
+    </div>
+  </section>
+
+  <p class="foot" data-t="foot"><b>Care plan terms, version 1, September 2026.</b> Coastal CR is the web design side of Infinite Discoveries LLC, Playa Hermosa, Jacó, Costa Rica. Anthony Skoczylas · WhatsApp +1 321-356-1951 · anthonyskoczylas@yahoo.com · coastalcr.com</p>
+</div>
+
+<script>
+var T = {
+  en: {
+    title: 'Care plan terms · Coastal CR', kicker: 'Coastal CR · Care plan', h1: 'The care plan, <em>in plain language.</em>',
+    lead: 'You run the business. I keep the website fresh, safe and online. You message me instead of learning to edit a website. From $200 a month; your exact amount is on your proposal.',
+    f1b: '2 h', f1s: 'of changes every month', f2b: '24 h', f2s: 'turnaround on business days, same day if urgent', f3b: 'Any time', f3s: 'cancel with one message',
+    incH: 'What is included',
+    i1b: 'Hosting and security', i1s: 'Your site lives on fast, free hosting with a secure address. Nothing to update or patch, and I keep a full backup of every version.',
+    i2b: 'Domain renewal', i2s: 'I renew your domain every year and keep it in your name. Standard domains, about $20 a year, are included. Unusual ones are billed at cost.',
+    i3b: 'Changes, up to 2 hours a month', i3s: 'Prices, hours, photos, wording, a seasonal promo, a new review, a menu update. Send it, it gets done. Hours do not roll over. Anything bigger is quoted first.',
+    i4b: 'Turnaround', i4s: 'Most changes within 24 hours on business days. A wrong price or a site that is down gets fixed the same day, any day.',
+    i5b: 'Uptime watch', i5s: 'An automatic check pings your site around the clock. If it ever goes down, I know before you do.',
+    i6b: 'One Google Business post a month', i6s: 'A photo and a few lines on your Google map listing, which keeps the listing active. Send me something, or I pick from the site.',
+    i7b: 'A yearly refresh', i7s: 'Once a year we look at photos, wording and speed together and freshen what has aged.',
+    i8b: 'Advice on request', i8s: 'Adding a new tour? Changing prices? Ask. Short answers are free and part of the plan.',
+    notH: 'What is not included',
+    n1: 'New pages, big new sections or a full redesign. Quoted first, usually small.', n2: 'Writing a blog, running ads, or social media beyond the one Google post.', n3: 'Photography and video.', n4: 'Third-party costs: booking systems, paid tools, Google Ads budget, premium domains.', n5: 'Print work such as cards and flyers. Separate quote.',
+    howH: 'How to ask for a change',
+    h1b: 'Message me on WhatsApp', h1s: 'Text, a voice note, or a screenshot with a circle on it.', h2b: 'I confirm and give a time', h2s: 'Small things land the same or next business day.', h3b: 'I send you the link when it is live', h3s: 'Not right? Say so and I adjust.',
+    monH: 'Money',
+    m1: 'From $200 a month. Your exact amount is on your proposal and does not go up without a new agreement.', m2: 'Pay monthly in advance, or yearly in advance for the price of 10 months. Two months free.', m3: 'Zelle, Venmo, PayPal, SINPE Móvil or bank transfer. A receipt after every payment.', m4: 'Due on the same day each month or year as your start date. Seven days of grace, no late fees.',
+    endH: 'Ending the plan',
+    e1: 'Cancel any time with a message. Monthly: the plan ends at the end of the paid month. Yearly: unused full months are refunded at the monthly rate.', e2: 'If you stop, your site stays yours and stays online. Hosting is free for life. Changes are then quoted per request, and the domain renewal becomes yours to pay.', e3: 'Starting again later is fine. No setup fee.',
+    ownH: 'What is yours',
+    o1: 'The website, its files, its domain, its photos and words, and your Google listing are yours, care plan or not. Ask and I hand over everything within a week.', o2: 'A small "site by Coastal CR" line stays in the footer. Ask and I remove it.',
+    note: 'Plain-language terms, not legal small print. If anything here is unclear, ask before you pay, and if we ever disagree, the answer that is fairest to you wins.',
+    print: 'Save as PDF', ask: 'Ask a question on WhatsApp', askHref: 'https://wa.me/13213561951?text=' + encodeURIComponent('Hi Tony, a question about the care plan.'),
+    foot: '<b>Care plan terms, version 1, September 2026.</b> Coastal CR is the web design side of Infinite Discoveries LLC, Playa Hermosa, Jacó, Costa Rica. Anthony Skoczylas · WhatsApp +1 321-356-1951 · anthonyskoczylas@yahoo.com · coastalcr.com'
+  },
+  es: {
+    title: 'Condiciones del plan de mantenimiento · Coastal CR', kicker: 'Coastal CR · Plan de mantenimiento', h1: 'El plan de mantenimiento, <em>en palabras simples.</em>',
+    lead: 'Usted maneja el negocio. Yo mantengo el sitio al día, seguro y en línea. Usted me escribe en vez de aprender a editar un sitio web. Desde $200 al mes; su monto exacto está en su propuesta.',
+    f1b: '2 h', f1s: 'de cambios cada mes', f2b: '24 h', f2s: 'de respuesta en días hábiles, el mismo día si es urgente', f3b: 'Cuando quiera', f3s: 'cancela con un mensaje',
+    incH: 'Qué incluye',
+    i1b: 'Hosting y seguridad', i1s: 'Su sitio vive en un hosting rápido y gratis, con dirección segura. Nada que actualizar ni parchar, y guardo un respaldo completo de cada versión.',
+    i2b: 'Renovación del dominio', i2s: 'Renuevo su dominio cada año y lo mantengo a su nombre. Los dominios normales, unos $20 al año, están incluidos. Los poco comunes se cobran al costo.',
+    i3b: 'Cambios, hasta 2 horas al mes', i3s: 'Precios, horarios, fotos, textos, una promoción de temporada, una reseña nueva, un cambio de menú. Lo manda y se hace. Las horas no se acumulan. Algo más grande se cotiza primero.',
+    i4b: 'Tiempo de respuesta', i4s: 'La mayoría de los cambios en menos de 24 horas en días hábiles. Un precio equivocado o un sitio caído se arregla el mismo día, cualquier día.',
+    i5b: 'Vigilancia del sitio', i5s: 'Un chequeo automático revisa su sitio las 24 horas. Si alguna vez se cae, me entero antes que usted.',
+    i6b: 'Una publicación al mes en Google', i6s: 'Una foto y unas líneas en su ficha del mapa de Google, que mantiene la ficha activa. Me manda algo, o yo escojo del sitio.',
+    i7b: 'Una renovación al año', i7s: 'Una vez al año revisamos juntos fotos, textos y velocidad, y refrescamos lo que envejeció.',
+    i8b: 'Consejo cuando lo necesite', i8s: '¿Va a agregar un tour? ¿Cambiar precios? Pregunte. Las respuestas cortas son gratis y parte del plan.',
+    notH: 'Qué no incluye',
+    n1: 'Páginas nuevas, secciones grandes nuevas o un rediseño completo. Se cotiza primero, casi siempre poco.', n2: 'Escribir un blog, manejar anuncios, o redes sociales más allá de la publicación en Google.', n3: 'Fotografía y video.', n4: 'Costos de terceros: sistemas de reservas, herramientas pagas, presupuesto de Google Ads, dominios premium.', n5: 'Impresos como tarjetas y volantes. Cotización aparte.',
+    howH: 'Cómo pedir un cambio',
+    h1b: 'Me escribe por WhatsApp', h1s: 'Texto, nota de voz, o una captura con un círculo.', h2b: 'Confirmo y le doy un tiempo', h2s: 'Lo pequeño queda el mismo día o el siguiente día hábil.', h3b: 'Le mando el enlace cuando está en línea', h3s: '¿No quedó bien? Me dice y lo ajusto.',
+    monH: 'Dinero',
+    m1: 'Desde $200 al mes. Su monto exacto está en su propuesta y no sube sin un acuerdo nuevo.', m2: 'Pago mensual por adelantado, o anual por adelantado por el precio de 10 meses. Dos meses gratis.', m3: 'Zelle, Venmo, PayPal, SINPE Móvil o transferencia bancaria. Comprobante después de cada pago.', m4: 'Vence el mismo día de cada mes o año que la fecha de inicio. Siete días de gracia, sin recargos.',
+    endH: 'Terminar el plan',
+    e1: 'Cancele cuando quiera con un mensaje. Mensual: el plan termina al final del mes pagado. Anual: los meses completos no usados se devuelven al precio mensual.', e2: 'Si deja el plan, su sitio sigue siendo suyo y sigue en línea. El hosting es gratis de por vida. Los cambios se cotizan por solicitud, y la renovación del dominio pasa a ser suya.', e3: 'Volver a empezar después no tiene problema. Sin costo de inicio.',
+    ownH: 'Qué es suyo',
+    o1: 'El sitio, sus archivos, su dominio, sus fotos y textos, y su ficha de Google son suyos, con o sin plan. Me lo pide y le entrego todo en una semana.', o2: 'Una línea pequeña de "sitio por Coastal CR" queda en el pie de página. Me lo pide y la quito.',
+    note: 'Condiciones en palabras simples, no letra pequeña legal. Si algo no está claro, pregunte antes de pagar, y si algún día no estamos de acuerdo, gana la respuesta más justa para usted.',
+    print: 'Guardar como PDF', ask: 'Preguntar por WhatsApp', askHref: 'https://wa.me/13213561951?text=' + encodeURIComponent('Hola Tony, tengo una pregunta sobre el plan de mantenimiento.'),
+    foot: '<b>Condiciones del plan de mantenimiento, versión 1, setiembre de 2026.</b> Coastal CR es la parte de diseño web de Infinite Discoveries LLC, Playa Hermosa, Jacó, Costa Rica. Anthony Skoczylas · WhatsApp +1 321-356-1951 · anthonyskoczylas@yahoo.com · coastalcr.com'
+  }
+};
+function setLang(l){
+  document.documentElement.lang = l; document.title = T[l].title;
+  document.querySelectorAll('[data-lang]').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.lang === l)); });
+  document.querySelectorAll('[data-t]').forEach(function(el){ var v = T[l][el.dataset.t]; if (v != null) el.innerHTML = v; });
+  document.querySelectorAll('[data-t-href]').forEach(function(el){ var v = T[l][el.dataset.tHref]; if (v) el.href = v; });
+  try { localStorage.setItem('ccr-lang', l); } catch (e) {}
+}
+document.querySelectorAll('[data-lang]').forEach(function(b){ b.addEventListener('click', function(){ setLang(b.dataset.lang); }); });
+document.getElementById('print').addEventListener('click', function(){ window.print(); });
+var q = new URLSearchParams(location.search).get('lang'), saved = null;
+try { saved = localStorage.getItem('ccr-lang'); } catch (e) {}
+var start = (q === 'es' || q === 'en') ? q : (saved === 'es' ? 'es' : 'en');
+if (start !== 'en') setLang(start);
+</script>
+</body>
+</html>
