@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-t="title">Propuesta de sitio web para Blue Palm Hotel · Coastal CR</title>
+<meta name="description" content="Propuesta de sitio web para Blue Palm Hotel · Coastal CR">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#eef4f8;--paper-2:#e4edf3;--white:#fff;--ink:#0b1c28;--ink-soft:#425663;--line:#c7dae6;--accent:#0e6f90;--accent-soft:#1390b4;--sand:#d2a55f;--ok:#1f7a4d;--radius:16px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:Fraunces,Georgia,serif;font-weight:500;line-height:1.1;margin:0 0 .4em;letter-spacing:-.01em}
+h1{font-size:clamp(38px,5.4vw,66px)}
+h2{font-size:clamp(28px,3.4vw,40px)}
+h3{font-size:22px}
+h4{font-size:18px;font-family:Inter,sans-serif;font-weight:600}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+em{font-style:italic;color:var(--accent)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+.kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:12px}
+section{padding:72px 0}
+section+section{border-top:1px solid var(--line)}
+.muted{color:var(--ink-soft)}
+.small{font-size:14px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:600;text-decoration:none;font-size:15px;border:1.5px solid var(--accent);transition:transform .15s,background .15s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-soft);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--accent)}
+.btn-ghost:hover{background:#fff}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:16px}
+.bar img{height:44px}
+.bar .right{display:flex;align-items:center;gap:16px}
+.bar .meta{font-size:13px;color:var(--ink-soft);text-align:right}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:#fff;flex:none}
+.lang button{appearance:none;border:0;background:transparent;font:inherit;font-size:13px;font-weight:600;padding:8px 14px;color:var(--ink-soft);cursor:pointer;min-height:38px}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.cover{padding:48px 0 64px}
+.cover .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.cover .lead{font-size:20px;color:var(--ink-soft);max-width:34ch}
+.shot{border-radius:var(--radius);overflow:hidden;box-shadow:0 30px 60px -30px rgba(11,28,40,.45),0 0 0 1px var(--line);background:#fff}
+.shot img{display:block;width:100%;height:auto}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.fact b{display:block;font-family:Fraunces,serif;font-size:30px;font-weight:500;line-height:1}
+.fact span{font-size:13px;color:var(--ink-soft)}
+.summary{background:var(--ink);color:#fff;border-radius:var(--radius);padding:40px;display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+.summary h2{color:#fff}
+.summary p{color:#c9d8e2}
+.summary .price{font-family:Fraunces,serif;font-size:64px;line-height:1;font-weight:500;color:var(--sand)}
+.summary .price small{display:block;font-family:Inter,sans-serif;font-size:14px;color:#c9d8e2;margin-top:8px}
+.ledger{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px}
+.item{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 24px}
+.item h4{margin-bottom:6px}
+.item p{margin:0;color:var(--ink-soft);font-size:15px}
+.item .n{display:inline-block;font-family:Fraunces,serif;color:var(--accent);font-size:13px;letter-spacing:.08em;margin-bottom:8px}
+.shots2{display:grid;grid-template-columns:1fr 340px;gap:18px;margin-top:36px;align-items:start}
+.cap{font-size:13px;color:var(--ink-soft);margin-top:8px}
+.check{list-style:none;padding:0;margin:24px 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 28px}
+.check li{position:relative;padding-left:30px;font-size:15.5px}
+.check li::before{content:"";position:absolute;left:0;top:6px;width:18px;height:18px;border-radius:50%;background:var(--ok)}
+.check li::after{content:"";position:absolute;left:5px;top:10px;width:8px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg)}
+.check b{display:block}
+.check span{color:var(--ink-soft)}
+.note{background:#fff;border-left:4px solid var(--sand);border-radius:0 12px 12px 0;padding:18px 22px;margin-top:28px;font-size:15px}
+.tiers{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+.tiers.one{grid-template-columns:minmax(0,560px)}
+.tier{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.tier.you{border:2px solid var(--accent);position:relative}
+.tier .tag{position:absolute;top:-13px;left:24px;background:var(--accent);color:#fff;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:4px 12px;border-radius:999px}
+.tier .p{font-family:Fraunces,serif;font-size:44px;font-weight:500;line-height:1;margin:10px 0 4px}
+.tier .p small{font-family:Inter,sans-serif;font-size:14px;color:var(--ink-soft);display:block;margin-top:6px;font-weight:400}
+.tier ul{padding-left:18px;margin:16px 0 0;color:var(--ink-soft);font-size:15px}
+.tier li{margin:6px 0}
+.tier .tot{border-top:1px solid var(--line);margin-top:18px;padding-top:14px;font-size:14px;color:var(--ink-soft)}
+.tier .tot b{color:var(--ink);font-size:18px;font-family:Fraunces,serif;font-weight:500}
+.tier .skip{font-size:13px;color:var(--ink-soft);margin:12px 0 0}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px}
+.step::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:Fraunces,serif;color:var(--accent);font-size:14px;letter-spacing:.1em;display:block;margin-bottom:8px}
+.step h4{margin-bottom:6px}
+.step p{margin:0;font-size:14.5px;color:var(--ink-soft);overflow-wrap:anywhere}
+.step .who{display:inline-block;margin-top:10px;font-size:12px;padding:3px 10px;border-radius:999px;background:var(--paper-2);color:var(--ink-soft)}
+.pay{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.pm{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px}
+.pm h4{margin-bottom:4px}
+.pm .v{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;background:var(--paper);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:8px 10px;display:inline-block;margin-top:8px;cursor:pointer}
+.pm .v:hover{background:#fff}
+.pm p{font-size:14px;color:var(--ink-soft);margin:6px 0 0}
+.accept{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px;display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+.sig{border-top:1px solid var(--line);padding-top:16px;margin-top:22px;font-size:14px;color:var(--ink-soft)}
+.sig b{color:var(--ink);display:block;font-size:16px}
+footer{padding:36px 0 60px;font-size:13px;color:var(--ink-soft)}
+@media (max-width:820px){
+  .cover .grid,.summary,.ledger,.shots2,.check,.tiers,.tiers.one,.steps,.pay,.accept{grid-template-columns:1fr}
+  .shots2>div:last-child{max-width:340px}
+  .facts{grid-template-columns:1fr 1fr}
+  .summary{padding:28px}
+  .summary .price{font-size:52px}
+  section{padding:52px 0}
+  .bar .meta{display:none}
+}
+@media print{
+  body{background:#fff;font-size:13px}
+  section{padding:28px 0;break-inside:avoid}
+  .btn,.no-print,.lang{display:none!important}
+  .shot{box-shadow:none}
+  .summary{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="bar">
+    <a href="https://coastalcr.com"><img src="img/coastalcr.png" alt="Coastal CR"></a>
+    <div class="right">
+      <div class="meta" data-t="meta">Propuesta CCR-2026-0917-BLU<br>Preparada el 17 de septiembre de 2026</div>
+      <div class="lang no-print" role="group" aria-label="Language / Idioma">
+        <button type="button" data-lang="en" aria-pressed="false">English</button>
+        <button type="button" data-lang="es" aria-pressed="true">Español</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="cover">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="kicker" data-t="kicker">Propuesta de sitio web · Blue Palm Hotel</div>
+        <h1 data-t="h1">Su nuevo sitio web ya está hecho. <em>Esto es lo que hace y lo que cuesta.</em></h1>
+        <p class="lead" data-t="lead">Preparada para Blue Palm Hotel por Anthony Skoczylas, Coastal CR. El sitio ya está en línea en una dirección de prueba, así que puede revisarlo completo antes de decidir. Cualquier cosa que quiera diferente, la cambio, normalmente en horas.</p>
+        <div class="row">
+          <a class="btn btn-primary" href="https://anthonyskoczylas.github.io/jaco-demos/bluepalms/" target="_blank" rel="noopener" data-t="btnPreview">Ver el sitio de prueba</a>
+          <a class="btn btn-ghost" href="#price" data-t="btnPrice">Ir al precio</a>
+        </div>
+      </div>
+      <div class="shot"><img src="img/home.jpg?v=mu5q9s6v" alt="Blue Palm Hotel new homepage"></div>
+    </div>
+    <div class="facts">
+      <div class="fact"><b data-t="facts0_0">1</b><span data-t="facts0_1">página con todo lo que un huésped necesita</span></div>
+      <div class="fact"><b data-t="facts1_0">2</b><span data-t="facts1_1">idiomas, español e inglés</span></div>
+      <div class="fact"><b data-t="facts2_0">$0</b><span data-t="facts2_1">al mes de hosting, para siempre</span></div>
+      <div class="fact"><b data-t="facts3_0">7</b><span data-t="facts3_1">días para publicar después de sus fotos</span></div>
+      <div class="fact"><b data-t="facts4_0">100%</b><span data-t="facts4_1">suyo, sin contrato</span></div>
+      <div class="fact"><b data-t="facts5_0">24/7</b><span data-t="facts5_1">botón de WhatsApp en toda la página</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="summary">
+      <div>
+        <div class="kicker" style="color:var(--sand)" data-t="sumKicker">En resumen</div>
+        <h2 data-t="sumH2">Un solo pago. Es suyo.</h2>
+        <p data-t="sumP1">Una página que hace un solo trabajo: el huésped llega desde Google o WhatsApp, ve el lugar, ve el precio y le escribe. Sin comisión para nadie.</p>
+        <p data-t="sumP2">Un solo pago por la construcción. El hosting es gratis de por vida. El plan de mantenimiento de abajo es opcional y mantiene todo al día por un monto mensual pequeño.</p>
+      </div>
+      <div>
+        <div class="price"><span data-t="priceBig">$500</span><small data-t="priceSmall">una vez · suyo de por vida · hosting $0</small></div>
+      </div>
+    </div>
+    <div class="note" style="border-left-color:var(--accent)" data-t="note1"><b>Nada de esto es definitivo.</b> Cada palabra, foto, precio, color, sección y botón se puede cambiar, y lo cambio sin problema. Mándeme una lista, una nota de voz o una captura con un círculo.</div>
+    <div class="note" data-t="note2"><b>Esta prueba se hizo sin sus fotos.</b> Es lo más básico. Con sus fotos reales se ve mucho mejor, y abajo hay un enlace de diez minutos para mandarlas desde el celular.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker" data-t="getKicker">Lo que recibe</div>
+    <h2 data-t="getH2">Por qué vale la pena.</h2>
+    <p class="muted" style="max-width:60ch" data-t="getP">Todo lo de abajo ya está construido y funcionando en el sitio de prueba.</p>
+    <div class="ledger">
+      <div class="item"><span class="n">01</span><h4 data-t="ledger0_0">Una página que vende el lugar</h4><p data-t="ledger0_1">Foto principal, lo que ofrece, precios, reseñas, mapa y contacto. Todo lo que un huésped necesita para decidir.</p></div>
+      <div class="item"><span class="n">02</span><h4 data-t="ledger1_0">Botón de WhatsApp en toda la página</h4><p data-t="ledger1_1">El huésped le escribe directo a usted. Sin comisión, sin intermediarios.</p></div>
+      <div class="item"><span class="n">03</span><h4 data-t="ledger2_0">Español e inglés</h4><p data-t="ledger2_1">Un toque cambia toda la página de idioma.</p></div>
+      <div class="item"><span class="n">04</span><h4 data-t="ledger3_0">Hecho primero para celular</h4><p data-t="ledger3_1">La mayoría de los huéspedes lo verán desde un teléfono.</p></div>
+      <div class="item"><span class="n">05</span><h4 data-t="ledger4_0">Sus reseñas reales, al frente</h4><p data-t="ledger4_1">Comentarios de Google o TripAdvisor, con sus estrellas.</p></div>
+      <div class="item"><span class="n">06</span><h4 data-t="ledger5_0">Perfil de Google Business configurado</h4><p data-t="ledger5_1">La ficha del mapa, lo primero que sale en una búsqueda desde el celular. Incluido.</p></div>
+      <div class="item"><span class="n">07</span><h4 data-t="ledger6_0">Nada que se rompa, nada que renovar</h4><p data-t="ledger6_1">Sin WordPress, sin plugins, sin cobro de hosting. Archivos simples y rápidos.</p></div>
+      <div class="item"><span class="n">08</span><h4 data-t="ledger7_0">Sus fotos, sus palabras</h4><p data-t="ledger7_1">Las manda por un enlace de diez minutos y yo las coloco.</p></div>
+    </div>
+    <div class="shots2">
+      <div><div class="shot"><img src="img/section.jpg?v=mu5q9s6v" alt="Blue Palm Hotel site, scrolled"></div><div class="cap" data-t="cap1">El sitio como lo ve un huésped al bajar.</div></div>
+      <div><div class="shot"><img src="img/mobile.jpg?v=mu5q9s6v" alt="Blue Palm Hotel site on a phone"></div><div class="cap" data-t="cap2">El mismo sitio en un celular, donde lo verá la mayoría.</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker" data-t="seoKicker">Cómo lo encuentran</div>
+    <h2 data-t="seoH2">Hecho para aparecer en Google.</h2>
+    <p class="muted" style="max-width:62ch" data-t="seoP">Google clasifica páginas, no sitios. Esto es lo que ya está listo, en palabras simples.</p>
+    <ul class="check">
+      <li><b data-t="check0_0">Títulos y descripciones en cada página</b><span data-t="check0_1">Cada página le dice a Google qué es y qué va a encontrar quien busca. Ese es el texto que sale en los resultados.</span></li>
+      <li><b data-t="check1_0">Datos estructurados que Google lee</b><span data-t="check1_1">Su negocio, dirección, horario, teléfono y estrellas escritos en el formato de Google. Así aparecen las estrellas en el resultado.</span></li>
+      <li><b data-t="check2_0">Mapa del sitio y archivo robots</b><span data-t="check2_1">Un mapa de todas las páginas entregado a Google directamente.</span></li>
+      <li><b data-t="check3_0">Carga rápida</b><span data-t="check3_1">La velocidad cuenta para el ranking. Fotos comprimidas, sin plataforma pesada por debajo.</span></li>
+      <li><b data-t="check4_0">Diseño para celular primero</b><span data-t="check4_1">Google califica su sitio por la versión de celular.</span></li>
+      <li><b data-t="check5_0">Dirección segura (https)</b><span data-t="check5_1">El candado en el navegador. Google lo prefiere y los huéspedes confían.</span></li>
+      <li><b data-t="check6_0">Descripción en cada foto</b><span data-t="check6_1">Google no ve imágenes. Cada foto tiene un texto, que además lo mete en Google Imágenes.</span></li>
+      <li><b data-t="check7_0">Se comparte bien por WhatsApp y Facebook</b><span data-t="check7_1">Cuando alguien comparte el enlace, sale su foto y su nombre, no un enlace roto.</span></li>
+      <li><b data-t="check8_0">Perfil de Google Business configurado y pulido</b><span data-t="check8_1">La ficha con reseñas, fotos y horario. Lo hago yo, incluido.</span></li>
+      <li><b data-t="check9_0">Google Search Console conectado</b><span data-t="check9_1">El panel gratis que muestra qué búsquedas traen gente. Lo configuro y le paso el acceso.</span></li>
+    </ul>
+    <div class="note" data-t="seoNote"><b>Nota honesta.</b> Nadie puede prometer el primer lugar, y quien lo promete le está vendiendo algo. Lo que sí puedo prometer es que este sitio le da a Google todo lo que pide, más que la mayoría de sitios locales, y que su perfil de Google Business quedará bien configurado, que es donde empiezan casi todas las reservas locales.</div>
+  </div>
+</section>
+
+<section id="price">
+  <div class="wrap">
+    <div class="kicker" data-t="priceKicker">Inversión</div>
+    <h2 data-t="priceH2">Lo que cuesta.</h2>
+    <div class="tiers">
+      <div class="tier you">
+        <span class="tag" data-t="youTag">Para Blue Palm Hotel</span>
+        <h3 data-t="youH3">Sitio de una página</h3>
+        <div class="p"><span data-t="youP">$500</span><small data-t="youSmall">una vez, y ya</small></div>
+        <ul>
+          <li data-t="youBullets0">Todo lo de arriba, construido y en línea 7 días después de sus fotos</li>
+          <li data-t="youBullets1">Publicado en su propio dominio (unos $15 al año, a su nombre)</li>
+          <li data-t="youBullets2">WhatsApp e Instagram conectados</li>
+          <li data-t="youBullets3">Perfil de Google Business y Search Console configurados</li>
+          <li data-t="youBullets4">Cambios ilimitados hasta la publicación y 30 días después</li>
+          <li data-t="youBullets5">Hosting gratis de por vida: sin cobro mensual mío ni de nadie</li>
+        </ul>
+        <div class="tot" data-t="youTot">Total, una vez <b>$500</b></div>
+      </div>
+      <div class="tier">
+        <h3 data-t="careH3">Plan de mantenimiento, recomendado</h3>
+        <div class="p"><span data-t="careP">$200</span><small data-t="careSmall">al mes, cancele cuando quiera</small></div>
+        <ul>
+          <li data-t="careBullets0">Hosting, dominio y seguridad a mi cargo</li>
+          <li data-t="careBullets1">Cambios cuando los necesite: precios, fotos, temporadas, promociones</li>
+          <li data-t="careBullets2">Una publicación al mes en su perfil de Google</li>
+          <li data-t="careBullets3">Vigilancia del sitio, me entero antes que usted si se cae</li>
+          <li data-t="careBullets4">Una renovación al año</li>
+        </ul>
+        <div class="tot" data-t="careTot">Pago anual <b>$2,000</b> · dos meses gratis</div>
+        <p class="skip" data-t="careSkip">Opcional. Si no lo toma, el sitio sigue siendo suyo y sigue en línea. Los cambios después de los primeros 30 días se cotizan por solicitud.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker" data-t="nextKicker">Qué sigue</div>
+    <h2 data-t="nextH2">En línea una semana después de sus fotos.</h2>
+    <div class="steps">
+      <div class="step"><h4 data-t="steps0_0">Revise el sitio de prueba</h4><p data-t="steps0_1">Mándeme cualquier cosa que quiera cambiar: un texto, un precio, una foto, una sección entera. La mayoría queda lista en horas.</p><span class="who" data-t="steps0_2">Usted</span></div>
+      <div class="step"><h4 data-t="steps1_0">Diga que sí y pague</h4><p data-t="steps1_1">Con el botón de aceptar de abajo y la opción de pago que le quede mejor.</p><span class="who" data-t="steps1_2">Usted</span></div>
+      <div class="step"><h4 data-t="steps2_0">Mande sus fotos e información</h4><p data-t="steps2_1">Diez minutos desde el celular con este enlace: <a href="https://coastalcr.com/intake/?c=bluepalm&lang=es">coastalcr.com/intake/?c=bluepalm</a>. Horarios, precios, reseñas y sus fotos.</p><span class="who" data-t="steps2_2">Usted</span></div>
+      <div class="step"><h4 data-t="steps3_0">Elegir el dominio</h4><p data-t="steps3_1">Lo escogemos juntos (unos $15 al año, a su nombre) y lo conecto.</p><span class="who" data-t="steps3_2">Juntos</span></div>
+      <div class="step"><h4 data-t="steps4_0">Configuración de Google</h4><p data-t="steps4_1">Perfil de Google Business pulido, mapa del sitio enviado, Search Console entregado.</p><span class="who" data-t="steps4_2">Yo</span></div>
+      <div class="step"><h4 data-t="steps5_0">Publicación</h4><p data-t="steps5_1">El sitio queda en línea. Sigo disponible para cualquier cambio.</p><span class="who" data-t="steps5_2">Yo</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="pay">
+  <div class="wrap">
+    <div class="kicker" data-t="payKicker">Pago</div>
+    <h2 data-t="payH2">Pague como le quede más fácil.</h2>
+    <p class="muted" data-t="payP">El pago va a Infinite Discoveries LLC (Coastal CR es la parte de diseño web de la empresa). Recibe un comprobante por cada pago.</p>
+    <div class="pay">
+      <div class="pm"><h4>Zelle</h4><p data-t="zelleP">Desde cualquier app de banco de EE. UU. Sin comisión.</p><button class="v" data-copy="3213561951" type="button">+1 321-356-1951</button><p data-t="memo">Concepto: sitio web Blue Palm Hotel</p></div>
+      <div class="pm"><h4>Venmo</h4><p data-t="venmoP">Sin comisión, al instante.</p><button class="v" data-copy="@tonyskoo" type="button">@tonyskoo</button><p data-t="memo">Concepto: sitio web Blue Palm Hotel</p></div>
+      <div class="pm"><h4>PayPal</h4><p data-t="paypalP">Tarjeta o saldo de PayPal. Funciona desde cualquier país.</p><a class="btn btn-primary" style="margin-top:10px" href="https://paypal.me/tonyskoczylas/500USD" target="_blank" rel="noopener" data-t="paypalBtn">Pagar $500 por PayPal</a><p>paypal.me/tonyskoczylas</p></div>
+    </div>
+    <p class="small muted" style="margin-top:16px" data-t="payNote">También transferencia bancaria o SINPE Móvil, pídame los datos. Toque el usuario de Zelle o Venmo para copiarlo.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="accept">
+      <div>
+        <div class="kicker" data-t="accKicker">Cuando guste</div>
+        <h2 data-t="accH2">Aceptar la propuesta.</h2>
+        <p class="muted" data-t="accP">Un toque me manda un correo diciendo que sí. O responda por WhatsApp. Cualquiera de los dos sirve.</p>
+        <div class="row no-print">
+          <a class="btn btn-primary" href="mailto:anthonyskoczylas@yahoo.com?subject=Sitio%20web%20Blue%20Palm%20Hotel%20%E2%80%94%20aceptado&body=Hola%20Tony%2C%0A%0AAcepto%20la%20propuesta%20del%20sitio%20web%20de%20Blue%20Palm%20Hotel%20(CCR-2026-0917-BLU)%20por%20%24500%20una%20vez%20(plan%20de%20mantenimiento%3A%20s%C3%AD%20%2F%20no).%0A%0ANombre%3A%0A%0AGracias" data-t="accMail" data-t-href="mailHref">Aceptar por correo</a>
+          <a class="btn btn-ghost" href="https://wa.me/13213561951?text=Hola%20Tony%2C%20acepto%20la%20propuesta%20del%20sitio%20web%20de%20Blue%20Palm%20Hotel." target="_blank" rel="noopener" data-t="accWa" data-t-href="waHref">Aceptar por WhatsApp</a>
+        </div>
+        <div class="sig"><b>Anthony Skoczylas</b><span data-t="sig">Coastal CR · Infinite Discoveries LLC · Playa Hermosa, Jacó, Costa Rica<br><a href="mailto:anthonyskoczylas@yahoo.com">anthonyskoczylas@yahoo.com</a> · <a href="https://wa.me/13213561951">+1 321-356-1951</a> · <a href="https://coastalcr.com">coastalcr.com</a></span></div>
+      </div>
+      <div class="shot"><img src="img/home.jpg?v=mu5q9s6v" alt="Blue Palm Hotel homepage preview"></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap" data-t="footer">Propuesta CCR-2026-0917-BLU · Preparada el 17 de septiembre de 2026 para Blue Palm Hotel, Blue Palm Hotel · Precios en dólares (USD).</div></footer>
+
+<script>
+var T = {"en":{"title":"Website proposal for Blue Palm Hotel · Coastal CR","meta":"Proposal CCR-2026-0917-BLU<br>Prepared September 17, 2026","kicker":"Website proposal · Blue Palm Hotel","h1":"Your new website is built. <em>Here is what it does and what it costs.</em>","lead":"Prepared for Blue Palm Hotel by Anthony Skoczylas, Coastal CR. The site is already live on a preview address, so you can click through everything before you decide. Anything you want different, I change it, usually within hours.","btnPreview":"Open the live preview","btnPrice":"Jump to the price","facts0_0":"1","facts0_1":"page with everything a guest needs","facts1_0":"2","facts1_1":"languages, English and Spanish","facts2_0":"$0","facts2_1":"per month to host, forever","facts3_0":"7","facts3_1":"days to launch after your photos","facts4_0":"100%","facts4_1":"yours, no contract","facts5_0":"24/7","facts5_1":"WhatsApp button on every screen","sumKicker":"The short version","sumH2":"One payment. You own it.","sumP1":"A one-page site that does one job: a guest lands on it from Google or WhatsApp, sees the place, sees the price, and messages you. No commission to anyone.","sumP2":"One payment for the build. Hosting is free for life. The care plan below is optional and keeps everything fresh for a small monthly amount.","priceBig":"$500","priceSmall":"one time · yours for life · $0 hosting","note1":"<b>Nothing here is final.</b> Every word, photo, price, colour, section and button can be changed, and I will change it, no problem. Send a list, a voice note or a screenshot with a circle on it.","note2":"<b>This preview was built without your photos.</b> It is the bare bones. With your real photos it looks far better, and there is a ten-minute link below to send them from your phone.","getKicker":"What you are getting","getH2":"Every reason this is a good buy.","getP":"Every piece below is already built and working on the preview.","ledger0_0":"A page that sells the place","ledger0_1":"Hero photo, what you offer, prices, reviews, map and contact. Everything a guest needs to decide.","ledger1_0":"WhatsApp button on every screen","ledger1_1":"Guests message you directly. No commission, no middleman.","ledger2_0":"English and Spanish","ledger2_1":"One tap switches the whole page.","ledger3_0":"Built for phones first","ledger3_1":"Most guests will look at this from a phone.","ledger4_0":"Your real reviews, front and center","ledger4_1":"Google or TripAdvisor quotes, with the stars.","ledger5_0":"Google Business Profile set up","ledger5_1":"The map listing, the first thing that shows on a phone search. Included.","ledger6_0":"Nothing to break, nothing to renew","ledger6_1":"No WordPress, no plugins, no hosting bill. Plain, fast files.","ledger7_0":"Your photos, your words","ledger7_1":"Send them through a ten-minute link and I place them.","cap1":"The site as a guest scrolls it.","cap2":"The same site on a phone, where most guests will see it.","seoKicker":"Getting found","seoH2":"Built to show up on Google.","seoP":"Google ranks pages, not websites. Here is what is already in place, in plain language.","check0_0":"Titles and descriptions on every page","check0_1":"Each page tells Google exactly what it is and what a searcher will get. That is the text that shows up in the results list.","check1_0":"Structured data Google can read","check1_1":"Your business, address, hours, phone and star rating written in Google's own format. This is what lets stars appear right in the result.","check2_0":"Sitemap and robots file","check2_1":"A map of every page handed to Google directly.","check3_0":"Fast loading","check3_1":"Speed is a ranking factor. Photos compressed, no bloated platform underneath.","check4_0":"Phone-first layout","check4_1":"Google judges your site by its phone version.","check5_0":"Secure address (https)","check5_1":"The padlock in the browser. Google prefers it and guests trust it.","check6_0":"Descriptions on every photo","check6_1":"Google cannot see pictures. Each photo has a written description, which also puts you in Google Images.","check7_0":"Clean sharing on WhatsApp and Facebook","check7_1":"When someone shares the link, it shows your photo and name, not a broken link.","check8_0":"Google Business Profile, set up and polished","check8_1":"The map listing with reviews, photos and hours. Included, I do it for you.","check9_0":"Google Search Console connected","check9_1":"The free dashboard that shows which searches bring people in. I set it up and hand you the login.","seoNote":"<b>Honest note.</b> Nobody can promise a number one spot, and anyone who does is selling you something. What I can promise is that this site gives Google everything it asks for, which is more than most local sites do, and that your Google Business Profile will be set up properly, which is where most local bookings start.","priceKicker":"Investment","priceH2":"What it costs.","youTag":"For Blue Palm Hotel","youH3":"One-page site","youP":"$500","youSmall":"once, that is it","youBullets0":"Everything above, built and live within 7 days of your photos","youBullets1":"Go-live on your own domain (about $15 a year, in your name)","youBullets2":"WhatsApp and Instagram connected","youBullets3":"Google Business Profile and Search Console set up","youBullets4":"Unlimited changes until launch, plus 30 days after","youBullets5":"Hosting free for life: no monthly bill from me or anyone","youTot":"Total, once <b>$500</b>","careH3":"Care plan, recommended","careP":"$200","careSmall":"per month, cancel any time","careBullets0":"Hosting, domain renewal and security handled","careBullets1":"Changes whenever you need them: prices, photos, seasons, promotions","careBullets2":"One Google Business post a month","careBullets3":"Uptime watch, I know before you do if it goes down","careBullets4":"One refresh a year","careTot":"Pay yearly <b>$2,000</b> · two months free","careSkip":"Optional. Skip it and the site is still yours and stays online. Changes after the first 30 days are then quoted per request.","nextKicker":"What happens next","nextH2":"Live within a week of your photos.","steps0_0":"Click through the preview","steps0_1":"Send me anything you want changed: wording, a price, a photo, a whole section. Most changes land within hours.","steps0_2":"You","steps1_0":"Say yes and send payment","steps1_1":"Use the accept button below and any payment option that suits you.","steps1_2":"You","steps2_0":"Send your photos and details","steps2_1":"Ten minutes from your phone with this link: <a href=\"https://coastalcr.com/intake/?c=bluepalm&lang=es\">coastalcr.com/intake/?c=bluepalm</a>. Hours, prices, reviews and your photos.","steps2_2":"You","steps3_0":"Pick the domain","steps3_1":"We choose it together (about $15 a year, in your name) and I connect it.","steps3_2":"Together","steps4_0":"Google setup","steps4_1":"Business Profile polished, sitemap submitted, Search Console handed over.","steps4_2":"Me","steps5_0":"Launch","steps5_1":"The site goes live. I stay on call for any change.","steps5_2":"Me","payKicker":"Payment","payH2":"Pay however is easiest.","payP":"Payment to Infinite Discoveries LLC (Coastal CR is the web design side of the company). A receipt follows every payment.","zelleP":"From any US bank app. No fees.","memo":"Memo: Blue Palm Hotel website","venmoP":"No fees, instant.","paypalP":"Card or PayPal balance. Works from anywhere.","paypalBtn":"Pay $500 via PayPal","payNote":"Bank wire or SINPE Móvil also fine, ask and I send the details. Tap a Zelle or Venmo handle to copy it.","accKicker":"Ready when you are","accH2":"Accept the proposal.","accP":"One tap sends me an email saying you are in. Or just reply on WhatsApp. Either works.","accMail":"Accept by email","accWa":"Accept on WhatsApp","mailHref":"mailto:anthonyskoczylas@yahoo.com?subject=Blue%20Palm%20Hotel%20website%20%E2%80%94%20accepted&body=Hi%20Tony%2C%0A%0AI%20accept%20the%20Blue%20Palm%20Hotel%20website%20proposal%20(CCR-2026-0917-BLU)%20at%20%24500%20one-time%20(care%20plan%3A%20yes%20%2F%20no).%0A%0AName%3A%0A%0AThanks","waHref":"https://wa.me/13213561951?text=Hi%20Tony%2C%20I%20accept%20the%20Blue%20Palm%20Hotel%20website%20proposal.","sig":"Coastal CR · Infinite Discoveries LLC · Playa Hermosa, Jacó, Costa Rica<br><a href=\"mailto:anthonyskoczylas@yahoo.com\">anthonyskoczylas@yahoo.com</a> · <a href=\"https://wa.me/13213561951\">+1 321-356-1951</a> · <a href=\"https://coastalcr.com\">coastalcr.com</a>","footer":"Proposal CCR-2026-0917-BLU · Prepared September 17, 2026 for Blue Palm Hotel, Blue Palm Hotel · Prices in USD.","copied":"Copied"},"es":{"title":"Propuesta de sitio web para Blue Palm Hotel · Coastal CR","meta":"Propuesta CCR-2026-0917-BLU<br>Preparada el 17 de septiembre de 2026","kicker":"Propuesta de sitio web · Blue Palm Hotel","h1":"Su nuevo sitio web ya está hecho. <em>Esto es lo que hace y lo que cuesta.</em>","lead":"Preparada para Blue Palm Hotel por Anthony Skoczylas, Coastal CR. El sitio ya está en línea en una dirección de prueba, así que puede revisarlo completo antes de decidir. Cualquier cosa que quiera diferente, la cambio, normalmente en horas.","btnPreview":"Ver el sitio de prueba","btnPrice":"Ir al precio","facts0_0":"1","facts0_1":"página con todo lo que un huésped necesita","facts1_0":"2","facts1_1":"idiomas, español e inglés","facts2_0":"$0","facts2_1":"al mes de hosting, para siempre","facts3_0":"7","facts3_1":"días para publicar después de sus fotos","facts4_0":"100%","facts4_1":"suyo, sin contrato","facts5_0":"24/7","facts5_1":"botón de WhatsApp en toda la página","sumKicker":"En resumen","sumH2":"Un solo pago. Es suyo.","sumP1":"Una página que hace un solo trabajo: el huésped llega desde Google o WhatsApp, ve el lugar, ve el precio y le escribe. Sin comisión para nadie.","sumP2":"Un solo pago por la construcción. El hosting es gratis de por vida. El plan de mantenimiento de abajo es opcional y mantiene todo al día por un monto mensual pequeño.","priceBig":"$500","priceSmall":"una vez · suyo de por vida · hosting $0","note1":"<b>Nada de esto es definitivo.</b> Cada palabra, foto, precio, color, sección y botón se puede cambiar, y lo cambio sin problema. Mándeme una lista, una nota de voz o una captura con un círculo.","note2":"<b>Esta prueba se hizo sin sus fotos.</b> Es lo más básico. Con sus fotos reales se ve mucho mejor, y abajo hay un enlace de diez minutos para mandarlas desde el celular.","getKicker":"Lo que recibe","getH2":"Por qué vale la pena.","getP":"Todo lo de abajo ya está construido y funcionando en el sitio de prueba.","ledger0_0":"Una página que vende el lugar","ledger0_1":"Foto principal, lo que ofrece, precios, reseñas, mapa y contacto. Todo lo que un huésped necesita para decidir.","ledger1_0":"Botón de WhatsApp en toda la página","ledger1_1":"El huésped le escribe directo a usted. Sin comisión, sin intermediarios.","ledger2_0":"Español e inglés","ledger2_1":"Un toque cambia toda la página de idioma.","ledger3_0":"Hecho primero para celular","ledger3_1":"La mayoría de los huéspedes lo verán desde un teléfono.","ledger4_0":"Sus reseñas reales, al frente","ledger4_1":"Comentarios de Google o TripAdvisor, con sus estrellas.","ledger5_0":"Perfil de Google Business configurado","ledger5_1":"La ficha del mapa, lo primero que sale en una búsqueda desde el celular. Incluido.","ledger6_0":"Nada que se rompa, nada que renovar","ledger6_1":"Sin WordPress, sin plugins, sin cobro de hosting. Archivos simples y rápidos.","ledger7_0":"Sus fotos, sus palabras","ledger7_1":"Las manda por un enlace de diez minutos y yo las coloco.","cap1":"El sitio como lo ve un huésped al bajar.","cap2":"El mismo sitio en un celular, donde lo verá la mayoría.","seoKicker":"Cómo lo encuentran","seoH2":"Hecho para aparecer en Google.","seoP":"Google clasifica páginas, no sitios. Esto es lo que ya está listo, en palabras simples.","check0_0":"Títulos y descripciones en cada página","check0_1":"Cada página le dice a Google qué es y qué va a encontrar quien busca. Ese es el texto que sale en los resultados.","check1_0":"Datos estructurados que Google lee","check1_1":"Su negocio, dirección, horario, teléfono y estrellas escritos en el formato de Google. Así aparecen las estrellas en el resultado.","check2_0":"Mapa del sitio y archivo robots","check2_1":"Un mapa de todas las páginas entregado a Google directamente.","check3_0":"Carga rápida","check3_1":"La velocidad cuenta para el ranking. Fotos comprimidas, sin plataforma pesada por debajo.","check4_0":"Diseño para celular primero","check4_1":"Google califica su sitio por la versión de celular.","check5_0":"Dirección segura (https)","check5_1":"El candado en el navegador. Google lo prefiere y los huéspedes confían.","check6_0":"Descripción en cada foto","check6_1":"Google no ve imágenes. Cada foto tiene un texto, que además lo mete en Google Imágenes.","check7_0":"Se comparte bien por WhatsApp y Facebook","check7_1":"Cuando alguien comparte el enlace, sale su foto y su nombre, no un enlace roto.","check8_0":"Perfil de Google Business configurado y pulido","check8_1":"La ficha con reseñas, fotos y horario. Lo hago yo, incluido.","check9_0":"Google Search Console conectado","check9_1":"El panel gratis que muestra qué búsquedas traen gente. Lo configuro y le paso el acceso.","seoNote":"<b>Nota honesta.</b> Nadie puede prometer el primer lugar, y quien lo promete le está vendiendo algo. Lo que sí puedo prometer es que este sitio le da a Google todo lo que pide, más que la mayoría de sitios locales, y que su perfil de Google Business quedará bien configurado, que es donde empiezan casi todas las reservas locales.","priceKicker":"Inversión","priceH2":"Lo que cuesta.","youTag":"Para Blue Palm Hotel","youH3":"Sitio de una página","youP":"$500","youSmall":"una vez, y ya","youBullets0":"Todo lo de arriba, construido y en línea 7 días después de sus fotos","youBullets1":"Publicado en su propio dominio (unos $15 al año, a su nombre)","youBullets2":"WhatsApp e Instagram conectados","youBullets3":"Perfil de Google Business y Search Console configurados","youBullets4":"Cambios ilimitados hasta la publicación y 30 días después","youBullets5":"Hosting gratis de por vida: sin cobro mensual mío ni de nadie","youTot":"Total, una vez <b>$500</b>","careH3":"Plan de mantenimiento, recomendado","careP":"$200","careSmall":"al mes, cancele cuando quiera","careBullets0":"Hosting, dominio y seguridad a mi cargo","careBullets1":"Cambios cuando los necesite: precios, fotos, temporadas, promociones","careBullets2":"Una publicación al mes en su perfil de Google","careBullets3":"Vigilancia del sitio, me entero antes que usted si se cae","careBullets4":"Una renovación al año","careTot":"Pago anual <b>$2,000</b> · dos meses gratis","careSkip":"Opcional. Si no lo toma, el sitio sigue siendo suyo y sigue en línea. Los cambios después de los primeros 30 días se cotizan por solicitud.","nextKicker":"Qué sigue","nextH2":"En línea una semana después de sus fotos.","steps0_0":"Revise el sitio de prueba","steps0_1":"Mándeme cualquier cosa que quiera cambiar: un texto, un precio, una foto, una sección entera. La mayoría queda lista en horas.","steps0_2":"Usted","steps1_0":"Diga que sí y pague","steps1_1":"Con el botón de aceptar de abajo y la opción de pago que le quede mejor.","steps1_2":"Usted","steps2_0":"Mande sus fotos e información","steps2_1":"Diez minutos desde el celular con este enlace: <a href=\"https://coastalcr.com/intake/?c=bluepalm&lang=es\">coastalcr.com/intake/?c=bluepalm</a>. Horarios, precios, reseñas y sus fotos.","steps2_2":"Usted","steps3_0":"Elegir el dominio","steps3_1":"Lo escogemos juntos (unos $15 al año, a su nombre) y lo conecto.","steps3_2":"Juntos","steps4_0":"Configuración de Google","steps4_1":"Perfil de Google Business pulido, mapa del sitio enviado, Search Console entregado.","steps4_2":"Yo","steps5_0":"Publicación","steps5_1":"El sitio queda en línea. Sigo disponible para cualquier cambio.","steps5_2":"Yo","payKicker":"Pago","payH2":"Pague como le quede más fácil.","payP":"El pago va a Infinite Discoveries LLC (Coastal CR es la parte de diseño web de la empresa). Recibe un comprobante por cada pago.","zelleP":"Desde cualquier app de banco de EE. UU. Sin comisión.","memo":"Concepto: sitio web Blue Palm Hotel","venmoP":"Sin comisión, al instante.","paypalP":"Tarjeta o saldo de PayPal. Funciona desde cualquier país.","paypalBtn":"Pagar $500 por PayPal","payNote":"También transferencia bancaria o SINPE Móvil, pídame los datos. Toque el usuario de Zelle o Venmo para copiarlo.","accKicker":"Cuando guste","accH2":"Aceptar la propuesta.","accP":"Un toque me manda un correo diciendo que sí. O responda por WhatsApp. Cualquiera de los dos sirve.","accMail":"Aceptar por correo","accWa":"Aceptar por WhatsApp","mailHref":"mailto:anthonyskoczylas@yahoo.com?subject=Sitio%20web%20Blue%20Palm%20Hotel%20%E2%80%94%20aceptado&body=Hola%20Tony%2C%0A%0AAcepto%20la%20propuesta%20del%20sitio%20web%20de%20Blue%20Palm%20Hotel%20(CCR-2026-0917-BLU)%20por%20%24500%20una%20vez%20(plan%20de%20mantenimiento%3A%20s%C3%AD%20%2F%20no).%0A%0ANombre%3A%0A%0AGracias","waHref":"https://wa.me/13213561951?text=Hola%20Tony%2C%20acepto%20la%20propuesta%20del%20sitio%20web%20de%20Blue%20Palm%20Hotel.","sig":"Coastal CR · Infinite Discoveries LLC · Playa Hermosa, Jacó, Costa Rica<br><a href=\"mailto:anthonyskoczylas@yahoo.com\">anthonyskoczylas@yahoo.com</a> · <a href=\"https://wa.me/13213561951\">+1 321-356-1951</a> · <a href=\"https://coastalcr.com\">coastalcr.com</a>","footer":"Propuesta CCR-2026-0917-BLU · Preparada el 17 de septiembre de 2026 para Blue Palm Hotel, Blue Palm Hotel · Precios en dólares (USD).","copied":"Copiado"}};
+function setLang(l){
+  document.documentElement.lang = l;
+  document.querySelectorAll('[data-lang]').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.lang === l)); });
+  document.querySelectorAll('[data-t]').forEach(function(el){ var v = T[l][el.dataset.t]; if (v != null) { if (el.tagName === 'TITLE') el.textContent = v; else el.innerHTML = v; } });
+  document.querySelectorAll('[data-t-href]').forEach(function(el){ var v = T[l][el.dataset.tHref]; if (v) el.href = v; });
+  try { localStorage.setItem('ccr-lang', l); } catch (e) {}
+}
+document.querySelectorAll('[data-lang]').forEach(function(b){ b.addEventListener('click', function(){ setLang(b.dataset.lang); }); });
+document.querySelectorAll('[data-copy]').forEach(function(b){
+  b.addEventListener('click', function(){
+    var t = b.textContent; try { navigator.clipboard && navigator.clipboard.writeText(b.dataset.copy).catch(function(){}); } catch (e) {}
+    b.textContent = T[document.documentElement.lang].copied; setTimeout(function(){ b.textContent = t; }, 1200);
+  });
+});
+</script>
+</body>
+</html>
