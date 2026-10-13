@@ -8,7 +8,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=Krona+One&family=Fragment+Mono&family=Archivo:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#0b1c28;        /* deep ocean navy */
@@ -393,50 +393,53 @@
     .media-rev{clip-path:none!important}
   }
 
-  /* ---------- FLAGSHIP · Great Marlin (the star) ---------- */
-  .flagship{position:relative;isolation:isolate;overflow:hidden;
-    background:#06141e;color:#f3f1ea;padding:100px 0 104px;
+  /* ---------- FLAGSHIP · Great Marlin (the star) — wears Great Marlin's own colours ---------- */
+  .flagship{--gm-hull:#131718;--gm-hull-2:#1c2122;--gm-teal:#5fb3b1;--gm-teal-deep:#0e7471;--gm-white:#ffffff;
+    position:relative;isolation:isolate;overflow:hidden;
+    background:var(--gm-hull);color:var(--gm-white);padding:100px 0 104px;
     border-bottom:1px solid rgba(255,255,255,.08)}
   .flagship::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
     background:
-      radial-gradient(70% 60% at 80% 28%, rgba(19,144,180,.22), transparent 62%),
-      radial-gradient(60% 55% at 6% 94%, rgba(210,165,95,.13), transparent 60%)}
+      radial-gradient(70% 60% at 80% 28%, rgba(95,179,177,.16), transparent 62%),
+      radial-gradient(60% 55% at 6% 94%, rgba(14,116,113,.18), transparent 60%)}
   .flagship .wrap{position:relative;z-index:2}
   .fl-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px 28px;flex-wrap:wrap}
-  .fl-head .kicker{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--sand);margin-bottom:14px}
-  .flagship h2{font-family:'Fraunces',Georgia,serif;font-weight:500;letter-spacing:-0.01em;
-    font-size:clamp(36px,5.4vw,64px);line-height:1;color:#f6f4ee}
-  .flagship h2 em{color:var(--sand);font-style:italic}
-  .fl-badge{flex:none;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
-    color:#06141e;background:var(--sand);padding:9px 16px;border-radius:999px;
-    box-shadow:0 12px 26px -12px rgba(210,165,95,.7)}
-  .fl-lead{margin-top:22px;max-width:66ch;font-size:18px;color:rgba(243,241,234,.75)}
+  .fl-head .kicker{font-family:'Fragment Mono',ui-monospace,monospace;font-size:13px;font-weight:400;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--gm-teal);margin-bottom:16px}
+  .flagship h2{font-family:'Krona One','Archivo',sans-serif;font-weight:400;letter-spacing:.02em;text-transform:uppercase;
+    font-size:clamp(34px,5.2vw,62px);line-height:1;color:var(--gm-white)}
+  .flagship h2 em{color:var(--gm-teal);font-style:normal}
+  .fl-badge{flex:none;font-family:'Fragment Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--gm-white);background:transparent;padding:10px 16px;border:1px solid rgba(255,255,255,.7);border-radius:0}
+  .fl-lead{margin-top:22px;max-width:66ch;font-size:18px;color:rgba(255,255,255,.72)}
   /* image is present immediately — no wipe, no slide (animate text, not the photo) */
-  .fl-media{display:block;position:relative;margin-top:36px;border-radius:18px;overflow:hidden;
-    border:1px solid rgba(255,255,255,.12);text-decoration:none;color:#fff;background:#06141e;
+  .fl-media{display:block;position:relative;margin-top:36px;border-radius:4px;overflow:hidden;
+    border:1px solid rgba(255,255,255,.14);text-decoration:none;color:#fff;background:var(--gm-hull);
     box-shadow:0 46px 100px -42px rgba(0,0,0,.85);
     transition:box-shadow .45s cubic-bezier(.2,.7,.2,1)}
   .fl-media img,.fl-media video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-  .fl-tag{position:absolute;left:18px;bottom:18px;z-index:3;font-size:12px;font-weight:700;letter-spacing:.12em;
-    text-transform:uppercase;color:#06141e;background:var(--sand);padding:7px 13px;border-radius:999px;
+  .fl-tag{position:absolute;left:18px;bottom:18px;z-index:3;font-family:'Fragment Mono',ui-monospace,monospace;font-size:12px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--gm-hull);background:var(--gm-white);padding:8px 13px;border-radius:0;
     box-shadow:0 10px 24px -10px rgba(0,0,0,.6)}
   .fl-media::before{content:"";position:absolute;inset:0;z-index:2;opacity:0;transition:opacity .4s;
-    background:linear-gradient(to top,rgba(6,20,30,.74),transparent 46%)}
+    background:linear-gradient(to top,rgba(19,23,24,.78),transparent 46%)}
   .fl-media:hover{box-shadow:0 60px 120px -44px rgba(0,0,0,.9)}
   .fl-media:hover::before{opacity:1}
   .fl-media:hover img,.fl-media:hover video{transform:scale(1.035)}
   .fl-go{position:absolute;left:0;right:0;bottom:20px;z-index:3;text-align:center;
-    font-size:15px;font-weight:600;opacity:0;transform:translateY(10px);
-    transition:opacity .4s, transform .4s}
+    font-family:'Archivo',sans-serif;font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    opacity:0;transform:translateY(10px);transition:opacity .4s, transform .4s}
   .fl-media:hover .fl-go{opacity:1;transform:none}
   .fl-media:hover .fl-tag{opacity:0}
   .fl-tag{transition:opacity .3s}
   .fl-foot{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-  .flagship .chip{color:rgba(243,241,234,.82);background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.16)}
-  .flagship .chip:hover{transform:translateY(-2px);background:var(--accent);color:#fff;border-color:var(--accent)}
+  .flagship .chip{font-family:'Fragment Mono',ui-monospace,monospace;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;
+    color:rgba(255,255,255,.82);background:var(--gm-hull-2);border:1px solid rgba(255,255,255,.16);border-radius:0}
+  .flagship .chip:hover{transform:translateY(-2px);background:var(--gm-teal-deep);color:#fff;border-color:var(--gm-teal-deep)}
   .fl-btn{margin-left:auto}
+  .flagship .fl-btn{font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:14px;
+    background:var(--gm-white);color:var(--gm-hull);border:1px solid var(--gm-white);border-radius:0;box-shadow:none}
+  .flagship .fl-btn:hover{background:transparent;color:var(--gm-white)}
   @media(max-width:760px){
     .flagship{padding:64px 0 68px}
     .fl-head{align-items:flex-start}
@@ -495,7 +498,7 @@
         <div class="kicker">The flagship · My own brand</div>
         <h2>Great <em>Marlin</em></h2>
       </div>
-      <span class="fl-badge">The best site I've built</span>
+      <span class="fl-badge">The most advanced site I've built</span>
     </div>
 
     <p class="fl-lead reveal">My own private sportfishing charter out of Herradura Bay — and the site I poured everything into. Scroll and the boat turns a full 360° under you, live sea conditions sit on the page, and a trip planner takes the booking. It feels like a luxury yacht brand, not a fishing website. This is the ceiling of what I can build for you.</p>
@@ -531,7 +534,7 @@
     <div class="case reveal">
       <span class="case-tag">Redesign · Fishing Charters & Adventures · Tamarindo</span>
       <h3>Go Fish Costa Rica</h3>
-      <p class="role">Fifteen years of TripAdvisor Travelers' Choice, stuck on a dated brochure site. I rebuilt it as ninety pages that tell one charter day from dawn to sunset: seventeen boats with real rates and a live price estimate, sixteen adventures, a four-step trip planner, and their reviews and awards front and center. Every request lands in their inbox ready to confirm.</p>
+      <p class="role">Fifteen years of TripAdvisor Travelers' Choice, stuck on a dated brochure site. I rebuilt it as ninety-eight pages that tell one charter day from dawn to sunset: seventeen boats with real rates and a live price estimate, sixteen adventures, a four-step trip planner, and their reviews and awards front and center. Every request lands in their inbox ready to confirm.</p>
 
       <div class="ba media-rev" id="ba2">
         <img class="before-img" src="img/gofishcr-after.jpg" alt="Go Fish Costa Rica — new website">
@@ -624,7 +627,7 @@
     <div class="case reveal" style="margin-top:84px">
       <span class="case-tag">New build · Surf School</span>
       <h3>Little Waves Surf School</h3>
-      <p class="role">María's surf school in Jacó had no website at all. I built her a bilingual one-pager with real prices, photos, a looping wave video, and one-tap WhatsApp booking — live on her own domain.</p>
+      <p class="role">María's surf school in Jacó had no website at all. I built her a bilingual one-pager styled like a surf-film poster, with real prices, her own photos, and one-tap WhatsApp booking — live on her own domain.</p>
 
       <a class="shot media-rev" href="https://littlewavessurf.com" target="_blank" rel="noopener">
         <img src="img/littlewaves.png" alt="Little Waves Surf School website">
