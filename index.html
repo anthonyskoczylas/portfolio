@@ -417,16 +417,21 @@
     border:1px solid rgba(255,255,255,.12);text-decoration:none;color:#fff;background:#06141e;
     box-shadow:0 46px 100px -42px rgba(0,0,0,.85);
     transition:box-shadow .45s cubic-bezier(.2,.7,.2,1)}
-  .fl-media img{display:block;width:100%;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+  .fl-media img,.fl-media video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+  .fl-tag{position:absolute;left:18px;bottom:18px;z-index:3;font-size:12px;font-weight:700;letter-spacing:.12em;
+    text-transform:uppercase;color:#06141e;background:var(--sand);padding:7px 13px;border-radius:999px;
+    box-shadow:0 10px 24px -10px rgba(0,0,0,.6)}
   .fl-media::before{content:"";position:absolute;inset:0;z-index:2;opacity:0;transition:opacity .4s;
     background:linear-gradient(to top,rgba(6,20,30,.74),transparent 46%)}
   .fl-media:hover{box-shadow:0 60px 120px -44px rgba(0,0,0,.9)}
   .fl-media:hover::before{opacity:1}
-  .fl-media:hover img{transform:scale(1.035)}
+  .fl-media:hover img,.fl-media:hover video{transform:scale(1.035)}
   .fl-go{position:absolute;left:0;right:0;bottom:20px;z-index:3;text-align:center;
     font-size:15px;font-weight:600;opacity:0;transform:translateY(10px);
     transition:opacity .4s, transform .4s}
   .fl-media:hover .fl-go{opacity:1;transform:none}
+  .fl-media:hover .fl-tag{opacity:0}
+  .fl-tag{transition:opacity .3s}
   .fl-foot{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
   .flagship .chip{color:rgba(243,241,234,.82);background:rgba(255,255,255,.06);
     border:1px solid rgba(255,255,255,.16)}
@@ -436,6 +441,7 @@
     .flagship{padding:64px 0 68px}
     .fl-head{align-items:flex-start}
     .fl-btn{margin-left:0;width:100%;justify-content:center;margin-top:4px}
+    .fl-tag{left:10px;bottom:10px;font-size:10px;padding:5px 10px}
   }
 </style>
 </head>
@@ -492,18 +498,21 @@
       <span class="fl-badge">The best site I've built</span>
     </div>
 
-    <p class="fl-lead reveal">My own private sportfishing charter out of Herradura Bay — and the site I poured everything into. A cinematic CGI hero, original sound design, and a scroll experience that feels like a luxury yacht brand, not a fishing website. This is the ceiling of what I can build for you.</p>
+    <p class="fl-lead reveal">My own private sportfishing charter out of Herradura Bay — and the site I poured everything into. Scroll and the boat turns a full 360° under you, live sea conditions sit on the page, and a trip planner takes the booking. It feels like a luxury yacht brand, not a fishing website. This is the ceiling of what I can build for you.</p>
 
     <a class="fl-media" href="https://greatmarlin.com" target="_blank" rel="noopener">
-      <img src="img/greatmarlin-hero.png" alt="Great Marlin — luxury sportfishing charter website">
+      <video autoplay muted loop playsinline preload="metadata" poster="img/greatmarlin-360-poster.jpg" aria-label="Great Marlin website: the boat turns 360° as you scroll">
+        <source src="video/greatmarlin-360.mp4" type="video/mp4">
+      </video>
+      <span class="fl-tag">360° · scroll to turn the boat</span>
       <span class="fl-go">Visit greatmarlin.com ↗</span>
     </a>
 
     <div class="fl-foot reveal">
-      <span class="chip">Cinematic CGI hero</span>
-      <span class="chip">Original sound design</span>
+      <span class="chip">360° boat on scroll</span>
+      <span class="chip">Live sea conditions</span>
       <span class="chip">Feadship-inspired</span>
-      <span class="chip">Bilingual EN / ES</span>
+      <span class="chip">Trip planner</span>
       <span class="chip">Built to book</span>
       <a class="btn btn-primary fl-btn" href="https://greatmarlin.com" target="_blank" rel="noopener">Visit greatmarlin.com →</a>
     </div>
@@ -785,6 +794,15 @@
     window.addEventListener('scroll', update, {passive:true});
     window.addEventListener('resize', update);
     update();
+  })();
+
+  // Great Marlin 360 clip: play only while on screen; reduced motion keeps the poster still.
+  (function(){
+    const v = document.querySelector('.fl-media video');
+    if(!v) return;
+    if(matchMedia('(prefers-reduced-motion:reduce)').matches){ v.removeAttribute('autoplay'); v.pause(); return; }
+    if(!('IntersectionObserver' in window)) return;
+    new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? v.play().catch(()=>{}) : v.pause()), {threshold:.15}).observe(v);
   })();
 
   // Count-up stats (hero) — animate each number once it's on screen.
