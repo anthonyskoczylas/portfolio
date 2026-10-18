@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website plans · Coastal CR</title>
+<meta name="description" content="Three ways to pay for a custom Coastal CR website. Same site, same care, pick how you pay for the build.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#eef4f8">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#eef4f8;--paper-2:#e4edf3;--white:#fff;--ink:#0b1c28;--ink-soft:#425663;--line:#c7dae6;--accent:#0e6f90;--sand:#d2a55f;--ok:#1f7a4d;--radius:16px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:500;line-height:1.1;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(32px,6vw,50px)}
+h1 em{font-style:italic;color:var(--accent)}
+h2{font-size:22px;margin-bottom:12px}
+p{margin:0}
+a{color:var(--accent)}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-family:Fraunces,serif;font-size:18px;font-weight:600;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+.brand span{color:var(--accent)}
+.brand .mark{width:28px;height:28px;flex:none}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--white)}
+.lang button{appearance:none;border:0;background:transparent;font:inherit;font-size:13px;font-weight:600;padding:8px 14px;color:var(--ink-soft);cursor:pointer;min-height:40px}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.sheet[hidden]{display:none}
+header.hero{padding:24px 0 4px}
+.kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:12px}
+.lead{color:var(--ink-soft);margin-top:14px;font-size:18px;max-width:60ch}
+
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.plan{position:relative;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px 20px;display:flex;flex-direction:column}
+.plan.best{border:2px solid var(--accent)}
+.tag{position:absolute;top:-12px;left:18px;background:var(--sand);color:var(--ink);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.plan h3{font-size:22px}
+.plan .sub{font-size:14px;color:var(--ink-soft);margin-top:4px}
+.today{margin-top:16px;font-size:13px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+.big{font-family:Fraunces,serif;font-size:44px;font-weight:500;line-height:1;margin-top:4px}
+.then{margin-top:12px;font-size:15px}
+.then b{font-weight:600}
+.terms{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:6px;font-size:14px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:12px}
+.terms li{position:relative;padding-left:16px}
+.terms li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.cost{margin-top:auto;padding-top:14px;font-size:14px;color:var(--ink-soft)}
+.cost b{color:var(--ink);font-family:Fraunces,serif;font-size:22px;font-weight:500;margin-left:4px}
+.save{display:inline-block;align-self:flex-start;margin-top:8px;background:#e3f1e9;color:var(--ok);font-size:13px;font-weight:600;padding:4px 10px;border-radius:999px}
+.yr{padding-top:8px;font-size:13px;color:var(--ink-soft)}
+.yr b{color:var(--ink);font-size:15px}
+
+.code{display:flex;gap:18px;align-items:center;margin-top:18px;background:#fbf6ec;border:2px dashed var(--sand);border-radius:var(--radius);padding:16px 20px}
+.code-tag{flex:none;display:flex;flex-direction:column;align-items:center;background:var(--ink);color:var(--paper);border-radius:12px;padding:10px 18px}
+.code-k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sand);font-weight:600}
+.code-v{font-family:Fraunces,serif;font-size:28px;font-weight:600;letter-spacing:.06em;line-height:1.1}
+.code-txt{font-size:14px;color:var(--ink-soft)}
+.code-h{font-family:Fraunces,serif;font-size:20px;color:var(--ink);line-height:1.2;margin-bottom:4px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-top:16px}
+.check{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 20px}
+.check li{position:relative;padding-left:30px;font-size:15px}
+.check li::before{content:"";position:absolute;left:0;top:3px;width:20px;height:20px;border-radius:50%;background:var(--ok)}
+.check li::after{content:"";position:absolute;left:6px;top:8px;width:8px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg)}
+.check b{display:block}
+.check span{color:var(--ink-soft);font-size:14px}
+
+.lower{display:grid;grid-template-columns:1.3fr 1fr;gap:16px}
+.steps{list-style:none;padding:0;margin:0;display:grid;gap:10px;counter-reset:s}
+.steps li{position:relative;padding-left:38px;font-size:15px}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-weight:600;font-size:13px;display:grid;place-items:center}
+.steps span{color:var(--ink-soft)}
+.sites{margin-top:14px;font-size:14px;color:var(--ink-soft)}
+.sites a{color:var(--ink);font-weight:500;text-decoration:none;white-space:nowrap}
+
+.contact{display:flex;gap:16px;align-items:center}
+.qr{flex:none;width:132px;height:132px;background:#fff;padding:8px;border:1px solid var(--line);border-radius:10px}
+.qr img,.qr canvas{width:100%!important;height:auto!important;display:block}
+.contact .who{font-size:13px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+.contact .rep{font-family:Fraunces,serif;font-size:26px;line-height:1.1;margin:2px 0 8px}
+.contact p{font-size:14px;color:var(--ink-soft)}
+.contact p b{color:var(--ink)}
+
+.fine{margin-top:16px;font-size:13px;color:var(--ink-soft);display:grid;gap:6px}
+.fine b{color:var(--ink)}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 48px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:999px;font-weight:600;text-decoration:none;font-size:15px;border:1.5px solid var(--accent);cursor:pointer;font-family:inherit;background:transparent;color:var(--accent);min-height:46px}
+.btn.solid{background:var(--accent);color:#fff}
+
+@media (max-width:760px){
+  .plans{grid-template-columns:1fr;gap:20px}
+  .lower{grid-template-columns:1fr}
+  .code{flex-direction:column;align-items:flex-start}
+  .check{grid-template-columns:1fr}
+}
+
+@page{size:letter;margin:0.36in 0.42in}
+@media print{
+  body{background:#fff;font-size:11px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .wrap{max-width:none;padding:0}
+  .no-print{display:none!important}
+  .sheet,.sheet[hidden]{display:block!important}
+  .sheet + .sheet{break-before:page}
+  .bar{height:auto;padding:0 0 6px}
+  header.hero{padding:0}
+  .kicker{margin-bottom:6px;font-size:9.5px}
+  h1{font-size:27px}
+  .lead{font-size:11.5px;margin-top:6px;max-width:none}
+  .plans{grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+  .plan{padding:14px 12px 12px;border-radius:12px;break-inside:avoid}
+  .plan h3{font-size:16px}
+  .plan .sub{font-size:10px}
+  .tag{font-size:8.5px;top:-9px;padding:2px 8px}
+  .today{margin-top:8px;font-size:9px}
+  .big{font-size:30px}
+  .then{font-size:11px;margin-top:6px}
+  .terms{font-size:10px;gap:2px;margin-top:6px;padding-top:6px}
+  .terms li::before{top:6px;width:5px;height:5px}
+  .cost{font-size:10px;padding-top:8px}
+  .cost b{font-size:16px}
+  .save{font-size:9.5px;padding:2px 8px;margin-top:5px}
+  .yr{font-size:9.5px;padding-top:4px}
+  .yr b{font-size:11px}
+  .code{margin-top:10px;padding:8px 12px;gap:12px;border-radius:12px;break-inside:avoid}
+  .code-tag{padding:5px 12px;border-radius:8px}
+  .code-k{font-size:7.5px}
+  .code-v{font-size:17px}
+  .code-txt{font-size:9.5px}
+  .code-h{font-size:13px;margin-bottom:2px}
+  .card{padding:10px 12px;margin-top:9px;border-radius:12px;break-inside:avoid}
+  h2{font-size:14.5px;margin-bottom:6px}
+  .check{gap:3px 16px}
+  .check li{font-size:10.5px;padding-left:22px;line-height:1.3}
+  .check span{font-size:9.5px}
+  .check li::before{width:15px;height:15px;top:1px}
+  .check li::after{left:4px;top:5px;width:7px;height:4px}
+  .lower{grid-template-columns:1.3fr 1fr;gap:9px}
+  .steps{gap:2px}
+  .steps li{font-size:10.5px;padding-left:26px;line-height:1.3}
+  .steps li::before{width:18px;height:18px;font-size:10px}
+  .sites{font-size:9.5px;margin-top:6px}
+  .qr{width:96px;height:96px;padding:5px}
+  .contact{gap:10px}
+  .contact .who{font-size:8.5px}
+  .contact .rep{font-size:18px;margin:1px 0 4px}
+  .contact p{font-size:9.5px}
+  .fine{font-size:8.5px;gap:1px;margin-top:6px;line-height:1.3}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <a class="brand" href="https://coastalcr.com"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0e6f90"/><path d="M10 38 C18 30 22 46 32 38 S46 30 54 38" fill="none" stroke="#eef4f8" stroke-width="4.5" stroke-linecap="round"/><path d="M10 26 C18 18 22 34 32 26 S46 18 54 26" fill="none" stroke="#d2a55f" stroke-width="4.5" stroke-linecap="round"/></svg> Coastal <span>CR</span></a>
+    <div class="lang no-print" role="group" aria-label="Language / Idioma">
+      <button type="button" data-lang="en" aria-pressed="true">English</button>
+      <button type="button" data-lang="es" aria-pressed="false">Español</button>
+    </div>
+  </div>
+
+  <!-- ENGLISH -->
+  <main class="sheet" data-sheet="en" lang="en">
+    <header class="hero">
+      <div class="kicker">Coastal CR · Websites for Costa Rica businesses</div>
+      <h1>A website that brings you customers. <em>Three ways to pay.</em></h1>
+      <p class="lead">A custom site built for your business in about a week, in English and Spanish, and set up so people find you on Google. After launch we keep customizing it as much as you like, usually the same day you ask. Every plan gets the same site and the same care. Paying up front costs the least by far.</p>
+    </header>
+
+    <div class="plans">
+      <article class="plan best">
+        <span class="tag">Best value</span>
+        <h3>Pay up front</h3>
+        <p class="sub">The smart way. Lowest price, and the site is yours from day one.</p>
+        <p class="today">Today</p>
+        <p class="big">$2,000</p>
+        <p class="then">Then <b>$200 / month</b> care plan</p>
+        <ul class="terms">
+          <li>6-month minimum on the care plan</li>
+          <li>After that, month to month</li>
+          <li>Site, domain and photos are yours</li>
+        </ul>
+        <p class="cost">Website cost <b>$2,000</b></p>
+        <p class="save">You save up to $1,800</p>
+        <p class="yr">First year total <b>$4,400</b></p>
+      </article>
+
+      <article class="plan">
+        <h3>Split it</h3>
+        <p class="sub">Part now, the rest over six months.</p>
+        <p class="today">Today</p>
+        <p class="big">$1,100</p>
+        <p class="then"><b>$500 / month</b> for 6 months, then <b>$200 / month</b></p>
+        <ul class="terms">
+          <li>6-month minimum</li>
+          <li>Month 7 on: care plan only, month to month</li>
+          <li>Site, domain and photos are yours</li>
+        </ul>
+        <p class="cost">Website cost <b>$2,900</b></p>
+        <p class="yr">First year total <b>$5,300</b></p>
+      </article>
+
+      <article class="plan">
+        <h3>Small start</h3>
+        <p class="sub">Start with $200, pay monthly.</p>
+        <p class="today">Today</p>
+        <p class="big">$200</p>
+        <p class="then"><b>$500 / month</b> for 12 months, then <b>$200 / month</b></p>
+        <ul class="terms">
+          <li>12-month minimum</li>
+          <li>Month 13 on: care plan only, month to month</li>
+          <li>Site becomes fully yours after month 12</li>
+        </ul>
+        <p class="cost">Website cost <b>$3,800</b></p>
+        <p class="yr">First year total <b>$6,200</b></p>
+      </article>
+    </div>
+
+    <section class="card">
+      <h2>Every plan includes</h2>
+      <ul class="check">
+        <li><b>A custom site, not a template</b><span>Designed around your business, your photos and your customers.</span></li>
+        <li><b>English and Spanish</b><span>Tourists and locals both read it in their language.</span></li>
+        <li><b>Built for phones</b><span>Fast, clean and easy to tap, where most of your customers are.</span></li>
+        <li><b>WhatsApp booking button</b><span>One tap and the customer is messaging you.</span></li>
+        <li><b>Google Maps setup</b><span>Your Google Business listing set up and linked to the site.</span></li>
+        <li><b>Hosting, domain and security</b><span>Your .com, renewed every year. Nothing to manage.</span></li>
+        <li><b>Unlimited changes</b><span>We customize your site as much as you like. Prices, photos, hours, promos, wording, even new pages. Just ask.</span></li>
+        <li><b>Usually done the same day</b><span>Most changes are live the exact day you ask. A wrong price or a site that is down gets fixed right away.</span></li>
+      </ul>
+    </section>
+
+    <div class="lower">
+      <section class="card">
+        <h2>How it works</h2>
+        <ol class="steps">
+          <li><b>Pick a plan.</b> <span>The build starts the day you sign up.</span></li>
+          <li><b>A quick call or meetup.</b> <span>We talk through your business and what you want, so the site comes out exactly how you like it.</span></li>
+          <li><b>Send your photos and info.</b> <span>One simple link, straight from your phone.</span></li>
+          <li><b>See your preview in about 5 days.</b> <span>We go through it together, by call or in person, and change anything until you love it.</span></li>
+          <li><b>Go live.</b> <span>Your site is online and on Google.</span></li>
+        </ol>
+        <p class="sites">See live sites: <a href="https://greatmarlin.com">greatmarlin.com</a> · <a href="https://gofishcr.com">gofishcr.com</a> · <a href="https://jacotransport.com">jacotransport.com</a> · <a href="https://littlewavessurf.com">littlewavessurf.com</a> · <a href="https://coastalcr.com">coastalcr.com</a></p>
+      </section>
+      <section class="card">
+        <div class="contact">
+          <div class="qr" data-qr></div>
+          <div>
+            <p class="who" data-who-en>Talk to us</p>
+            <p class="rep" data-rep>Coastal CR</p>
+            <p>Scan to message us on WhatsApp</p>
+            <p><b>+1 321 356 1951</b></p>
+            <p><b>coastalcr.com</b></p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="fine">
+      <p><b>Minimums.</b> The 6- or 12-month minimum starts on launch day. After it ends, the plan goes month to month and you can cancel with one message.</p>
+      <p><b>If you stop the care plan</b> on Pay up front or Split it, the site stays yours and stays online. Future changes are quoted and the domain renewal moves to you. On Small start, the site is yours once the 12 payments are made; if payments stop before then, the site goes offline until the account is caught up.</p>
+      <p><b>Not included:</b> a full redesign, blogs, ads, social media, photo or video shoots, and third-party costs. All prices in US dollars. Full care plan terms at coastalcr.com/care.</p>
+    </div>
+  </main>
+
+  <!-- ESPAÑOL -->
+  <main class="sheet" data-sheet="es" lang="es" hidden>
+    <header class="hero">
+      <div class="kicker">Coastal CR · Páginas web para negocios en Costa Rica</div>
+      <h1>Una página web que le trae clientes. <em>Tres formas de pago.</em></h1>
+      <p class="lead">Un sitio hecho a la medida de su negocio en más o menos una semana, en inglés y español, y listo para que lo encuentren en Google. Después del lanzamiento lo seguimos personalizando todo lo que quiera, normalmente el mismo día que lo pide. Todos los planes reciben el mismo sitio y el mismo mantenimiento. Pagar por adelantado sale mucho más barato.</p>
+    </header>
+
+    <div class="plans">
+      <article class="plan best">
+        <span class="tag">Mejor precio</span>
+        <h3>Pago completo</h3>
+        <p class="sub">La opción inteligente. El precio más bajo, y el sitio es suyo desde el primer día.</p>
+        <p class="today">Hoy</p>
+        <p class="big">$2,000</p>
+        <p class="then">Luego <b>$200 / mes</b> de mantenimiento</p>
+        <ul class="terms">
+          <li>Mínimo de 6 meses de mantenimiento</li>
+          <li>Después, mes a mes</li>
+          <li>El sitio, el dominio y las fotos son suyos</li>
+        </ul>
+        <p class="cost">Costo del sitio <b>$2,000</b></p>
+        <p class="save">Ahorra hasta $1,800</p>
+        <p class="yr">Total del primer año <b>$4,400</b></p>
+      </article>
+
+      <article class="plan">
+        <h3>En dos partes</h3>
+        <p class="sub">Una parte hoy, el resto en seis meses.</p>
+        <p class="today">Hoy</p>
+        <p class="big">$1,100</p>
+        <p class="then"><b>$500 / mes</b> por 6 meses, luego <b>$200 / mes</b></p>
+        <ul class="terms">
+          <li>Mínimo de 6 meses</li>
+          <li>Desde el mes 7: solo mantenimiento, mes a mes</li>
+          <li>El sitio, el dominio y las fotos son suyos</li>
+        </ul>
+        <p class="cost">Costo del sitio <b>$2,900</b></p>
+        <p class="yr">Total del primer año <b>$5,300</b></p>
+      </article>
+
+      <article class="plan">
+        <h3>Prima mínima</h3>
+        <p class="sub">Empiece con $200, pague mes a mes.</p>
+        <p class="today">Hoy</p>
+        <p class="big">$200</p>
+        <p class="then"><b>$500 / mes</b> por 12 meses, luego <b>$200 / mes</b></p>
+        <ul class="terms">
+          <li>Mínimo de 12 meses</li>
+          <li>Desde el mes 13: solo mantenimiento, mes a mes</li>
+          <li>El sitio pasa a ser totalmente suyo después del mes 12</li>
+        </ul>
+        <p class="cost">Costo del sitio <b>$3,800</b></p>
+        <p class="yr">Total del primer año <b>$6,200</b></p>
+      </article>
+    </div>
+
+    <section class="card">
+      <h2>Todos los planes incluyen</h2>
+      <ul class="check">
+        <li><b>Un sitio a la medida, no una plantilla</b><span>Diseñado según su negocio, sus fotos y sus clientes.</span></li>
+        <li><b>Inglés y español</b><span>Turistas y locales lo leen en su idioma.</span></li>
+        <li><b>Hecho para el celular</b><span>Rápido, limpio y fácil de usar, donde están la mayoría de sus clientes.</span></li>
+        <li><b>Botón de reservas por WhatsApp</b><span>Un toque y el cliente ya le está escribiendo.</span></li>
+        <li><b>Configuración en Google Maps</b><span>Su perfil de Google Business listo y conectado al sitio.</span></li>
+        <li><b>Hosting, dominio y seguridad</b><span>Su .com, renovado cada año. Nada que administrar.</span></li>
+        <li><b>Cambios ilimitados</b><span>Personalizamos su sitio todo lo que quiera. Precios, fotos, horarios, promociones, textos, hasta páginas nuevas. Solo pídalo.</span></li>
+        <li><b>Normalmente el mismo día</b><span>La mayoría de los cambios quedan listos el mismo día que los pide. Un precio equivocado o el sitio caído se arregla de inmediato.</span></li>
+      </ul>
+    </section>
+
+    <div class="lower">
+      <section class="card">
+        <h2>Cómo funciona</h2>
+        <ol class="steps">
+          <li><b>Escoja un plan.</b> <span>La construcción empieza el día que se inscribe.</span></li>
+          <li><b>Una llamada o reunión rápida.</b> <span>Hablamos de su negocio y de lo que quiere, para que el sitio quede exactamente como le gusta.</span></li>
+          <li><b>Envíe sus fotos e información.</b> <span>Un enlace sencillo, directo desde su celular.</span></li>
+          <li><b>Vea su vista previa en unos 5 días.</b> <span>La revisamos juntos, por llamada o en persona, y cambiamos lo que sea hasta que le encante.</span></li>
+          <li><b>Salimos en vivo.</b> <span>Su sitio queda en línea y en Google.</span></li>
+        </ol>
+        <p class="sites">Vea sitios en vivo: <a href="https://greatmarlin.com">greatmarlin.com</a> · <a href="https://gofishcr.com">gofishcr.com</a> · <a href="https://jacotransport.com">jacotransport.com</a> · <a href="https://littlewavessurf.com">littlewavessurf.com</a> · <a href="https://coastalcr.com">coastalcr.com</a></p>
+      </section>
+      <section class="card">
+        <div class="contact">
+          <div class="qr" data-qr></div>
+          <div>
+            <p class="who" data-who-es>Hable con nosotros</p>
+            <p class="rep" data-rep>Coastal CR</p>
+            <p>Escanee para escribirnos por WhatsApp</p>
+            <p><b>+1 321 356 1951</b></p>
+            <p><b>coastalcr.com</b></p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="fine">
+      <p><b>Mínimos.</b> El mínimo de 6 o 12 meses empieza el día del lanzamiento. Al terminar, el plan pasa a mes a mes y puede cancelar con un solo mensaje.</p>
+      <p><b>Si deja el mantenimiento</b> en Pago completo o En dos partes, el sitio sigue siendo suyo y sigue en línea. Los cambios futuros se cotizan y la renovación del dominio pasa a usted. En Prima mínima, el sitio es suyo al completar los 12 pagos; si los pagos se detienen antes, el sitio sale de línea hasta ponerse al día.</p>
+      <p><b>No incluye:</b> un rediseño completo, blogs, anuncios, redes sociales, sesiones de fotos o video, ni costos de terceros. Todos los precios en dólares. Términos completos del mantenimiento en coastalcr.com/care.</p>
+    </div>
+  </main>
+
+  <div class="btns no-print">
+    <a class="btn solid" data-wa href="#">Message us on WhatsApp</a>
+    <button class="btn" type="button" onclick="window.print()">Print / Save as PDF</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+(function(){
+  var q = new URLSearchParams(location.search);
+  var rep = (q.get('rep') || '').slice(0, 30);
+  var lang = q.get('lang') === 'es' ? 'es' : 'en';
+  try { var saved = localStorage.getItem('ccr-plans-lang'); if (!q.get('lang') && (saved === 'es' || saved === 'en')) lang = saved; } catch (e) {}
+
+  var msg = {
+    en: rep ? 'Hi! ' + rep + ' told me about Coastal CR websites. I would like to hear more.' : 'Hi! I saw the Coastal CR website plans. I would like to hear more.',
+    es: rep ? '¡Hola! ' + rep + ' me habló de las páginas web de Coastal CR. Me gustaría más información.' : '¡Hola! Vi los planes de páginas web de Coastal CR. Me gustaría más información.'
+  };
+  var btnText = { en: 'Message us on WhatsApp', es: 'Escríbanos por WhatsApp' };
+  var printText = { en: 'Print / Save as PDF', es: 'Imprimir / Guardar PDF' };
+  function wa(l){ return 'https://wa.me/13213561951?text=' + encodeURIComponent(msg[l]); }
+
+  if (rep) {
+    document.querySelectorAll('[data-rep]').forEach(function(el){ el.textContent = rep; });
+    document.querySelectorAll('[data-who-en]').forEach(function(el){ el.textContent = 'Your contact'; });
+    document.querySelectorAll('[data-who-es]').forEach(function(el){ el.textContent = 'Su contacto'; });
+  }
+
+  document.querySelectorAll('.sheet').forEach(function(sheet){
+    var box = sheet.querySelector('[data-qr]');
+    if (box && window.QRCode) new QRCode(box, { text: wa(sheet.dataset.sheet), width: 256, height: 256, colorDark: '#0b1c28', colorLight: '#ffffff', correctLevel: QRCode.CorrectLevel.M });
+  });
+
+  function setLang(l){
+    lang = l;
+    document.documentElement.lang = l;
+    document.querySelectorAll('.sheet').forEach(function(s){ s.hidden = s.dataset.sheet !== l; });
+    document.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.lang === l ? 'true' : 'false'); });
+    var a = document.querySelector('[data-wa]'); a.href = wa(l); a.textContent = btnText[l];
+    document.querySelector('.btns button').textContent = printText[l];
+    try { localStorage.setItem('ccr-plans-lang', l); } catch (e) {}
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){ b.addEventListener('click', function(){ setLang(b.dataset.lang); }); });
+  setLang(lang);
+})();
+</script>
+</body>
+</html>
