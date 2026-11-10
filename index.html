@@ -58,6 +58,9 @@
   nav.scrolled .brand span{color:var(--accent)}
   nav.scrolled .nav-cta{background:var(--ink);color:var(--paper);border-color:var(--ink)}
   nav.scrolled .nav-cta:hover{background:var(--accent);border-color:var(--accent)}
+  .nav-right{display:flex;align-items:center;gap:10px}
+  .nav-link{font-size:14px;font-weight:700;padding:9px 18px;border-radius:999px;background:var(--sand);color:#0b1c28;border:1px solid var(--sand);text-decoration:none;transition:.2s;white-space:nowrap}
+  .nav-link:hover{background:#e0b673;border-color:#e0b673}
 
   /* HERO — cinematic dark */
   header.hero{
@@ -233,6 +236,9 @@
   .price-card .btn{margin-top:auto;justify-content:center}
   .pc-badge{position:absolute;top:-11px;right:22px;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
     color:#fff;background:var(--accent);padding:6px 13px;border-radius:999px}
+  .price-more{text-align:center;margin-top:18px}
+  .pc-more{display:block;text-align:center;margin-top:12px;font-size:14px;font-weight:600;color:var(--accent);text-decoration:none}
+  .pc-more:hover{text-decoration:underline}
   .price-note{margin-top:22px;font-size:14px;color:var(--ink-soft);text-align:center}
   .feat{padding:28px;border:1px solid var(--line);border-radius:14px;background:var(--white)}
   .feat .n{font-family:'Fraunces',serif;font-size:15px;color:var(--sand);font-weight:600}
@@ -455,7 +461,7 @@
 <nav>
   <div class="wrap">
     <div class="brand"><svg class="logomark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0e6f90"/><path d="M10 38 C18 30 22 46 32 38 S46 30 54 38" fill="none" stroke="#eef4f8" stroke-width="4.5" stroke-linecap="round"/><path d="M10 26 C18 18 22 34 32 26 S46 18 54 26" fill="none" stroke="#d2a55f" stroke-width="4.5" stroke-linecap="round"/></svg>Coastal <span>CR</span></div>
-    <a class="nav-cta" href="#contact">Get a website</a>
+    <div class="nav-right"><a class="nav-link" href="services/">Monthly plans</a><a class="nav-cta" href="#contact">Get a website</a></div>
   </div>
 </nav>
 
@@ -718,6 +724,7 @@
           <li>6-month minimum on the care plan</li>
         </ul>
         <a class="btn btn-primary" href="plans/">See the 3 ways to pay</a>
+        <a class="pc-more" href="services/#care">What the care plan includes →</a>
       </div>
 
       <div class="price-card reveal" style="--d:.24s">
@@ -733,7 +740,8 @@
         <a class="btn btn-ghost" href="#contact">Ask about it</a>
       </div>
     </div>
-    <div class="price-note reveal">Every project starts with a free first look — no charge, no pressure. Want more customers too? <a href="services/">See what the care plan does, plus growth plans for Google, ads and booking replies →</a></div>
+    <div class="price-note reveal">Every project starts with a free first look — no charge, no pressure. </div>
+    <div class="price-more reveal"><a class="btn btn-ghost" href="services/#growth">Want more customers? See growth plans for Google, ads and booking replies</a></div>
   </div>
 </section>
 
