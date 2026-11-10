@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monthly plans · Coastal CR</title>
+<meta name="description" content="What the Coastal CR care plan does every month, plus growth plans for Google, Google Ads and automatic booking replies. Plain language, real prices.">
+<meta name="theme-color" content="#eef4f8">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#eef4f8;--paper-2:#e4edf3;--white:#fff;--ink:#0b1c28;--ink-soft:#425663;--line:#c7dae6;--accent:#0e6f90;--sand:#d2a55f;--sand-soft:#fbf6ec;--ok:#1f7a4d;--bad:#a2533a;--radius:16px}
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+html.es .en,html:not(.es) .es{display:none!important}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:500;line-height:1.1;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(34px,6.4vw,56px);max-width:16ch}
+h1 .hl{color:var(--accent)}
+h2{font-size:clamp(26px,4vw,34px);margin-bottom:12px}
+h3{font-size:22px}
+p{margin:0}
+a{color:var(--accent)}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-family:Fraunces,serif;font-size:18px;font-weight:600;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+.brand span{color:var(--accent)}
+.brand .mark{width:28px;height:28px;flex:none}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--white)}
+.lang button{appearance:none;border:0;background:transparent;font:inherit;font-size:13px;font-weight:600;padding:8px 14px;color:var(--ink-soft);cursor:pointer;min-height:40px}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:12px}
+.lead{color:var(--ink-soft);margin-top:16px;font-size:18px;max-width:60ch}
+.sec-p{color:var(--ink-soft);max-width:62ch}
+
+header.hero{padding:32px 0 8px}
+.jump{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.jump a{font-size:14px;font-weight:600;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:999px;padding:9px 16px;min-height:40px;display:inline-flex;align-items:center}
+.jump a:hover{border-color:var(--accent);color:var(--accent)}
+
+section.block{padding:56px 0 8px}
+.part{display:inline-block;background:var(--ink);color:var(--paper);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:5px 11px;border-radius:999px;margin-bottom:14px}
+
+/* four jobs */
+.jobs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:26px}
+.job{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px}
+.job .n{font-family:Fraunces,serif;font-size:14px;color:var(--sand);font-weight:600;letter-spacing:.06em}
+.job h3{margin:6px 0 8px}
+.job p{color:var(--ink-soft);font-size:16px}
+
+/* month rhythm */
+.rhythm{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:18px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.beat{padding:20px 18px;border-right:1px solid var(--line)}
+.beat:last-child{border-right:0}
+.beat .when{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent)}
+.beat b{display:block;font-family:Fraunces,serif;font-weight:500;font-size:19px;line-height:1.2;margin:8px 0 6px}
+.beat span{font-size:14px;color:var(--ink-soft)}
+.sub-h{font-family:Fraunces,serif;font-size:22px;margin-top:40px}
+
+/* compare */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.side{border-radius:var(--radius);padding:22px 20px}
+.side.alone{background:var(--paper-2);border:1px solid var(--line)}
+.side.cared{background:var(--white);border:2px solid var(--accent)}
+.side h3{font-size:20px;margin-bottom:14px}
+.side ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.side li{position:relative;padding-left:30px;font-size:15.5px}
+.side li::before{content:"";position:absolute;left:0;top:3px;width:20px;height:20px;border-radius:50%}
+.alone li{color:var(--ink-soft)}
+.alone li::before{background:#fff;border:1px solid var(--line)}
+.alone li::after{content:"";position:absolute;left:5px;top:12px;width:10px;height:2px;background:var(--bad)}
+.cared li::before{background:var(--ok)}
+.cared li::after{content:"";position:absolute;left:6px;top:8px;width:8px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg)}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{background:var(--white);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px}
+.terms-link{margin-top:22px;font-size:15px;color:var(--ink-soft)}
+.terms-link a{font-weight:600}
+
+/* growth plans */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+.plan{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px 22px;display:flex;flex-direction:column}
+.plan-top{display:flex;flex-direction:column;gap:12px}
+.plan .tagline{font-size:15px;color:var(--ink-soft);margin-top:6px}
+.price{flex:none}
+.price b{display:block;font-family:Fraunces,serif;font-size:34px;font-weight:500;line-height:1}
+.price small{display:block;font-size:13px;color:var(--ink-soft);margin-top:4px}
+.plan ul{list-style:none;margin:18px 0 0;padding:16px 0 0;border-top:1px solid var(--line);display:grid;gap:10px}
+.plan li{position:relative;padding-left:28px;font-size:15px}
+.plan li::before{content:"";position:absolute;left:0;top:3px;width:18px;height:18px;border-radius:50%;background:var(--ok)}
+.plan li::after{content:"";position:absolute;left:5px;top:8px;width:7px;height:4px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg)}
+.fit{margin-top:auto;padding-top:16px;font-size:14px;color:var(--ink-soft)}
+.fit b{color:var(--ink)}
+.fit + .fit{padding-top:6px;margin-top:0}
+
+
+/* picker */
+.picker{margin-top:18px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.pick{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;padding:15px 20px;border-top:1px solid var(--line);font-size:15.5px;align-items:center}
+.pick:first-child{border-top:0}
+.pick .q{color:var(--ink-soft)}
+.pick .a{font-weight:600}
+
+/* faq */
+.faq{margin-top:18px;display:grid;gap:10px}
+.faq details{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:0 20px}
+.faq summary{cursor:pointer;list-style:none;font-weight:600;padding:17px 30px 17px 0;position:relative;font-size:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:4px;top:23px;width:9px;height:9px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(45deg)}
+.faq details[open] summary::after{transform:rotate(-135deg);top:27px}
+.faq details p{padding:0 0 18px;color:var(--ink-soft);font-size:15.5px}
+
+.cta{margin:56px 0 24px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:30px 24px;text-align:center}
+.cta p{color:var(--ink-soft);max-width:52ch;margin:10px auto 0}
+.btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:999px;font-weight:600;text-decoration:none;font-size:15px;border:1.5px solid var(--accent);cursor:pointer;font-family:inherit;background:transparent;color:var(--accent);min-height:46px}
+.btn.solid{background:var(--accent);color:#fff}
+.btn:hover{background:var(--paper)}
+.btn.solid:hover{background:#0b5d79}
+.foot{margin:8px 0 48px;font-size:13.5px;color:var(--ink-soft)}
+.foot b{color:var(--ink)}
+
+@media (max-width:820px){
+  .plans{grid-template-columns:1fr}
+  .rhythm{grid-template-columns:1fr 1fr}
+  .beat:nth-child(2){border-right:0}
+  .beat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+@media (max-width:700px){
+  .jobs,.compare,.plans{grid-template-columns:1fr}
+  .pick{grid-template-columns:1fr;gap:4px}
+  section.block{padding-top:44px}
+}
+@media (max-width:420px){
+  .rhythm{grid-template-columns:1fr}
+  .beat{border-right:0;border-bottom:1px solid var(--line)}
+  .beat:last-child{border-bottom:0}
+  .plan-top{flex-direction:column;gap:10px}
+  .price{text-align:left}
+  .price small{margin-left:0;max-width:none}
+}
+@media print{
+  body{background:#fff;font-size:12px}
+  .no-print{display:none!important}
+  section.block{padding-top:20px}
+  .plan,.job,.side,.picker,details{break-inside:avoid}
+  .faq details{border:0;padding:0}
+  .faq details p{display:block}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <a class="brand" href="https://coastalcr.com"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0e6f90"/><path d="M10 38 C18 30 22 46 32 38 S46 30 54 38" fill="none" stroke="#eef4f8" stroke-width="4.5" stroke-linecap="round"/><path d="M10 26 C18 18 22 34 32 26 S46 18 54 26" fill="none" stroke="#d2a55f" stroke-width="4.5" stroke-linecap="round"/></svg> Coastal <span>CR</span></a>
+    <div class="lang no-print" role="group" aria-label="Language / Idioma">
+      <button type="button" data-lang="en" aria-pressed="true">English</button>
+      <button type="button" data-lang="es" aria-pressed="false">Español</button>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="kicker"><span class="en">Coastal CR · Monthly plans</span><span class="es">Coastal CR · Planes mensuales</span></div>
+    <h1><span class="en">Your website, looked after. Your business, <span class="hl">found.</span></span><span class="es">Su sitio, bien cuidado. Su negocio, <span class="hl">encontrado.</span></span></h1>
+    <p class="lead"><span class="en">Every Coastal CR site comes with the care plan: $200 a month, and I handle everything that keeps it working. When you want more customers, add a growth plan on top. Here is exactly what each one does, in plain words.</span><span class="es">Cada sitio de Coastal CR viene con el plan de mantenimiento: $200 al mes, y yo me encargo de todo lo que lo mantiene funcionando. Cuando quiera más clientes, le suma un plan de crecimiento. Aquí está exactamente lo que hace cada uno, en palabras simples.</span></p>
+    <nav class="jump no-print">
+      <a href="#care"><span class="en">The care plan</span><span class="es">El plan de mantenimiento</span></a>
+      <a href="#growth"><span class="en">Growth plans</span><span class="es">Planes de crecimiento</span></a>
+      <a href="#pick"><span class="en">Which one do I need?</span><span class="es">¿Cuál necesito?</span></a>
+      <a href="#faq"><span class="en">Questions</span><span class="es">Preguntas</span></a>
+    </nav>
+  </header>
+
+  <!-- PART 1: CARE -->
+  <section class="block" id="care">
+    <div class="part"><span class="en">Part 1 · The care plan · $200 a month</span><span class="es">Parte 1 · Plan de mantenimiento · $200 al mes</span></div>
+    <h2><span class="en">What $200 a month actually does.</span><span class="es">Lo que hacen $200 al mes, de verdad.</span></h2>
+    <p class="sec-p"><span class="en">A website is not a poster you print once. Prices change, seasons change, Google changes. The care plan means one person who lives here keeps all of it right for you, so you never have to think about it.</span><span class="es">Un sitio web no es un afiche que se imprime una vez. Los precios cambian, las temporadas cambian, Google cambia. El plan de mantenimiento significa que una persona que vive aquí mantiene todo al día por usted, para que nunca tenga que pensar en eso.</span></p>
+
+    <div class="jobs">
+      <div class="job">
+        <div class="n">01</div>
+        <h3><span class="en">Keeps it online</span><span class="es">Lo mantiene en línea</span></h3>
+        <p><span class="en">Fast hosting, a secure address (the little padlock in the browser), a backup of every version, and an automatic check around the clock. If the site ever goes down, I know before you do.</span><span class="es">Hosting rápido, dirección segura (el candadito en el navegador), un respaldo de cada versión y un chequeo automático las 24 horas. Si el sitio se cae, me entero antes que usted.</span></p>
+      </div>
+      <div class="job">
+        <div class="n">02</div>
+        <h3><span class="en">Keeps it right</span><span class="es">Lo mantiene correcto</span></h3>
+        <p><span class="en">Unlimited changes, new pages included. New price, new tour, closed for a holiday, fresh photos. Send a WhatsApp and most changes are live the same day.</span><span class="es">Cambios ilimitados, páginas nuevas incluidas. Precio nuevo, tour nuevo, cerrado por feriado, fotos nuevas. Me manda un WhatsApp y la mayoría de los cambios quedan listos el mismo día.</span></p>
+      </div>
+      <div class="job">
+        <div class="n">03</div>
+        <h3><span class="en">Keeps you on Google</span><span class="es">Lo mantiene en Google</span></h3>
+        <p><span class="en">One post a month on your Google Business listing (the box that shows up on Google Maps) so it stays active, and your domain renewed every year, always in your name.</span><span class="es">Una publicación al mes en su ficha de Google Business (el recuadro que sale en Google Maps) para que se mantenga activa, y su dominio renovado cada año, siempre a su nombre.</span></p>
+      </div>
+      <div class="job">
+        <div class="n">04</div>
+        <h3><span class="en">Keeps it fresh</span><span class="es">Lo mantiene fresco</span></h3>
+        <p><span class="en">Once a year we sit down together, look at photos, wording and speed, and update whatever has aged. And any time you are thinking about a change, ask me. Advice is part of the plan.</span><span class="es">Una vez al año nos sentamos juntos, revisamos fotos, textos y velocidad, y actualizamos lo que envejeció. Y cuando esté pensando en un cambio, pregúnteme. El consejo es parte del plan.</span></p>
+      </div>
+    </div>
+
+    <h3 class="sub-h"><span class="en">A normal month on the care plan</span><span class="es">Un mes normal con el plan</span></h3>
+    <div class="rhythm">
+      <div class="beat"><div class="when"><span class="en">Around the clock</span><span class="es">Las 24 horas</span></div><b><span class="en">Your site is watched</span><span class="es">Su sitio está vigilado</span></b><span><span class="en">Automatic checks. If anything breaks, I fix it right away.</span><span class="es">Chequeos automáticos. Si algo falla, lo arreglo de inmediato.</span></span></div>
+      <div class="beat"><div class="when"><span class="en">Whenever you ask</span><span class="es">Cuando usted pida</span></div><b><span class="en">Your changes go live</span><span class="es">Sus cambios quedan listos</span></b><span><span class="en">Usually the same day. As many as you like.</span><span class="es">Normalmente el mismo día. Todos los que quiera.</span></span></div>
+      <div class="beat"><div class="when"><span class="en">Every month</span><span class="es">Cada mes</span></div><b><span class="en">A new Google post</span><span class="es">Una publicación en Google</span></b><span><span class="en">Keeps your listing active on Maps.</span><span class="es">Mantiene su ficha activa en Maps.</span></span></div>
+      <div class="beat"><div class="when"><span class="en">Every year</span><span class="es">Cada año</span></div><b><span class="en">Domain + refresh</span><span class="es">Dominio + renovación</span></b><span><span class="en">Domain renewed, and a sit-down to freshen up the site.</span><span class="es">Dominio renovado, y una reunión para refrescar el sitio.</span></span></div>
+    </div>
+
+    <h3 class="sub-h"><span class="en">Left alone vs looked after</span><span class="es">Abandonado vs bien cuidado</span></h3>
+    <div class="compare">
+      <div class="side alone">
+        <h3><span class="en">A website left alone</span><span class="es">Un sitio abandonado</span></h3>
+        <ul>
+          <li><span class="en">Last season's prices stay up, and guests quote them back to you.</span><span class="es">Los precios de la temporada pasada siguen ahí, y los clientes se los recuerdan.</span></li>
+          <li><span class="en">The domain expires one year and the site disappears overnight.</span><span class="es">El dominio vence un año y el sitio desaparece de un día para otro.</span></li>
+          <li><span class="en">The Google listing goes quiet and slips behind the business down the road.</span><span class="es">La ficha de Google se queda quieta y queda detrás del negocio de al lado.</span></li>
+          <li><span class="en">A broken button nobody notices for months.</span><span class="es">Un botón roto que nadie nota por meses.</span></li>
+          <li><span class="en">Every small change means finding someone, waiting, and paying per job.</span><span class="es">Cada cambio pequeño es buscar a alguien, esperar y pagar por trabajo.</span></li>
+        </ul>
+      </div>
+      <div class="side cared">
+        <h3><span class="en">A website on the care plan</span><span class="es">Un sitio con el plan</span></h3>
+        <ul>
+          <li><span class="en">Prices, hours and photos always match today.</span><span class="es">Precios, horarios y fotos siempre al día.</span></li>
+          <li><span class="en">Domain renewed for you, every year, in your name.</span><span class="es">Dominio renovado por usted, cada año, a su nombre.</span></li>
+          <li><span class="en">A new Google post every month keeps your listing active.</span><span class="es">Una publicación nueva en Google cada mes mantiene su ficha activa.</span></li>
+          <li><span class="en">Watched around the clock, fixed right away.</span><span class="es">Vigilado las 24 horas, arreglado de inmediato.</span></li>
+          <li><span class="en">One WhatsApp and it is done. No extra bill.</span><span class="es">Un WhatsApp y listo. Sin cobro extra.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub-h"><span class="en">Changes clients ask for, all included</span><span class="es">Cambios que piden los clientes, todos incluidos</span></h3>
+    <div class="chips">
+      <span class="chip"><span class="en">New high-season prices</span><span class="es">Precios de temporada alta</span></span>
+      <span class="chip"><span class="en">Closed for Semana Santa</span><span class="es">Cerrado por Semana Santa</span></span>
+      <span class="chip"><span class="en">New boat photos</span><span class="es">Fotos nuevas del bote</span></span>
+      <span class="chip"><span class="en">A page for a new tour</span><span class="es">Una página para un tour nuevo</span></span>
+      <span class="chip"><span class="en">New menu</span><span class="es">Menú nuevo</span></span>
+      <span class="chip"><span class="en">Holiday promo banner</span><span class="es">Banner de promoción</span></span>
+      <span class="chip"><span class="en">New WhatsApp number</span><span class="es">Número de WhatsApp nuevo</span></span>
+      <span class="chip"><span class="en">Fix the Spanish wording</span><span class="es">Corregir el texto en inglés</span></span>
+      <span class="chip"><span class="en">Add a great review</span><span class="es">Agregar una buena reseña</span></span>
+    </div>
+    <p class="terms-link"><span class="en">Minimums, payment and cancelling are all on one page: <a href="../care/">read the full care plan terms</a>.</span><span class="es">Mínimos, pagos y cancelación están en una sola página: <a href="../care/?lang=es">lea las condiciones completas</a>.</span></p>
+  </section>
+
+  <!-- PART 2: GROWTH -->
+  <section class="block" id="growth">
+    <div class="part"><span class="en">Part 2 · Growth plans</span><span class="es">Parte 2 · Planes de crecimiento</span></div>
+    <h2><span class="en">Ready for more customers? Add a plan.</span><span class="es">¿Listo para más clientes? Sume un plan.</span></h2>
+    <p class="sec-p"><span class="en">The care plan keeps your site working. Growth plans go out and bring people to it. Add one or all three, and stop any of them after the minimum.</span><span class="es">El plan de mantenimiento mantiene su sitio funcionando. Los planes de crecimiento salen a buscar gente para traerla. Sume uno o los tres, y deje cualquiera después del mínimo.</span></p>
+
+    <div class="plans">
+      <!-- Google Growth -->
+      <article class="plan">
+        <div class="plan-top">
+          <div>
+            <h3><span class="en">Google Growth</span><span class="es">Crecimiento en Google</span></h3>
+            <p class="tagline"><span class="en">Show up when tourists search, and win them with reviews.</span><span class="es">Aparezca cuando los turistas buscan, y gáneselos con reseñas.</span></p>
+          </div>
+          <div class="price"><b>$150</b><small><span class="en">a month, on top of care</span><span class="es">al mes, además del mantenimiento</span></small></div>
+        </div>
+        <ul>
+          <li><span class="en">A Google post every week, not just once a month.</span><span class="es">Una publicación en Google cada semana, no solo una al mes.</span></li>
+          <li><span class="en">A review card with a QR code for your counter, boat or van, plus a short link to text guests after their visit.</span><span class="es">Una tarjeta de reseñas con código QR para su mostrador, bote o buseta, y un enlace corto para mandarle a los clientes después de su visita.</span></li>
+          <li><span class="en">A reply to every Google review within 2 days, in your voice.</span><span class="es">Una respuesta a cada reseña de Google en menos de 2 días, con su estilo.</span></li>
+          <li><span class="en">One new page a month on your site, built around what people actually type into Google, like "fishing charter Jaco".</span><span class="es">Una página nueva al mes en su sitio, pensada en lo que la gente escribe en Google, como "pesca deportiva Jaco".</span></li>
+          <li><span class="en">Your name, phone and address matching everywhere: Google, Apple Maps, Tripadvisor, Facebook.</span><span class="es">Su nombre, teléfono y dirección iguales en todas partes: Google, Apple Maps, Tripadvisor, Facebook.</span></li>
+          <li><span class="en">A simple report each month: where you show up on Google Maps and how many people called or clicked.</span><span class="es">Un reporte simple cada mes: dónde aparece en Google Maps y cuánta gente llamó o hizo clic.</span></li>
+        </ul>
+        <p class="fit"><b><span class="en">Good for:</span><span class="es">Ideal para:</span></b> <span class="en">tours, restaurants, hotels, transport. Anyone tourists search for.</span><span class="es">tours, restaurantes, hoteles, transporte. Cualquiera que los turistas buscan.</span></p>
+        <p class="fit"><b><span class="en">Minimum:</span><span class="es">Mínimo:</span></b> <span class="en">3 months.</span><span class="es">3 meses.</span></p>
+      </article>
+
+      <!-- Ads -->
+      <article class="plan">
+        <div class="plan-top">
+          <div>
+            <h3>Google Ads</h3>
+            <p class="tagline"><span class="en">Be at the top of Google the moment someone is ready to book.</span><span class="es">Salga de primero en Google justo cuando alguien está listo para reservar.</span></p>
+          </div>
+          <div class="price"><b>$250</b><small><span class="en">a month, plus your ad budget</span><span class="es">al mes, más su presupuesto de anuncios</span></small></div>
+        </div>
+        <ul>
+          <li><span class="en">Setup included: your ad account, ads in English and Spanish, and tracking for calls and WhatsApp taps.</span><span class="es">Configuración incluida: su cuenta, anuncios en inglés y español, y medición de llamadas y clics a WhatsApp.</span></li>
+          <li><span class="en">Weekly tuning: cut the searches that waste money, push the ones that book.</span><span class="es">Ajustes cada semana: quito las búsquedas que gastan plata y empujo las que reservan.</span></li>
+          <li><span class="en">A monthly report in plain words: what you spent and how many people called or messaged.</span><span class="es">Un reporte mensual en palabras simples: cuánto gastó y cuánta gente llamó o escribió.</span></li>
+          <li><span class="en">The ad money goes straight from you to Google, never through me. I suggest starting around $10 a day.</span><span class="es">La plata de los anuncios va directo de usted a Google, nunca pasa por mí. Recomiendo empezar con unos $10 al día.</span></li>
+        </ul>
+        <p class="fit"><b><span class="en">Good for:</span><span class="es">Ideal para:</span></b> <span class="en">big-ticket trips where one booking pays for the month: charters, private tours, transfers.</span><span class="es">viajes de alto valor donde una reserva paga el mes: pesca, tours privados, traslados.</span></p>
+        <p class="fit"><b><span class="en">Minimum:</span><span class="es">Mínimo:</span></b> <span class="en">3 months, because ads need time to learn.</span><span class="es">3 meses, porque los anuncios necesitan tiempo para aprender.</span></p>
+      </article>
+
+      <!-- Autopilot -->
+      <article class="plan">
+        <div class="plan-top">
+          <div>
+            <h3><span class="en">Booking autopilot</span><span class="es">Reservas en automático</span></h3>
+            <p class="tagline"><span class="en">Every guest answered in minutes, even while you are out on the water.</span><span class="es">Cada cliente atendido en minutos, aunque usted esté en el agua.</span></p>
+          </div>
+          <div class="price"><b><span class="en">from </span><span class="es">desde </span>$150</b><small><span class="en">a month, setup quoted once</span><span class="es">al mes, configuración cotizada una vez</span></small></div>
+        </div>
+        <ul>
+          <li><span class="en">An instant reply to every booking request, in the guest's language.</span><span class="es">Una respuesta inmediata a cada solicitud de reserva, en el idioma del cliente.</span></li>
+          <li><span class="en">A reminder the day before: where to meet and what to bring.</span><span class="es">Un recordatorio el día antes: dónde verse y qué traer.</span></li>
+          <li><span class="en">A thank-you after the visit, with a one-tap link to leave a review.</span><span class="es">Un agradecimiento después de la visita, con un enlace para dejar una reseña en un toque.</span></li>
+          <li><span class="en">Every new request sent straight to your phone.</span><span class="es">Cada solicitud nueva llega directo a su teléfono.</span></li>
+        </ul>
+        <p class="fit"><b><span class="en">Good for:</span><span class="es">Ideal para:</span></b> <span class="en">anyone answering the same five questions all day.</span><span class="es">cualquiera que contesta las mismas cinco preguntas todo el día.</span></p>
+        <p class="fit"><b><span class="en">Minimum:</span><span class="es">Mínimo:</span></b> <span class="en">3 months.</span><span class="es">3 meses.</span></p>
+      </article>
+    </div>
+
+  </section>
+
+  <!-- PICKER -->
+  <section class="block" id="pick">
+    <h2><span class="en">Which one do I need?</span><span class="es">¿Cuál necesito?</span></h2>
+    <div class="picker">
+      <div class="pick"><span class="q"><span class="en">"I just want my site working and up to date."</span><span class="es">"Solo quiero mi sitio funcionando y al día."</span></span><span class="a"><span class="en">Care plan</span><span class="es">Plan de mantenimiento</span></span></div>
+      <div class="pick"><span class="q"><span class="en">"I want more people finding me on Google."</span><span class="es">"Quiero que más gente me encuentre en Google."</span></span><span class="a"><span class="en">Care + Google Growth</span><span class="es">Mantenimiento + Crecimiento en Google</span></span></div>
+      <div class="pick"><span class="q"><span class="en">"One booking would pay for a month of ads."</span><span class="es">"Una reserva me paga un mes de anuncios."</span></span><span class="a"><span class="en">Add Google Ads</span><span class="es">Sume Google Ads</span></span></div>
+      <div class="pick"><span class="q"><span class="en">"I miss messages while I'm working."</span><span class="es">"Se me pasan mensajes mientras trabajo."</span></span><span class="a"><span class="en">Add Booking autopilot</span><span class="es">Sume Reservas en automático</span></span></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq">
+    <h2><span class="en">Questions</span><span class="es">Preguntas</span></h2>
+    <div class="faq">
+      <details>
+        <summary><span class="en">Do I need the care plan to get a growth plan?</span><span class="es">¿Necesito el plan de mantenimiento para tener un plan de crecimiento?</span></summary>
+        <p><span class="en">Google Growth and Booking autopilot change your website, so they go with the care plan. Google Ads can run on its own, even if someone else built your site.</span><span class="es">Crecimiento en Google y Reservas en automático cambian su sitio, así que van con el plan de mantenimiento. Google Ads puede ir solo, aunque otra persona le haya hecho el sitio.</span></p>
+      </details>
+      <details>
+        <summary><span class="en">Is there a minimum?</span><span class="es">¿Hay un mínimo?</span></summary>
+        <p><span class="en">The care plan is 6 months from launch day. Growth plans are 3 months. After that it is month to month, and you can stop any of them with one message.</span><span class="es">El plan de mantenimiento es de 6 meses desde el lanzamiento. Los planes de crecimiento son de 3 meses. Después es mes a mes, y puede dejar cualquiera con un mensaje.</span></p>
+      </details>
+      <details>
+        <summary><span class="en">Do you guarantee more bookings?</span><span class="es">¿Me garantiza más reservas?</span></summary>
+        <p><span class="en">No, and be careful with anyone who does. Nobody controls Google. What I promise is the work listed on this page, done every month, and a report with real numbers so you can see for yourself if it is paying off.</span><span class="es">No, y tenga cuidado con quien se lo garantice. Nadie controla Google. Lo que le prometo es el trabajo de esta página, hecho cada mes, y un reporte con números reales para que usted mismo vea si está dando resultado.</span></p>
+      </details>
+      <details>
+        <summary><span class="en">Will you post anything without asking me?</span><span class="es">¿Va a publicar algo sin preguntarme?</span></summary>
+        <p><span class="en">No. Google posts and review replies follow a style you approve once, and you can see every one. Want to check each post first? Just say so.</span><span class="es">No. Las publicaciones en Google y las respuestas a reseñas siguen un estilo que usted aprueba una vez, y puede ver cada una. ¿Quiere revisar cada publicación antes? Solo dígame.</span></p>
+      </details>
+      <details>
+        <summary><span class="en">Can I change plans later?</span><span class="es">¿Puedo cambiar de plan después?</span></summary>
+        <p><span class="en">Yes. Add a growth plan any time, or drop one at the start of a month once its minimum is done.</span><span class="es">Sí. Puede sumar un plan cuando quiera, o dejarlo al inicio de un mes cuando termine su mínimo.</span></p>
+      </details>
+      <details>
+        <summary><span class="en">How do I pay?</span><span class="es">¿Cómo pago?</span></summary>
+        <p><span class="en">Monthly in advance, by Zelle, Venmo, PayPal, SINPE Móvil or bank transfer, with a receipt after every payment. Google Ads money is paid by you directly to Google.</span><span class="es">Mensual por adelantado, por Zelle, Venmo, PayPal, SINPE Móvil o transferencia bancaria, con comprobante después de cada pago. La plata de Google Ads la paga usted directo a Google.</span></p>
+      </details>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2><span class="en">Not sure what fits? Ask me.</span><span class="es">¿No sabe qué le sirve? Pregúnteme.</span></h2>
+    <p><span class="en">Tell me about your business on WhatsApp and I will tell you honestly which plan, if any, is worth it for you.</span><span class="es">Cuénteme de su negocio por WhatsApp y le digo con honestidad qué plan le vale la pena, si es que alguno.</span></p>
+    <div class="btns no-print">
+      <a class="btn solid" id="wa" href="https://wa.me/13213561951?text=Hi%20Tony%2C%20I%27d%20like%20to%20know%20which%20Coastal%20CR%20plan%20fits%20my%20business." target="_blank" rel="noopener"><span class="en">Message on WhatsApp</span><span class="es">Escribir por WhatsApp</span></a>
+      <a class="btn" href="../care/"><span class="en">Care plan terms</span><span class="es">Condiciones del plan</span></a>
+      <a class="btn" href="../plans/"><span class="en">Ways to pay for a site</span><span class="es">Formas de pagar un sitio</span></a>
+    </div>
+  </section>
+
+  <p class="foot"><span class="en"><b>Monthly plans, November 2026.</b> Coastal CR is the web design side of Infinite Discoveries LLC, Playa Hermosa, Jaco, Costa Rica.</span><span class="es"><b>Planes mensuales, noviembre de 2026.</b> Coastal CR es la parte de diseño web de Infinite Discoveries LLC, Playa Hermosa, Jaco, Costa Rica.</span> Anthony Skoczylas · WhatsApp +1 321-356-1951 · anthonyskoczylas@yahoo.com · coastalcr.com</p>
+</div>
+
+<script>
+var WA = {
+  en: 'https://wa.me/13213561951?text=' + encodeURIComponent("Hi Tony, I'd like to know which Coastal CR plan fits my business."),
+  es: 'https://wa.me/13213561951?text=' + encodeURIComponent('Hola Tony, quiero saber qué plan de Coastal CR le sirve a mi negocio.')
+};
+var TITLE = { en: 'Monthly plans · Coastal CR', es: 'Planes mensuales · Coastal CR' };
+function setLang(l){
+  var h = document.documentElement;
+  h.lang = l; h.classList.toggle('es', l === 'es');
+  document.title = TITLE[l];
+  document.getElementById('wa').href = WA[l];
+  document.querySelectorAll('[data-lang]').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.lang === l)); });
+  try { localStorage.setItem('ccr-lang', l); } catch (e) {}
+}
+document.querySelectorAll('[data-lang]').forEach(function(b){ b.addEventListener('click', function(){ setLang(b.dataset.lang); }); });
+var q = new URLSearchParams(location.search).get('lang'), saved = null;
+try { saved = localStorage.getItem('ccr-lang'); } catch (e) {}
+setLang((q === 'es' || q === 'en') ? q : (saved === 'es' ? 'es' : 'en'));
+</script>
+</body>
+</html>
