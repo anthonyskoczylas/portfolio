@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Monthly plans · Coastal CR</title>
-<meta name="description" content="What the Coastal CR care plan does every month, plus growth plans for Google, Google Ads and automatic booking replies. Plain language, real prices.">
+<meta name="description" content="What the Coastal CR care plan does every month, plus growth plans for Google, Google Ads and automatic booking replies, and website transfers for businesses that already have a site. Plain language, real prices.">
 <meta name="theme-color" content="#eef4f8">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,6 +96,23 @@ section.block{padding:56px 0 8px}
 .fit + .fit{padding-top:6px;margin-top:0}
 
 
+/* transfer */
+.transfer{display:grid;grid-template-columns:1.25fr 1fr;gap:16px;margin-top:26px}
+.t-main,.t-side{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px}
+.t-side{border:2px solid var(--accent)}
+.t-steps{list-style:none;margin:0;padding:0;display:grid;gap:16px;counter-reset:t}
+.t-steps li{position:relative;padding-left:42px;font-size:15.5px}
+.t-steps li::before{counter-increment:t;content:counter(t);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-weight:600;font-size:14px;display:grid;place-items:center}
+.t-steps b{display:block}
+.t-steps li > span{color:var(--ink-soft)}
+.t-price{padding-bottom:16px;border-bottom:1px solid var(--line)}
+.t-from{display:block;font-size:13px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+.t-price b{display:block;font-family:Fraunces,serif;font-size:44px;font-weight:500;line-height:1;margin-top:2px}
+.t-price small{display:block;font-size:14px;color:var(--ink-soft);margin-top:6px}
+.t-notes{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:10px}
+.t-notes li{position:relative;padding-left:16px;font-size:14.5px;color:var(--ink-soft)}
+.t-notes li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--sand)}
+
 /* picker */
 .picker{margin-top:18px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
 .pick{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;padding:15px 20px;border-top:1px solid var(--line);font-size:15.5px;align-items:center}
@@ -129,7 +146,7 @@ section.block{padding:56px 0 8px}
   .beat:nth-child(-n+2){border-bottom:1px solid var(--line)}
 }
 @media (max-width:700px){
-  .jobs,.compare,.plans{grid-template-columns:1fr}
+  .jobs,.compare,.plans,.transfer{grid-template-columns:1fr}
   .pick{grid-template-columns:1fr;gap:4px}
   section.block{padding-top:44px}
 }
@@ -145,7 +162,7 @@ section.block{padding:56px 0 8px}
   body{background:#fff;font-size:12px}
   .no-print{display:none!important}
   section.block{padding-top:20px}
-  .plan,.job,.side,.picker,details{break-inside:avoid}
+  .plan,.job,.side,.picker,.t-main,.t-side,details{break-inside:avoid}
   .faq details{border:0;padding:0}
   .faq details p{display:block}
 }
@@ -165,10 +182,11 @@ section.block{padding:56px 0 8px}
   <header class="hero">
     <div class="kicker"><span class="en">Coastal CR · Monthly plans</span><span class="es">Coastal CR · Planes mensuales</span></div>
     <h1><span class="en">Your website, looked after. Your business, <span class="hl">found.</span></span><span class="es">Su sitio, bien cuidado. Su negocio, <span class="hl">encontrado.</span></span></h1>
-    <p class="lead"><span class="en">Every Coastal CR site comes with the care plan: $200 a month, and I handle everything that keeps it working. When you want more customers, add a growth plan on top. Here is exactly what each one does, in plain words.</span><span class="es">Cada sitio de Coastal CR viene con el plan de mantenimiento: $200 al mes, y yo me encargo de todo lo que lo mantiene funcionando. Cuando quiera más clientes, le suma un plan de crecimiento. Aquí está exactamente lo que hace cada uno, en palabras simples.</span></p>
+    <p class="lead"><span class="en">Every Coastal CR site comes with the care plan: $200 a month, and I handle everything that keeps it working. When you want more customers, add a growth plan on top. Already have a site you like? I move it over with a website transfer. Here is exactly what each one does, in plain words.</span><span class="es">Cada sitio de Coastal CR viene con el plan de mantenimiento: $200 al mes, y yo me encargo de todo lo que lo mantiene funcionando. Cuando quiera más clientes, le suma un plan de crecimiento. ¿Ya tiene un sitio que le gusta? Lo paso a mi sistema con un traslado de sitio. Aquí está exactamente lo que hace cada uno, en palabras simples.</span></p>
     <nav class="jump no-print">
       <a href="#care"><span class="en">The care plan</span><span class="es">El plan de mantenimiento</span></a>
       <a href="#growth"><span class="en">Growth plans</span><span class="es">Planes de crecimiento</span></a>
+      <a href="#transfer"><span class="en">Website transfer</span><span class="es">Traslado de sitio</span></a>
       <a href="#pick"><span class="en">Which one do I need?</span><span class="es">¿Cuál necesito?</span></a>
       <a href="#faq"><span class="en">Questions</span><span class="es">Preguntas</span></a>
     </nav>
@@ -254,7 +272,7 @@ section.block{padding:56px 0 8px}
   <section class="block" id="growth">
     <div class="part"><span class="en">Part 2 · Growth plans</span><span class="es">Parte 2 · Planes de crecimiento</span></div>
     <h2><span class="en">Ready for more customers? Add a plan.</span><span class="es">¿Listo para más clientes? Sume un plan.</span></h2>
-    <p class="sec-p"><span class="en">The care plan keeps your site working. Growth plans go out and bring people to it. Add one or all three, and stop any of them after the minimum.</span><span class="es">El plan de mantenimiento mantiene su sitio funcionando. Los planes de crecimiento salen a buscar gente para traerla. Sume uno o los tres, y deje cualquiera después del mínimo.</span></p>
+    <p class="sec-p"><span class="en">The care plan keeps your site working. Growth plans go out and bring people to it. Every growth plan runs on a Coastal CR website on the care plan, so I can do the work properly and fast. Add one or all three, and stop any of them after the minimum.</span><span class="es">El plan de mantenimiento mantiene su sitio funcionando. Los planes de crecimiento salen a buscar gente para traerla. Cada plan de crecimiento funciona sobre un sitio de Coastal CR con el plan de mantenimiento, para hacer el trabajo bien y rápido. Sume uno o los tres, y deje cualquiera después del mínimo.</span></p>
 
     <div class="plans">
       <!-- Google Growth -->
@@ -285,7 +303,7 @@ section.block{padding:56px 0 8px}
             <h3>Google Ads</h3>
             <p class="tagline"><span class="en">Be at the top of Google the moment someone is ready to book.</span><span class="es">Salga de primero en Google justo cuando alguien está listo para reservar.</span></p>
           </div>
-          <div class="price"><b>$250</b><small><span class="en">a month, plus your ad budget</span><span class="es">al mes, más su presupuesto de anuncios</span></small></div>
+          <div class="price"><b>$250</b><small><span class="en">a month on top of care, plus your ad budget</span><span class="es">al mes además del mantenimiento, más su presupuesto de anuncios</span></small></div>
         </div>
         <ul>
           <li><span class="en">Setup included: your ad account, ads in English and Spanish, and tracking for calls and WhatsApp taps.</span><span class="es">Configuración incluida: su cuenta, anuncios en inglés y español, y medición de llamadas y clics a WhatsApp.</span></li>
@@ -304,7 +322,7 @@ section.block{padding:56px 0 8px}
             <h3><span class="en">Booking autopilot</span><span class="es">Reservas en automático</span></h3>
             <p class="tagline"><span class="en">Every guest answered in minutes, even while you are out on the water.</span><span class="es">Cada cliente atendido en minutos, aunque usted esté en el agua.</span></p>
           </div>
-          <div class="price"><b><span class="en">from </span><span class="es">desde </span>$150</b><small><span class="en">a month, setup quoted once</span><span class="es">al mes, configuración cotizada una vez</span></small></div>
+          <div class="price"><b><span class="en">from </span><span class="es">desde </span>$150</b><small><span class="en">a month on top of care, setup quoted once</span><span class="es">al mes además del mantenimiento, configuración cotizada una vez</span></small></div>
         </div>
         <ul>
           <li><span class="en">An instant reply to every booking request, in the guest's language.</span><span class="es">Una respuesta inmediata a cada solicitud de reserva, en el idioma del cliente.</span></li>
@@ -319,11 +337,39 @@ section.block{padding:56px 0 8px}
 
   </section>
 
+  <!-- TRANSFER -->
+  <section class="block" id="transfer">
+    <div class="part"><span class="en">Already have a website?</span><span class="es">¿Ya tiene sitio web?</span></div>
+    <h2><span class="en">Keep your site. I'll move it over.</span><span class="es">Quédese con su sitio. Yo lo traslado.</span></h2>
+    <p class="sec-p"><span class="en">Every plan on this page runs on a website I manage, so changes go live the same day and nothing falls through the cracks. If you like the site you have, I rebuild it exactly as it is: same look, same pages, same words, on your same address. Your customers won't notice a thing, except that it loads faster.</span><span class="es">Todos los planes de esta página funcionan sobre un sitio que yo manejo, así los cambios quedan el mismo día y nada se pierde. Si le gusta el sitio que tiene, lo reconstruyo exactamente igual: mismo diseño, mismas páginas, mismos textos, en su misma dirección. Sus clientes no van a notar nada, excepto que carga más rápido.</span></p>
+
+    <div class="transfer">
+      <div class="t-main">
+        <ol class="t-steps">
+          <li><b><span class="en">Send me your link</span><span class="es">Me manda su enlace</span></b><span><span class="en">I look at it for free and tell you the exact price before you pay anything.</span><span class="es">Lo reviso gratis y le digo el precio exacto antes de que pague nada.</span></span></li>
+          <li><b><span class="en">I rebuild it, exactly</span><span class="es">Lo reconstruyo, igualito</span></b><span><span class="en">You get a preview link to compare side by side with your current site.</span><span class="es">Le mando un enlace de prueba para compararlo lado a lado con su sitio actual.</span></span></li>
+          <li><b><span class="en">We switch it over</span><span class="es">Hacemos el cambio</span></b><span><span class="en">Same web address, no downtime. Your domain stays in your name.</span><span class="es">Misma dirección web, sin que se caiga. Su dominio sigue a su nombre.</span></span></li>
+          <li><b><span class="en">Then you're on the care plan</span><span class="es">Y queda con el plan de mantenimiento</span></b><span><span class="en">Unlimited changes from day one, and every growth plan is open to you.</span><span class="es">Cambios ilimitados desde el primer día, y todos los planes de crecimiento disponibles.</span></span></li>
+        </ol>
+      </div>
+      <div class="t-side">
+        <div class="t-price"><span class="t-from"><span class="en">from</span><span class="es">desde</span></span><b>$500</b><small><span class="en">one-time, then the $200 a month care plan</span><span class="es">una sola vez, después el plan de mantenimiento de $200 al mes</span></small></div>
+        <ul class="t-notes">
+          <li><span class="en">A one-page site is $500. Bigger sites get a quote by number of pages.</span><span class="es">Un sitio de una página cuesta $500. Los sitios más grandes se cotizan por cantidad de páginas.</span></li>
+          <li><span class="en">Wix, Squarespace, WordPress, anything. If it's online, I can move it.</span><span class="es">Wix, Squarespace, WordPress, lo que sea. Si está en línea, lo puedo trasladar.</span></li>
+          <li><span class="en">Once it's moved, you can cancel your old website bill. Hosting is included in care.</span><span class="es">Cuando esté trasladado, puede cancelar lo que paga por su sitio viejo. El hosting va incluido en el mantenimiento.</span></li>
+          <li><span class="en">Want it improved, not copied? Then it's a new site: <a href="../plans/">see the 3 ways to pay</a>.</span><span class="es">¿Lo quiere mejorado, no copiado? Entonces es un sitio nuevo: <a href="../plans/?lang=es">vea las 3 formas de pago</a>.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- PICKER -->
   <section class="block" id="pick">
     <h2><span class="en">Which one do I need?</span><span class="es">¿Cuál necesito?</span></h2>
     <div class="picker">
       <div class="pick"><span class="q"><span class="en">"I just want my site working and up to date."</span><span class="es">"Solo quiero mi sitio funcionando y al día."</span></span><span class="a"><span class="en">Care plan</span><span class="es">Plan de mantenimiento</span></span></div>
+      <div class="pick"><span class="q"><span class="en">"I already have a site I like."</span><span class="es">"Ya tengo un sitio que me gusta."</span></span><span class="a"><span class="en">Website transfer + Care plan</span><span class="es">Traslado de sitio + Mantenimiento</span></span></div>
       <div class="pick"><span class="q"><span class="en">"I want more people finding me on Google."</span><span class="es">"Quiero que más gente me encuentre en Google."</span></span><span class="a"><span class="en">Care + Google Growth</span><span class="es">Mantenimiento + Crecimiento en Google</span></span></div>
       <div class="pick"><span class="q"><span class="en">"One booking would pay for a month of ads."</span><span class="es">"Una reserva me paga un mes de anuncios."</span></span><span class="a"><span class="en">Add Google Ads</span><span class="es">Sume Google Ads</span></span></div>
       <div class="pick"><span class="q"><span class="en">"I miss messages while I'm working."</span><span class="es">"Se me pasan mensajes mientras trabajo."</span></span><span class="a"><span class="en">Add Booking autopilot</span><span class="es">Sume Reservas en automático</span></span></div>
@@ -335,8 +381,8 @@ section.block{padding:56px 0 8px}
     <h2><span class="en">Questions</span><span class="es">Preguntas</span></h2>
     <div class="faq">
       <details>
-        <summary><span class="en">Do I need the care plan to get a growth plan?</span><span class="es">¿Necesito el plan de mantenimiento para tener un plan de crecimiento?</span></summary>
-        <p><span class="en">Google Growth and Booking autopilot change your website, so they go with the care plan. Google Ads can run on its own, even if someone else built your site.</span><span class="es">Crecimiento en Google y Reservas en automático cambian su sitio, así que van con el plan de mantenimiento. Google Ads puede ir solo, aunque otra persona le haya hecho el sitio.</span></p>
+        <summary><span class="en">Do I need a Coastal CR website to get a growth plan?</span><span class="es">¿Necesito un sitio de Coastal CR para tener un plan de crecimiento?</span></summary>
+        <p><span class="en">Yes. Every growth plan runs on a site I manage on the care plan, because the work touches your website, your Google listing and your tracking, and I can only do it properly if I can change things myself. Already have a site you like? A <a href="#transfer">website transfer</a> moves it over, exactly as it is.</span><span class="es">Sí. Cada plan de crecimiento funciona sobre un sitio que yo manejo con el plan de mantenimiento, porque el trabajo toca su sitio, su ficha de Google y la medición, y solo lo puedo hacer bien si puedo cambiar las cosas yo mismo. ¿Ya tiene un sitio que le gusta? Un <a href="#transfer">traslado de sitio</a> lo pasa, exactamente igual.</span></p>
       </details>
       <details>
         <summary><span class="en">Is there a minimum?</span><span class="es">¿Hay un mínimo?</span></summary>
