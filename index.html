@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Coastal CR — Websites for Costa Rica Businesses</title>
+<title>Coastal CR · Websites for Costa Rica Businesses</title>
 <meta name="description" content="Custom-built, fast, bilingual websites for local businesses across Costa Rica. See the before and after.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +33,7 @@
   }
   .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
   h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.05;letter-spacing:-0.01em}
-  em{font-style:italic;color:var(--accent)}
+  em{font-style:normal;color:var(--accent)}
   a{color:inherit}
 
   /* NAV — transparent over the dark hero, solid paper once scrolled */
@@ -50,10 +50,10 @@
     font-size:14px;font-weight:600;
     padding:9px 18px;border-radius:999px;
     background:rgba(255,255,255,.12);color:#f3f1ea;border:1px solid rgba(255,255,255,.25);
-    text-decoration:none;transition:.25s;backdrop-filter:blur(6px);
+    text-decoration:none;transition:.25s;
   }
   .nav-cta:hover{background:var(--accent);border-color:var(--accent)}
-  nav.scrolled{background:rgba(238,244,248,.85);backdrop-filter:blur(10px);border-bottom-color:var(--line)}
+  nav.scrolled{background:rgba(238,244,248,.97);border-bottom-color:var(--line)}
   nav.scrolled .brand{color:var(--ink)}
   nav.scrolled .brand span{color:var(--accent)}
   nav.scrolled .nav-cta{background:var(--ink);color:var(--paper);border-color:var(--ink)}
@@ -73,7 +73,7 @@
   .hero-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42}
   .hero-bg .tint{position:absolute;inset:0;background:linear-gradient(135deg, rgba(6,20,30,.88) 0%, rgba(14,111,144,.28) 100%)}
   @media (prefers-reduced-motion: reduce){.hero-bg video{display:none}}
-  .hero-bg .blob{position:absolute;border-radius:50%;filter:blur(72px);opacity:.5;mix-blend-mode:screen;will-change:transform}
+  .hero-bg .blob{display:none}
   .hero-bg .blob.a{width:46vw;height:46vw;background:#1390b4;top:-14%;left:-8%;animation:drift1 22s ease-in-out infinite}
   .hero-bg .blob.b{width:42vw;height:42vw;background:#d2a55f;bottom:-18%;right:-6%;opacity:.38;animation:drift2 26s ease-in-out infinite}
   .hero-bg .blob.c{width:40vw;height:40vw;background:#0e6f90;top:28%;right:24%;opacity:.5;animation:drift3 30s ease-in-out infinite}
@@ -254,8 +254,19 @@
   .cta .btn-ghost{border-color:rgba(255,255,255,.25);color:var(--paper)}
   .cta .btn-ghost:hover{border-color:var(--paper)}
 
-  footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--ink-soft);font-size:14px}
-  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+  footer{padding:64px 0 40px;background:#0b1c28;color:#b3c6d3;font-size:14px}
+  footer .wrap{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:32px}
+  footer .brand{color:#f3f1ea;margin-bottom:14px}
+  footer .brand span{color:var(--sand)}
+  footer .f-brand p{max-width:30ch;line-height:1.55}
+  footer h5{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sand);margin-bottom:14px}
+  footer .f-col{display:flex;flex-direction:column;gap:9px}
+  footer .f-col a{text-decoration:none;color:#dde9f1;overflow-wrap:anywhere}
+  footer .f-col a:hover{color:var(--sand)}
+  footer .f-base-wrap{display:block}
+  footer .f-base{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:#7f97a8}
+  @media(max-width:860px){footer .wrap{grid-template-columns:1fr 1fr}footer .f-brand{grid-column:1/-1}}
+  @media(max-width:480px){footer .wrap{grid-template-columns:1fr}}
 
   /* ---------- MOTION / POLISH ---------- */
   nav{transition:box-shadow .3s ease, background .3s ease}
@@ -467,7 +478,6 @@
 
 <header class="hero">
   <div class="hero-bg" aria-hidden="true">
-    <span class="blob a"></span><span class="blob b"></span><span class="blob c"></span>
     <video autoplay muted loop playsinline preload="metadata" poster="video/hero-poster.jpg">
       <source src="video/hero-loop.mp4" type="video/mp4">
     </video>
@@ -478,7 +488,7 @@
     <div class="hero-copy hero-anim">
       <div class="eyebrow">Web design · Pacific Coast, Costa Rica</div>
       <h1>Websites that make local businesses look <em>world-class</em>.</h1>
-      <p class="lead">Fast, custom, multilingual sites for local businesses across Costa Rica. No templates — just a site that earns bookings.</p>
+      <p class="lead">Fast, custom, multilingual sites for local businesses across Costa Rica. No templates. Just a site that earns bookings.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#work">See the work</a>
         <a class="btn btn-ghost" href="#contact">Start a project</a>
@@ -491,8 +501,8 @@
       </div>
     </div>
     <div class="hero-proof" aria-hidden="true">
-      <div class="proof-card p1"><div class="bar"><i></i><i></i><i></i></div><img src="img/coconut-after.png" alt=""></div>
-      <div class="proof-card p2"><div class="bar"><i></i><i></i><i></i></div><img src="img/jacotransport.png" alt=""></div>
+      <div class="proof-card p1"><div class="bar"><i></i><i></i><i></i></div><img src="img/coconut-after.webp" alt=""></div>
+      <div class="proof-card p2"><div class="bar"><i></i><i></i><i></i></div><img src="img/jacotransport.webp" alt=""></div>
     </div>
   </div>
 </header>
@@ -507,7 +517,7 @@
       <span class="fl-badge">The most advanced site I've built</span>
     </div>
 
-    <p class="fl-lead reveal">My own private sportfishing charter out of Herradura Bay — and the site I poured everything into. The boat turns a full 360° on its own the moment the page opens, live sea conditions sit on the page, and a trip planner takes the booking. It feels like a luxury yacht brand, not a fishing website. And it's only a taste of what I can build for you. The possibilities are endless.</p>
+    <p class="fl-lead reveal">My own private sportfishing charter out of Herradura Bay, and the site I put everything into. The boat turns a full 360° the moment the page opens, live sea conditions sit right on the page, and a trip planner takes the booking. Same care goes into every site I build for you.</p>
 
     <a class="fl-media" href="https://greatmarlin.com" target="_blank" rel="noopener">
       <video autoplay muted loop playsinline preload="metadata" poster="img/greatmarlin-360-poster.jpg?v=2" aria-label="Great Marlin website: the boat turns a full 360° on its own">
@@ -543,10 +553,10 @@
       <p class="role">Fifteen years of TripAdvisor Travelers' Choice, stuck on a dated brochure site. I rebuilt it as ninety-eight pages that tell one charter day from dawn to sunset: seventeen boats with real rates and a live price estimate, sixteen adventures, a four-step trip planner, and their reviews and awards front and center. Every request lands in their inbox ready to confirm.</p>
 
       <div class="ba media-rev" id="ba2">
-        <img class="before-img" src="img/gofishcr-after.jpg" alt="Go Fish Costa Rica — new website">
+        <img class="before-img" src="img/gofishcr-after.webp" alt="Go Fish Costa Rica new website">
         <div class="after-wrap" id="aw2">
           <div class="after-img-sizer" id="as2">
-            <img src="img/gofishcr-before.jpg" alt="Go Fish Costa Rica — old website">
+            <img src="img/gofishcr-before.webp" alt="Go Fish Costa Rica old website">
           </div>
         </div>
         <span class="label before">Before</span>
@@ -568,13 +578,13 @@
     <div class="case reveal" style="margin-top:84px">
       <span class="case-tag">Redesign · Coworking & Coliving</span>
       <h3>Coconut Office</h3>
-      <p class="role">The perfect surf retreat — steps from Playa Hermosa's world-class break, where you surf at sunrise, work to an ocean breeze, and end the day with a community that feels like family. I rebuilt their site into one cinematic, bilingual page that sells that lifestyle.</p>
+      <p class="role">A surf retreat steps from Playa Hermosa's famous break, where you surf at sunrise, work to an ocean breeze, and end the day with a community that feels like family. I rebuilt their site into one cinematic, bilingual page that sells that lifestyle.</p>
 
       <div class="ba media-rev" id="ba1">
-        <img class="before-img" src="img/coconut-after.png" alt="Coconut Office — new website">
+        <img class="before-img" src="img/coconut-after.webp" alt="Coconut Office new website">
         <div class="after-wrap" id="aw1">
           <div class="after-img-sizer" id="as1">
-            <img src="img/coconut-before.png" alt="Coconut Office — old website">
+            <img src="img/coconut-before.webp" alt="Coconut Office old website">
           </div>
         </div>
         <span class="label before">Before</span>
@@ -595,10 +605,10 @@
     <div class="case reveal" style="margin-top:84px">
       <span class="case-tag">New build · Airport Transfers & Tours</span>
       <h3>Jaco Transport</h3>
-      <p class="role">A full booking platform for a private-transport company — cinematic video hero, live route pricing, online reservations, and a behind-the-scenes dispatch and driver app. A real working business, not a brochure.</p>
+      <p class="role">A full booking platform for a private-transport company: cinematic video hero, live route pricing, online reservations, and a behind-the-scenes dispatch and driver app. A real working business, not a brochure.</p>
 
       <a class="shot media-rev" href="https://jacotransport.com" target="_blank" rel="noopener">
-        <img src="img/jacotransport.png" alt="Jaco Transport website">
+        <img src="img/jacotransport.webp" alt="Jaco Transport website">
         <span class="shot-go">Visit live site ↗</span>
       </a>
 
@@ -614,10 +624,10 @@
     <div class="case reveal" style="margin-top:84px">
       <span class="case-tag">New build · Fishing Charters & Tours</span>
       <h3>Infinite Discoveries</h3>
-      <p class="role">A booking site for a fishing-charter and tour broker — moody full-screen hero, a catalog of tours with instant request forms, and one-tap WhatsApp. Bilingual, fast, and built to turn browsers into bookings.</p>
+      <p class="role">A booking site for a fishing-charter and tour broker: moody full-screen hero, a catalog of tours with instant request forms, and one-tap WhatsApp. Bilingual, fast, and built to turn browsers into bookings.</p>
 
       <a class="shot media-rev" href="https://infinitediscoveriescr.com" target="_blank" rel="noopener">
-        <img src="img/infinitediscoveries.png" alt="Infinite Discoveries website">
+        <img src="img/infinitediscoveries.webp" alt="Infinite Discoveries website">
         <span class="shot-go">Visit live site ↗</span>
       </a>
 
@@ -633,10 +643,10 @@
     <div class="case reveal" style="margin-top:84px">
       <span class="case-tag">New build · Surf School</span>
       <h3>Little Waves Surf School</h3>
-      <p class="role">María's surf school in Jacó had no website at all. I built her a bilingual one-pager styled like a surf-film poster, with real prices, her own photos, and one-tap WhatsApp booking — live on her own domain.</p>
+      <p class="role">María's surf school in Jaco had no website at all. I built her a bilingual one-pager styled like a surf-film poster, with real prices, her own photos, and one-tap WhatsApp booking, live on her own domain.</p>
 
       <a class="shot media-rev" href="https://littlewavessurf.com" target="_blank" rel="noopener">
-        <img src="img/littlewaves.png" alt="Little Waves Surf School website">
+        <img src="img/littlewaves.webp" alt="Little Waves Surf School website">
         <span class="shot-go">Visit live site ↗</span>
       </a>
 
@@ -659,7 +669,7 @@
     </div>
     <div class="grid3">
       <div class="feat reveal" style="--d:0s"><div class="n">01</div><h4>Local, not outsourced</h4><p>I live and surf here. We meet in person, in English or Spanish, and I get how the tourist season actually works.</p></div>
-      <div class="feat reveal" style="--d:.12s"><div class="n">02</div><h4>Built to book</h4><p>Every page points to one thing — getting the customer to message, call, or reserve. Clean, fast, mobile-first.</p></div>
+      <div class="feat reveal" style="--d:.12s"><div class="n">02</div><h4>Built to book</h4><p>Every page points to one thing: getting the customer to message, call, or reserve. Clean, fast, mobile-first.</p></div>
       <div class="feat reveal" style="--d:.24s"><div class="n">03</div><h4>You own it</h4><p>Your domain, your site, your name on it. Built for you, and it's yours to keep.</p></div>
     </div>
   </div>
@@ -670,18 +680,18 @@
     <div class="sec-head reveal">
       <div class="kicker">Beyond the website</div>
       <h2>Get found. Get reviews. Get your time back.</h2>
-      <p>Costa Rica gets busier every year, and the businesses that grow are the ones tourists can actually find online. A website is the start — I'll help you show up where customers already look, build a presence that ranks over time, and let smart tools handle the busywork. No ad budget required.</p>
+      <p>Costa Rica gets busier every year, and the businesses that grow are the ones tourists can actually find online. A website is the start. I'll help you show up where customers already look, build a presence that ranks over time, and let smart tools handle the busywork. No ad budget required.</p>
     </div>
     <div class="grid2">
       <div class="feat big reveal" style="--d:0s">
         <div class="n">01</div>
         <h4>Get found on Google</h4>
-        <p>Most tourists find you by searching Google and Maps, not by scrolling ads. I'll set up — or clean up — your Google Business Profile so you show up, look legit, and start collecting the reviews that win the next booking. It's free traffic that keeps working long after the site goes live. Not on Google yet? That's the first thing we fix.</p>
+        <p>Most tourists find you by searching Google and Maps, not by scrolling ads. I'll set up (or clean up) your Google Business Profile so you show up, look legit, and start collecting the reviews that win the next booking. It's free traffic that keeps working long after the site goes live. Not on Google yet? That's the first thing we fix.</p>
       </div>
       <div class="feat big reveal" style="--d:.12s">
         <div class="n">02</div>
         <h4>Let AI do the busywork</h4>
-        <p>I can plug in smart automation that answers common questions, replies to messages, follows up with leads, and helps handle bookings — day and night. It quietly runs the repetitive stuff so you get more free time and never miss a customer.</p>
+        <p>I can plug in smart automation that answers common questions, replies to messages, follows up with leads, and helps handle bookings, day and night. It quietly runs the repetitive stuff so you get more free time and never miss a customer.</p>
       </div>
     </div>
   </div>
@@ -692,7 +702,7 @@
     <div class="sec-head reveal">
       <div class="kicker">Simple pricing</div>
       <h2>Clear pricing. No surprises.</h2>
-      <p>Pick the site that fits your business — every website comes with Google Business setup on the house.</p>
+      <p>Pick the site that fits your business. Every website comes with Google Business setup on the house.</p>
     </div>
     <div class="prices">
       <div class="price-card reveal" style="--d:0s">
@@ -721,7 +731,7 @@
           <li>Bilingual English / Spanish</li>
           <li>Unlimited changes, usually done the same day</li>
           <li>Hosting, domain and Google Business included</li>
-          <li>6-month minimum on the care plan</li>
+          <li>1-year minimum on the care plan</li>
         </ul>
         <a class="btn btn-primary" href="plans/">See the 3 ways to pay</a>
         <a class="pc-more" href="services/#care">What the care plan includes →</a>
@@ -740,7 +750,7 @@
         <a class="btn btn-ghost" href="#contact">Ask about it</a>
       </div>
     </div>
-    <div class="price-note reveal">Every project starts with a free first look — no charge, no pressure. Already have a site you like? <a href="services/#transfer">I can move it over, from $500</a>.</div>
+    <div class="price-note reveal">Every project starts with a free first look. No charge, no pressure. Already have a site you like? <a href="services/#transfer">I can move it over, from $500</a>.</div>
     <div class="price-more reveal"><a class="btn btn-ghost" href="services/#growth">Want more customers? See growth plans for Google, ads and booking replies</a></div>
   </div>
 </section>
@@ -749,10 +759,10 @@
   <div class="wrap">
     <div class="cta reveal">
       <h2>Let's get your business <em>online</em>.</h2>
-      <p>Free first look — send me your business and I'll show you what your new site could be, no charge.</p>
+      <p>Send me your business and I'll show you what your new site could be. Free, no pressure.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://wa.me/13213561951" target="_blank" rel="noopener" id="wa">Message on WhatsApp</a>
-        <a class="btn btn-ghost" href="mailto:anthonyskoczylas@yahoo.com">Email me</a>
+        <a class="btn btn-ghost" href="mailto:coastalcrwebsites@gmail.com">Email me</a>
       </div>
     </div>
   </div>
@@ -760,9 +770,30 @@
 
 <footer>
   <div class="wrap">
-    <div>© <span id="yr"></span> Coastal CR · Web design · Jacó, Costa Rica</div>
-    <div>anthonyskoczylas@yahoo.com</div>
+    <div class="f-brand">
+      <div class="brand"><svg class="logomark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0e6f90"/><path d="M10 38 C18 30 22 46 32 38 S46 30 54 38" fill="none" stroke="#eef4f8" stroke-width="4.5" stroke-linecap="round"/><path d="M10 26 C18 18 22 34 32 26 S46 18 54 26" fill="none" stroke="#d2a55f" stroke-width="4.5" stroke-linecap="round"/></svg>Coastal <span>CR</span></div>
+      <p>Custom websites for local businesses on the Pacific coast. Built in Jaco, Costa Rica.</p>
+    </div>
+    <div class="f-col">
+      <h5>Websites</h5>
+      <a href="#work">Selected work</a>
+      <a href="plans/">3 ways to pay</a>
+      <a href="care/">Care plan terms</a>
+    </div>
+    <div class="f-col">
+      <h5>Grow</h5>
+      <a href="services/">Monthly plans</a>
+      <a href="services/#growth">Google &amp; ads</a>
+      <a href="services/#transfer">Move my site over</a>
+    </div>
+    <div class="f-col">
+      <h5>Contact</h5>
+      <a href="https://wa.me/13213561951" target="_blank" rel="noopener">WhatsApp +1 321-356-1951</a>
+      <a href="mailto:coastalcrwebsites@gmail.com">coastalcrwebsites@gmail.com</a>
+      <span>English &amp; Español</span>
+    </div>
   </div>
+  <div class="wrap f-base-wrap"><div class="f-base">© <span id="yr"></span> Coastal CR · Infinite Discoveries LLC · Playa Hermosa, Jaco, Costa Rica</div></div>
 </footer>
 
 <script>
