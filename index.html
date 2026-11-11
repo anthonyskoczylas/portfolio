@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=Krona+One&family=Fragment+Mono&family=Archivo:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@100..150,700&family=Hanken+Grotesk:wght@400;500;600&family=Cormorant+Garamond:wght@300;400&family=Geist:wght@400;500;600&family=Playfair+Display:wght@400;500&family=Lato:wght@400;700&family=Young+Serif&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#0b1c28;        /* deep ocean navy */
@@ -463,6 +464,22 @@
     .fl-btn{margin-left:0;width:100%;justify-content:center;margin-top:4px}
     .fl-tag{left:10px;bottom:10px;font-size:10px;padding:5px 10px}
   }
+  /* ---------- each case study wears the fonts + accent of the site it shows (like the Great Marlin flagship) ---------- */
+  .case h3{font-family:var(--cs-display,'Fraunces'),Georgia,serif;font-weight:var(--cs-h-weight,500);
+    letter-spacing:var(--cs-h-track,-0.01em);font-size:calc(clamp(26px,3.6vw,38px) * var(--cs-h-scale,1));
+    font-variation-settings:var(--cs-h-vary,normal);text-transform:var(--cs-h-case,none);line-height:1.05}
+  .case .role,.case .chip,.case .case-tag,.case .live-link,.case .hint{font-family:var(--cs-body,'Inter'),system-ui,sans-serif}
+  .case .case-tag{color:var(--cs-accent,var(--accent))}
+  .case .live-link{color:var(--cs-accent,var(--accent))}
+  .case .live-link::after{background:var(--cs-accent,var(--accent))}
+  .case .case-foot .chip:hover{background:var(--cs-accent,var(--accent));border-color:var(--cs-accent,var(--accent))}
+  .case .ba .label.after{background:var(--cs-accent,rgba(14,111,144,.82))}
+  .case::after{font-family:var(--cs-display,'Fraunces'),Georgia,serif;font-weight:var(--cs-h-weight,500);font-variation-settings:var(--cs-h-vary,normal)}
+  .cs-gofish{--cs-display:'Anybody';--cs-body:'Hanken Grotesk';--cs-accent:#0b6f8d;--cs-h-weight:700;--cs-h-track:-.02em;--cs-h-vary:'wdth' 110}
+  .cs-coconut{--cs-display:'Fraunces';--cs-body:'Inter';--cs-accent:#1f5d4c}
+  .cs-jt{--cs-display:'Cormorant Garamond';--cs-body:'Geist';--cs-accent:#008296;--cs-h-weight:300;--cs-h-scale:1.22;--cs-h-track:-.005em}
+  .cs-id{--cs-display:'Playfair Display';--cs-body:'Lato';--cs-accent:#0284c7;--cs-h-weight:400;--cs-h-scale:1.04}
+  .cs-lw{--cs-display:'Young Serif';--cs-body:'Jost';--cs-accent:#b06a55;--cs-h-weight:400}
 </style>
 </head>
 <body>
@@ -547,7 +564,7 @@
     </div>
 
     <!-- CASE 0: Go Fish Costa Rica -->
-    <div class="case reveal">
+    <div class="case cs-gofish reveal">
       <span class="case-tag">Redesign · Fishing Charters & Adventures · Tamarindo</span>
       <h3>Go Fish Costa Rica</h3>
       <p class="role">Fifteen years of TripAdvisor Travelers' Choice, stuck on a dated brochure site. I rebuilt it as ninety-eight pages that tell one charter day from dawn to sunset: seventeen boats with real rates and a live price estimate, sixteen adventures, a four-step trip planner, and their reviews and awards front and center. Every request lands in their inbox ready to confirm.</p>
@@ -575,7 +592,7 @@
     </div>
 
     <!-- CASE 1: Coconut Office -->
-    <div class="case reveal" style="margin-top:84px">
+    <div class="case cs-coconut reveal" style="margin-top:84px">
       <span class="case-tag">Redesign · Coworking & Coliving</span>
       <h3>Coconut Office</h3>
       <p class="role">A surf retreat steps from Playa Hermosa's famous break, where you surf at sunrise, work to an ocean breeze, and end the day with a community that feels like family. I rebuilt their site into one cinematic, bilingual page that sells that lifestyle.</p>
@@ -602,7 +619,7 @@
     </div>
 
     <!-- CASE 2: Jaco Transport -->
-    <div class="case reveal" style="margin-top:84px">
+    <div class="case cs-jt reveal" style="margin-top:84px">
       <span class="case-tag">New build · Airport Transfers & Tours</span>
       <h3>Jaco Transport</h3>
       <p class="role">A full booking platform for a private-transport company: cinematic video hero, live route pricing, online reservations, and a behind-the-scenes dispatch and driver app. A real working business, not a brochure.</p>
@@ -621,7 +638,7 @@
     </div>
 
     <!-- CASE 3: Infinite Discoveries -->
-    <div class="case reveal" style="margin-top:84px">
+    <div class="case cs-id reveal" style="margin-top:84px">
       <span class="case-tag">New build · Fishing Charters & Tours</span>
       <h3>Infinite Discoveries</h3>
       <p class="role">A booking site for a fishing-charter and tour broker: moody full-screen hero, a catalog of tours with instant request forms, and one-tap WhatsApp. Bilingual, fast, and built to turn browsers into bookings.</p>
@@ -640,7 +657,7 @@
     </div>
 
     <!-- CASE 4: Little Waves -->
-    <div class="case reveal" style="margin-top:84px">
+    <div class="case cs-lw reveal" style="margin-top:84px">
       <span class="case-tag">New build · Surf School</span>
       <h3>Little Waves Surf School</h3>
       <p class="role">María's surf school in Jaco had no website at all. I built her a bilingual one-pager styled like a surf-film poster, with real prices, her own photos, and one-tap WhatsApp booking, live on her own domain.</p>
