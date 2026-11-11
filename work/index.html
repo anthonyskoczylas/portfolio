@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our work · Coastal CR</title>
+<meta name="description" content="Every website Coastal CR has built, up close: Great Marlin, Go Fish Costa Rica, Coconut Office, Jaco Transport, Infinite Discoveries and Little Waves Surf School. What each site does for the business, with real screenshots.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=Krona+One&family=Fragment+Mono&family=Archivo:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@100..150,700&family=Hanken+Grotesk:wght@400;500;600&family=Cormorant+Garamond:wght@300;400&family=Geist:wght@400;500;600&family=Playfair+Display:wght@400;500&family=Lato:wght@400;700&family=Young+Serif&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0b1c28;
+    --ink-soft:#425663;
+    --paper:#eef4f8;
+    --paper-2:#dde9f1;
+    --line:#c7dae6;
+    --accent:#0e6f90;
+    --accent-soft:#1390b4;
+    --sand:#d2a55f;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  html,body{overflow-x:hidden;max-width:100%}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;line-height:1.6}
+  img,video{max-width:100%}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.05;letter-spacing:-0.01em}
+  em{font-style:normal;color:var(--accent)}
+  a{color:inherit}
+
+  /* NAV (same as the homepage) */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;background:transparent;border-bottom:1px solid transparent;transition:box-shadow .3s ease, background .3s ease}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:19px;font-weight:600;letter-spacing:-0.02em;color:#f3f1ea;text-decoration:none}
+  .brand span{color:var(--sand)}
+  .logomark{width:30px;height:30px;flex:none;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  .nav-cta{font-size:14px;font-weight:600;padding:9px 18px;border-radius:999px;background:rgba(255,255,255,.12);color:#f3f1ea;border:1px solid rgba(255,255,255,.25);text-decoration:none;transition:.25s}
+  .nav-cta:hover{background:var(--accent);border-color:var(--accent)}
+  nav.scrolled{background:rgba(238,244,248,.97);border-bottom-color:var(--line);box-shadow:0 10px 30px -22px rgba(11,28,40,.5)}
+  nav.scrolled .brand{color:var(--ink)}
+  nav.scrolled .brand span{color:var(--accent)}
+  nav.scrolled .nav-cta{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  nav.scrolled .nav-cta:hover{background:var(--accent);border-color:var(--accent)}
+  .nav-right{display:flex;align-items:center;gap:10px}
+  .nav-link{font-size:14px;font-weight:700;padding:9px 18px;border-radius:999px;background:var(--sand);color:#0b1c28;border:1px solid var(--sand);text-decoration:none;transition:.2s;white-space:nowrap}
+  .nav-link:hover{background:#e0b673;border-color:#e0b673}
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:linear-gradient(90deg,var(--accent),var(--sand));transition:width .08s linear}
+
+  /* BUTTONS (homepage) */
+  .btn{display:inline-flex;align-items:center;gap:9px;font-size:15px;font-weight:600;text-decoration:none;padding:14px 26px;border-radius:999px;
+    transition:transform .25s cubic-bezier(.2,.7,.2,1), background .2s, border-color .2s, box-shadow .25s, color .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:var(--accent-soft);box-shadow:0 14px 28px -12px rgba(6,20,30,.6)}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--ink)}
+
+  /* HERO */
+  header.hero{position:relative;background:#06141e;color:#f3f1ea;padding:150px 0 90px;overflow:hidden}
+  header.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(135deg, rgba(6,20,30,0) 0%, rgba(14,111,144,.22) 100%),radial-gradient(120% 90% at 50% 0%, transparent 45%, rgba(3,11,18,.55) 100%)}
+  header.hero .wrap{position:relative}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--sand);margin-bottom:22px}
+  header.hero h1{font-size:clamp(46px,7.4vw,96px);max-width:14ch;color:#f6f4ee;letter-spacing:-.02em}
+  header.hero h1 em{color:var(--sand);white-space:nowrap}
+  header.hero .lead{margin-top:26px;max-width:58ch;font-size:18.5px;color:rgba(243,241,234,.74)}
+  .hero-anim>*{opacity:0;transform:translateY(22px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+  .hero-anim>*:nth-child(2){animation-delay:.1s}
+  .hero-anim>*:nth-child(3){animation-delay:.2s}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  /* INDEX of the six sites: each card wears that site's type */
+  .index{margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;list-style:none}
+  .ix a{display:block;text-decoration:none;color:#f3f1ea;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden;height:100%;
+    transition:transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, background .3s}
+  .ix a:hover{transform:translateY(-4px);border-color:var(--ix-acc,var(--sand));background:rgba(255,255,255,.07)}
+  .ix img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;background:#0c1f2b}
+  .ix-txt{padding:16px 18px 18px;display:flex;gap:14px;align-items:baseline}
+  .ix-n{font-family:'Fragment Mono',ui-monospace,monospace;font-size:12px;color:var(--ix-acc,var(--sand));flex:none}
+  .ix-name{display:block;font-family:var(--ix-font);font-weight:var(--ix-w,500);font-variation-settings:var(--ix-vary,normal);text-transform:var(--ix-case,none);
+    font-size:calc(21px * var(--ix-scale,1));line-height:1.1;letter-spacing:var(--ix-track,-.01em)}
+  .ix-meta{display:block;margin-top:6px;font-size:13px;color:rgba(243,241,234,.58)}
+
+  /* ---------- ONE SECTION PER SITE ---------- */
+  .site{--bg:#ffffff;--tx:#0b1c28;--soft:#4b5b66;--ln:#dfe6ea;--card:#f5f8fa;--acc:#0e6f90;--acc-tx:var(--acc);--btn-bg:var(--acc);--btn-tx:#fff;--btn-r:999px;--r:14px;
+    --f-d:'Fraunces';--f-b:'Inter';--f-tag:var(--f-b);
+    background:var(--bg);color:var(--tx);font-family:var(--f-b),system-ui,sans-serif;padding:112px 0 104px;scroll-margin-top:0;border-top:1px solid var(--ln)}
+  .s-head{display:grid;grid-template-columns:1fr 1fr;gap:28px 56px;align-items:end}
+  .s-num{font-family:'Fragment Mono',ui-monospace,monospace;font-size:13px;letter-spacing:.12em;color:var(--acc-tx);margin-bottom:18px}
+  .s-tag{display:inline-block;font-family:var(--f-tag),system-ui,sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acc-tx);
+    border:1px solid var(--ln);background:var(--card);padding:7px 14px;border-radius:var(--btn-r);margin-bottom:22px}
+  .site h2{font-family:var(--f-d),Georgia,serif;font-weight:var(--h-w,500);font-variation-settings:var(--h-vary,normal);text-transform:var(--h-case,none);
+    letter-spacing:var(--h-track,-.015em);font-size:calc(clamp(42px,6.2vw,80px) * var(--h-scale,1));line-height:.98;color:var(--tx)}
+  .s-story{font-size:18px;line-height:1.62;color:var(--soft);max-width:54ch}
+  .s-actions{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .s-btn{background:var(--btn-bg);color:var(--btn-tx);border:1px solid var(--btn-bg);border-radius:var(--btn-r)}
+  .s-btn:hover{box-shadow:0 14px 28px -14px rgba(0,0,0,.45)}
+  .s-note{font-size:14px;color:var(--soft);border:1px dashed var(--ln);border-radius:var(--btn-r);padding:10px 16px}
+
+  /* big lead image / video, present immediately (never wiped in) */
+  .s-hero{display:block;position:relative;margin-top:52px;border-radius:var(--r);overflow:hidden;border:1px solid var(--ln);background:var(--card);text-decoration:none;color:#fff;
+    box-shadow:0 40px 90px -46px rgba(0,0,0,.55);transition:box-shadow .4s}
+  .s-hero img,.s-hero video{display:block;width:100%;height:auto;aspect-ratio:1440/900;object-fit:cover;object-position:top}
+  a.s-hero:hover{box-shadow:0 50px 110px -46px rgba(0,0,0,.7)}
+  .s-flag{position:absolute;left:16px;bottom:16px;z-index:3;font-family:var(--f-tag),system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+    background:#fff;color:#111;padding:8px 13px;border-radius:var(--btn-r);box-shadow:0 10px 24px -10px rgba(0,0,0,.5)}
+
+  /* features + phones */
+  .s-body{margin-top:72px;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,.85fr);gap:56px;align-items:start}
+  .s-sub{font-family:var(--f-tag),system-ui,sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc-tx);margin-bottom:26px}
+  .feats{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:30px 34px}
+  .feats li{border-top:1px solid var(--ln);padding-top:18px}
+  .feats .fn{display:block;font-family:'Fragment Mono',ui-monospace,monospace;font-size:12px;color:var(--acc-tx);margin-bottom:8px}
+  .feats h3{font-family:var(--f-d),Georgia,serif;font-weight:var(--h-w,500);font-variation-settings:var(--h-vary,normal);text-transform:var(--h3-case,none);
+    letter-spacing:var(--h3-track,-.01em);font-size:calc(21px * var(--h3-scale,1));line-height:1.2;color:var(--tx)}
+  .feats p{margin-top:8px;font-size:15.5px;line-height:1.58;color:var(--soft)}
+  .phones{position:sticky;top:100px;display:flex;gap:16px;justify-content:center;align-items:flex-start}
+  .phone{flex:0 1 250px;min-width:0;margin:0}
+  .phone .frame{border:7px solid #10161a;border-radius:30px;overflow:hidden;background:#10161a;box-shadow:0 34px 70px -36px rgba(0,0,0,.6)}
+  .phone img{display:block;width:100%;height:auto;aspect-ratio:390/844;object-fit:cover;object-position:top}
+  .phone figcaption,.shot figcaption{margin-top:12px;font-size:13.5px;line-height:1.45;color:var(--soft)}
+  .phone figcaption{text-align:center}
+
+  /* gallery of extra desktop screenshots */
+  .gallery{margin-top:72px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 26px}
+  .gallery.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .shot{margin:0}
+  .shot .frame{border-radius:calc(var(--r) * .7);overflow:hidden;border:1px solid var(--ln);background:var(--card);box-shadow:0 26px 60px -38px rgba(0,0,0,.5);transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s}
+  .shot:hover .frame{transform:translateY(-4px);box-shadow:0 34px 70px -38px rgba(0,0,0,.6)}
+  .shot img{display:block;width:100%;height:auto;aspect-ratio:1440/900;object-fit:cover;object-position:top}
+  .shot figcaption b{color:var(--tx);font-weight:600}
+
+  .chips{margin-top:52px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .chip{font-family:var(--f-tag),system-ui,sans-serif;font-size:13px;color:var(--soft);background:var(--card);border:1px solid var(--ln);padding:7px 14px;border-radius:var(--btn-r)}
+  .live{margin-left:auto;font-weight:600;font-size:15px;color:var(--acc-tx);text-decoration:none;position:relative}
+  .live::after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:100%;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+  .live:hover::after{transform:scaleX(1)}
+
+  /* site themes: each section wears its site's fonts + colours */
+  .s-gm{--bg:#131718;--tx:#ffffff;--soft:rgba(255,255,255,.7);--ln:rgba(255,255,255,.14);--card:#1c2122;--acc:#5fb3b1;--acc-tx:#5fb3b1;--btn-bg:#ffffff;--btn-tx:#131718;--btn-r:0;--r:4px;
+    --f-d:'Krona One';--f-b:'Archivo';--f-tag:'Fragment Mono';--h-w:400;--h-case:uppercase;--h-track:.02em;--h-scale:.86;--h3-case:uppercase;--h3-scale:.78;--h3-track:.02em;
+    position:relative;isolation:isolate;border-top:none}
+  .s-gm::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+    background:radial-gradient(70% 50% at 85% 8%, rgba(95,179,177,.14), transparent 62%),radial-gradient(60% 40% at 0% 100%, rgba(14,116,113,.16), transparent 60%)}
+  .s-gm .s-tag,.s-gm .s-sub,.s-gm .chip,.s-gm .s-flag{font-weight:400}
+  .s-gm .s-btn{font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:14px}
+  .s-gm .s-btn:hover{background:transparent;color:#fff}
+  .s-gm .s-flag{background:#fff;color:#131718}
+  .s-gm .phone .frame{border-color:#2a3133}
+  .s-gm .s-hero video{aspect-ratio:16/9;object-position:center}
+
+  .s-gf{--bg:#f2f7f9;--tx:#0c1a2e;--soft:#4a5a68;--ln:#d3e2e9;--card:#ffffff;--acc:#0b6f8d;
+    --f-d:'Anybody';--f-b:'Hanken Grotesk';--h-w:700;--h-vary:'wdth' 110;--h-track:-.02em;--h3-scale:.95}
+  .s-co{--bg:#f7f4ec;--tx:#1d2a24;--soft:#55605a;--ln:#e2ddd0;--card:#fffdf8;--acc:#1f5d4c;
+    --f-d:'Fraunces';--f-b:'Inter'}
+  .s-jt{--bg:#ffffff;--tx:#111417;--soft:#555c63;--ln:#e5e7ea;--card:#f7f8f9;--acc:#008296;
+    --f-d:'Cormorant Garamond';--f-b:'Geist';--h-w:300;--h-scale:1.18;--h-track:-.005em;--h3-scale:1.22;--h3-track:0}
+  .s-jt .feats h3{font-weight:400}
+  .s-id{--bg:#07131d;--tx:#eaf2f8;--soft:rgba(234,242,248,.7);--ln:rgba(255,255,255,.12);--card:#0d1d2a;--acc:#0284c7;--acc-tx:#4cb4e8;
+    --f-d:'Playfair Display';--f-b:'Lato';--h-w:400;--h-scale:1.02;--h3-scale:1.02;border-top:none}
+  .s-lw{--bg:#f6eedf;--tx:#1d3d57;--soft:#55606a;--ln:#e5d8c2;--card:#fbf6ec;--acc:#b06a55;
+    --f-d:'Young Serif';--f-b:'Jost';--h-w:400;--h3-scale:1}
+
+  /* BEFORE/AFTER SLIDER (from the homepage) */
+  .ba{position:relative;margin-top:52px;border-radius:var(--r);overflow:hidden;box-shadow:0 40px 90px -46px rgba(0,0,0,.55);border:1px solid var(--ln);user-select:none;aspect-ratio:1440/900;background:#0b1c28}
+  .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+  .ba .after-wrap{position:absolute;inset:0;width:50%;overflow:hidden;border-right:2px solid #fff;transition:width .5s cubic-bezier(.2,.7,.2,1)}
+  .ba .after-img-sizer{position:absolute;top:0;left:0;height:100%}
+  .ba .after-img-sizer img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .ba .label{position:absolute;top:16px;z-index:4;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:7px 13px;border-radius:999px;color:#fff}
+  .ba .label.before{left:16px;background:rgba(11,28,40,.78)}
+  .ba .label.after{right:16px;background:var(--acc)}
+  .ba .handle{position:absolute;top:0;bottom:0;left:50%;width:44px;margin-left:-22px;z-index:5;cursor:ew-resize;display:flex;align-items:center;justify-content:center;transition:left .5s cubic-bezier(.2,.7,.2,1)}
+  .ba .handle::before{content:"";position:absolute;top:0;bottom:0;left:21px;width:2px;background:#fff}
+  .ba .knob{position:relative;width:44px;height:44px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.3);color:#0b1c28;transition:transform .25s}
+  .ba:hover .knob{transform:scale(1.08)}
+  .ba .knob svg{width:20px;height:20px;display:block}
+  .ba .knob::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(255,255,255,.65);opacity:0;animation:pulse 2.2s ease-out infinite}
+  .ba.touched .knob::after{animation:none;opacity:0}
+  .ba.dragging .after-wrap,.ba.dragging .handle{transition:none}
+  @keyframes pulse{0%{opacity:.7;transform:scale(.85)}70%{opacity:0;transform:scale(1.5)}100%{opacity:0}}
+  .hint{margin-top:14px;font-size:13.5px;color:var(--soft);text-align:center}
+
+  /* text-only scroll reveal (images never hide) */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* CTA + FOOTER (homepage) */
+  .closing{padding:96px 0 84px;background:var(--paper)}
+  .cta{background:var(--ink);color:var(--paper);border-radius:22px;padding:64px 48px;text-align:center}
+  .cta h2{font-size:clamp(30px,4.6vw,50px);color:var(--paper);max-width:20ch;margin:0 auto}
+  .cta h2 em{color:var(--sand)}
+  .cta p{margin:18px auto 0;max-width:48ch;color:#b3c6d3;font-size:17px}
+  .cta .acts{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .cta .btn-ghost{border-color:rgba(255,255,255,.25);color:var(--paper)}
+  .cta .btn-ghost:hover{border-color:var(--paper)}
+  .cta .mail{margin-top:20px;font-size:14px;color:#8fa6b6}
+
+  footer{padding:64px 0 40px;background:#0b1c28;color:#b3c6d3;font-size:14px}
+  footer .wrap{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:32px}
+  footer .brand{color:#f3f1ea;margin-bottom:14px}
+  footer .brand span{color:var(--sand)}
+  footer .f-brand p{max-width:30ch;line-height:1.55}
+  footer h5{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sand);margin-bottom:14px}
+  footer .f-col{display:flex;flex-direction:column;gap:9px}
+  footer .f-col a{text-decoration:none;color:#dde9f1;overflow-wrap:anywhere}
+  footer .f-col a:hover{color:var(--sand)}
+  footer .f-base-wrap{display:block}
+  footer .f-base{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:#7f97a8}
+
+  /* RESPONSIVE */
+  @media(max-width:980px){
+    .s-head{grid-template-columns:1fr;align-items:start}
+    .s-body{grid-template-columns:1fr;gap:56px}
+    .phones{position:static}
+    .gallery.g3{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .index{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:860px){footer .wrap{grid-template-columns:1fr 1fr}footer .f-brand{grid-column:1/-1}}
+  @media(max-width:760px){
+    .wrap{padding:0 20px}
+    nav .wrap{height:62px}
+    nav .nav-cta{display:none}
+    header.hero{padding:118px 0 64px}
+    .index{margin-top:44px;gap:12px}
+    .ix-txt{padding:12px 12px 14px;gap:8px;flex-direction:column}
+    .ix-name{font-size:calc(17px * var(--ix-scale,1))}
+    .ix-meta{font-size:12px}
+    .site{padding:72px 0 68px}
+    .s-story{font-size:17px}
+    .s-hero,.ba{margin-top:36px}
+    .s-body{margin-top:52px}
+    .feats{grid-template-columns:1fr;gap:22px}
+    .gallery,.gallery.g3{grid-template-columns:1fr;margin-top:52px;gap:28px}
+    .chips{margin-top:40px}
+    .live{margin-left:0;width:100%;margin-top:6px}
+    .s-flag{left:10px;bottom:10px;font-size:10px;padding:5px 10px}
+    .ba .handle{width:54px;margin-left:-27px}
+    .ba .knob{width:48px;height:48px}
+    .ba .label{top:10px;font-size:10px;padding:5px 10px}
+    .ba .label.before{left:10px}.ba .label.after{right:10px}
+    .closing{padding:64px 0 56px}
+    .cta{padding:48px 22px}
+  }
+  @media(max-width:480px){
+    footer .wrap{grid-template-columns:1fr}
+    .phone{flex-basis:220px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal,.hero-anim>*{opacity:1!important;transform:none!important}
+  }
+  .nav-pages{display:flex;gap:4px;margin-right:6px}
+  .nav-pages a{font-size:14px;font-weight:500;color:#f3f1ea;text-decoration:none;padding:9px 12px;border-radius:999px;transition:background .2s,color .2s}
+  .nav-pages a:hover{background:rgba(255,255,255,.12)}
+  nav.scrolled .nav-pages a{color:var(--ink,#0b1c28)}
+  nav.scrolled .nav-pages a:hover{background:rgba(11,28,40,.07)}
+  @media(max-width:980px){.nav-pages{display:none}}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="../"><svg class="logomark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0e6f90"/><path d="M10 38 C18 30 22 46 32 38 S46 30 54 38" fill="none" stroke="#eef4f8" stroke-width="4.5" stroke-linecap="round"/><path d="M10 26 C18 18 22 34 32 26 S46 18 54 26" fill="none" stroke="#d2a55f" stroke-width="4.5" stroke-linecap="round"/></svg>Coastal <span>CR</span></a>
+    <div class="nav-right"><span class="nav-pages"><a href="../work/">Work</a><a href="../websites/">Websites</a><a href="../tradewind/">Tradewind</a></span><a class="nav-link" href="../services/">Monthly plans</a><a class="nav-cta" href="../#contact">Get a website</a></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-anim">
+      <div class="eyebrow">Our work · Six sites</div>
+      <h1>Every site, <em>up close</em>.</h1>
+      <p class="lead">The homepage gives you the short version. This is the long one: every site I've built, what each one actually does for the business behind it, and screenshots from the real pages. Each section wears that site's own fonts and colors.</p>
+    </div>
+
+    <ol class="index" aria-label="Jump to a site">
+      <li class="ix" style="--ix-font:'Krona One';--ix-w:400;--ix-case:uppercase;--ix-scale:.78;--ix-track:.02em;--ix-acc:#5fb3b1"><a href="#great-marlin"><img src="../img/greatmarlin-360-poster.jpg" alt="" width="1440" height="900"><span class="ix-txt"><span class="ix-n">01</span><span><span class="ix-name">Great Marlin</span><span class="ix-meta">Sportfishing charter · Herradura Bay</span></span></span></a></li>
+      <li class="ix" style="--ix-font:'Anybody';--ix-w:700;--ix-vary:'wdth' 110;--ix-track:-.02em;--ix-acc:#3fa9c9"><a href="#go-fish"><img src="../img/gofishcr-after.webp" alt="" width="1440" height="900"><span class="ix-txt"><span class="ix-n">02</span><span><span class="ix-name">Go Fish Costa Rica</span><span class="ix-meta">Charters &amp; adventures · Tamarindo</span></span></span></a></li>
+      <li class="ix" style="--ix-font:'Fraunces';--ix-acc:#5fae96"><a href="#coconut-office"><img src="../img/coconut-after.webp" alt="" width="1440" height="900"><span class="ix-txt"><span class="ix-n">03</span><span><span class="ix-name">Coconut Office</span><span class="ix-meta">Coworking &amp; coliving · Playa Hermosa</span></span></span></a></li>
+      <li class="ix" style="--ix-font:'Cormorant Garamond';--ix-w:300;--ix-scale:1.2;--ix-acc:#2bb3c6"><a href="#jaco-transport"><img src="../img/jacotransport.webp" alt="" width="1440" height="900"><span class="ix-txt"><span class="ix-n">04</span><span><span class="ix-name">Jaco Transport</span><span class="ix-meta">Private transport · Jaco</span></span></span></a></li>
+      <li class="ix" style="--ix-font:'Playfair Display';--ix-w:400;--ix-acc:#4cb4e8"><a href="#infinite-discoveries"><img src="../img/infinitediscoveries.webp" alt="" width="1440" height="900"><span class="ix-txt"><span class="ix-n">05</span><span><span class="ix-name">Infinite Discoveries</span><span class="ix-meta">Tours &amp; charters · Jaco</span></span></span></a></li>
+      <li class="ix" style="--ix-font:'Young Serif';--ix-w:400;--ix-acc:#d08b74"><a href="#little-waves"><img src="../img/littlewaves.webp" alt="" width="1440" height="900"><span class="ix-txt"><span class="ix-n">06</span><span><span class="ix-name">Little Waves Surf School</span><span class="ix-meta">Surf school · Jaco Beach</span></span></span></a></li>
+    </ol>
+  </div>
+</header>
+
+<main>
+
+<!-- 01 · GREAT MARLIN (flagship) -->
+<section class="site s-gm" id="great-marlin">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="reveal">
+        <div class="s-num">01 / 06 · The flagship</div>
+        <span class="s-tag">My own brand · Sportfishing charter · Herradura Bay</span>
+        <h2>Great Marlin</h2>
+      </div>
+      <div class="reveal" style="--d:.08s">
+        <p class="s-story">Great Marlin is my own private charter: one 36-foot sportfisher working the drop off Herradura Bay, one crew, your group only. I built the site the way the big yacht builders present their boats, calm and confident, with the boat as the star. It is the most advanced site I've built, and it takes bookings on its own.</p>
+        <div class="s-actions"><a class="btn s-btn" href="https://greatmarlin.com" target="_blank" rel="noopener">Visit greatmarlin.com ↗</a></div>
+      </div>
+    </div>
+
+    <a class="s-hero" href="https://greatmarlin.com" target="_blank" rel="noopener">
+      <video autoplay muted loop playsinline preload="metadata" poster="../img/greatmarlin-360-poster.jpg?v=2" width="1440" height="900" aria-label="Great Marlin website: the boat turns a full 360 degrees on its own">
+        <source src="../video/greatmarlin-360.mp4?v=2" type="video/mp4">
+      </video>
+      <span class="s-flag">360° · the boat turns on its own</span>
+    </a>
+
+    <div class="s-body">
+      <div>
+        <div class="s-sub reveal">What it does for the business</div>
+        <ol class="feats">
+          <li class="reveal"><span class="fn">01</span><h3>The boat turns a full 360°</h3><p>The page opens on the boat turning slowly on the water, all by itself. Guests see exactly what they're stepping onto before they read a word.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">02</span><h3>Live sea conditions</h3><p>Sky, wind, seas and swell, water temperature, sunrise and sunset off Herradura, updated live. A small seas and water readout even sits in the opening screen.</p></li>
+          <li class="reveal"><span class="fn">03</span><h3>A trip planner that takes the booking</h3><p>Four questions: the day, when, the beach, send. The price is on screen before they hit send, and they can add several days in one request.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">04</span><h3>Booking emails</h3><p>Every request sends the guest a confirmation straight to their inbox and lands with us in the same thread we answer from. Nothing gets lost.</p></li>
+          <li class="reveal"><span class="fn">05</span><h3>Seven ways to spend the day</h3><p>Full, 3/4 and half day fishing, a surf day to a boat-access reef, Tortuga Island, a sunset cruise and custom events. Each has its own plan button and a WhatsApp shortcut with the question already written.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">06</span><h3>Door to the beach</h3><p>The planner asks where guests are staying, lets them drop a pin for the driver, and offers hotel and airport rides through Jaco Transport, another site on this page.</p></li>
+          <li class="reveal"><span class="fn">07</span><h3>A real fish guide</h3><p>Twelve species with their peak seasons, real catch photos from this boat, and a map of the bay that shows how close the sailfish water is.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">08</span><h3>Pages built to be found</h3><p>Separate pages for the full day and half day charters, the surf trip, a first-time offshore guide, getting here, transportation and tours.</p></li>
+        </ol>
+      </div>
+      <div class="phones">
+        <figure class="phone"><div class="frame"><img src="../img/work/gm-phone-conditions.webp" alt="Great Marlin live sea conditions on a phone: sky, wind, seas, water and sunrise" width="780" height="1688" loading="lazy"></div><figcaption>Today off Herradura, live on a phone</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <figure class="shot"><div class="frame"><img src="../img/work/gm-map.webp" alt="Great Marlin map of Herradura Bay and the sailfish water" width="1440" height="900" loading="lazy"></div><figcaption><b>The water.</b> A map of the bay, the airport and the sailfish grounds, next to a real release.</figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="../img/work/gm-rates.webp" alt="Great Marlin trips and rates list" width="1440" height="900" loading="lazy"></div><figcaption><b>One boat, seven days out.</b> Every price is for the whole group, with a plan button on each.</figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="../img/work/gm-fish.webp" alt="Great Marlin fish guide with twelve species and seasons" width="1440" height="900" loading="lazy"></div><figcaption><b>What we chase.</b> The seasons, the fish and what gets released.</figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="../img/work/gm-planner.webp" alt="Great Marlin trip planner, step one: which day" width="1440" height="900" loading="lazy"></div><figcaption><b>The trip planner.</b> Four steps, the price on screen, sent in one tap.</figcaption></figure>
+    </div>
+
+    <div class="chips">
+      <span class="chip">360° boat hero</span>
+      <span class="chip">Live sea conditions</span>
+      <span class="chip">4-step trip planner</span>
+      <span class="chip">Booking emails</span>
+      <span class="chip">Luxury-yacht feel</span>
+      <a class="live" href="https://greatmarlin.com" target="_blank" rel="noopener">Visit live site ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- 02 · GO FISH COSTA RICA -->
+<section class="site s-gf" id="go-fish">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="reveal">
+        <div class="s-num">02 / 06 · Paid client</div>
+        <span class="s-tag">Redesign · Fishing charters &amp; adventures · Tamarindo</span>
+        <h2>Go Fish Costa Rica</h2>
+      </div>
+      <div class="reveal" style="--d:.08s">
+        <p class="s-story">Steve and Liisa have run Go Fish since 2010 and earned TripAdvisor Travelers' Choice fifteen years in a row, but their old site looked like a dated brochure. I rebuilt it as 98 pages that tell one charter day from dawn to sunset, put their reviews and awards front and center, and made every page a way to start planning a trip.</p>
+        <div class="s-actions"><a class="btn s-btn" href="https://gofishcr.com/" target="_blank" rel="noopener">Visit gofishcr.com ↗</a></div>
+      </div>
+    </div>
+
+    <div class="ba" id="ba1">
+      <img class="before-img" src="../img/gofishcr-after.webp" alt="Go Fish Costa Rica new website" width="1440" height="900" loading="lazy">
+      <div class="after-wrap" id="aw1"><div class="after-img-sizer" id="as1"><img src="../img/gofishcr-before.webp" alt="Go Fish Costa Rica old website" width="1440" height="900" loading="lazy"></div></div>
+      <span class="label before">Before</span>
+      <span class="label after">After</span>
+      <div class="handle" id="h1"><div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 4 12 9 18"></polyline><polyline points="15 6 20 12 15 18"></polyline></svg></div></div>
+    </div>
+    <div class="hint">Drag to compare</div>
+
+    <div class="s-body">
+      <div>
+        <div class="s-sub reveal">What it does for the business</div>
+        <ol class="feats">
+          <li class="reveal"><span class="fn">01</span><h3>One day, dawn to sunset</h3><p>The homepage scrolls through a real charter day: on the sand, lines off, the shelf, the bite, lunch aboard, back on the beach, the sunset sail. By the end, guests know exactly what they're booking.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">02</span><h3>The whole fleet, sorted for you</h3><p>15 sportfishing boats and 3 private catamarans, each with its own page. Guests filter by location, group size, budget and washroom, and every boat page works out an estimate for their group as they fill it in.</p></li>
+          <li class="reveal"><span class="fn">03</span><h3>17 adventures</h3><p>Zipline, ATVs, the sunset catamaran, Rio Celeste, the estuary, a spa day and more. All tours Steve and Liisa have done themselves, all bookable in the same request.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">04</span><h3>A four-step trip planner</h3><p>Trip, when, pick, send. It asks what kind of day, which location is closer, the dates and the group, then points them to the boats that fit.</p></li>
+          <li class="reveal"><span class="fn">05</span><h3>A trip cart for the whole week</h3><p>Guests add boats and tours to My trip, drop a pin on where they're staying, say if they need transportation, and send the whole week as one request.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">06</span><h3>Reviews and awards up front</h3><p>Fifteen years of Travelers' Choice, 5.0 from 590 TripAdvisor reviews, 5.0 on Google and a ten-year Ducks Unlimited award, right where they build trust.</p></li>
+          <li class="reveal"><span class="fn">07</span><h3>Requests ready to confirm</h3><p>Every request lands in their inbox with the dates, group and picks already laid out, so the team can confirm without a long back-and-forth.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">08</span><h3>Built to be found</h3><p>Pages for every boat, adventure, restaurant and season, a blog, a map pin, WhatsApp on every page, and schema so Google understands the business.</p></li>
+        </ol>
+      </div>
+      <div class="phones">
+        <figure class="phone"><div class="frame"><img src="../img/work/gf-phone-home.webp" alt="Go Fish Costa Rica homepage on a phone" width="780" height="1688" loading="lazy"></div><figcaption>The homepage on a phone</figcaption></figure>
+        <figure class="phone"><div class="frame"><img src="../img/work/gf-phone-trip.webp" alt="Go Fish Costa Rica My trip page on a phone" width="780" height="1688" loading="lazy"></div><figcaption>My trip: the whole week in one request</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="gallery g3">
+      <figure class="shot"><div class="frame"><img src="../img/work/gf-awards.webp" alt="Go Fish Costa Rica reviews and awards section" width="1440" height="900" loading="lazy"></div><figcaption><b>Fifteen years of Travelers' Choice.</b> The awards get a section of their own.</figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="../img/work/gf-fleet.webp" alt="Go Fish Costa Rica fleet page with filters" width="1440" height="900" loading="lazy"></div><figcaption><b>The fleet.</b> Filter by location, guests, budget and washroom.</figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="../img/work/gf-planner.webp" alt="Go Fish Costa Rica four-step trip planner" width="1440" height="900" loading="lazy"></div><figcaption><b>The planner.</b> What kind of day, then which location is closer.</figcaption></figure>
+    </div>
+
+    <div class="chips">
+      <span class="chip">98 pages</span>
+      <span class="chip">Fleet with filters</span>
+      <span class="chip">17 adventures</span>
+      <span class="chip">4-step planner + trip cart</span>
+      <span class="chip">WhatsApp + map pin</span>
+      <span class="chip">SEO + schema</span>
+      <a class="live" href="https://gofishcr.com/" target="_blank" rel="noopener">Visit live site ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · COCONUT OFFICE -->
+<section class="site s-co" id="coconut-office">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="reveal">
+        <div class="s-num">03 / 06</div>
+        <span class="s-tag">Redesign · Coworking &amp; coliving · Playa Hermosa</span>
+        <h2>Coconut Office</h2>
+      </div>
+      <div class="reveal" style="--d:.08s">
+        <p class="s-story">A coworking and coliving retreat steps from Playa Hermosa's famous break: fast fiber, private apartments, a pool and a yoga deck. Their old site showed none of that. I rebuilt it as one cinematic page that sells the lifestyle first: surf at sunrise, work to an ocean breeze, end the day with people who feel like family.</p>
+        <div class="s-actions"><span class="s-note">Redesign · no public link yet</span></div>
+      </div>
+    </div>
+
+    <div class="ba" id="ba2">
+      <img class="before-img" src="../img/coconut-after.webp" alt="Coconut Office new website" width="1440" height="900" loading="lazy">
+      <div class="after-wrap" id="aw2"><div class="after-img-sizer" id="as2"><img src="../img/coconut-before.webp" alt="Coconut Office old website" width="1440" height="900" loading="lazy"></div></div>
+      <span class="label before">Before</span>
+      <span class="label after">After</span>
+      <div class="handle" id="h2"><div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 4 12 9 18"></polyline><polyline points="15 6 20 12 15 18"></polyline></svg></div></div>
+    </div>
+    <div class="hint">Drag to compare</div>
+
+    <div class="s-body">
+      <div>
+        <div class="s-sub reveal">What it does for the business</div>
+        <ol class="feats">
+          <li class="reveal"><span class="fn">01</span><h3>A cinematic first screen</h3><p>Full-screen ocean, one clear line, "Work from the waves," and two buttons: explore the apartments or check availability.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">02</span><h3>The numbers nomads ask about</h3><p>500 mbps fiber, generator-backed power around the clock and roughly 358 surfable days a year, right under the headline, because that's what remote workers want to know first.</p></li>
+          <li class="reveal"><span class="fn">03</span><h3>Four apartments, side by side</h3><p>Each unit gets its photos, size, beds and what's included, plus a video tour where there is one, so guests pick their place before they write.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">04</span><h3>A coworking space that looks the part</h3><p>Desks with a sea view, Ethernet at the desk and a virtual tour, shown like a real office instead of an afterthought.</p></li>
+          <li class="reveal"><span class="fn">05</span><h3>The surf, explained</h3><p>Playa Hermosa as a World Surfing Reserve, the local breaks by name, the Saturday competitions, and a full surf guide page.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">06</span><h3>Three languages, one tap</h3><p>English, Spanish and German, plus a guide page to Costa Rica's digital nomad visa for the people planning a long stay.</p></li>
+        </ol>
+      </div>
+      <div class="phones">
+        <figure class="phone"><div class="frame"><img src="../img/work/co-phone-home.webp" alt="Coconut Office redesign on a phone" width="780" height="1688" loading="lazy"></div><figcaption>The first screen on a phone</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <figure class="shot"><div class="frame"><img src="../img/work/co-coworking.webp" alt="Coconut Office coworking space section" width="1440" height="900" loading="lazy"></div><figcaption><b>The coworking space.</b> An office that doesn't feel like one.</figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="../img/work/co-life.webp" alt="Coconut Office life at the office section with pool and yoga deck" width="1440" height="900" loading="lazy"></div><figcaption><b>Life at the office.</b> Pool mornings, yoga afternoons, macaws overhead.</figcaption></figure>
+    </div>
+
+    <div class="chips">
+      <span class="chip">Cinematic hero</span>
+      <span class="chip">English, Spanish, German</span>
+      <span class="chip">Apartments + video tours</span>
+      <span class="chip">Nomad visa guide</span>
+      <span class="chip">SEO + schema</span>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · JACO TRANSPORT -->
+<section class="site s-jt" id="jaco-transport">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="reveal">
+        <div class="s-num">04 / 06</div>
+        <span class="s-tag">New build · Airport transfers &amp; private transport · Jaco</span>
+        <h2>Jaco Transport</h2>
+      </div>
+      <div class="reveal" style="--d:.08s">
+        <p class="s-story">Jaco Transport needed more than a brochure. It needed something to run the business on. I built a full booking platform: guests see the price of their route and reserve online, every booking is confirmed by email, and behind the scenes a dispatch portal and a driver app keep every pickup on track.</p>
+        <div class="s-actions"><a class="btn s-btn" href="https://jacotransport.com" target="_blank" rel="noopener">Visit jacotransport.com ↗</a></div>
+      </div>
+    </div>
+
+    <a class="s-hero" href="https://jacotransport.com" target="_blank" rel="noopener">
+      <img src="../img/jacotransport.webp" alt="Jaco Transport website homepage" width="1440" height="900" loading="lazy">
+    </a>
+
+    <div class="s-body">
+      <div>
+        <div class="s-sub reveal">What it does for the business</div>
+        <ol class="feats">
+          <li class="reveal"><span class="fn">01</span><h3>A cinematic video hero</h3><p>The page opens on moving water with the booking form right there, so a guest can go from landing to booked without hunting for anything.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">02</span><h3>Live, fixed route pricing</h3><p>Popular routes show the drive time and price up front: SJO to Jaco, Manuel Antonio, La Fortuna, Monteverde, Dominical, Tamarindo. No surge, no hidden fees.</p></li>
+          <li class="reveal"><span class="fn">03</span><h3>Reservations that ask the right questions</h3><p>Pickup and drop-off, comfort level from economy car to Sprinter van, passengers, whether the road needs a 4x4, and an English-speaking driver if they want one.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">04</span><h3>Booking emails in three steps</h3><p>The guest hears back at every stage, from request to confirmed ride, with the logo and trip details in every email. No guessing whether it went through.</p></li>
+          <li class="reveal"><span class="fn">05</span><h3>Manual bookings for the team</h3><p>Rides booked by phone or WhatsApp go into the same system by hand, so every trip lives in one place instead of on scraps of paper.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">06</span><h3>Dispatch and a driver app</h3><p>A behind-the-scenes portal to run the day, and an app that puts each driver's pickups on their phone.</p></li>
+          <li class="reveal"><span class="fn">07</span><h3>Route guides for Google</h3><p>Pages like SJO Airport to Jaco compare every way to make the trip, with real prices, written to show up when travelers search.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">08</span><h3>English and Spanish</h3><p>One tap at the top switches the whole site.</p></li>
+        </ol>
+      </div>
+      <div class="phones">
+        <figure class="phone"><div class="frame"><img src="../img/work/jt-phone-home.webp" alt="Jaco Transport homepage on a phone" width="780" height="1688" loading="lazy"></div><figcaption>The homepage on a phone</figcaption></figure>
+        <figure class="phone"><div class="frame"><img src="../img/work/jt-phone-booking.webp" alt="Jaco Transport booking form on a phone" width="780" height="1688" loading="lazy"></div><figcaption>Booking a ride, right on the homepage</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <figure class="shot"><div class="frame"><img src="../img/work/jt-routes.webp" alt="Jaco Transport popular routes with fixed prices" width="1440" height="900" loading="lazy"></div><figcaption><b>Where are you headed?</b> Fixed pricing on every popular route.</figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="../img/work/jt-route-guide.webp" alt="Jaco Transport SJO Airport to Jaco route guide" width="1440" height="900" loading="lazy"></div><figcaption><b>Route guides.</b> SJO Airport to Jaco, every option at a glance.</figcaption></figure>
+    </div>
+
+    <div class="chips">
+      <span class="chip">Online booking</span>
+      <span class="chip">Live route pricing</span>
+      <span class="chip">Booking emails</span>
+      <span class="chip">Dispatch + driver app</span>
+      <span class="chip">English / Spanish</span>
+      <a class="live" href="https://jacotransport.com" target="_blank" rel="noopener">Visit live site ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- 05 · INFINITE DISCOVERIES -->
+<section class="site s-id" id="infinite-discoveries">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="reveal">
+        <div class="s-num">05 / 06</div>
+        <span class="s-tag">New build · Tours &amp; fishing charters · Jaco</span>
+        <h2>Infinite Discoveries</h2>
+      </div>
+      <div class="reveal" style="--d:.08s">
+        <p class="s-story">Infinite Discoveries is my own tour and fishing-charter company: I connect visitors with the best local operators around Jaco. The site has to sell while I'm out on the water, so every tour can be requested in a tap and every guest hears back right away.</p>
+        <div class="s-actions"><a class="btn s-btn" href="https://infinitediscoveriescr.com" target="_blank" rel="noopener">Visit infinitediscoveriescr.com ↗</a></div>
+      </div>
+    </div>
+
+    <a class="s-hero" href="https://infinitediscoveriescr.com" target="_blank" rel="noopener">
+      <img src="../img/infinitediscoveries.webp" alt="Infinite Discoveries website homepage" width="1440" height="900" loading="lazy">
+    </a>
+
+    <div class="s-body">
+      <div>
+        <div class="s-sub reveal">What it does for the business</div>
+        <ol class="feats">
+          <li class="reveal"><span class="fn">01</span><h3>A moody full-screen hero</h3><p>Dark water, big type and two clear choices: explore the tours or message on WhatsApp.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">02</span><h3>19 tours, each with its own page</h3><p>Waterfalls, ATVs, ziplines, Manuel Antonio, the crocodile river, Isla Tortuga and more, each with how long it takes, what's included and an instant request form.</p></li>
+          <li class="reveal"><span class="fn">03</span><h3>A trip planner at /book</h3><p>Pick one tour or build a whole trip, then send it as one request. A Your trip panel keeps count as they go.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">04</span><h3>An instant reply to every guest</h3><p>The moment a request comes in, the guest gets a friendly auto-reply, so nobody wonders whether their message landed.</p></li>
+          <li class="reveal"><span class="fn">05</span><h3>One-tap WhatsApp</h3><p>Most visitors would rather text than fill in a form, so a WhatsApp button is never more than a thumb away.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">06</span><h3>English and Spanish</h3><p>An EN / ES toggle at the top switches the whole site.</p></li>
+          <li class="reveal"><span class="fn">07</span><h3>Pages that rank</h3><p>Guides to the best Jaco tours, Jaco fishing charters and the Costa Rica fishing season, written for what people actually search.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">08</span><h3>A clear cancellation policy</h3><p>Its own page, linked from every footer, so guests know the rules before they book and book with confidence.</p></li>
+        </ol>
+      </div>
+      <div class="phones">
+        <figure class="phone"><div class="frame"><img src="../img/work/id-phone-home.webp" alt="Infinite Discoveries homepage on a phone" width="780" height="1688" loading="lazy"></div><figcaption>The homepage on a phone</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="gallery g3">
+      <figure class="shot"><div class="frame"><img src="../img/work/id-catalog.webp" alt="Infinite Discoveries best-selling adventures" width="1440" height="900" loading="lazy"></div><figcaption><b>Best sellers.</b> The tours people book most, right on the homepage.</figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="../img/work/id-tour.webp" alt="Infinite Discoveries ATV and Zipline Combo tour page" width="1440" height="900" loading="lazy"></div><figcaption><b>A tour page.</b> The details and the request button side by side.</figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="../img/work/id-planner.webp" alt="Infinite Discoveries trip planner" width="1440" height="900" loading="lazy"></div><figcaption><b>The trip planner.</b> Build a whole trip, send it once.</figcaption></figure>
+    </div>
+
+    <div class="chips">
+      <span class="chip">19 tour pages</span>
+      <span class="chip">Trip planner</span>
+      <span class="chip">Guest auto-reply</span>
+      <span class="chip">One-tap WhatsApp</span>
+      <span class="chip">EN / ES</span>
+      <span class="chip">SEO pages</span>
+      <a class="live" href="https://infinitediscoveriescr.com" target="_blank" rel="noopener">Visit live site ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- 06 · LITTLE WAVES -->
+<section class="site s-lw" id="little-waves">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="reveal">
+        <div class="s-num">06 / 06</div>
+        <span class="s-tag">New build · Surf school · Jaco Beach</span>
+        <h2>Little Waves Surf School</h2>
+      </div>
+      <div class="reveal" style="--d:.08s">
+        <p class="s-story">María's surf school in Jaco had no website at all, just word of mouth. I built her a bilingual one-pager styled like a surf-film poster, with her real prices, her own photos and booking that lands straight in her WhatsApp. It's live on her own domain.</p>
+        <div class="s-actions"><a class="btn s-btn" href="https://littlewavessurf.com" target="_blank" rel="noopener">Visit littlewavessurf.com ↗</a></div>
+      </div>
+    </div>
+
+    <a class="s-hero" href="https://littlewavessurf.com" target="_blank" rel="noopener">
+      <img src="../img/littlewaves.webp" alt="Little Waves Surf School website" width="1440" height="900" loading="lazy">
+    </a>
+
+    <div class="s-body">
+      <div>
+        <div class="s-sub reveal">What it does for the business</div>
+        <ol class="feats">
+          <li class="reveal"><span class="fn">01</span><h3>A surf-film poster</h3><p>Big type, a setting sun and "Starring María Jesús Mora." It feels like her, not like a template.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">02</span><h3>Real prices, no surprises</h3><p>Private lessons, lessons for two, small groups and weekly kids camps, with the board, rash guard and safety briefing listed as included.</p></li>
+          <li class="reveal"><span class="fn">03</span><h3>Meet María</h3><p>Her story as a local surfer from Playa Jaco, her photos coaching on the sand, and why she teaches. People book a person, not a business.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">04</span><h3>Booking in three quick steps</h3><p>Who's surfing, when, send. The details arrive as a WhatsApp message María confirms herself, with the time and meeting spot.</p></li>
+          <li class="reveal"><span class="fn">05</span><h3>Answers before the first lesson</h3><p>Real student reviews and a short FAQ: never surfed, how long, what to bring, where to meet, why the time depends on the tide.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">06</span><h3>English y Español, on her own domain</h3><p>The whole page switches language in one tap, and it lives at littlewavessurf.com, a name that's hers.</p></li>
+        </ol>
+      </div>
+      <div class="phones">
+        <figure class="phone"><div class="frame"><img src="../img/work/lw-phone-home.webp" alt="Little Waves Surf School homepage on a phone" width="780" height="1688" loading="lazy"></div><figcaption>The poster on a phone</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="gallery g3">
+      <figure class="shot"><div class="frame"><img src="../img/work/lw-maria.webp" alt="Little Waves meet María section" width="1440" height="900" loading="lazy"></div><figcaption><b>Learn to surf with María.</b> Her story, her photos.</figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="../img/work/lw-lessons.webp" alt="Little Waves lesson prices" width="1440" height="900" loading="lazy"></div><figcaption><b>One price list.</b> 90-minute lessons, everything included.</figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="../img/work/lw-booking.webp" alt="Little Waves three-step booking form" width="1440" height="900" loading="lazy"></div><figcaption><b>Book your lesson.</b> Three steps, straight to her WhatsApp.</figcaption></figure>
+    </div>
+
+    <div class="chips">
+      <span class="chip">From zero to live</span>
+      <span class="chip">WhatsApp booking</span>
+      <span class="chip">Real prices &amp; photos</span>
+      <span class="chip">English y Español</span>
+      <span class="chip">Her own domain</span>
+      <a class="live" href="https://littlewavessurf.com" target="_blank" rel="noopener">Visit live site ↗</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<section class="closing" id="contact">
+  <div class="wrap">
+    <div class="cta reveal">
+      <h2>Your business could be the <em>next one</em> on this page.</h2>
+      <p>Send me your business and I'll show you what your new site could be. Free, no pressure, in English or Spanish.</p>
+      <div class="acts">
+        <a class="btn btn-primary" href="https://wa.me/13213561951" target="_blank" rel="noopener">Message on WhatsApp</a>
+        <a class="btn btn-ghost" href="mailto:coastalcrwebsites@gmail.com">Email me</a>
+      </div>
+      <div class="mail">coastalcrwebsites@gmail.com · WhatsApp +1 321-356-1951</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">
+      <div class="brand"><svg class="logomark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0e6f90"/><path d="M10 38 C18 30 22 46 32 38 S46 30 54 38" fill="none" stroke="#eef4f8" stroke-width="4.5" stroke-linecap="round"/><path d="M10 26 C18 18 22 34 32 26 S46 18 54 26" fill="none" stroke="#d2a55f" stroke-width="4.5" stroke-linecap="round"/></svg>Coastal <span>CR</span></div>
+      <p>Custom websites for local businesses in Costa Rica and the US. Based in Jaco, Costa Rica.</p>
+    </div>
+    <div class="f-col">
+      <h5>Websites</h5>
+      <a href="../work/">Our work</a>
+      <a href="../websites/">Website packages</a>
+      <a href="../plans/">3 ways to pay</a>
+      <a href="../care/">Care plan terms</a>
+    </div>
+    <div class="f-col">
+      <h5>Grow</h5>
+      <a href="../tradewind/">Tradewind app</a>
+      <a href="../services/">Monthly plans</a>
+      <a href="../services/#growth">Google &amp; ads</a>
+      <a href="../services/#transfer">Move my site over</a>
+    </div>
+    <div class="f-col">
+      <h5>Contact</h5>
+      <a href="https://wa.me/13213561951" target="_blank" rel="noopener">WhatsApp +1 321-356-1951</a>
+      <a href="mailto:coastalcrwebsites@gmail.com">coastalcrwebsites@gmail.com</a>
+      <span>English &amp; Español</span>
+    </div>
+  </div>
+  <div class="wrap f-base-wrap"><div class="f-base">© <span id="yr"></span> Coastal CR · Infinite Discoveries LLC · Playa Hermosa, Jaco, Costa Rica</div></div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Nav turns solid once scrolled + scroll progress bar.
+  (function(){
+    const nav = document.querySelector('nav'), bar = document.getElementById('progress');
+    const on = ()=>{
+      nav.classList.toggle('scrolled', window.scrollY > 12);
+      const h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    };
+    window.addEventListener('scroll', on, {passive:true});
+    window.addEventListener('resize', on);
+    on();
+  })();
+
+  // Great Marlin 360 clip: play only while on screen; reduced motion keeps the poster still.
+  (function(){
+    const v = document.querySelector('.s-gm video');
+    if(!v) return;
+    if(matchMedia('(prefers-reduced-motion:reduce)').matches){ v.removeAttribute('autoplay'); v.pause(); return; }
+    if(!('IntersectionObserver' in window)) return;
+    new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? v.play().catch(()=>{}) : v.pause()), {threshold:.15}).observe(v);
+  })();
+
+  // Text-only scroll reveal, with failsafes so nothing can stay hidden.
+  (function(){
+    const els = [...document.querySelectorAll('.reveal')];
+    const show = e => e.classList.add('in');
+    if(!('IntersectionObserver' in window)){ els.forEach(show); return; }
+    const io = new IntersectionObserver(en => en.forEach(x => { if(x.isIntersecting){ show(x.target); io.unobserve(x.target); } }), {threshold:0.12, rootMargin:'0px 0px -6% 0px'});
+    els.forEach(e => io.observe(e));
+    const sweep = ()=>els.forEach(e=>{ if(e.classList.contains('in')) return; const r = e.getBoundingClientRect(); if(r.top < innerHeight*0.94 && r.bottom > 0) show(e); });
+    window.addEventListener('load', ()=>setTimeout(sweep, 150));
+    window.addEventListener('scroll', sweep, {passive:true});
+    setTimeout(()=>els.forEach(show), 5000);
+  })();
+
+  // Before/After slider (same behaviour as the homepage).
+  function initBA(n){
+    const ba = document.getElementById('ba'+n), aw = document.getElementById('aw'+n), as = document.getElementById('as'+n), h = document.getElementById('h'+n);
+    if(!ba) return;
+    let dragging = false, touched = false;
+    const sizeAfter = ()=>{ as.style.width = ba.clientWidth + 'px'; };
+    const apply = pct=>{ aw.style.width = pct + '%'; h.style.left = pct + '%'; };
+    const setPos = cx=>{ const r = ba.getBoundingClientRect(); apply(Math.max(0, Math.min(1, (cx - r.left) / r.width)) * 100); };
+    const first = ()=>{ if(!touched){ touched = true; ba.classList.add('touched'); } };
+    const start = ()=>{ dragging = true; ba.classList.add('dragging'); first(); };
+    const end = ()=>{ dragging = false; ba.classList.remove('dragging'); };
+    const move = e=>{ if(!dragging) return; setPos(e.touches ? e.touches[0].clientX : e.clientX); };
+    h.addEventListener('mousedown', start);
+    h.addEventListener('touchstart', start, {passive:true});
+    window.addEventListener('mouseup', end);
+    window.addEventListener('touchend', end);
+    window.addEventListener('mousemove', move);
+    window.addEventListener('touchmove', move, {passive:true});
+    ba.addEventListener('mousedown', e=>{ start(); setPos(e.clientX); });
+    window.addEventListener('resize', sizeAfter);
+    window.addEventListener('load', sizeAfter);
+    sizeAfter();
+    // one-time nudge so people notice it slides
+    let nudged = false;
+    const nudge = ()=>{
+      if(nudged) return; nudged = true;
+      if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+      setTimeout(()=>{ if(touched) return; apply(62); setTimeout(()=>{ if(!touched) apply(50); }, 650); }, 450);
+    };
+    if('IntersectionObserver' in window){
+      const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ io.unobserve(ba); nudge(); } }), {threshold:0.35});
+      io.observe(ba);
+    }
+  }
+  initBA(1); initBA(2);
+</script>
+</body>
+</html>

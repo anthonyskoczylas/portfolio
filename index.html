@@ -237,7 +237,14 @@
   .price-card .btn{margin-top:auto;justify-content:center}
   .pc-badge{position:absolute;top:-11px;right:22px;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
     color:#fff;background:var(--accent);padding:6px 13px;border-radius:999px}
-  .price-more{text-align:center;margin-top:18px}
+  .price-more{text-align:center;margin-top:18px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .work-more{text-align:center;margin-top:72px}
+  .nav-pages{display:flex;gap:4px;margin-right:6px}
+  .nav-pages a{font-size:14px;font-weight:500;color:#f3f1ea;text-decoration:none;padding:9px 12px;border-radius:999px;transition:background .2s,color .2s}
+  .nav-pages a:hover{background:rgba(255,255,255,.12)}
+  nav.scrolled .nav-pages a{color:var(--ink)}
+  nav.scrolled .nav-pages a:hover{background:rgba(11,28,40,.07)}
+  @media(max-width:980px){.nav-pages{display:none}}
   .pc-more{display:block;text-align:center;margin-top:12px;font-size:14px;font-weight:600;color:var(--accent);text-decoration:none}
   .pc-more:hover{text-decoration:underline}
   .price-note{margin-top:22px;font-size:14px;color:var(--ink-soft);text-align:center}
@@ -480,6 +487,46 @@
   .cs-jt{--cs-display:'Cormorant Garamond';--cs-body:'Geist';--cs-accent:#008296;--cs-h-weight:300;--cs-h-scale:1.22;--cs-h-track:-.005em}
   .cs-id{--cs-display:'Playfair Display';--cs-body:'Lato';--cs-accent:#0284c7;--cs-h-weight:400;--cs-h-scale:1.04}
   .cs-lw{--cs-display:'Young Serif';--cs-body:'Jost';--cs-accent:#b06a55;--cs-h-weight:400}
+  /* ---------- TRADEWIND (wears the app's own look: Geist + forest green) ---------- */
+  .tw{background:#24432c;color:#eef0e6;font-family:'Geist',system-ui,sans-serif;padding:110px 0}
+  .tw-top{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  .tw-brand{display:flex;align-items:center;gap:12px;font-weight:600;font-size:22px;letter-spacing:-.02em;color:#f6f4ee}
+  .tw-logo{width:44px;height:44px;flex:none;border-radius:11px;box-shadow:0 0 0 1px rgba(159,209,168,.35)}
+  .tw-kicker{margin-top:26px;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#9fd1a8}
+  .tw h2{font-family:'Geist',system-ui,sans-serif;font-weight:600;letter-spacing:-.035em;line-height:1.02;font-size:clamp(36px,5vw,60px);color:#f6f4ee;margin-top:12px}
+  .tw-lead{margin-top:20px;font-size:17.5px;line-height:1.6;color:#c9d4c4;max-width:52ch}
+  .tw-actions{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap}
+  .tw-btn{background:#9fd1a8;color:#16301d;font-weight:600}
+  .tw-btn:hover{background:#b6dfbd}
+  .tw-btn-ghost{border:1px solid rgba(238,240,230,.3);color:#eef0e6;font-weight:500}
+  .tw-btn-ghost:hover{border-color:#eef0e6}
+  .tw-phone{justify-self:center;width:min(340px,100%)}
+  .tw-screen{background:#f5f2ea;color:#1d2119;border-radius:30px;padding:22px 18px 18px;border:8px solid #12261a;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+  .tw-s-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .tw-s-head b{font-size:17px;letter-spacing:-.02em}
+  .tw-s-head span{background:#2f5d3a;color:#fffdf8;font-size:12px;font-weight:600;border-radius:999px;padding:2px 9px}
+  .tw-s-card{background:#fffdf8;border:1px solid #e3ddce;border-radius:14px;padding:12px 13px;margin-bottom:9px;position:relative}
+  .tw-s-card small{display:block;font-size:11.5px;font-weight:600;color:#2f5d3a;margin-bottom:4px}
+  .tw-s-card p{font-size:13px;line-height:1.4;color:#4a4a40;padding-right:54px}
+  .tw-s-card i{font-style:normal;position:absolute;right:11px;bottom:11px;background:#2f5d3a;color:#fffdf8;font-size:11.5px;font-weight:600;border-radius:999px;padding:4px 11px}
+  .tw-s-foot{margin-top:12px;display:flex;flex-direction:column;gap:2px;font-size:12px;color:#6b6a5e}
+  .tw-s-foot b{font-size:14px;color:#1d2119}
+  .tw-cap{text-align:center;margin-top:10px;font-size:12px;color:#8fa58c}
+  .tw-grid{margin-top:84px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .tw-f{background:rgba(255,255,255,.04);border:1px solid rgba(159,209,168,.18);border-radius:16px;padding:24px}
+  .tw-f h4{font-family:'Geist',system-ui,sans-serif;font-size:18px;font-weight:600;letter-spacing:-.02em;color:#f6f4ee;margin-bottom:8px}
+  .tw-f p{font-size:15px;line-height:1.55;color:#bccab7}
+  .tw-strip{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;font-size:14px;color:#bccab7;line-height:1.5}
+  .tw-strip b{color:#f6f4ee;font-weight:600}
+  .tw-jump{color:var(--accent);font-weight:600;text-decoration:none;white-space:nowrap}
+  .tw-jump:hover{text-decoration:underline}
+  .price-card.tw-card{border-color:#2f5d3a;box-shadow:0 24px 50px -30px rgba(47,93,58,.55)}
+  .price-card.tw-card .pc-badge{background:#2f5d3a}
+  .price-card.tw-card .pc-tag{color:#2f5d3a}
+  .price-card.tw-card .btn-primary{background:#2f5d3a;border-color:#2f5d3a}
+  .price-card.tw-card .pc-more{color:#2f5d3a}
+  @media(max-width:900px){.tw{padding:80px 0}.tw-top{grid-template-columns:1fr;gap:44px}.tw-grid{grid-template-columns:1fr 1fr;margin-top:56px}.tw-strip{grid-template-columns:1fr}}
+  @media(max-width:560px){.tw-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -489,7 +536,7 @@
 <nav>
   <div class="wrap">
     <div class="brand"><svg class="logomark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0e6f90"/><path d="M10 38 C18 30 22 46 32 38 S46 30 54 38" fill="none" stroke="#eef4f8" stroke-width="4.5" stroke-linecap="round"/><path d="M10 26 C18 18 22 34 32 26 S46 18 54 26" fill="none" stroke="#d2a55f" stroke-width="4.5" stroke-linecap="round"/></svg>Coastal <span>CR</span></div>
-    <div class="nav-right"><a class="nav-link" href="services/">Monthly plans</a><a class="nav-cta" href="#contact">Get a website</a></div>
+    <div class="nav-right"><span class="nav-pages"><a href="work/">Work</a><a href="websites/">Websites</a><a href="tradewind/">Tradewind</a></span><a class="nav-link" href="services/">Monthly plans</a><a class="nav-cta" href="#contact">Get a website</a></div>
   </div>
 </nav>
 
@@ -560,14 +607,14 @@
     <div class="sec-head reveal">
       <div class="kicker">Selected work</div>
       <h2>Real local businesses. Real before & after.</h2>
-      <p>Every project here is a live site for a real local business. Drag the slider to see the difference.</p>
+      <p>Every project here was built for a real local business. Drag the slider to see the difference.</p>
     </div>
 
     <!-- CASE 0: Go Fish Costa Rica -->
     <div class="case cs-gofish reveal">
       <span class="case-tag">Redesign · Fishing Charters & Adventures · Tamarindo</span>
       <h3>Go Fish Costa Rica</h3>
-      <p class="role">Fifteen years of TripAdvisor Travelers' Choice, stuck on a dated brochure site. I rebuilt it as ninety-eight pages that tell one charter day from dawn to sunset: seventeen boats with real rates and a live price estimate, sixteen adventures, a four-step trip planner, and their reviews and awards front and center. Every request lands in their inbox ready to confirm.</p>
+      <p class="role">Fifteen years of TripAdvisor Travelers' Choice, stuck on a dated brochure site. I rebuilt it as ninety-eight pages that tell one charter day from dawn to sunset: fifteen sportfishing boats and three catamarans with real rates and a live price estimate, seventeen adventures, a four-step trip planner, and their reviews and awards front and center. Every request lands in their inbox ready to confirm.</p>
 
       <div class="ba media-rev" id="ba2">
         <img class="before-img" src="img/gofishcr-after.webp" alt="Go Fish Costa Rica new website">
@@ -584,7 +631,7 @@
 
       <div class="case-foot">
         <span class="chip">98 pages</span>
-        <span class="chip">17 boats, live pricing</span>
+        <span class="chip">18 boats, live pricing</span>
         <span class="chip">4-step trip planner</span>
         <span class="chip">SEO + schema</span>
         <a class="live-link" href="https://gofishcr.com/" target="_blank" rel="noopener">Visit live site →</a>
@@ -675,6 +722,7 @@
       </div>
     </div>
 
+    <div class="work-more reveal"><a class="btn btn-ghost" href="work/">See every project up close →</a></div>
   </div>
 </section>
 
@@ -707,14 +755,59 @@
       </div>
       <div class="feat big reveal" style="--d:.12s">
         <div class="n">02</div>
-        <h4>Let AI do the busywork</h4>
-        <p>I can plug in smart automation that answers common questions, replies to messages, follows up with leads, and helps handle bookings, day and night. It quietly runs the repetitive stuff so you get more free time and never miss a customer.</p>
+        <h4>Run it all from one app</h4>
+        <p>Tradewind, my business app, takes over the busywork behind your website: every lead lands on your phone, replies and reminders get written for you, and quotes, jobs and invoices live in one place. You get your evenings back and never miss a customer. <a class="tw-jump" href="#tradewind">See what it does ↓</a></p>
       </div>
     </div>
   </div>
 </section>
 
-<section style="background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<section class="tw" id="tradewind">
+  <div class="wrap">
+    <div class="tw-top">
+      <div class="tw-copy reveal">
+        <div class="tw-brand"><svg class="tw-logo" viewBox="0 0 1024 1024" aria-hidden="true"><rect width="1024" height="1024" rx="230" fill="#2f5d3a"/><line x1="472" y1="200" x2="472" y2="776" stroke="#f6f4ee" stroke-width="40" stroke-linecap="round"/><path d="M512 226 C722 346 788 536 742 720 L512 720 Z" fill="#f6f4ee"/><path d="M432 306 C310 450 290 590 330 700 L432 700 Z" fill="#9fd1a8"/><path d="M245 830 Q512 748 779 830" stroke="#9fd1a8" stroke-width="40" fill="none" stroke-linecap="round"/></svg><span>Tradewind</span></div>
+        <div class="tw-kicker">The app behind your website</div>
+        <h2>Your whole business, in one app.</h2>
+        <p class="tw-lead">Leads, quotes, jobs, invoices and reviews in one place, on your phone. Tradewind is built in-house and connected straight to the website I build you, so a request on your site becomes a quote, a job and a paid invoice without retyping a thing.</p>
+        <div class="tw-actions">
+          <a class="btn tw-btn" href="#contact">Get Tradewind</a>
+          <a class="btn tw-btn-ghost" href="tradewind/">Everything about Tradewind →</a>
+        </div>
+      </div>
+      <div class="tw-phone reveal" style="--d:.12s" aria-label="Sample Tradewind screen">
+        <div class="tw-screen">
+          <div class="tw-s-head"><b>Ready to send</b><span>3</span></div>
+          <div class="tw-s-card"><small>New lead · Patio estimate</small><p>Reply written: "Hi Dana, thanks for the photos. We can come out Thursday to measure…"</p><i>Send</i></div>
+          <div class="tw-s-card"><small>Quote #1042 · not opened in 3 days</small><p>Friendly nudge written, with the link to approve.</p><i>Send</i></div>
+          <div class="tw-s-card"><small>Tomorrow · Weekly mowing</small><p>Reminder written for 4 customers.</p><i>Send</i></div>
+          <div class="tw-s-foot"><span>This week</span><b>$4,850 invoiced · $3,200 paid</b></div>
+        </div>
+        <div class="tw-cap">Sample screen</div>
+      </div>
+    </div>
+
+    <div class="tw-grid">
+      <div class="tw-f reveal"><h4>Every lead on your phone</h4><p>Website requests land in your inbox with their photos, and your phone buzzes the second one comes in.</p></div>
+      <div class="tw-f reveal" style="--d:.06s"><h4>Quotes they sign online</h4><p>Build a quote from your own price list, add photos, tax and a deposit, then text or email it. The customer approves and signs from their phone.</p></div>
+      <div class="tw-f reveal" style="--d:.12s"><h4>Jobs on a calendar</h4><p>Schedule every job, and set repeat visits weekly, every two weeks or monthly. Mowing, cleaning, pool service, all on autopilot.</p></div>
+      <div class="tw-f reveal"><h4>Invoices that get paid</h4><p>Send an invoice link, record payments, and see at a glance who still owes you.</p></div>
+      <div class="tw-f reveal" style="--d:.06s"><h4>Reviews in one tap</h4><p>When a job is done, send a thank-you with a direct link to leave you a Google review.</p></div>
+      <div class="tw-f reveal" style="--d:.12s"><h4>Edit your own website</h4><p>Change photos, services, hours and service areas yourself. Hit Publish and your site updates in under a minute.</p></div>
+      <div class="tw-f reveal"><h4>Replies written for you</h4><p>AI drafts a reply to every new lead and a quote from your price list. It never makes up prices. You read it and tap send.</p></div>
+      <div class="tw-f reveal" style="--d:.06s"><h4>Follow-ups you'd forget</h4><p>Nudges for quotes nobody opened, reminders for overdue invoices and tomorrow's jobs, plus a money report every Monday.</p></div>
+      <div class="tw-f reveal" style="--d:.12s"><h4>A chat on your site, 24/7</h4><p>Answers visitors' questions day and night and saves every conversation as a lead you can follow up.</p></div>
+    </div>
+
+    <div class="tw-strip reveal">
+      <span><b>Private and backed up.</b> Your customers and numbers are walled off from every other business and backed up every night.</span>
+      <span><b>Works on any phone.</b> Add it to your home screen like an app.</span>
+      <span><b>Coming soon:</b> card payments on invoices and the iPhone app in the App Store.</span>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" style="background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="kicker">Simple pricing</div>
@@ -737,8 +830,7 @@
         <a class="btn btn-ghost" href="#contact">Start basic</a>
       </div>
 
-      <div class="price-card featured reveal" style="--d:.12s">
-        <span class="pc-badge">Most complete</span>
+      <div class="price-card reveal" style="--d:.12s">
         <span class="pc-tag">Custom site</span>
         <h4>Built to bring you customers</h4>
         <div class="price">$2,000<small>Then $200 a month care plan. Or spread it out: three ways to pay.</small></div>
@@ -754,21 +846,25 @@
         <a class="pc-more" href="services/#care">What the care plan includes →</a>
       </div>
 
-      <div class="price-card reveal" style="--d:.24s">
-        <span class="pc-tag">Save time</span>
-        <h4>AI automation</h4>
-        <div class="price">Let's talk<small>Built around how your business runs.</small></div>
+      <div class="price-card featured tw-card reveal" style="--d:.24s">
+        <span class="pc-badge">Most complete</span>
+        <span class="pc-tag">Custom site + Tradewind</span>
+        <h4>Your website and your business app</h4>
+        <div class="price">$2,000<small>Then $300 a month: care plan plus Tradewind. Same 3 ways to pay.</small></div>
         <ul>
-          <li>Auto-replies to common questions</li>
-          <li>Follows up with leads for you</li>
-          <li>Helps handle bookings, day &amp; night</li>
-          <li>Quote based on what you need</li>
+          <li>Everything in the custom site</li>
+          <li>Leads, quotes, jobs and invoices in one app</li>
+          <li>Customers approve and sign quotes online</li>
+          <li>Replies and reminders written for you</li>
+          <li>Edit your own website anytime</li>
+          <li>1-year minimum on the plan</li>
         </ul>
-        <a class="btn btn-ghost" href="#contact">Ask about it</a>
+        <a class="btn btn-primary" href="#tradewind">See what Tradewind does</a>
+        <a class="pc-more" href="plans/">The 3 ways to pay →</a>
       </div>
     </div>
     <div class="price-note reveal">Every project starts with a free first look. No charge, no pressure. Already have a site you like? <a href="services/#transfer">I can move it over, from $500</a>.</div>
-    <div class="price-more reveal"><a class="btn btn-ghost" href="services/#growth">Want more customers? See growth plans for Google, ads and booking replies</a></div>
+    <div class="price-more reveal"><a class="btn btn-ghost" href="services/#growth">Want more customers? See growth plans for Google and ads</a> <a class="btn btn-ghost" href="websites/">Compare every package →</a></div>
   </div>
 </section>
 
@@ -793,12 +889,14 @@
     </div>
     <div class="f-col">
       <h5>Websites</h5>
-      <a href="#work">Selected work</a>
+      <a href="work/">Our work</a>
+      <a href="websites/">Website packages</a>
       <a href="plans/">3 ways to pay</a>
       <a href="care/">Care plan terms</a>
     </div>
     <div class="f-col">
       <h5>Grow</h5>
+      <a href="tradewind/">Tradewind app</a>
       <a href="services/">Monthly plans</a>
       <a href="services/#growth">Google &amp; ads</a>
       <a href="services/#transfer">Move my site over</a>

@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tradewind · Coastal CR</title>
+<meta name="description" content="Tradewind is the business app behind your Coastal CR website. Leads land on your phone, customers sign quotes online, jobs and invoices live in one place, and AI writes the follow-ups for you to approve.">
+<link rel="canonical" href="https://coastalcr.com/tradewind/">
+<meta property="og:title" content="Tradewind · Coastal CR">
+<meta property="og:description" content="Win more jobs, get paid faster and get your evenings back. The business app connected to the website Coastal CR builds you.">
+<meta property="og:url" content="https://coastalcr.com/tradewind/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#24432c">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#2f5d3a; --deep:#24432c; --deeper:#1b3422; --frame:#12261a;
+    --cream:#f6f4ee; --cream-2:#f5f2ea; --card:#fffdf8; --line:#e3ddce;
+    --mint:#9fd1a8; --mint-2:#b6dfbd; --ink:#1d2119; --ink-soft:#55574b; --muted:#6b6a5e;
+    --on-dark:#eef0e6; --on-dark-soft:#c3cfbe;
+    /* Coastal CR (nav + footer) */
+    --cr-ink:#0b1c28; --cr-accent:#0e6f90; --cr-sand:#d2a55f; --cr-paper:#eef4f8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{overflow-x:hidden;max-width:100%}
+  body{font-family:'Geist',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased;line-height:1.6;font-size:16px}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+  h1,h2,h3,h4{font-family:'Geist',system-ui,sans-serif;font-weight:600;letter-spacing:-.03em;line-height:1.06}
+  .accent{color:var(--green);font-style:normal}
+  .dark .accent{color:var(--mint)}
+
+  /* ---------- Coastal CR nav (same as homepage) ---------- */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;background:transparent;border-bottom:1px solid transparent;transition:background .25s ease, box-shadow .25s ease}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',Georgia,serif;font-size:19px;font-weight:600;letter-spacing:-.02em;color:#f3f1ea;text-decoration:none}
+  .brand span{color:var(--cr-sand)}
+  .logomark{width:30px;height:30px;flex:none;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  .nav-right{display:flex;align-items:center;gap:10px}
+  .nav-link{font-family:'Inter',system-ui,sans-serif;font-size:14px;font-weight:700;padding:9px 18px;border-radius:999px;background:var(--cr-sand);color:#0b1c28;border:1px solid var(--cr-sand);text-decoration:none;white-space:nowrap;transition:background .2s}
+  .nav-link:hover{background:#e0b673;border-color:#e0b673}
+  .nav-cta{font-family:'Inter',system-ui,sans-serif;font-size:14px;font-weight:600;padding:9px 18px;border-radius:999px;background:rgba(255,255,255,.12);color:#f3f1ea;border:1px solid rgba(255,255,255,.25);text-decoration:none;white-space:nowrap;transition:background .2s, border-color .2s}
+  .nav-cta:hover{background:var(--cr-accent);border-color:var(--cr-accent)}
+  nav.scrolled{background:rgba(246,244,238,.98);border-bottom-color:var(--line);box-shadow:0 10px 30px -22px rgba(29,33,25,.45)}
+  nav.scrolled .brand{color:var(--cr-ink)}
+  nav.scrolled .brand span{color:var(--cr-accent)}
+  nav.scrolled .nav-cta{background:var(--cr-ink);color:var(--cr-paper);border-color:var(--cr-ink)}
+  nav.scrolled .nav-cta:hover{background:var(--cr-accent);border-color:var(--cr-accent)}
+
+  /* ---------- buttons ---------- */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:15.5px;font-weight:600;text-decoration:none;padding:14px 26px;border-radius:999px;transition:background .2s, border-color .2s, transform .2s;white-space:nowrap}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-mint{background:var(--mint);color:#16301d}
+  .btn-mint:hover{background:var(--mint-2)}
+  .btn-green{background:var(--green);color:#fffdf8}
+  .btn-green:hover{background:#386b45}
+  .btn-ghost-dark{border:1px solid rgba(238,240,230,.32);color:var(--on-dark)}
+  .btn-ghost-dark:hover{border-color:var(--on-dark)}
+  .btn-ghost{border:1px solid #cfc8b6;color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--ink)}
+
+  /* ---------- shared section bits ---------- */
+  section{padding:104px 0}
+  .dark{background:var(--deep);color:var(--on-dark)}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+  .dark .kicker{color:var(--mint)}
+  .sec-head{max-width:720px;margin-bottom:52px}
+  .sec-head h2{font-size:clamp(32px,4.4vw,52px);margin-top:12px}
+  .dark .sec-head h2{color:var(--cream)}
+  .sec-head p{margin-top:18px;font-size:17.5px;line-height:1.6;color:var(--ink-soft);max-width:58ch}
+  .dark .sec-head p{color:var(--on-dark-soft)}
+
+  /* ---------- HERO ---------- */
+  .hero{background:var(--deep);color:var(--on-dark);padding:150px 0 110px}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  .tw-brand{display:flex;align-items:center;gap:12px;font-weight:600;font-size:22px;letter-spacing:-.02em;color:var(--cream)}
+  .tw-logo{width:46px;height:46px;flex:none;border-radius:12px;box-shadow:0 0 0 1px rgba(159,209,168,.35)}
+  .hero .kicker{margin-top:26px;color:var(--mint)}
+  .hero h1{font-size:clamp(40px,5.6vw,70px);letter-spacing:-.04em;line-height:1;color:var(--cream);margin-top:14px}
+  .hero h1 .ln{display:block}
+  .hero h1 .accent{color:var(--mint)}
+  .hero-lead{margin-top:24px;font-size:18px;line-height:1.6;color:var(--on-dark-soft);max-width:52ch}
+  .hero-actions{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
+  .hero-points{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px 26px;font-size:14px;color:#a9bba5;list-style:none}
+  .hero-points li{display:flex;align-items:center;gap:8px}
+  .hero-points li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--mint);flex:none}
+
+  /* ---------- phone mock ---------- */
+  .phone{width:min(330px,100%);justify-self:center}
+  .screen{background:var(--cream-2);color:var(--ink);border-radius:32px;padding:14px 16px 18px;border:8px solid var(--frame);box-shadow:0 40px 80px -34px rgba(0,0,0,.55)}
+  .light-bg .screen{box-shadow:0 34px 60px -34px rgba(29,51,34,.5)}
+  .s-status{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:600;color:#3b3d33;padding:0 4px 10px}
+  .s-status i{width:70px;height:18px;border-radius:999px;background:var(--frame);display:block}
+  .s-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;gap:8px}
+  .s-head b{font-size:17px;letter-spacing:-.02em}
+  .pill{background:var(--green);color:#fffdf8;font-size:11.5px;font-weight:600;border-radius:999px;padding:3px 10px;white-space:nowrap}
+  .pill.soft{background:#e4efe2;color:var(--green)}
+  .pill.warn{background:#f6e3c9;color:#7a4d12}
+  .s-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 13px;margin-bottom:9px;position:relative}
+  .s-card small{display:block;font-size:11.5px;font-weight:600;color:var(--green);margin-bottom:4px}
+  .s-card p{font-size:13px;line-height:1.42;color:#4a4a40}
+  .s-card.act p{padding-right:58px}
+  .s-card .send{position:absolute;right:11px;bottom:11px;background:var(--green);color:#fffdf8;font-size:11.5px;font-weight:600;border-radius:999px;padding:4px 11px}
+  .s-foot{margin-top:12px;display:flex;flex-direction:column;gap:2px;font-size:12px;color:var(--muted)}
+  .s-foot b{font-size:14px;color:var(--ink)}
+  .cap{text-align:center;margin-top:12px;font-size:12px;color:#8fa58c}
+  .light-bg .cap{color:#7d8a74}
+  .photos{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:8px 0 4px}
+  .photos span{aspect-ratio:1;border-radius:9px;display:block}
+  .ph1{background:linear-gradient(160deg,#9db37a 0%,#6f8d4f 55%,#566f3d 100%)}
+  .ph2{background:repeating-linear-gradient(90deg,#b9ad97 0 18px,#a89b84 18px 20px),#b9ad97}
+  .ph3{background:linear-gradient(180deg,#c9dbe6 0 38%,#7e9a5c 38% 100%)}
+  .row{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;padding:7px 0;border-bottom:1px solid #ece6d8;color:#3e4036}
+  .row:last-child{border-bottom:0}
+  .row b{font-weight:600;color:var(--ink);white-space:nowrap}
+  .row.total{font-size:14px;font-weight:600;color:var(--ink);border-bottom:0;padding-top:9px}
+  .sign{margin-top:10px;background:var(--green);color:#fffdf8;text-align:center;font-weight:600;font-size:13.5px;border-radius:12px;padding:11px}
+  .sigline{margin-top:10px;border-bottom:1.5px dashed #b9b2a0;height:28px;position:relative}
+  .sigline::after{content:"Sign here";position:absolute;left:0;bottom:-18px;font-size:10.5px;color:var(--muted)}
+  .week{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:12px;text-align:center}
+  .week span{font-size:10.5px;color:var(--muted);padding:6px 0;border-radius:9px;background:var(--card);border:1px solid var(--line);line-height:1.3}
+  .week span b{display:block;font-size:13px;color:var(--ink)}
+  .week span.on{background:var(--green);border-color:var(--green);color:#d7ead9}
+  .week span.on b{color:#fffdf8}
+  .job{display:flex;gap:10px;align-items:flex-start}
+  .job .day{font-size:11px;font-weight:600;color:var(--green);min-width:30px;padding-top:1px}
+  .job p{padding-right:0}
+  .job em{font-style:normal;display:inline-block;margin-top:5px;font-size:11px;font-weight:600;color:var(--green);background:#e4efe2;border-radius:999px;padding:2px 8px}
+  .owed{background:var(--green);color:#fffdf8;border-radius:14px;padding:13px 14px;margin-bottom:10px}
+  .owed small{display:block;font-size:11.5px;color:#cfe5d2}
+  .owed b{font-size:24px;letter-spacing:-.02em}
+  .inv{display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .inv p{font-size:12.5px;padding:0}
+  .inv p b{display:block;color:var(--ink);font-size:13px}
+
+  /* ---------- PROBLEM ---------- */
+  .problem{background:var(--cream)}
+  .pains{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .pain{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 26px 24px}
+  .pain h3{font-size:19px;letter-spacing:-.02em}
+  .pain p{margin-top:8px;font-size:15.5px;color:var(--ink-soft);line-height:1.55}
+  .fix{margin-top:40px;font-size:clamp(21px,2.4vw,27px);font-weight:500;letter-spacing:-.02em;line-height:1.35;max-width:36ch}
+
+  /* ---------- BENEFITS ---------- */
+  .benefits{background:var(--cream-2);border-top:1px solid var(--line)}
+  .bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .ben{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 26px;display:flex;flex-direction:column}
+  .ben .num{font-size:13px;font-weight:600;color:var(--green);letter-spacing:.04em}
+  .ben h3{font-size:22px;margin-top:10px;letter-spacing:-.025em}
+  .ben > p{margin-top:10px;font-size:15.5px;color:var(--ink-soft);line-height:1.55}
+  .ben ul{list-style:none;margin-top:18px;padding-top:16px;border-top:1px solid #ece6d8;display:flex;flex-direction:column;gap:8px}
+  .ben li{position:relative;padding-left:22px;font-size:14px;line-height:1.45;color:#3f4137}
+  .ben li::before{content:"";position:absolute;left:2px;top:6px;width:10px;height:6px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg)}
+
+  /* ---------- DAY ---------- */
+  .steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
+  .step{background:rgba(255,255,255,.045);border:1px solid rgba(159,209,168,.2);border-radius:18px;padding:26px 24px}
+  .step .when{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;color:var(--mint);letter-spacing:.02em}
+  .step .when::before{counter-increment:s;content:counter(s);width:26px;height:26px;border-radius:50%;background:var(--mint);color:#16301d;display:grid;place-items:center;font-size:13px;font-weight:700;flex:none}
+  .step h3{margin-top:14px;font-size:20px;color:var(--cream);letter-spacing:-.02em}
+  .step p{margin-top:8px;font-size:15px;line-height:1.55;color:var(--on-dark-soft)}
+  .day-end{margin-top:30px;font-size:16px;color:var(--on-dark-soft)}
+  .day-end b{color:var(--cream);font-weight:600}
+
+  /* ---------- SCREENS ---------- */
+  .screens{background:var(--cream)}
+  .phones{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:start}
+  .phones .phone{width:100%;max-width:300px}
+  .phones .screen{border-width:7px;border-radius:28px;padding:12px 12px 14px}
+  .p-label{text-align:center;margin-top:14px}
+  .p-label b{display:block;font-size:15.5px;letter-spacing:-.01em}
+  .p-label span{display:block;font-size:13.5px;color:var(--ink-soft);line-height:1.45;margin-top:3px}
+  .p-label .cap{margin-top:6px}
+
+  /* ---------- FEATURES ---------- */
+  .features{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 36px}
+  .fgroup h3{font-size:17px;letter-spacing:-.015em;padding-bottom:10px;border-bottom:2px solid var(--green);display:flex;align-items:center;gap:10px}
+  .fgroup ul{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:8px}
+  .fgroup li{font-size:15px;line-height:1.5;color:var(--ink-soft);padding-left:16px;position:relative}
+  .fgroup li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 1px var(--green) inset}
+  .soon{margin-top:52px;border:1.5px dashed #bfb7a3;border-radius:18px;padding:24px 26px;display:grid;grid-template-columns:auto 1fr;gap:10px 22px;align-items:center;background:var(--cream)}
+  .soon .tag{background:#ece6d8;color:#5d5641;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:6px 13px;white-space:nowrap}
+  .soon ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;font-size:15.5px;font-weight:500}
+  .soon li{display:flex;align-items:center;gap:8px}
+  .soon li::before{content:"";width:8px;height:8px;border-radius:50%;border:2px solid #9b927b;flex:none}
+  .soon p{grid-column:1/-1;font-size:14px;color:var(--muted)}
+
+  /* ---------- WHO ---------- */
+  .who{background:var(--cream)}
+  .who .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+  .who .sec-head{margin-bottom:0}
+  .trades{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  .trade{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+  .trade b{display:block;font-size:17px;letter-spacing:-.015em}
+  .trade span{display:block;margin-top:5px;font-size:14.5px;color:var(--ink-soft);line-height:1.5}
+  .trade.wide{grid-column:1/-1;background:var(--green);border-color:var(--green);color:#fffdf8}
+  .trade.wide span{color:#d5e8d8}
+
+  /* ---------- SAFE ---------- */
+  .safe-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .safe{border-top:2px solid var(--mint);padding-top:18px}
+  .safe h3{font-size:18px;color:var(--cream);letter-spacing:-.015em}
+  .safe p{margin-top:8px;font-size:15px;line-height:1.55;color:var(--on-dark-soft)}
+
+  /* ---------- PRICING ---------- */
+  .pricing{background:var(--cream-2)}
+  .pbox{background:var(--card);border:1.5px solid var(--green);border-radius:24px;box-shadow:0 30px 60px -36px rgba(47,93,58,.55);display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+  .pb-main{padding:40px 40px 36px}
+  .pb-tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fffdf8;background:var(--green);padding:6px 13px;border-radius:999px}
+  .pb-main h3{margin-top:18px;font-size:26px;letter-spacing:-.025em}
+  .pb-price{margin-top:22px;display:flex;flex-wrap:wrap;gap:6px 28px;align-items:flex-end}
+  .pb-price div b{display:block;font-size:52px;font-weight:600;letter-spacing:-.04em;line-height:1}
+  .pb-price div span{display:block;margin-top:6px;font-size:14px;color:var(--muted)}
+  .pb-split{margin-top:18px;font-size:15px;color:var(--ink-soft);background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  .pb-split b{color:var(--ink)}
+  .pb-main ul{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:9px}
+  .pb-main li{position:relative;padding-left:26px;font-size:15px;color:var(--ink-soft);line-height:1.45}
+  .pb-main li::before{content:"";position:absolute;left:3px;top:6px;width:11px;height:6px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg)}
+  .pb-side{background:var(--deep);color:var(--on-dark);padding:40px 38px 36px;display:flex;flex-direction:column}
+  .pb-side h4{font-size:19px;color:var(--cream);letter-spacing:-.02em}
+  .ways{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:10px}
+  .ways li{border:1px solid rgba(159,209,168,.22);border-radius:14px;padding:13px 16px;background:rgba(255,255,255,.04)}
+  .ways b{display:block;font-size:15.5px;color:var(--cream)}
+  .ways span{display:block;font-size:14px;color:var(--on-dark-soft);margin-top:2px}
+  .pb-note{margin-top:16px;font-size:14px;line-height:1.55;color:#a9bba5}
+  .pb-side .btns{margin-top:auto;padding-top:24px;display:flex;flex-direction:column;gap:10px}
+  .pb-side .btns a.more{font-size:14.5px;font-weight:600;color:var(--mint);text-decoration:none;text-align:center}
+  .pb-side .btns a.more:hover{text-decoration:underline}
+  .price-foot{margin-top:20px;text-align:center;font-size:14px;color:var(--muted)}
+  .price-foot a{color:var(--green);font-weight:600}
+
+  /* ---------- FAQ ---------- */
+  .faq{background:var(--cream)}
+  .faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+  .faq .sec-head{margin-bottom:0}
+  .qs{border-top:1px solid var(--line)}
+  details{border-bottom:1px solid var(--line)}
+  summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:20px 2px;font-size:17px;font-weight:600;letter-spacing:-.015em}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"";width:12px;height:12px;flex:none;border-right:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(45deg) translate(-3px,-3px);transition:transform .2s}
+  details[open] summary::after{transform:rotate(225deg) translate(-3px,-3px)}
+  summary:focus-visible{outline:2px solid var(--green);outline-offset:4px;border-radius:6px}
+  details p{padding:0 2px 22px;font-size:15.5px;line-height:1.6;color:var(--ink-soft);max-width:62ch}
+
+  /* ---------- CTA ---------- */
+  .cta-sec{background:var(--cream);padding-top:0}
+  .cta{background:var(--deep);color:var(--on-dark);border-radius:26px;padding:68px 48px;display:grid;grid-template-columns:auto 1fr auto;gap:26px 34px;align-items:center}
+  .cta .tw-logo{width:64px;height:64px;border-radius:16px}
+  .cta h2{font-size:clamp(28px,3.6vw,42px);color:var(--cream)}
+  .cta p{margin-top:10px;font-size:16.5px;color:var(--on-dark-soft);max-width:48ch}
+  .cta .btns{display:flex;flex-direction:column;gap:10px}
+
+  /* ---------- Coastal CR footer (same as homepage) ---------- */
+  footer{padding:64px 0 40px;background:#0b1c28;color:#b3c6d3;font-size:14px;font-family:'Inter',system-ui,sans-serif}
+  footer .wrap{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:32px}
+  footer .brand{color:#f3f1ea;margin-bottom:14px}
+  footer .f-brand p{max-width:30ch;line-height:1.55}
+  footer h5{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--cr-sand);margin-bottom:14px}
+  footer .f-col{display:flex;flex-direction:column;gap:9px}
+  footer .f-col a{text-decoration:none;color:#dde9f1;overflow-wrap:anywhere}
+  footer .f-col a:hover{color:var(--cr-sand)}
+  footer .f-base-wrap{display:block}
+  footer .f-base{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:#7f97a8}
+
+  /* ---------- text fade-in (text only, never images or mocks) ---------- */
+  .js .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease, transform .5s ease;transition-delay:var(--d,0s)}
+  .js .reveal.in{opacity:1;transform:none}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:1000px){
+    .phones{grid-template-columns:repeat(2,1fr);gap:40px 22px}
+    .phones .phone{justify-self:center}
+    .safe-grid{grid-template-columns:repeat(2,1fr);gap:30px 22px}
+  }
+  @media(max-width:900px){
+    section{padding:80px 0}
+    .hero{padding:118px 0 80px}
+    .hero .wrap{grid-template-columns:1fr;gap:52px}
+    .bgrid,.steps{grid-template-columns:1fr 1fr}
+    .fgrid{grid-template-columns:1fr 1fr}
+    .who .wrap,.faq .wrap{grid-template-columns:1fr;gap:36px}
+    .pbox{grid-template-columns:1fr}
+    .cta{grid-template-columns:1fr;text-align:left;padding:52px 32px}
+    .cta .btns{flex-direction:row;flex-wrap:wrap}
+    footer .wrap{grid-template-columns:1fr 1fr}
+    footer .f-brand{grid-column:1/-1}
+  }
+  @media(max-width:760px){
+    .wrap{padding:0 20px}
+    nav .wrap{height:62px}
+    nav .nav-cta{display:none}
+    section{padding:64px 0}
+    .sec-head{margin-bottom:34px}
+    .pains,.bgrid,.steps,.fgrid,.trades{grid-template-columns:1fr}
+    .fgrid{gap:30px}
+    .soon{grid-template-columns:1fr}
+    .pb-main,.pb-side{padding:30px 22px}
+    .pb-price div b{font-size:44px}
+    .cta{padding:42px 22px;border-radius:22px}
+    .hero-actions .btn,.cta .btns .btn{flex:1 1 100%}
+  }
+  @media(max-width:560px){
+    .phones{grid-template-columns:1fr}
+    .safe-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:480px){footer .wrap{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{transition:none!important;animation:none!important}
+    .js .reveal{opacity:1;transform:none}
+  }
+  .nav-pages{display:flex;gap:4px;margin-right:6px}
+  .nav-pages a{font-size:14px;font-weight:500;color:#f3f1ea;text-decoration:none;padding:9px 12px;border-radius:999px;transition:background .2s,color .2s}
+  .nav-pages a:hover{background:rgba(255,255,255,.12)}
+  nav.scrolled .nav-pages a{color:var(--ink,#0b1c28)}
+  nav.scrolled .nav-pages a:hover{background:rgba(11,28,40,.07)}
+  @media(max-width:980px){.nav-pages{display:none}}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="Coastal CR home"><svg class="logomark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0e6f90"/><path d="M10 38 C18 30 22 46 32 38 S46 30 54 38" fill="none" stroke="#eef4f8" stroke-width="4.5" stroke-linecap="round"/><path d="M10 26 C18 18 22 34 32 26 S46 18 54 26" fill="none" stroke="#d2a55f" stroke-width="4.5" stroke-linecap="round"/></svg>Coastal <span>CR</span></a>
+    <div class="nav-right"><span class="nav-pages"><a href="../work/">Work</a><a href="../websites/">Websites</a><a href="../tradewind/">Tradewind</a></span><a class="nav-link" href="../services/">Monthly plans</a><a class="nav-cta" href="../#contact">Get a website</a></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="tw-brand reveal"><svg class="tw-logo" viewBox="0 0 1024 1024" aria-hidden="true"><rect width="1024" height="1024" rx="230" fill="#2f5d3a"/><line x1="472" y1="200" x2="472" y2="776" stroke="#f6f4ee" stroke-width="40" stroke-linecap="round"/><path d="M512 226 C722 346 788 536 742 720 L512 720 Z" fill="#f6f4ee"/><path d="M432 306 C310 450 290 590 330 700 L432 700 Z" fill="#9fd1a8"/><path d="M245 830 Q512 748 779 830" stroke="#9fd1a8" stroke-width="40" fill="none" stroke-linecap="round"/></svg><span>Tradewind</span></div>
+      <div class="kicker reveal">The business app behind your website</div>
+      <h1 class="reveal"><span class="ln">Win more jobs.</span> <span class="ln">Get paid faster.</span> <span class="ln">Go home <span class="accent">on time.</span></span></h1>
+      <p class="hero-lead reveal" style="--d:.06s">Every request from your website lands on your phone with its photos. Replies, quotes and reminders get written for you. Customers approve and sign quotes online, and you always know who still owes you. Leads, quotes, jobs, invoices and reviews, all in one place.</p>
+      <div class="hero-actions reveal" style="--d:.1s">
+        <a class="btn btn-mint" href="https://wa.me/13213561951?text=Hi%20Tony%2C%20I%27d%20like%20to%20hear%20about%20Tradewind" target="_blank" rel="noopener">Ask me about Tradewind</a>
+        <a class="btn btn-ghost-dark" href="#pricing">See pricing</a>
+      </div>
+      <ul class="hero-points reveal" style="--d:.14s">
+        <li>Works on any phone</li>
+        <li>You approve every message</li>
+        <li>Backed up every night</li>
+      </ul>
+    </div>
+
+    <div class="phone" aria-label="Sample Tradewind home screen">
+      <div class="screen">
+        <div class="s-status"><span>9:41</span><i></i><span>100%</span></div>
+        <div class="s-head"><b>Ready to send</b><span class="pill">4</span></div>
+        <div class="s-card act"><small>New lead · Patio estimate</small><p>Reply written: "Hi Dana, thanks for the photos. We can come out Thursday to measure…"</p><span class="send">Send</span></div>
+        <div class="s-card act"><small>Quote #1042 · not opened in 3 days</small><p>Friendly nudge written, with the link to approve.</p><span class="send">Send</span></div>
+        <div class="s-card act"><small>Invoice #1037 · 12 days overdue</small><p>Polite reminder written, with the invoice link.</p><span class="send">Send</span></div>
+        <div class="s-card act"><small>Job done · Lopez family</small><p>Thank-you written, with your Google review link.</p><span class="send">Send</span></div>
+        <div class="s-foot"><span>This week</span><b>$4,850 invoiced · $3,200 paid</b></div>
+      </div>
+      <div class="cap">Sample screen</div>
+    </div>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal">Sound familiar?</div>
+      <h2 class="reveal">Right now your business lives in texts, notes and your memory.</h2>
+    </div>
+    <div class="pains">
+      <div class="pain"><h3 class="reveal">Leads go cold while you work</h3><p class="reveal">A request comes in while you're on a job. By the time you call back that night, they've already booked someone else.</p></div>
+      <div class="pain"><h3 class="reveal">Quotes get lost</h3><p class="reveal">Prices typed into a text, scribbled in a notebook, or kept in your head. Nobody's sure what was quoted or whether they said yes.</p></div>
+      <div class="pain"><h3 class="reveal">Chasing money</h3><p class="reveal">The work is done, but you're scrolling old messages trying to remember who paid and who didn't.</p></div>
+      <div class="pain"><h3 class="reveal">Evenings on paperwork</h3><p class="reveal">After a full day outside you sit down to write replies, quotes and reminders. And happy customers never leave a review because nobody asked.</p></div>
+    </div>
+    <p class="fix reveal">Tradewind puts all of it in one place, on your phone, and does the remembering for you.</p>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits" id="benefits">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal">What you get</div>
+      <h2 class="reveal">Less busywork. More booked jobs.</h2>
+      <p class="reveal">Every benefit below comes from something Tradewind does today, not a promise for later.</p>
+    </div>
+    <div class="bgrid">
+      <article class="ben">
+        <span class="num reveal">01</span>
+        <h3 class="reveal">Answer first and win the job</h3>
+        <p class="reveal">The business that answers first usually gets the work. Tradewind gets you there in a minute, even from the truck.</p>
+        <ul class="reveal">
+          <li>Website requests land in your leads inbox with their photos</li>
+          <li>Your phone buzzes the moment one comes in</li>
+          <li>AI writes a reply for you to check and send</li>
+          <li>A 24/7 chat on your site answers visitors and saves them as leads</li>
+        </ul>
+      </article>
+      <article class="ben">
+        <span class="num reveal">02</span>
+        <h3 class="reveal">Look professional on every quote</h3>
+        <p class="reveal">Clean, clear quotes that customers can say yes to on the spot, instead of a price in a text message.</p>
+        <ul class="reveal">
+          <li>Line items from your own price book</li>
+          <li>Add photos, tax and a deposit</li>
+          <li>Send by text, email or link</li>
+          <li>Customers approve and sign online from their phone</li>
+        </ul>
+      </article>
+      <article class="ben">
+        <span class="num reveal">03</span>
+        <h3 class="reveal">Get paid faster</h3>
+        <p class="reveal">Money stops slipping through the cracks when every invoice has a link and a status.</p>
+        <ul class="reveal">
+          <li>Send invoices with a link</li>
+          <li>Record payments as they come in</li>
+          <li>See at a glance who still owes you</li>
+          <li>Overdue reminders written for you</li>
+        </ul>
+      </article>
+      <article class="ben">
+        <span class="num reveal">04</span>
+        <h3 class="reveal">Never forget a follow-up</h3>
+        <p class="reveal">Tradewind keeps track of what needs a nudge and writes it for you. You read it and tap send.</p>
+        <ul class="reveal">
+          <li>Nudges for quotes not opened in 3 days</li>
+          <li>Reminders for tomorrow's jobs</li>
+          <li>One-tap review requests with your Google link</li>
+          <li>A money report every Monday</li>
+        </ul>
+      </article>
+      <article class="ben">
+        <span class="num reveal">05</span>
+        <h3 class="reveal">Get your evenings back</h3>
+        <p class="reveal">No more retyping. A request on your site becomes a quote, a job and an invoice in a few taps.</p>
+        <ul class="reveal">
+          <li>Connected straight to the website I build you</li>
+          <li>Repeat visits weekly, every 2 weeks or monthly</li>
+          <li>Change your own website and hit Publish</li>
+          <li>Your site updates in under a minute</li>
+        </ul>
+      </article>
+      <article class="ben">
+        <span class="num reveal">06</span>
+        <h3 class="reveal">Your business stays yours</h3>
+        <p class="reveal">Your customers and your numbers are kept private and safe, so you can stop worrying about a lost phone or notebook.</p>
+        <ul class="reveal">
+          <li>Walled off from every other business</li>
+          <li>Backed up every night</li>
+          <li>Reset your own password any time</li>
+          <li>AI never sends anything without you</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- A DAY WITH TRADEWIND -->
+<section class="dark" id="day">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal">A day with Tradewind</div>
+      <h2 class="reveal">From first message to five-star review.</h2>
+      <p class="reveal">Here's how one job moves through Tradewind, using a sample landscaping customer named Dana.</p>
+    </div>
+    <ol class="steps">
+      <li class="step"><div class="when reveal">8:05 am</div><h3 class="reveal">A lead comes in</h3><p class="reveal">Dana fills out the form on your website with three photos of her backyard. Your phone buzzes, and a reply is already written. You read it, tap send, and you're the first one to answer.</p></li>
+      <li class="step"><div class="when reveal">12:30 pm</div><h3 class="reveal">The quote goes out</h3><p class="reveal">On your lunch break you build the quote from your price book: patio, base prep, tax and a deposit. Or let AI draft it from your own prices and just check it. Then text her the link.</p></li>
+      <li class="step"><div class="when reveal">3:15 pm</div><h3 class="reveal">She signs from her phone</h3><p class="reveal">Dana opens the link, approves the quote and signs. No printing, no scanning, no "did you get my email?"</p></li>
+      <li class="step"><div class="when reveal">3:20 pm</div><h3 class="reveal">It's on the calendar</h3><p class="reveal">You schedule the job. She wants weekly mowing too, so you set it to repeat every week. The visits fill in on their own until you stop them.</p></li>
+      <li class="step"><div class="when reveal">Job day</div><h3 class="reveal">The invoice gets paid</h3><p class="reveal">Work done, invoice link sent. When she pays, you record it in a tap and she drops off your "who owes me" list. If she forgets, a reminder is already written.</p></li>
+      <li class="step"><div class="when reveal">Same day</div><h3 class="reveal">The review gets asked</h3><p class="reveal">One tap sends a thank-you with your Google review link while she's still happy with the work.</p></li>
+    </ol>
+    <p class="day-end reveal"><b>And every Monday,</b> a money report is waiting for you.</p>
+  </div>
+</section>
+
+<!-- SAMPLE SCREENS -->
+<section class="screens light-bg" id="screens">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal">On your phone</div>
+      <h2 class="reveal">Simple enough to run from the truck.</h2>
+      <p class="reveal">If you can send a text, you can use Tradewind. These sample screens show the kind of thing you'll see every day.</p>
+    </div>
+    <div class="phones">
+
+      <div>
+        <div class="phone" aria-label="Sample new lead screen">
+          <div class="screen">
+            <div class="s-status"><span>8:05</span><i></i><span>100%</span></div>
+            <div class="s-head"><b>New lead</b><span class="pill soft">Just now</span></div>
+            <div class="s-card"><small>Dana R. · Patio estimate</small><p>"Looking for a paver patio, about 12 by 16, behind the house. Photos attached."</p>
+              <div class="photos" aria-hidden="true"><span class="ph1"></span><span class="ph2"></span><span class="ph3"></span></div>
+            </div>
+            <div class="s-card act"><small>Reply written for you</small><p>"Hi Dana, thanks for the photos. We can come out Thursday to measure and give you a price."</p><span class="send">Send</span></div>
+          </div>
+        </div>
+        <div class="p-label"><b class="reveal">Leads</b><span class="reveal">Photos, details and a reply ready to go.</span><div class="cap">Sample screen</div></div>
+      </div>
+
+      <div>
+        <div class="phone" aria-label="Sample quote screen as the customer sees it">
+          <div class="screen">
+            <div class="s-status"><span>3:15</span><i></i><span>100%</span></div>
+            <div class="s-head"><b>Quote #1042</b><span class="pill soft">For Dana R.</span></div>
+            <div class="s-card">
+              <div class="row"><span>Paver patio, 12 x 16</span><b>$4,320</b></div>
+              <div class="row"><span>Base prep and gravel</span><b>$960</b></div>
+              <div class="row"><span>Sand and sealing</span><b>$380</b></div>
+              <div class="row"><span>Tax</span><b>$340</b></div>
+              <div class="row total"><span>Total</span><b>$6,000</b></div>
+              <div class="row"><span>Deposit to start</span><b>$1,800</b></div>
+            </div>
+            <div class="sigline" aria-hidden="true"></div>
+            <div class="sign" style="margin-top:28px">Approve and sign</div>
+          </div>
+        </div>
+        <div class="p-label"><b class="reveal">Quotes</b><span class="reveal">What your customer sees, signed in seconds.</span><div class="cap">Sample screen</div></div>
+      </div>
+
+      <div>
+        <div class="phone" aria-label="Sample jobs calendar screen">
+          <div class="screen">
+            <div class="s-status"><span>7:00</span><i></i><span>100%</span></div>
+            <div class="s-head"><b>Jobs this week</b><span class="pill">6</span></div>
+            <div class="week" aria-hidden="true"><span>Mon<b>3</b></span><span class="on">Tue<b>4</b></span><span>Wed<b>5</b></span><span>Thu<b>6</b></span><span>Fri<b>7</b></span><span>Sat<b>8</b></span><span>Sun<b>9</b></span></div>
+            <div class="s-card job"><span class="day">Tue</span><p><b>Weekly mowing</b><br>Lopez family<br><em>Repeats weekly</em></p></div>
+            <div class="s-card job"><span class="day">Thu</span><p><b>Measure patio</b><br>Dana R.</p></div>
+            <div class="s-card job"><span class="day">Fri</span><p><b>Mulch front beds</b><br>K. Morgan<br><em>Every 2 weeks</em></p></div>
+          </div>
+        </div>
+        <div class="p-label"><b class="reveal">Jobs</b><span class="reveal">Your week at a glance, repeat visits included.</span><div class="cap">Sample screen</div></div>
+      </div>
+
+      <div>
+        <div class="phone" aria-label="Sample invoices screen">
+          <div class="screen">
+            <div class="s-status"><span>5:30</span><i></i><span>100%</span></div>
+            <div class="s-head"><b>Invoices</b><span class="pill soft">This month</span></div>
+            <div class="owed"><small>Still owed to you</small><b>$2,140</b></div>
+            <div class="s-card inv"><p><b>#1041 · Dana R.</b>Deposit</p><span class="pill">Paid</span></div>
+            <div class="s-card inv"><p><b>#1037 · J. Patel</b>12 days late</p><span class="pill warn">Overdue</span></div>
+            <div class="s-card inv"><p><b>#1039 · Lopez family</b>Sent Monday</p><span class="pill soft">Sent</span></div>
+          </div>
+        </div>
+        <div class="p-label"><b class="reveal">Invoices</b><span class="reveal">Who paid, who owes, and a reminder ready.</span><div class="cap">Sample screen</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FULL FEATURE LIST -->
+<section class="features" id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal">Everything inside</div>
+      <h2 class="reveal">The full list.</h2>
+    </div>
+    <div class="fgrid">
+      <div class="fgroup reveal"><h3>Leads</h3><ul>
+        <li>Every website request lands in your leads inbox</li>
+        <li>Photos come in with the request</li>
+        <li>Instant alert on your phone</li>
+      </ul></div>
+      <div class="fgroup reveal"><h3>Quotes</h3><ul>
+        <li>Line items from your own price book</li>
+        <li>Photos, tax and deposit</li>
+        <li>Send by text, email or link</li>
+        <li>Customer approves and signs online</li>
+      </ul></div>
+      <div class="fgroup reveal"><h3>Jobs</h3><ul>
+        <li>Jobs calendar</li>
+        <li>Repeat visits weekly, every 2 weeks or monthly</li>
+        <li>Stop repeating any time</li>
+      </ul></div>
+      <div class="fgroup reveal"><h3>Invoices</h3><ul>
+        <li>Invoices with a link</li>
+        <li>Record payments</li>
+        <li>See who owes you at a glance</li>
+      </ul></div>
+      <div class="fgroup reveal"><h3>Customers and reviews</h3><ul>
+        <li>Your customer list in one place</li>
+        <li>One-tap review requests</li>
+        <li>Thank-you message with your Google review link</li>
+      </ul></div>
+      <div class="fgroup reveal"><h3>Your website</h3><ul>
+        <li>Change photos, services, hours and service areas</li>
+        <li>Hit Publish and it's live in under a minute</li>
+        <li>24/7 chat bubble that answers visitors and saves leads</li>
+      </ul></div>
+      <div class="fgroup reveal"><h3>AI helpers, you approve</h3><ul>
+        <li>Drafts a reply to every new lead</li>
+        <li>Drafts quotes from your price book, never made-up prices</li>
+        <li>Nudges for quotes not opened in 3 days</li>
+        <li>Overdue invoice and job-tomorrow reminders</li>
+        <li>Review asks and a Monday money report</li>
+      </ul></div>
+      <div class="fgroup reveal"><h3>Private and safe</h3><ul>
+        <li>Your data walled off from every other business</li>
+        <li>Nightly backups</li>
+        <li>Password reset from the login screen</li>
+      </ul></div>
+      <div class="fgroup reveal"><h3>Works anywhere</h3><ul>
+        <li>Runs on any phone, tablet or computer</li>
+        <li>Add it to your home screen like an app</li>
+        <li>Built in-house and connected to your Coastal CR site</li>
+      </ul></div>
+    </div>
+    <div class="soon">
+      <span class="tag reveal">Coming soon</span>
+      <ul class="reveal">
+        <li>Card payments on invoices</li>
+        <li>The iPhone app in the App Store</li>
+        <li>Automatic texting from your business number</li>
+      </ul>
+      <p class="reveal">These are being built now. They're not part of Tradewind yet, so I'll tell you when each one is ready.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="who">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal">Who it's for</div>
+      <h2 class="reveal">Owner-run businesses that quote, schedule and get paid.</h2>
+      <p class="reveal">If your day is split between doing the work and keeping up with customers, Tradewind was made for you. In Costa Rica and the US.</p>
+    </div>
+    <div class="trades">
+      <div class="trade"><b class="reveal">Landscapers and lawn care</b><span class="reveal">Estimates with photos, weekly mowing on repeat.</span></div>
+      <div class="trade"><b class="reveal">Contractors</b><span class="reveal">Patios, decks, remodels and repairs, quoted and signed.</span></div>
+      <div class="trade"><b class="reveal">Home services</b><span class="reveal">Cleaning, pools, pest control, handyman and more.</span></div>
+      <div class="trade"><b class="reveal">Fishing charters</b><span class="reveal">Every trip request answered fast, deposits tracked.</span></div>
+      <div class="trade"><b class="reveal">Tours and activities</b><span class="reveal">Requests from your site in one inbox, reviews after every trip.</span></div>
+      <div class="trade"><b class="reveal">Not on the list?</b><span class="reveal">Message me. If you get requests and send quotes, it likely fits.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVATE AND BACKED UP -->
+<section class="dark" id="safe">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal">Private and backed up</div>
+      <h2 class="reveal">Your customers are your business. Tradewind keeps them safe.</h2>
+    </div>
+    <div class="safe-grid">
+      <div class="safe"><h3 class="reveal">Walled off</h3><p class="reveal">Each business's data is kept separate from every other business that uses Tradewind.</p></div>
+      <div class="safe"><h3 class="reveal">Backed up nightly</h3><p class="reveal">Your customers, quotes, jobs and invoices are backed up every night.</p></div>
+      <div class="safe"><h3 class="reveal">You stay in control</h3><p class="reveal">AI only writes drafts. Nothing goes to a customer until you read it and tap send.</p></div>
+      <div class="safe"><h3 class="reveal">Locked out? No problem</h3><p class="reveal">Forgot your password? Reset it yourself from the login screen.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal">Pricing</div>
+      <h2 class="reveal">One price for your website and your business app.</h2>
+      <p class="reveal">Tradewind comes with a Coastal CR custom site, because it's connected to it. That's what lets requests flow straight in and lets you edit your site from your phone.</p>
+    </div>
+    <div class="pbox">
+      <div class="pb-main">
+        <span class="pb-tag reveal">Custom site + Tradewind</span>
+        <h3 class="reveal">Your website and your business app</h3>
+        <div class="pb-price">
+          <div><b class="reveal">$2,000</b><span class="reveal">to build your site, paid up front</span></div>
+          <div><b class="reveal">$300</b><span class="reveal">a month after launch</span></div>
+        </div>
+        <p class="pb-split reveal">That's the <b>$200 care plan</b> plus <b>$100 for Tradewind</b>, every month.</p>
+        <ul class="reveal">
+          <li>Everything in the Coastal CR custom site and care plan</li>
+          <li>Leads, quotes, jobs, invoices and customers in one app</li>
+          <li>Customers approve and sign quotes online</li>
+          <li>AI drafts for replies, follow-ups and reviews, you approve</li>
+          <li>Edit your own website and publish in under a minute</li>
+          <li>24/7 chat bubble on your site</li>
+          <li>1-year minimum, the same as the care plan</li>
+        </ul>
+      </div>
+      <div class="pb-side">
+        <h4 class="reveal">Same 3 ways to pay</h4>
+        <ul class="ways reveal">
+          <li><b>Pay up front</b><span>The lowest total by far.</span></li>
+          <li><b>Split it</b><span>Part now, the rest over six months.</span></li>
+          <li><b>Small start</b><span>Start small and pay monthly.</span></li>
+        </ul>
+        <p class="pb-note reveal">Tradewind doesn't change the build price of any option. It adds $100 a month to the care plan, so $200 becomes $300.</p>
+        <div class="btns">
+          <a class="btn btn-mint" href="https://wa.me/13213561951?text=Hi%20Tony%2C%20I%27d%20like%20to%20hear%20about%20Tradewind" target="_blank" rel="noopener">Ask me about Tradewind</a>
+          <a class="more" href="../plans/">See the 3 ways to pay →</a>
+        </div>
+      </div>
+    </div>
+    <p class="price-foot reveal">All prices in US dollars. Every project starts with a free first look. <a href="../care/">Care plan terms</a></p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal">Questions</div>
+      <h2 class="reveal">Straight answers.</h2>
+      <p class="reveal">Something else on your mind? Message me on WhatsApp and I'll answer it myself.</p>
+    </div>
+    <div class="qs">
+      <details><summary>Do I need a Coastal CR website to use Tradewind?</summary><p>Yes. Tradewind is connected to the website I build you. That's what sends every request straight into your app, and what lets you change your site from your phone without retyping anything.</p></details>
+      <details><summary>Does the AI send messages on its own?</summary><p>No. It writes drafts and puts them in front of you. Nothing goes to a customer until you read it and tap send. When it drafts a quote, it only uses prices from your own price book. It never makes up a price.</p></details>
+      <details><summary>Can customers pay by card?</summary><p>Not yet. Card payments on invoices are coming soon. Today you send an invoice with a link, take payment the way you already do, and record it in Tradewind so you always know who still owes you.</p></details>
+      <details><summary>Is there an app in the App Store?</summary><p>The iPhone app is coming soon. Right now Tradewind works on any phone, and you can add it to your home screen so it opens just like an app.</p></details>
+      <details><summary>How does texting work?</summary><p>When you send a quote or message by text, your phone's messages app opens with it ready to go, so it comes from your own phone. Automatic texting from your business number is coming soon.</p></details>
+      <details><summary>Can I set up repeat jobs?</summary><p>Yes. Set any job to repeat weekly, every 2 weeks or monthly, and the visits fill in on your calendar. You can stop repeating any time.</p></details>
+      <details><summary>Can I change my own website?</summary><p>Yes. Change your photos, services, hours and service areas, hit Publish, and your site updates in under a minute.</p></details>
+      <details><summary>Is my data safe?</summary><p>Your business's data is walled off from every other business that uses Tradewind, and everything is backed up every night. If you forget your password, you can reset it yourself.</p></details>
+      <details><summary>What does it cost, and is there a contract?</summary><p>$2,000 to build your custom site when you pay up front, then $300 a month: the $200 care plan plus $100 for Tradewind. You can also split the build or start small, the same 3 ways to pay as my website plans. There's a 1-year minimum, the same as the care plan.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" id="contact">
+  <div class="wrap">
+    <div class="cta">
+      <svg class="tw-logo" viewBox="0 0 1024 1024" aria-hidden="true"><rect width="1024" height="1024" rx="230" fill="#2f5d3a"/><line x1="472" y1="200" x2="472" y2="776" stroke="#f6f4ee" stroke-width="40" stroke-linecap="round"/><path d="M512 226 C722 346 788 536 742 720 L512 720 Z" fill="#f6f4ee"/><path d="M432 306 C310 450 290 590 330 700 L432 700 Z" fill="#9fd1a8"/><path d="M245 830 Q512 748 779 830" stroke="#9fd1a8" stroke-width="40" fill="none" stroke-linecap="round"/></svg>
+      <div>
+        <h2 class="reveal">Want to see it for your business?</h2>
+        <p class="reveal">Send me a message and I'll walk you through Tradewind and what your new site could look like. Free, no pressure.</p>
+      </div>
+      <div class="btns">
+        <a class="btn btn-mint" href="https://wa.me/13213561951?text=Hi%20Tony%2C%20I%27d%20like%20to%20hear%20about%20Tradewind" target="_blank" rel="noopener">Message on WhatsApp</a>
+        <a class="btn btn-ghost-dark" href="mailto:coastalcrwebsites@gmail.com?subject=Tradewind">Email me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">
+      <a class="brand" href="../"><svg class="logomark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0e6f90"/><path d="M10 38 C18 30 22 46 32 38 S46 30 54 38" fill="none" stroke="#eef4f8" stroke-width="4.5" stroke-linecap="round"/><path d="M10 26 C18 18 22 34 32 26 S46 18 54 26" fill="none" stroke="#d2a55f" stroke-width="4.5" stroke-linecap="round"/></svg>Coastal <span>CR</span></a>
+      <p>Custom websites for local businesses in Costa Rica and the US. Based in Jaco, Costa Rica.</p>
+    </div>
+    <div class="f-col">
+      <h5>Websites</h5>
+      <a href="../work/">Our work</a>
+      <a href="../websites/">Website packages</a>
+      <a href="../plans/">3 ways to pay</a>
+      <a href="../care/">Care plan terms</a>
+    </div>
+    <div class="f-col">
+      <h5>Grow</h5>
+      <a href="../tradewind/">Tradewind app</a>
+      <a href="../services/">Monthly plans</a>
+      <a href="../services/#growth">Google &amp; ads</a>
+      <a href="../services/#transfer">Move my site over</a>
+    </div>
+    <div class="f-col">
+      <h5>Contact</h5>
+      <a href="https://wa.me/13213561951" target="_blank" rel="noopener">WhatsApp +1 321-356-1951</a>
+      <a href="mailto:coastalcrwebsites@gmail.com">coastalcrwebsites@gmail.com</a>
+      <span>English &amp; Español</span>
+    </div>
+  </div>
+  <div class="wrap f-base-wrap"><div class="f-base">© <span id="yr"></span> Coastal CR · Infinite Discoveries LLC · Playa Hermosa, Jaco, Costa Rica</div></div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Nav turns solid once scrolled.
+  (function(){
+    var nav = document.querySelector('nav');
+    var onScroll = function(){ nav.classList.toggle('scrolled', window.scrollY > 12); };
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  })();
+
+  // Text fade-in. A scroll sweep backs up the observer so text never stays hidden.
+  (function(){
+    var els = [].slice.call(document.querySelectorAll('.reveal'));
+    var show = function(el){ el.classList.add('in'); };
+    if(!('IntersectionObserver' in window)){ els.forEach(show); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ show(e.target); io.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(el){ io.observe(el); });
+    var sweep = function(){ els.forEach(function(el){ if(!el.classList.contains('in') && el.getBoundingClientRect().top < innerHeight) show(el); }); };
+    window.addEventListener('scroll', sweep, {passive:true});
+    setTimeout(sweep, 1200);
+  })();
+</script>
+</body>
+</html>
