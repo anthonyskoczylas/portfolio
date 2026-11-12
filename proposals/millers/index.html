@@ -123,6 +123,11 @@ section{padding:clamp(56px,8vw,96px) 0}
 .tw-group ul{margin:0;padding:0;list-style:none;display:grid;gap:7px}
 .tw-group li{font-size:15px;padding-left:22px;position:relative}
 .tw-group li::before{content:"";position:absolute;left:2px;top:.5em;width:10px;height:6px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg)}
+.tw-groups{grid-template-columns:repeat(3,1fr)}
+.tw-why{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+.tw-why>div{border-top:3px solid var(--green);padding-top:14px}
+.tw-why h3{font-size:16px;margin-bottom:6px}
+.tw-why p{font-size:14.5px;color:var(--soft);margin:0}
 .week{margin-top:44px;background:var(--white);border:1px solid #d5ddd3;padding:clamp(22px,3vw,36px)}
 .week ol{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:0}
 .week li{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:16px 0;border-top:1px solid #e3e9e1}
@@ -167,13 +172,14 @@ section{padding:clamp(56px,8vw,96px) 0}
   .cover .grid,.tw-head{grid-template-columns:1fr}
   .changes{grid-template-columns:1fr 1fr}
   .care-grid{grid-template-columns:1fr 1fr}
+  .tw-groups,.tw-why{grid-template-columns:1fr 1fr}.tw-group:last-child{grid-column:1/-1}
   .steps{grid-template-columns:1fr 1fr}
   .tw-shots{grid-template-columns:repeat(3,1fr)}
   .price .notes,.terms{grid-template-columns:1fr}
 }
 @media (max-width:720px){
   .facts{grid-template-columns:1fr 1fr}
-  .ba-grid,.cards,.groups,.tw-groups,.strip,.changes,.need ul{grid-template-columns:1fr}
+  .ba-grid,.cards,.groups,.tw-groups,.tw-why,.strip,.changes,.need ul{grid-template-columns:1fr}
   .tw-swap{grid-template-columns:1fr}
   .week li{grid-template-columns:1fr;gap:4px}
   .bar .wrap span:last-child{display:none}
@@ -415,103 +421,124 @@ section{padding:clamp(56px,8vw,96px) 0}
 
     <div class="tw-groups">
       <div class="tw-group">
-        <h3>1 · Answer first, win the job</h3>
+        <h3>1 · Leads</h3>
         <p>The company that answers first usually gets the work. Tradewind gets you there in a minute, even from the truck.</p>
         <ul>
-          <li>Website requests land in your leads inbox with their photos</li>
+          <li>Your website quote form and the 24/7 chat on your site land as leads, photos included</li>
           <li>Your phone buzzes the second one comes in</li>
-          <li>A reply is written for you to check and send</li>
-          <li>Missed a call? They get a text back automatically, and it shows up as a lead</li>
+          <li>A reply is drafted for you to check and send</li>
+          <li>Missed a call? They get a text back, and it shows up as a lead</li>
           <li>Two-way texting with customers from your business number, right in the app</li>
-          <li>A 24/7 chat on your site answers visitors and saves them as leads</li>
         </ul>
       </div>
       <div class="tw-group">
-        <h3>2 · Quotes that look professional</h3>
+        <h3>2 · Quotes</h3>
         <p>Clean quotes customers can say yes to on the spot, instead of a price in a text message.</p>
         <ul>
-          <li>Line items from your own price book: patio per sq ft, base prep, wall block, sod</li>
-          <li>Add photos, tax and a deposit</li>
-          <li>Customers approve online by typing their name</li>
-          <li>Signed quotes are locked with the date, time and device</li>
-          <li>Change orders for extra work, signed too</li>
-          <li>A clean PDF with your logo in one tap</li>
+          <li>Built from your saved price book: patio per sq ft, base prep, wall block, sod</li>
+          <li>Add photos of the yard to the quote</li>
+          <li>Customers review it online and approve by typing their name</li>
+          <li>Signed quotes are locked: a frozen copy with the date, time and device</li>
+          <li>Change orders for extra or dropped work, signed by the customer too</li>
+          <li>Deposits paid by card the moment a quote is signed</li>
+          <li>A one-tap PDF</li>
         </ul>
       </div>
       <div class="tw-group">
-        <h3>3 · Get paid faster</h3>
+        <h3>3 · Jobs</h3>
+        <p>Approved quotes become jobs on one calendar, so you and your crew know where to be.</p>
+        <ul>
+          <li>Day and week calendar views</li>
+          <li>Drag or tap a job to reschedule it</li>
+          <li>Repeat visits weekly, every other week or monthly. Set a mowing route once and forget it.</li>
+          <li>Route planning that opens the day's stops in Google Maps</li>
+          <li>A bad-weather button that moves the day's jobs and preps a text to every customer</li>
+        </ul>
+      </div>
+      <div class="tw-group">
+        <h3>4 · Your team</h3>
+        <p>Your crew gets what they need for the day, and nothing they don't.</p>
+        <ul>
+          <li>Assign jobs to anyone on your crew</li>
+          <li>Crew logins with limited access, so they never see the money</li>
+          <li>Checklists on every job</li>
+          <li>Before and after photos</li>
+          <li>“On my way” texts with the arrival time</li>
+        </ul>
+      </div>
+      <div class="tw-group">
+        <h3>5 · Invoices</h3>
         <p>Every invoice has a link and a status, so money stops slipping through the cracks.</p>
         <ul>
+          <li>Made from a job or a quote in one tap, with change orders added for you</li>
           <li>Customers pay by card straight from the invoice link</li>
           <li>Autopay for repeat customers: weekly mowing, monthly snow contracts</li>
-          <li>Deposits collected the moment a quote is signed</li>
-          <li>Record cash, check, Venmo or Zelle in a tap</li>
-          <li>One monthly bill per customer for repeat visits</li>
-          <li>A private page where each customer sees their quotes, invoices and visits</li>
+          <li>Record cash, check, Venmo or Zelle payments</li>
+          <li>Monthly billing for repeat visits: one bill per customer per month</li>
+          <li>A one-tap PDF</li>
         </ul>
       </div>
       <div class="tw-group">
-        <h3>4 · Never forget a follow-up</h3>
-        <p>Tradewind keeps track of who needs a nudge and writes it for you.</p>
+        <h3>6 · Customer portal</h3>
+        <p>Customers stop texting you to ask what they owe or when you're coming.</p>
         <ul>
-          <li>Nudges for quotes with no answer after 3 days</li>
-          <li>Polite reminders for overdue invoices</li>
-          <li>See-you-tomorrow texts before every job</li>
+          <li>One private link for each customer</li>
+          <li>Their quotes, invoices and upcoming visits in one place</li>
+        </ul>
+      </div>
+      <div class="tw-group">
+        <h3>7 · Follow-ups</h3>
+        <p>Tradewind lines up the texts you'd normally type at night, and writes them for you.</p>
+        <ul>
+          <li>Nudges on quotes that went quiet, and payment reminders</li>
+          <li>“See you tomorrow” texts before a job</li>
           <li>Review requests with your Google link, the morning after a job</li>
-          <li>A money report waiting for you every Monday</li>
+          <li>A Monday money report: leads, quotes won, cash collected and what's still owed</li>
+          <li>Sounds like you: short, friendly and signed with your name</li>
+          <li>Never makes up prices. Drafts only use your own price list.</li>
+          <li>Nothing goes to a customer until you tap</li>
         </ul>
       </div>
       <div class="tw-group">
-        <h3>5 · Run the day from your phone</h3>
-        <p>A request becomes a quote, a job and an invoice in a few taps, and your crew knows where to be.</p>
-        <ul>
-          <li>Day and week calendar, drag to reschedule</li>
-          <li>Repeat visits weekly, every 2 weeks or monthly. Set a mowing route once and forget it.</li>
-          <li>Crew logins that show the jobs, never the money</li>
-          <li>Checklists and before and after photos on every job</li>
-          <li>"On my way" texts and the day's route in Google Maps</li>
-          <li>Rain day? Move every job at once, and the texts to customers are ready</li>
-        </ul>
-      </div>
-      <div class="tw-group">
-        <h3>6 · Your website, from your phone</h3>
+        <h3>8 · Your brand and website</h3>
         <p>No waiting on anyone for small updates. You can still ask me for anything, too.</p>
         <ul>
-          <li>Change text, photos, services, hours and towns yourself</li>
-          <li>Hit Publish and it's live in under a minute</li>
-          <li>Your logo and colours on every quote, invoice and PDF</li>
+          <li>Edit your own site from your phone: text, photos, services and hours</li>
+          <li>Tap Publish and the change is live</li>
+          <li>Your logo and brand colour on every quote, invoice and PDF</li>
+          <li>Your brand in the app too, so it feels like Miller's, not ours</li>
         </ul>
       </div>
       <div class="tw-group">
-        <h3>7 · On every device</h3>
+        <h3>9 · Anywhere, and private</h3>
         <ul>
           <li>The Tradewind iPhone app from the App Store</li>
-          <li>Also runs on any Android phone, tablet or computer</li>
+          <li>Also works on any phone and on your computer</li>
           <li>Push alerts for new leads and payments</li>
+          <li>Spreadsheet export for your accountant</li>
+          <li>Your data is private to your business, with encrypted connections and regular backups</li>
         </ul>
       </div>
-      <div class="tw-group">
-        <h3>8 · Private, safe and yours</h3>
-        <ul>
-          <li>Your data is walled off from every other business</li>
-          <li>Encrypted connections and nightly backups</li>
-          <li>Export everything to a spreadsheet for your accountant</li>
-          <li>Nothing goes to a customer until you tap send</li>
-        </ul>
-      </div>
+    </div>
+
+    <div class="tw-why">
+      <div><h3>Set up for you</h3><p>I load your services, price list and website, so you're running without learning new software.</p></div>
+      <div><h3>Simple on purpose</h3><p>Leads, quotes, jobs, invoices. The things you actually use, without 40 menus you don't.</p></div>
+      <div><h3>Your data stays yours</h3><p>Your business is locked to its own information, with encrypted connections and regular backups.</p></div>
+      <div><h3>A real person to call</h3><p>Questions come to me, someone who knows your setup, not a ticket queue.</p></div>
     </div>
 
     <div class="week">
       <p class="kicker">A week at Miller's with Tradewind</p>
       <h3 style="font-size:clamp(22px,2.4vw,30px)">From the first message to the five-star review.</h3>
       <ol>
-        <li><b>Monday, 7:00 am</b><p>Your money report is waiting: what got invoiced and paid last week, and who still owes you.</p></li>
+        <li><b>Monday, 7:00 am</b><p>Your money report is waiting: new leads, quotes won, cash collected and who still owes you.</p></li>
         <li><b>Monday, 9:40 am</b><p>A homeowner in Novi fills out your quote form with four photos of a sloped backyard. Your phone buzzes on the job site, and a reply is already written. You tap send and you're the first company to answer.</p></li>
         <li><b>Tuesday, lunch</b><p>You build the patio and wall quote from your price book, with a 25% deposit, and text her the link from the truck.</p></li>
         <li><b>Tuesday, 6:15 pm</b><p>She signs on her phone and pays the deposit by card. It's locked in, and the job is on your calendar.</p></li>
-        <li><b>Wednesday</b><p>Rain all day. You move every job to Thursday in one go, and the heads-up texts to customers are ready to send.</p></li>
+        <li><b>Wednesday</b><p>Rain all day. One tap on the bad-weather button moves every job to Thursday, and the heads-up texts to customers are ready to send.</p></li>
         <li><b>Every week</b><p>Mowing customers repeat on their own, your crew sees the day's route, and autopay charges them after each visit.</p></li>
-        <li><b>First snow</b><p>Your commercial lots are already set up on monthly contracts. The crew taps "On my way", snaps photos, and the invoices go out on their own schedule.</p></li>
+        <li><b>First snow</b><p>Your commercial lots are already set up on monthly contracts. The crew taps "On my way" and snaps photos, and each lot gets one bill at the end of the month.</p></li>
         <li><b>The next morning</b><p>A thank-you with your Google review link is written and waiting. One tap, while the customer is still happy.</p></li>
       </ol>
     </div>
