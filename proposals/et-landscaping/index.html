@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website proposal for E.T. Landscaping · Coastal CR</title>
+<meta name="description" content="Website and Tradewind Trades proposal prepared by Coastal CR for Easton, E.T. Landscaping.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d1d25;--slate:#2c2c37;--slate-2:#383845;--steel:#6b6f78;--soft:#5a5d66;--line:#dfe2db;--paper:#f7f8f4;--fog:#eceee9;--white:#fff;--lawn:#86bc3f;--lawn-d:#5f8f27;--lawn-l:#c9e6a3;--tw:#2f5d3a;--tw-l:#9fd1a8;--disp:'Unbounded',system-ui,sans-serif;--body:'Rubik',system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:-.015em;line-height:1.08;margin:0 0 .5em;text-wrap:balance}
+h1{font-size:clamp(34px,5.4vw,66px);font-weight:800;letter-spacing:-.025em}
+h2{font-size:clamp(26px,3.6vw,44px)}
+h3{font-size:clamp(17px,1.5vw,19px);font-weight:600;line-height:1.2}
+p{margin:0 0 1em;text-wrap:pretty}
+a{color:var(--lawn-d)}
+img{display:block;max-width:100%;height:auto}
+.wrap{max-width:1140px;margin:0 auto;padding:0 clamp(16px,4vw,32px)}
+.hex{width:12px;height:13px;flex:none;color:currentColor}
+.kicker{display:flex;align-items:center;gap:10px;font:600 12.5px/1.3 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--lawn-d);margin-bottom:14px}
+.kicker::before{content:"";width:11px;height:12px;flex:none;background:currentColor;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.on-dark .kicker,.kicker.lt{color:var(--lawn)}
+.muted{color:var(--soft)}
+.small{font-size:14.5px}
+.hl{color:var(--lawn-d)}
+section{padding:clamp(56px,8vw,96px) 0}
+/* mowing stripes, each section cut a different way */
+.stripes{position:relative;isolation:isolate}
+.stripes::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:repeating-linear-gradient(var(--ang,90deg),var(--st,rgba(255,255,255,.035)) 0 var(--sw,90px),transparent var(--sw,90px) calc(var(--sw,90px)*2))}
+.s-a{--ang:90deg}.s-b{--ang:135deg}.s-c{--ang:0deg;--sw:70px}.s-d{--ang:45deg}
+.s-l{--st:rgba(29,29,37,.03);--sw:110px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 24px;font:600 15.5px/1.2 var(--body);text-decoration:none;border:2px solid var(--lawn);border-radius:4px;transition:background .15s,color .15s,border-color .15s}
+.btn-lawn{background:var(--lawn);color:var(--ink)}.btn-lawn:hover{background:#9bcf55;border-color:#9bcf55}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--ink)}.btn-line:hover{background:var(--ink);color:#fff}
+.btn-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}.btn-light:hover{background:#fff;color:var(--ink);border-color:#fff}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.chamf{clip-path:polygon(0 0,90% 0,100% 9%,100% 100%,0 100%)}
+
+/* top bar */
+.bar{background:var(--ink);color:#c9ccd2}
+.bar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:14px;padding-bottom:14px;font-size:13.5px}
+.bar b{color:#fff;font-family:var(--disp);font-weight:700;letter-spacing:.02em}
+
+/* cover */
+.cover{padding-top:clamp(40px,6vw,72px)}
+.cover .grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(28px,4vw,56px);align-items:center}
+.cover .lead{font-size:clamp(17px,1.5vw,20px);color:var(--soft);max-width:46ch}
+.shots{position:relative;padding-right:14%}
+.shots .desk{border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(29,29,37,.5)}
+.shots .phone{position:absolute;right:0;bottom:-8%;width:30%;border:5px solid var(--ink);border-radius:22px;overflow:hidden;box-shadow:0 20px 40px -18px rgba(29,29,37,.6)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:clamp(48px,6vw,72px)}
+.fact{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--lawn);padding:18px;border-radius:4px}
+.fact b{display:block;font:800 clamp(28px,3vw,38px)/1 var(--disp);color:var(--ink)}
+.fact span{font-size:14px;color:var(--soft)}
+
+/* before / after */
+.ba{background:var(--fog)}
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
+.ba-grid figure{margin:0}
+.ba-grid img{border:1px solid var(--line)}
+.ba-grid figcaption{font:600 12.5px/1.3 var(--body);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;color:var(--steel)}
+.ba-grid .new figcaption{color:var(--lawn-d)}
+.ticks{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 28px;margin-top:32px;padding:0;list-style:none}
+.ticks li{padding-left:22px;position:relative;font-size:15.5px}
+.ticks li::before,.group h3::before,.need li::before{content:"";position:absolute;left:0;top:.42em;width:10px;height:11px;background:var(--lawn);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+
+/* price */
+.price{background:var(--ink);color:#fff}
+.price h2{color:#fff}
+.price .intro{color:#c3c6cc;max-width:62ch}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:32px}
+.card{background:var(--slate);border:1px solid #44444f;border-radius:4px;padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;position:relative}
+.card.pick{border:2px solid var(--lawn)}
+.card .tag{position:absolute;top:-1px;right:-1px;background:var(--lawn);color:var(--ink);font:600 12px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;padding:8px 12px;border-radius:0 3px 0 4px}
+.card h3{color:#fff;font-size:21px;margin-bottom:6px}
+.card .sub{color:#b4b8bf;font-size:15px;margin-bottom:22px}
+.money{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.money div{background:rgba(255,255,255,.05);padding:14px 16px;border-radius:4px}
+.money small{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#a3a7ae;font-weight:600}
+.money b{display:block;font:800 clamp(28px,3.2vw,40px)/1.1 var(--disp)}
+.money em{font-style:normal;font-size:14px;color:#c3c6cc}
+.card ul{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:8px;font-size:15px;color:#e4e6e9}
+.card li{padding-left:22px;position:relative}
+.card li::before{content:"";position:absolute;left:0;top:.5em;width:10px;height:6px;border-left:2px solid var(--lawn);border-bottom:2px solid var(--lawn);transform:rotate(-45deg)}
+.card .total{margin-top:auto;border-top:1px solid #44444f;padding-top:14px;display:flex;justify-content:space-between;gap:12px;font-size:15px;color:#c3c6cc}
+.card .total b{color:#fff}
+.price .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px;font-size:14.5px;color:#c3c6cc}
+.price .notes b{color:#fff;display:block;margin-bottom:2px}
+
+/* everything */
+.groups{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:32px}
+.group{background:var(--white);border:1px solid var(--line);border-radius:4px;padding:clamp(20px,2.6vw,30px)}
+.group h3{position:relative;padding-left:22px}
+.group ul{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+.group li{font-size:15.5px;padding-left:18px;position:relative;color:#2b2c33}
+.group li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;background:#b4b8bf;border-radius:50%}
+.group li b{color:var(--ink);font-weight:600}
+.pages{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.pages span{font-size:13px;background:var(--fog);padding:4px 9px;font-weight:500;border-radius:3px}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.strip img{border:1px solid var(--line)}
+.strip figcaption{font-size:13px;color:var(--soft);margin-top:8px}
+.strip figure{margin:0}
+
+/* care */
+.care{background:var(--fog)}
+.care-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.care-item{background:var(--white);border:1px solid var(--line);border-radius:4px;padding:18px}
+.care-item h3{font-size:15px;margin-bottom:6px}
+.care-item p{font-size:14.5px;color:var(--soft);margin:0}
+
+/* tradewind */
+.tw{background:#f2f5f0}
+.tw .kicker{color:var(--tw)}
+.tw-head{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.tw-badge{display:inline-flex;align-items:center;gap:10px;background:var(--tw);color:#fff;padding:8px 14px;font:600 13.5px/1.2 var(--body);letter-spacing:.06em;margin-bottom:18px;border-radius:3px}
+.tw-badge svg{width:20px;height:20px}
+.tw-phones{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tw-phones img,.tw-shots img{border:4px solid var(--ink);border-radius:18px}
+.tw-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.tw-group{background:var(--white);border:1px solid #d5ddd3;border-radius:4px;padding:clamp(20px,2.6vw,28px)}
+.tw-group h3{color:var(--tw);font-size:16.5px}
+.tw-group p{font-size:15px;color:var(--soft);margin-bottom:10px}
+.tw-group ul{margin:0;padding:0;list-style:none;display:grid;gap:7px}
+.tw-group li{font-size:15px;padding-left:22px;position:relative}
+.tw-group li::before{content:"";position:absolute;left:2px;top:.5em;width:10px;height:6px;border-left:2px solid var(--tw);border-bottom:2px solid var(--tw);transform:rotate(-45deg)}
+.tw-group.wide{grid-column:span 2}
+.tw-why{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+.tw-why>div{border-top:3px solid var(--tw);padding-top:14px}
+.tw-why h3{font-size:15px;margin-bottom:6px}
+.tw-why p{font-size:14.5px;color:var(--soft);margin:0}
+.week{margin-top:44px;background:var(--white);border:1px solid #d5ddd3;border-radius:4px;padding:clamp(22px,3vw,36px)}
+.week ol{list-style:none;padding:0;margin:18px 0 0}
+.week li{display:grid;grid-template-columns:160px 1fr;gap:20px;padding:16px 0;border-top:1px solid #e3e9e1}
+.week li b{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--tw);font-weight:600;padding-top:3px}
+.week li p{margin:0;font-size:15.5px}
+.tw-shots{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:36px}
+.tw-shots figure{margin:0}
+.tw-shots figcaption{font-size:13px;color:var(--soft);margin-top:8px;text-align:center}
+.tw-swap{margin-top:30px;background:var(--tw);color:#fff;border-radius:4px;padding:clamp(20px,3vw,30px);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
+.tw-swap p{margin:0;color:#e3efe5}
+.tw-swap b{color:#fff;font-weight:600}
+.tw-swap .big{font:800 clamp(30px,3.6vw,44px)/1 var(--disp);white-space:nowrap}
+.tw-swap .big small{display:block;font:600 13px/1.2 var(--body);letter-spacing:.06em;color:var(--tw-l);margin-top:6px;text-transform:uppercase}
+
+/* steps */
+.steps{list-style:none;padding:0;margin:28px 0 0;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.steps li{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--lawn);border-radius:4px;padding:18px}
+.steps h3{font-size:15px;margin-bottom:6px}
+.steps p{font-size:14.5px;color:var(--soft);margin:0}
+.need{margin-top:28px;background:var(--white);border:1px solid var(--line);border-radius:4px;padding:clamp(20px,3vw,30px)}
+.need ul{margin:10px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 28px}
+.need li{font-size:15.5px;padding-left:22px;position:relative}
+.need li::before{background:transparent;border:2px solid var(--lawn-d);clip-path:none;width:12px;height:12px;border-radius:2px}
+
+/* terms */
+.terms{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:24px}
+.terms div{font-size:15px;color:#2b2c33}
+.terms b{display:block;margin-bottom:4px;color:var(--ink);font-weight:600}
+
+/* accept */
+.accept{background:var(--slate);color:#fff}
+.accept h2{color:#fff}
+.accept p{color:#c9ccd2;max-width:58ch}
+.foot{background:var(--ink);color:#a3a7ae;font-size:13.5px}
+.foot .wrap{padding-top:26px;padding-bottom:30px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.foot a{color:#fff}
+
+@media (max-width:980px){
+  .cover .grid,.tw-head{grid-template-columns:1fr}
+  .ticks,.care-grid,.tw-groups,.tw-why,.steps{grid-template-columns:1fr 1fr}
+  .tw-group.wide{grid-column:1/-1}
+  .tw-shots{grid-template-columns:repeat(3,1fr)}
+  .price .notes,.terms{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .facts{grid-template-columns:1fr 1fr}
+  .ba-grid,.cards,.groups,.tw-groups,.tw-why,.strip,.ticks,.need ul{grid-template-columns:1fr}
+  .tw-group.wide{grid-column:auto}
+  .tw-swap{grid-template-columns:1fr}
+  .week li{grid-template-columns:1fr;gap:4px}
+  .bar .wrap span:last-child{display:none}
+  .row .btn{flex:1 1 auto}
+}
+@media (max-width:480px){
+  .care-grid,.steps,.money{grid-template-columns:1fr}
+  .tw-shots{grid-template-columns:1fr 1fr}
+}
+@media print{.bar,.accept .row{display:none}section{padding:28px 0}.card,.group,.tw-group{break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<div class="bar"><div class="wrap"><span><b>COASTAL CR</b> &nbsp;·&nbsp; Websites for local businesses</span><span>Prepared for Easton, E.T. Landscaping · November 2026</span></div></div>
+
+<!-- COVER -->
+<section class="cover stripes s-a s-l">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <p class="kicker">Website proposal · E.T. Landscaping</p>
+        <h1>Your new website is <span class="hl">already built.</span></h1>
+        <p class="lead">Easton, I rebuilt etlandscapingandlawns.com from scratch around your real work: your photos, your crew's videos and your Google reviews. It's live on a private link right now, so you can try it on your phone before you decide anything.</p>
+        <div class="row">
+          <a class="btn btn-lawn" href="https://et-landscaping-preview-hw48.vercel.app" target="_blank" rel="noopener">Open your new site</a>
+          <a class="btn btn-line" href="#price">See the price</a>
+        </div>
+      </div>
+      <div class="shots">
+        <img class="desk" src="img/new-desk.jpg" width="1600" height="1000" alt="New E.T. Landscaping home page on a computer">
+        <img class="phone" src="img/new-phone.jpg" width="780" height="1688" alt="New home page on a phone">
+      </div>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>11</b><span>pages, built for you</span></div>
+      <div class="fact"><b>39</b><span>real job photos</span></div>
+      <div class="fact"><b>44</b><span>five-star reviews showcased</span></div>
+      <div class="fact"><b>5</b><span>video clips of your crews at work</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="ba">
+  <div class="wrap">
+    <p class="kicker">Today vs. new</p>
+    <h2>Same business. A site that finally shows the work.</h2>
+    <p class="muted" style="max-width:64ch">Your current site leans on stock lawn and snow photos, and most of what your crews actually do isn't on it. The new one is made only for E.T., in the slate and green of your logo, with your own jobs on every page and a way to ask for a quote everywhere you look.</p>
+    <div class="ba-grid">
+      <figure><figcaption>Your site today</figcaption><img src="img/old-desk.jpg" width="1600" height="1000" alt="Current etlandscapingandlawns.com home page" loading="lazy"></figure>
+      <figure class="new"><figcaption>Your new site</figcaption><img src="img/new-service.jpg" width="1600" height="1000" alt="New hardscapes page" loading="lazy"></figure>
+    </div>
+    <ul class="ticks">
+      <li>Your own look: your logo's hex shape, lawn green and mowing-stripe backgrounds</li>
+      <li>Your real jobs everywhere, with the stock photos gone</li>
+      <li>A brand new Hardscapes page for your patios, walls and fire pits</li>
+      <li>44 five-star Google reviews and 9 real project stories</li>
+      <li>A Call, Text and Free Quote bar always at the bottom on phones</li>
+      <li>Every page keeps its old address, so you don't lose your place on Google</li>
+    </ul>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section class="price stripes s-b" id="price">
+  <div class="wrap">
+    <p class="kicker lt">The price</p>
+    <h2>One payment for the site. One monthly plan to run it.</h2>
+    <p class="intro">You pay for the website once, up front: <b style="color:#fff">$2,000</b>. That's the lowest price I offer, and the site, domain and photos are yours from day one. After launch, pick the monthly plan that fits how you want to run things.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Website + care plan</h3>
+        <p class="sub">Your new site, kept fresh, safe and online. Change anything, any time.</p>
+        <div class="money">
+          <div><small>Today</small><b>$2,000</b><em>website, paid once</em></div>
+          <div><small>Then</small><b>$200</b><em>a month, from launch</em></div>
+        </div>
+        <ul>
+          <li>Everything in the website below</li>
+          <li>Hosting, security, backups and domain renewal</li>
+          <li>Unlimited changes, usually done the same day</li>
+          <li>A Google Business post every month</li>
+        </ul>
+        <div class="total"><span>First year total</span><b>$4,400</b></div>
+      </div>
+      <div class="card pick">
+        <span class="tag">My pick for you</span>
+        <h3>Website + Tradewind Trades</h3>
+        <p class="sub">The site plus the business app behind it: leads, quotes, jobs, invoices and card payments on your phone.</p>
+        <div class="money">
+          <div><small>Today</small><b>$2,000</b><em>website, paid once</em></div>
+          <div><small>Then</small><b>$300</b><em>a month: $200 care + $100 Tradewind</em></div>
+        </div>
+        <ul>
+          <li>Everything in Website + care plan</li>
+          <li>Every quote request lands on your phone with photos</li>
+          <li>Quotes customers sign online, invoices they pay by card</li>
+          <li>Weekly mowing set up once, monthly bills for snow accounts</li>
+        </ul>
+        <div class="total"><span>First year total</span><b>$5,600</b></div>
+      </div>
+    </div>
+    <div class="notes">
+      <div><b>Pay the year up front, get 2 months free</b>Pay the monthly plan yearly and it's 10 months for 12: $2,000 a year instead of $2,400, or $3,000 instead of $3,600 with Tradewind Trades.</div>
+      <div><b>It replaces what you pay for now</b>Your current site runs on Showit, a paid website builder. Once the new site is live, that plan can go. Hosting is part of the care plan.</div>
+      <div><b>6-month minimum, then your call</b>The care plan starts on launch day with a 6-month minimum. After that it's month to month, and you can cancel with one message. Tradewind Trades has no minimum at all.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EVERYTHING -->
+<section id="everything">
+  <div class="wrap">
+    <p class="kicker">Everything you're getting</p>
+    <h2>The website, piece by piece.</h2>
+    <p class="muted" style="max-width:64ch">Nothing here is a template block. Every line below is something I built, wrote or set up for E.T., and it's all already done.</p>
+    <div class="groups">
+      <div class="group">
+        <h3>11 pages</h3>
+        <ul>
+          <li><b>Home</b>: the four seasons, your services, before and after, reviews, your towns and a quote form</li>
+          <li><b>4 service pages</b>, each with its own photos, what's included, how the job goes, a gallery and FAQs</li>
+          <li><b>Projects, Reviews, About and Free Quote</b></li>
+          <li><b>Privacy and Terms</b> pages, carried over from your current site</li>
+          <li>A branded "page not found" page, so a mistyped link still lands somewhere useful</li>
+        </ul>
+        <div class="pages"><span>Lawn Care</span><span>Landscaping</span><span>Hardscapes (new)</span><span>Snow Removal</span></div>
+      </div>
+      <div class="group">
+        <h3>Built from your real work</h3>
+        <ul>
+          <li><b>39 of your own job photos</b> from your site and Instagram, sorted by service. The stock photos are gone.</li>
+          <li><b>5 short video loops</b> from your reels: the plow drone, overnight sidewalks, striping, a spring wall and sod going down</li>
+          <li><b>9 project stories</b>, from the walkout patio to commercial lots cleared overnight</li>
+          <li><b>2 drag-to-compare before and afters</b>: the walkout deck patio and the fire pit patio</li>
+          <li><b>44 five-star Google reviews</b>, word for word, with the best 6 on the home page</li>
+          <li>A golden-hour version of your own striped-yard photo at the top of the home page. It's a touched-up rendering, not a straight photo, and I can swap your original back any time.</li>
+        </ul>
+      </div>
+      <div class="group">
+        <h3>Your own look</h3>
+        <ul>
+          <li>Designed only for E.T., in the slate, steel and lawn green of your logo, with Rubik, the font you already use</li>
+          <li><b>Mowing-stripe backgrounds</b> that change direction from section to section, like a good cut</li>
+          <li>Hex-shaped details that match your logo</li>
+          <li>Spring, Summer, Fall and Winter stacked big on the home page, with the current season lit up</li>
+          <li>A seasonal announcement bar at the top, right now: "Now booking seasonal snow removal"</li>
+          <li>Headline written for you: "One crew for every season."</li>
+        </ul>
+      </div>
+      <div class="group">
+        <h3>Made for phones</h3>
+        <ul>
+          <li>Built to fit phones, tablets and big computer screens, with nothing cut off or sideways</li>
+          <li><b>Call, Text and Free Quote bar</b> pinned to the bottom of every page on phones</li>
+          <li>Texts go to the number your crew actually answers, calls to your main line</li>
+          <li>Quick slide-out menu, big easy buttons, one-tap phone and email</li>
+        </ul>
+      </div>
+      <div class="group">
+        <h3>Brings you quote requests</h3>
+        <ul>
+          <li><b>Free quote form</b>: the customer picks a service and town and describes the job</li>
+          <li>It sends straight to you by text or email with everything filled in</li>
+          <li>Quote buttons on every page, in the menu and inside every service page</li>
+          <li>With Tradewind Trades, every request lands in your app instead, photos included</li>
+        </ul>
+      </div>
+      <div class="group">
+        <h3>Shows off the work</h3>
+        <ul>
+          <li><b>Projects page</b> with filters by service and the story behind each job</li>
+          <li>Full-screen photo viewer with arrows, on every gallery</li>
+          <li>A photo gallery on every service page</li>
+          <li>Videos that play quietly on their own, without slowing the page down</li>
+        </ul>
+      </div>
+      <div class="group">
+        <h3>Found on Google</h3>
+        <ul>
+          <li>Your pages keep the <b>same addresses</b> they have today, so you keep your Google ranking</li>
+          <li>Search titles and descriptions written for every page</li>
+          <li><b>12 questions answered</b> across the service pages, so customers get answers before they call</li>
+          <li>Your address, phone, towns, services, rating and FAQs set up in the format Google reads</li>
+          <li>Sitemap for Google, plus a preview card when the link is texted or shared</li>
+        </ul>
+      </div>
+      <div class="group">
+        <h3>Fast, and easy for everyone</h3>
+        <ul>
+          <li>Photos in a modern format, sized for each screen, and the big opening photo sharp even on 4K screens</li>
+          <li>A description on every photo for people using screen readers</li>
+          <li>Readable colours and a clean heading structure on every page</li>
+          <li>All 11 pages tested and loading on the private link</li>
+        </ul>
+      </div>
+    </div>
+    <div class="strip">
+      <figure><img class="chamf" src="img/new-projects.jpg" width="1600" height="1000" alt="New Projects page" loading="lazy"><figcaption>Projects, with before and afters</figcaption></figure>
+      <figure><img class="chamf" src="img/new-reviews.jpg" width="1600" height="1000" alt="New Reviews page" loading="lazy"><figcaption>Your full review wall</figcaption></figure>
+      <figure><img class="chamf" src="img/new-desk.jpg" width="1600" height="1000" alt="New home page" loading="lazy"><figcaption>Home page</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- CARE -->
+<section class="care">
+  <div class="wrap">
+    <p class="kicker">The care plan · $200 a month</p>
+    <h2>You run the crews. I keep the site working for you.</h2>
+    <div class="care-grid">
+      <div class="care-item"><h3>Hosting &amp; security</h3><p>Fast, secure hosting, nothing for you to update, and a backup of every version.</p></div>
+      <div class="care-item"><h3>Domain renewal</h3><p>I renew etlandscapingandlawns.com every year and keep it in your name.</p></div>
+      <div class="care-item"><h3>Unlimited changes</h3><p>Prices, photos, wording, new jobs, even new pages. Ask as often as you like.</p></div>
+      <div class="care-item"><h3>Seasonal switch-overs</h3><p>Spring cleanups, mowing sign-ups, snow contracts. The announcement bar and offers change with the season.</p></div>
+      <div class="care-item"><h3>Same-day turnaround</h3><p>Most changes are live the day you ask. A problem gets fixed right away, any day.</p></div>
+      <div class="care-item"><h3>Uptime watch</h3><p>An automatic check pings your site around the clock. If it goes down, I know first.</p></div>
+      <div class="care-item"><h3>Monthly Google post</h3><p>A photo and a few lines on your Google listing every month, to keep it active.</p></div>
+      <div class="care-item"><h3>Advice any time</h3><p>New service? Changing prices? Ask me. Short answers are part of the plan.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRADEWIND -->
+<section class="tw" id="tradewind">
+  <div class="wrap">
+    <div class="tw-head">
+      <div>
+        <span class="tw-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v15M12 3c4 3 6 7 6 12H12M12 6c-3 2-5 5-5 9h5"/><path d="M4 20c2.5 1.2 5.2 1.2 8 0s5.5-1.2 8 0"/></svg>TRADEWIND TRADES · +$100 A MONTH</span>
+        <p class="kicker">The business app behind your website</p>
+        <h2>Make business breezy.</h2>
+        <p class="muted" style="max-width:56ch">Tradewind is my CRM partner, and Tradewind Trades is its app for trade and home service businesses. It puts leads, quotes, jobs, invoices, payments and reviews in one app on your phone, connected to your new site, and writes the replies and reminders for you. You read them and tap send.</p>
+      </div>
+      <div class="tw-phones">
+        <img src="img/tw-home.webp" width="780" height="1688" alt="Tradewind home screen with messages ready to send" loading="lazy">
+        <img src="img/tw-lead.webp" width="780" height="1688" alt="New lead with a reply written" loading="lazy">
+        <img src="img/tw-jobs.webp" width="780" height="1688" alt="Jobs calendar with weekly mowing" loading="lazy">
+      </div>
+    </div>
+
+    <div class="tw-groups">
+      <div class="tw-group">
+        <h3>1 · Your day on one screen</h3>
+        <p>Open the app and it tells you what to do next.</p>
+        <ul>
+          <li>Up next: your current or next job, with Directions and Call one tap away</li>
+          <li>A To do list: new leads, late invoices, finished jobs not billed yet and quotes that need a date</li>
+          <li>Money at a glance: quotes out, owed to you and jobs today</li>
+          <li>A Get set up checklist for your logo, prices and terms, or I do it for you</li>
+        </ul>
+      </div>
+      <div class="tw-group">
+        <h3>2 · Leads</h3>
+        <p>The company that answers first usually gets the work. Tradewind gets you there in a minute, even from the mower.</p>
+        <ul>
+          <li>Your website quote form lands as a lead, photos included</li>
+          <li>A 24/7 chat bubble on your website that answers visitors and saves every conversation as a lead</li>
+          <li>Someone calls or stops you on a job? Add them as a lead in seconds</li>
+          <li>Instant alerts on your phone for new leads, signed quotes and payments</li>
+          <li>Call, text or email from the lead, with a friendly reply already drafted</li>
+        </ul>
+      </div>
+      <div class="tw-group">
+        <h3>3 · Quotes</h3>
+        <p>Price it in a couple of minutes and get it signed on their phone.</p>
+        <ul>
+          <li>Built from your saved price book: mowing per visit, mulch per yard, patio per sq ft, plowing per push</li>
+          <li>Tax, totals and the deposit add up for you, with photos of the yard on the quote</li>
+          <li>Send it as a text, a link or a PDF</li>
+          <li>Customers approve online by typing their name, and you get a notification right away</li>
+          <li>Signed quotes are locked: a frozen copy with the date, time and device</li>
+          <li>Change orders for extra or dropped work, signed by the customer too</li>
+          <li>Duplicate a quote to reuse it for the next yard on the street</li>
+        </ul>
+      </div>
+      <div class="tw-group">
+        <h3>4 · Jobs</h3>
+        <p>Approved quotes become jobs on one calendar, so you and your crews know where to be.</p>
+        <ul>
+          <li>Schedule a job from an approved quote in one tap</li>
+          <li>Day and week calendar, drag or tap to reschedule</li>
+          <li>Repeat visits weekly, every other week or monthly. Set a mowing route once and forget it.</li>
+          <li>Plan route puts the day's stops in the best driving order in Google Maps</li>
+          <li>A rain-day button that moves the day's jobs and preps a text to every customer</li>
+          <li>Call, Directions, Start job and Mark done pinned at the bottom of the job screen</li>
+        </ul>
+      </div>
+      <div class="tw-group">
+        <h3>5 · Your crews</h3>
+        <p>Your crews get what they need for the day, and nothing they don't.</p>
+        <ul>
+          <li>Assign jobs to anyone on your crew</li>
+          <li>Crew logins with limited access, so they never see the money</li>
+          <li>Choose whether crew see every job or only the ones they're on</li>
+          <li>Job checklists and before and after photos</li>
+          <li>“On my way” texts with the arrival time</li>
+        </ul>
+      </div>
+      <div class="tw-group">
+        <h3>6 · Invoices and card payments</h3>
+        <p>Send the bill the moment the job is done.</p>
+        <ul>
+          <li>Made from a job or a quote in one tap, with change orders added for you</li>
+          <li>Customers pay by card from the invoice link, and the money goes straight to your own account</li>
+          <li>Monthly billing for repeat visits: one bill per customer per month, for mowing or snow</li>
+          <li>Record cash, check, Venmo or Zelle payments</li>
+          <li>Late invoices show up on your To do list with a reminder ready to send</li>
+          <li>A one-tap PDF</li>
+        </ul>
+      </div>
+      <div class="tw-group">
+        <h3>7 · Business texting</h3>
+        <p>Texts come from E.T. Landscaping, not your personal cell.</p>
+        <ul>
+          <li>Your own business texting number</li>
+          <li>Two-way texts: customer replies land in the Messages tab and you answer from the app</li>
+          <li>Missed-call text-back, so a call you miss on the plow route still gets an answer</li>
+          <li>“On my way”, quote and invoice texts from your business number</li>
+          <li>I register your number with the phone carriers as part of setup</li>
+        </ul>
+      </div>
+      <div class="tw-group">
+        <h3>8 · Customer portal</h3>
+        <p>Customers stop texting you to ask what they owe or when you're coming.</p>
+        <ul>
+          <li>One private link for each customer</li>
+          <li>Their quotes, invoices and upcoming visits in one place</li>
+        </ul>
+      </div>
+      <div class="tw-group">
+        <h3>9 · Texts written for you</h3>
+        <p>Tradewind lines up the texts you'd normally type at night, and writes them for you.</p>
+        <ul>
+          <li>Nudges on quotes that went quiet, and payment reminders</li>
+          <li>“See you tomorrow” texts before a job</li>
+          <li>Review requests with your Google link, the morning after a job</li>
+          <li>A Monday money report: new leads, quotes won, cash in and what's still owed</li>
+          <li>Sounds like you: short, friendly and signed with your name</li>
+          <li>Never makes up prices. Drafts only use your own price list.</li>
+          <li>Nothing goes out until you tap, and you can switch the helper off</li>
+        </ul>
+      </div>
+      <div class="tw-group">
+        <h3>10 · Your brand and website</h3>
+        <p>No waiting on anyone for small updates. You can still ask me for anything, too.</p>
+        <ul>
+          <li>Edit your own site from your phone: text, photos, services and the season bar</li>
+          <li>Tap Publish and the change is live in a minute or two</li>
+          <li>Your logo and brand colour on every quote, invoice and PDF</li>
+          <li>Your brand in the app too, so it feels like E.T., not ours</li>
+        </ul>
+      </div>
+      <div class="tw-group wide">
+        <h3>11 · Anywhere, and private</h3>
+        <ul>
+          <li>Works on any phone and on your computer, full screen from your home screen</li>
+          <li>Pull down to refresh, and a simple menu that slides in from the side</li>
+          <li>Step-by-step help for every feature, right inside the app</li>
+          <li>Spreadsheet export that opens in Excel, Google Sheets or QuickBooks</li>
+          <li>Your data is private to your business, with encrypted connections and regular backups</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tw-why">
+      <div><h3>Set up for you</h3><p>I load your services, price list and website, so you're running in about 10 minutes without learning new software.</p></div>
+      <div><h3>Simple on purpose</h3><p>Leads, quotes, jobs, invoices. The things you actually use, without 40 menus you don't.</p></div>
+      <div><h3>Your data stays yours</h3><p>Your business is locked to its own information, with encrypted connections and regular backups.</p></div>
+      <div><h3>A real person to call</h3><p>Questions come to me, someone who knows your setup, not a ticket queue.</p></div>
+    </div>
+
+    <div class="week">
+      <p class="kicker">A year at E.T. with Tradewind Trades</p>
+      <h3 style="font-size:clamp(20px,2.2vw,28px)">From the first message to the five-star review.</h3>
+      <ol>
+        <li><b>Monday, 7:00 am</b><p>Your money report is waiting: new leads, quotes won, cash in and who still owes you. Up next shows your first stop.</p></li>
+        <li><b>Spring, 9:40 am</b><p>A homeowner in Brighton fills out your quote form with photos of a dead patch under her walkout deck. Your phone buzzes on the job, and a reply is already written. You tap send and you're the first company to answer.</p></li>
+        <li><b>Same day, lunch</b><p>You build the paver patio quote from your price book, with a deposit, and text her the link from the truck.</p></li>
+        <li><b>That evening</b><p>She signs on her phone and pays the deposit by card. It's locked in, and the job is on your calendar.</p></li>
+        <li><b>Rainy Wednesday</b><p>One tap on the rain-day button moves every job to Thursday, and the heads-up texts to customers are ready to send.</p></li>
+        <li><b>All summer</b><p>Mowing customers repeat on their own, every crew sees the day's route in driving order, and each yard gets one bill at the end of the month.</p></li>
+        <li><b>First snow</b><p>Your seasonal snow accounts are already set up. The crew taps “On my way” and snaps photos of the cleared lot, and every account gets one bill at the end of the month.</p></li>
+        <li><b>The next morning</b><p>A thank-you with your Google review link is written and waiting. One tap, while the customer is still happy.</p></li>
+      </ol>
+    </div>
+
+    <div class="tw-shots">
+      <figure><img src="img/tw-home.webp" width="780" height="1688" alt="Home screen" loading="lazy"><figcaption>Ready to send</figcaption></figure>
+      <figure><img src="img/tw-lead.webp" width="780" height="1688" alt="Lead screen" loading="lazy"><figcaption>New lead</figcaption></figure>
+      <figure><img src="img/tw-quote.webp" width="780" height="1688" alt="Quote screen" loading="lazy"><figcaption>Quote</figcaption></figure>
+      <figure><img src="img/tw-sign.webp" width="780" height="1688" alt="Customer signing a quote" loading="lazy"><figcaption>Customer signs</figcaption></figure>
+      <figure><img src="img/tw-jobs.webp" width="780" height="1688" alt="Jobs calendar" loading="lazy"><figcaption>Jobs</figcaption></figure>
+      <figure><img src="img/tw-invoice.webp" width="780" height="1688" alt="Invoice screen" loading="lazy"><figcaption>Invoice</figcaption></figure>
+    </div>
+    <p class="small muted" style="margin-top:12px">Sample screens from a demo business. Yours will show E.T. Landscaping, your prices and your customers.</p>
+
+    <div class="tw-swap">
+      <p><b>Tradewind Trades adds $100 a month to the care plan, so $200 becomes $300.</b> The website price stays the same $2,000. Tradewind Trades is month to month with no minimum, and it's connected to your site, so I set it up for you, load your services and prices, and walk you and your crews through it.</p>
+      <div class="big">$300<small>a month, all in</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section>
+  <div class="wrap">
+    <p class="kicker">How it goes from here</p>
+    <h2>Live in about a week.</h2>
+    <ol class="steps">
+      <li><h3>Say yes</h3><p>Text or email me which option you want.</p></li>
+      <li><h3>Pay $2,000</h3><p>Zelle, Venmo or PayPal. I send the details and a receipt.</p></li>
+      <li><h3>Quick call</h3><p>We go through the site together. Change anything you like before launch.</p></li>
+      <li><h3>Go live</h3><p>I move it onto etlandscapingandlawns.com. Your old site stays up until the switch, and your email isn't touched.</p></li>
+      <li><h3>Tradewind setup</h3><p>If you add it: your account, services, prices and crew logins, done with you.</p></li>
+    </ol>
+    <div class="need">
+      <h3>A few things I'll need from you</h3>
+      <ul>
+        <li>Your OK on the wording, or anything you want changed</li>
+        <li>The golden-hour opening photo: keep it, or use your original yard photo?</li>
+        <li>Should texts go to (517) 294-2628 and calls to (517) 376-3058?</li>
+        <li>Are you insured? If yes, I'll add it. It's a strong trust line.</li>
+        <li>Your business hours, if you want them shown</li>
+        <li>Access to your domain and Google Business listing, or I'll walk you through it</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TERMS -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <p class="kicker">The fine print, in plain words</p>
+    <div class="terms">
+      <div><b>What's yours</b>The website, its files, the domain, the photos and words, and your Google listing are yours, plan or no plan. Ask and I hand everything over within a week.</div>
+      <div><b>If you stop the care plan</b>After the 6-month minimum, cancel with one message. Your site stays yours and stays online. Changes are then quoted per request, and the domain renewal moves to you.</div>
+      <div><b>Tradewind Trades, month to month</b>No minimum. Either of us can end it at any time with one message. When it ends, the app logins for you and your crews are switched off, you get a spreadsheet of your customers, quotes and invoices, your website quote form goes back to sending requests to you by text and email, and your plan drops back to $200 a month.</div>
+      <div><b>Not included</b>A full redesign, blogs, ads, social media, photo or video shoots, and third-party costs such as card processing fees or a Google Ads budget. All prices in US dollars.</div>
+    </div>
+    <p class="small muted" style="margin-top:20px">Full care plan terms: <a href="https://coastalcr.com/care/" target="_blank" rel="noopener">coastalcr.com/care</a>. More on Tradewind: <a href="https://coastalcr.com/tradewind/" target="_blank" rel="noopener">coastalcr.com/tradewind</a> and <a href="https://tradewindcrm.com" target="_blank" rel="noopener">tradewindcrm.com</a>.</p>
+  </div>
+</section>
+
+<!-- ACCEPT -->
+<section class="accept stripes s-d" id="accept">
+  <div class="wrap">
+    <h2>Ready when you are.</h2>
+    <p>Tap one and your message is written for you. Any questions at all, text me and I'll answer them myself.</p>
+    <div class="row">
+      <a class="btn btn-lawn" href="sms:+13213561951?&amp;body=Hi%20Tony%2C%20it%27s%20Easton%20from%20E.T.%20Landscaping.%20I%27m%20in%20for%20the%20Website%20%2B%20Tradewind%20Trades%20(%242%2C000%20%2B%20%24300%2Fmonth).">Yes: Website + Tradewind Trades</a>
+      <a class="btn btn-light" href="sms:+13213561951?&amp;body=Hi%20Tony%2C%20it%27s%20Easton%20from%20E.T.%20Landscaping.%20I%27m%20in%20for%20the%20Website%20%2B%20care%20plan%20(%242%2C000%20%2B%20%24200%2Fmonth).">Yes: Website + care plan</a>
+      <a class="btn btn-light" href="mailto:coastalcrwebsites@gmail.com?subject=E.T.%20Landscaping%20website&amp;body=Hi%20Tony%2C%0A%0A">Email me instead</a>
+    </div>
+  </div>
+</section>
+
+<div class="foot"><div class="wrap"><span>Anthony Skoczylas · Coastal CR, the web design side of Infinite Discoveries LLC</span><span>Text <a href="sms:+13213561951">+1 321-356-1951</a> · <a href="mailto:coastalcrwebsites@gmail.com">coastalcrwebsites@gmail.com</a> · <a href="https://coastalcr.com" target="_blank" rel="noopener">coastalcr.com</a></span></div></div>
+
+</body>
+</html>
