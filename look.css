@@ -17,6 +17,4 @@ body::before,
 /* soft sky glow on the big light sections of the homepage */
 #work,#contact{background:radial-gradient(900px 620px at 88% 6%,rgba(19,144,180,.20),transparent 62%),radial-gradient(800px 560px at 4% 98%,rgba(210,165,95,.12),transparent 62%),linear-gradient(170deg,#e6f1f7 0%,#d4e7f1 55%,#c9e0ee 100%)}
 
-/* light wind lines over the dark heroes */
-header.hero{background-image:url(img/wind-flow-light.svg);background-size:1600px 960px}
-.hero-bg::after{content:"";position:absolute;inset:0;pointer-events:none;background:url(img/wind-flow-light.svg) 0 0/1600px 960px}
+/* no wind lines on the dark heroes at the top (Tony 11-12) */
