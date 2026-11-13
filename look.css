@@ -1,0 +1,22 @@
+/* Coastal CR look layer (11-12): wind lines + brighter sky blue.
+   Loaded LAST on each page so it overrides the page's own colours.
+   To go back: remove the <link href="…look.css"> line from each page (or swap wind-flow.svg for wind-streaks.svg). */
+
+/* brighter sky blue (from the light Costa Outdoors Instagram post) */
+:root{--paper:#e2eff8;--paper-2:#cfe4f1;--line:#b8d4e6}
+
+/* wind lines behind every light area: one original pattern (scripts/make_wind.py), recoloured with a CSS mask */
+body{position:relative}
+body::before,
+#work::before,#contact::before,section.tint::before,section[style*="paper-2"]::before,.closing::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  -webkit-mask:url(img/wind-flow.svg) 0 0/1600px 960px repeat;mask:url(img/wind-flow.svg) 0 0/1600px 960px repeat;
+  background:rgba(14,111,144,.16)}
+#work,#contact,section.tint,section[style*="paper-2"],.closing{position:relative;isolation:isolate}
+
+/* soft sky glow on the big light sections of the homepage */
+#work,#contact{background:radial-gradient(900px 620px at 88% 6%,rgba(19,144,180,.20),transparent 62%),radial-gradient(800px 560px at 4% 98%,rgba(210,165,95,.12),transparent 62%),linear-gradient(170deg,#e6f1f7 0%,#d4e7f1 55%,#c9e0ee 100%)}
+
+/* light wind lines over the dark heroes */
+header.hero{background-image:url(img/wind-flow-light.svg);background-size:1600px 960px}
+.hero-bg::after{content:"";position:absolute;inset:0;pointer-events:none;background:url(img/wind-flow-light.svg) 0 0/1600px 960px}

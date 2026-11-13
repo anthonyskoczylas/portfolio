@@ -8,7 +8,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=Krona+One&family=Fragment+Mono&family=Archivo:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=Krona+One&family=Fragment+Mono&family=Archivo:wght@600;700&family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@100..150,700&family=Hanken+Grotesk:wght@400;500;600&family=Cormorant+Garamond:wght@300;400&family=Geist:wght@400;500;600&family=Playfair+Display:wght@400;500&family=Lato:wght@400;700&family=Young+Serif&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -418,6 +418,50 @@
     .media-rev{clip-path:none!important}
   }
 
+
+  /* ---------- FEATURED · Costa Outdoors (first case on the page) — wears Costa Outdoors' own look ---------- */
+  .feat-co{--co-pine:#131E18;--co-moss:#2A4434;--co-stone:#EDEAE2;--co-green:#2E9B3E;--co-green-ink:#1F7A2D;--co-mint:#7fd08a;
+    position:relative;isolation:isolate;overflow:hidden;background:var(--co-pine);color:var(--co-stone);padding:104px 0 108px;font-family:'Manrope',system-ui,sans-serif}
+  .feat-co::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+    -webkit-mask:url(img/work/costa/topo.svg) 0 0/1400px 1400px repeat;mask:url(img/work/costa/topo.svg) 0 0/1400px 1400px repeat;background:rgba(237,234,226,.09)}
+  .co-head{display:grid;grid-template-columns:1.1fr 1fr;gap:24px 64px;align-items:end}
+  .co-kicker{font-size:12.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--co-mint);display:flex;align-items:center;gap:12px;margin-bottom:16px}
+  .co-kicker::before{content:"";width:28px;height:2px;background:currentColor}
+  .feat-co h2{font-family:'Big Shoulders Display',Impact,sans-serif;font-weight:900;text-transform:uppercase;line-height:.86;letter-spacing:.005em;font-size:clamp(60px,9vw,128px);color:var(--co-stone)}
+  .feat-co h2 span{display:block;color:transparent;-webkit-text-stroke:2px var(--co-stone);font-weight:800}
+  .co-lead{font-size:18px;line-height:1.62;color:rgba(237,234,226,.74);max-width:56ch}
+  .co-stage{display:grid;grid-template-columns:1.55fr 1fr;gap:22px;margin-top:52px;align-items:start}
+  .co-browser{position:relative;border-radius:8px;overflow:hidden;background:#1d1f1e;border:1px solid rgba(237,234,226,.12);box-shadow:0 46px 100px -42px rgba(0,0,0,.85);text-decoration:none;display:block}
+  .co-browser video{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;background:var(--co-pine)}
+  .co-tag{position:absolute;left:14px;bottom:14px;z-index:2;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--co-green);color:#fff;padding:7px 12px;border-radius:3px}
+  .co-side{display:flex;flex-direction:column;gap:22px}
+  .feat-co .ba{margin-top:0;border-radius:8px;border-color:rgba(237,234,226,.14);box-shadow:0 30px 70px -40px rgba(0,0,0,.8)}
+  .feat-co .ba .label.after{background:var(--co-green)}
+  .feat-co .hint{color:rgba(237,234,226,.6);margin-top:-8px}
+  .co-facts{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(237,234,226,.16)}
+  .co-facts div{padding:16px 0 4px}
+  .co-facts div:nth-child(even){padding-left:18px;border-left:1px solid rgba(237,234,226,.16)}
+  .co-facts div:nth-child(n+3){border-top:1px solid rgba(237,234,226,.16)}
+  .co-facts b{display:block;font-family:'Big Shoulders Display',Impact,sans-serif;font-weight:800;font-size:38px;line-height:.9;color:var(--co-stone)}
+  .co-facts span{display:block;font-size:13px;line-height:1.4;color:rgba(237,234,226,.66);margin-top:6px;padding-bottom:12px}
+  .co-foot{margin-top:30px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .feat-co .chip{font-family:'Manrope',sans-serif;font-size:13px;font-weight:600;color:rgba(237,234,226,.85);background:rgba(237,234,226,.05);border:1px solid rgba(237,234,226,.16);border-radius:3px}
+  .feat-co .chip:hover{transform:translateY(-2px);background:var(--co-moss);color:#fff;border-color:var(--co-moss)}
+  .co-acts{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
+  .co-btn{display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:15px;font-weight:700;text-decoration:none;padding:13px 22px;border-radius:4px;transition:transform .25s cubic-bezier(.2,.7,.2,1), background .2s, border-color .2s}
+  .co-btn:hover{transform:translateY(-2px)}
+  .co-btn.g{background:var(--co-green);color:#fff;border:1px solid var(--co-green)}
+  .co-btn.g:hover{background:var(--co-green-ink);border-color:var(--co-green-ink)}
+  .co-btn.l{border:1px solid rgba(237,234,226,.4);color:var(--co-stone)}
+  .co-btn.l:hover{border-color:var(--co-stone)}
+  @media(max-width:980px){.co-head,.co-stage{grid-template-columns:1fr}}
+  @media(max-width:760px){
+    .feat-co{padding:68px 0 72px}
+    .co-stage{margin-top:36px}
+    .co-acts{margin-left:0;width:100%}
+    .co-btn{flex:1;justify-content:center}
+    .co-tag{left:10px;bottom:10px;font-size:10px;padding:5px 10px}
+  }
   /* ---------- FLAGSHIP · Great Marlin (the star) — wears Great Marlin's own colours ---------- */
   .flagship{--gm-hull:#131718;--gm-hull-2:#1c2122;--gm-teal:#5fb3b1;--gm-teal-deep:#0e7471;--gm-white:#ffffff;
     position:relative;isolation:isolate;overflow:hidden;
@@ -528,6 +572,7 @@
   @media(max-width:900px){.tw{padding:80px 0}.tw-top{grid-template-columns:1fr;gap:44px}.tw-grid{grid-template-columns:1fr 1fr;margin-top:56px}.tw-strip{grid-template-columns:1fr}}
   @media(max-width:560px){.tw-grid{grid-template-columns:1fr}}
 </style>
+<link rel="stylesheet" href="look.css">
 </head>
 <body>
 
@@ -566,19 +611,70 @@
     </div>
     <div class="hero-proof" aria-hidden="true">
       <div class="proof-card p1"><div class="bar"><i></i><i></i><i></i></div><img src="img/coconut-after.webp" alt=""></div>
-      <div class="proof-card p2"><div class="bar"><i></i><i></i><i></i></div><img src="img/jacotransport.webp" alt=""></div>
+      <div class="proof-card p2"><div class="bar"><i></i><i></i><i></i></div><img src="img/gofishcr-after.webp" alt=""></div>
     </div>
   </div>
 </header>
+
+<section class="feat-co" id="costa-outdoors">
+  <div class="wrap">
+    <div class="co-head">
+      <div class="reveal">
+        <div class="co-kicker">Featured · Traverse City, Michigan</div>
+        <h2>Costa <span>Outdoors</span></h2>
+      </div>
+      <p class="co-lead reveal" style="--d:.08s">Jake's crew builds patios, retaining walls, shorelines and whole landscapes across Northern Michigan. His old site was a template that looked like everyone else's. I rebuilt it from scratch with big bold type, an original contour-map pattern and only real job photos, then connected it to Tradewind so every quote request lands on his phone.</p>
+    </div>
+
+    <div class="co-stage">
+      <a class="co-browser" href="work/costa-outdoors/">
+        <video autoplay muted loop playsinline preload="metadata" poster="video/costa-scroll-poster.jpg" width="1280" height="800" aria-label="A slow scroll through the full Costa Outdoors homepage">
+          <source src="video/costa-scroll.mp4" type="video/mp4">
+        </video>
+        <span class="co-tag">The whole homepage, one scroll</span>
+      </a>
+      <div class="co-side">
+        <div class="ba media-rev" id="ba3">
+          <img class="before-img" src="img/costaoutdoors-after.webp" alt="Costa Outdoors new website">
+          <div class="after-wrap" id="aw3">
+            <div class="after-img-sizer" id="as3">
+              <img src="img/costaoutdoors-before.webp" alt="Costa Outdoors old website">
+            </div>
+          </div>
+          <span class="label before">Before</span>
+          <span class="label after">After</span>
+          <div class="handle" id="h3"><div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 4 12 9 18"></polyline><polyline points="15 6 20 12 15 18"></polyline></svg></div></div>
+        </div>
+        <div class="hint">← Drag to compare →</div>
+        <div class="co-facts">
+          <div><b>20</b><span>pages, built from scratch</span></div>
+          <div><b>7</b><span>service pages with FAQs</span></div>
+          <div><b>86</b><span>real job photos, zero stock</span></div>
+          <div><b>24</b><span>towns in the service area</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="co-foot">
+      <span class="chip">Big bold type</span>
+      <span class="chip">Original contour pattern</span>
+      <span class="chip">Free quote on every page</span>
+      <span class="chip">Connected to Tradewind</span>
+      <div class="co-acts">
+        <a class="co-btn g" href="work/costa-outdoors/">See the full case study →</a>
+        <a class="co-btn l" href="https://costaoutdoorsmi.com" target="_blank" rel="noopener">Visit live site ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="flagship" id="flagship">
   <div class="wrap">
     <div class="fl-head reveal">
       <div>
-        <div class="kicker">The flagship · My own brand</div>
+        <div class="kicker">My own brand · Sportfishing charter</div>
         <h2>Great <em>Marlin</em></h2>
       </div>
-      <span class="fl-badge">The most advanced site I've built</span>
     </div>
 
     <p class="fl-lead reveal">My own private sportfishing charter out of Herradura Bay, and the site I put everything into. The boat turns a full 360° the moment the page opens, live sea conditions sit right on the page, and a trip planner takes the booking. Same care goes into every site I build for you.</p>
@@ -840,7 +936,7 @@
           <li>English, Spanish or both</li>
           <li>Unlimited changes, usually done the same day</li>
           <li>Hosting, domain and Google Business included</li>
-          <li>1-year minimum on the care plan</li>
+          <li>6-month minimum on the care plan</li>
         </ul>
         <a class="btn btn-primary" href="plans/">See the 3 ways to pay</a>
         <a class="pc-more" href="services/#care">What the care plan includes →</a>
@@ -857,7 +953,7 @@
           <li>Customers approve and sign quotes online</li>
           <li>Replies and reminders written for you</li>
           <li>Edit your own website anytime</li>
-          <li>1-year minimum on the plan</li>
+          <li>6-month minimum on the plan</li>
         </ul>
         <a class="btn btn-primary" href="#tradewind">See what Tradewind does</a>
         <a class="pc-more" href="plans/">The 3 ways to pay →</a>
@@ -937,11 +1033,11 @@
 
   // Great Marlin 360 clip: play only while on screen; reduced motion keeps the poster still.
   (function(){
-    const v = document.querySelector('.fl-media video');
-    if(!v) return;
-    if(matchMedia('(prefers-reduced-motion:reduce)').matches){ v.removeAttribute('autoplay'); v.pause(); return; }
-    if(!('IntersectionObserver' in window)) return;
-    new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? v.play().catch(()=>{}) : v.pause()), {threshold:.15}).observe(v);
+    document.querySelectorAll('.fl-media video, .co-browser video').forEach(v=>{
+      if(matchMedia('(prefers-reduced-motion:reduce)').matches){ v.removeAttribute('autoplay'); v.pause(); return; }
+      if(!('IntersectionObserver' in window)) return;
+      new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? v.play().catch(()=>{}) : v.pause()), {threshold:.15}).observe(v);
+    });
   })();
 
   // Count-up stats (hero) — animate each number once it's on screen.
@@ -1054,7 +1150,7 @@
     window.addEventListener('load', ()=>setTimeout(baSweep, 150));
     setTimeout(()=>reveal(false), 5000);
   }
-  initBA(1); initBA(2);
+  initBA(1); initBA(2); initBA(3);
 </script>
 </body>
 </html>

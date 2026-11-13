@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Our work · Coastal CR</title>
-<meta name="description" content="Every website Coastal CR has built, up close: Great Marlin, Go Fish Costa Rica, Coconut Office, Jaco Transport, Infinite Discoveries and Little Waves Surf School. What each site does for the business, with real screenshots.">
+<meta name="description" content="Every website Coastal CR has built, up close: Costa Outdoors, Great Marlin, Go Fish Costa Rica, Coconut Office, Jaco Transport, Infinite Discoveries and Little Waves Surf School. What each site does for the business, with real screenshots.">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=Krona+One&family=Fragment+Mono&family=Archivo:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=Krona+One&family=Fragment+Mono&family=Archivo:wght@400;600;700&family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@100..150,700&family=Hanken+Grotesk:wght@400;500;600&family=Cormorant+Garamond:wght@300;400&family=Geist:wght@400;500;600&family=Playfair+Display:wght@400;500&family=Lato:wght@400;700&family=Young+Serif&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -73,7 +73,7 @@
   .hero-anim>*:nth-child(3){animation-delay:.2s}
   @keyframes rise{to{opacity:1;transform:none}}
 
-  /* INDEX of the six sites: each card wears that site's type */
+  /* INDEX of the seven sites: each card wears that site's type */
   .index{margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;list-style:none}
   .ix a{display:block;text-decoration:none;color:#f3f1ea;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden;height:100%;
     transition:transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, background .3s}
@@ -141,6 +141,21 @@
   .live:hover::after{transform:scaleX(1)}
 
   /* site themes: each section wears its site's fonts + colours */
+  .ix-wide{grid-column:1/-1}
+  .ix-wide img{aspect-ratio:1440/560;object-position:top}
+  .s-costa{--bg:#131E18;--tx:#EDEAE2;--soft:rgba(237,234,226,.72);--ln:rgba(237,234,226,.14);--card:#1b2820;--acc:#2E9B3E;--acc-tx:#7fd08a;--btn-bg:#2E9B3E;--btn-tx:#fff;--btn-r:4px;--r:6px;
+    --f-d:'Big Shoulders Display';--f-b:'Manrope';--h-w:800;--h-case:uppercase;--h-track:.005em;--h-scale:1.12;--h3-case:uppercase;--h3-scale:1.12;--h3-track:.01em;
+    position:relative;isolation:isolate;border-top:none}
+  .s-costa::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+    -webkit-mask:url(../img/work/costa/topo.svg) 0 0/1400px 1400px repeat;mask:url(../img/work/costa/topo.svg) 0 0/1400px 1400px repeat;background:rgba(237,234,226,.08)}
+  .s-costa h2 span{display:block;color:transparent;-webkit-text-stroke:2px #EDEAE2}
+  .s-costa .feats h3{font-weight:800}
+  .s-costa .s-hero video{aspect-ratio:16/10;object-position:top}
+  .s-costa .s-flag{background:#2E9B3E;color:#fff}
+  .s-costa .phone .frame{border-color:#0d0f0e}
+  .s-costa .shot img{aspect-ratio:1440/840}
+  .s-costa .s-btn.ghost{background:transparent;border-color:rgba(237,234,226,.4);color:#EDEAE2}
+  .s-costa .s-btn.ghost:hover{border-color:#EDEAE2}
   .s-gm{--bg:#131718;--tx:#ffffff;--soft:rgba(255,255,255,.7);--ln:rgba(255,255,255,.14);--card:#1c2122;--acc:#5fb3b1;--acc-tx:#5fb3b1;--btn-bg:#ffffff;--btn-tx:#131718;--btn-r:0;--r:4px;
     --f-d:'Krona One';--f-b:'Archivo';--f-tag:'Fragment Mono';--h-w:400;--h-case:uppercase;--h-track:.02em;--h-scale:.86;--h3-case:uppercase;--h3-scale:.78;--h3-track:.02em;
     position:relative;isolation:isolate;border-top:none}
@@ -262,6 +277,7 @@
   nav.scrolled .nav-pages a:hover{background:rgba(11,28,40,.07)}
   @media(max-width:980px){.nav-pages{display:none}}
 </style>
+<link rel="stylesheet" href="../look.css">
 </head>
 <body>
 
@@ -277,35 +293,94 @@
 <header class="hero">
   <div class="wrap">
     <div class="hero-anim">
-      <div class="eyebrow">Our work · Six sites</div>
+      <div class="eyebrow">Our work · Seven sites</div>
       <h1>Every site, <em>up close</em>.</h1>
       <p class="lead">The homepage gives you the short version. This is the long one: every site I've built, what each one actually does for the business behind it, and screenshots from the real pages. Each section wears that site's own fonts and colors.</p>
     </div>
 
     <ol class="index" aria-label="Jump to a site">
-      <li class="ix" style="--ix-font:'Krona One';--ix-w:400;--ix-case:uppercase;--ix-scale:.78;--ix-track:.02em;--ix-acc:#5fb3b1"><a href="#great-marlin"><img src="../img/greatmarlin-360-poster.jpg" alt="" width="1440" height="900"><span class="ix-txt"><span class="ix-n">01</span><span><span class="ix-name">Great Marlin</span><span class="ix-meta">Sportfishing charter · Herradura Bay</span></span></span></a></li>
-      <li class="ix" style="--ix-font:'Anybody';--ix-w:700;--ix-vary:'wdth' 110;--ix-track:-.02em;--ix-acc:#3fa9c9"><a href="#go-fish"><img src="../img/gofishcr-after.webp" alt="" width="1440" height="900"><span class="ix-txt"><span class="ix-n">02</span><span><span class="ix-name">Go Fish Costa Rica</span><span class="ix-meta">Charters &amp; adventures · Tamarindo</span></span></span></a></li>
-      <li class="ix" style="--ix-font:'Fraunces';--ix-acc:#5fae96"><a href="#coconut-office"><img src="../img/coconut-after.webp" alt="" width="1440" height="900"><span class="ix-txt"><span class="ix-n">03</span><span><span class="ix-name">Coconut Office</span><span class="ix-meta">Coworking &amp; coliving · Playa Hermosa</span></span></span></a></li>
-      <li class="ix" style="--ix-font:'Cormorant Garamond';--ix-w:300;--ix-scale:1.2;--ix-acc:#2bb3c6"><a href="#jaco-transport"><img src="../img/jacotransport.webp" alt="" width="1440" height="900"><span class="ix-txt"><span class="ix-n">04</span><span><span class="ix-name">Jaco Transport</span><span class="ix-meta">Private transport · Jaco</span></span></span></a></li>
-      <li class="ix" style="--ix-font:'Playfair Display';--ix-w:400;--ix-acc:#4cb4e8"><a href="#infinite-discoveries"><img src="../img/infinitediscoveries.webp" alt="" width="1440" height="900"><span class="ix-txt"><span class="ix-n">05</span><span><span class="ix-name">Infinite Discoveries</span><span class="ix-meta">Tours &amp; charters · Jaco</span></span></span></a></li>
-      <li class="ix" style="--ix-font:'Young Serif';--ix-w:400;--ix-acc:#d08b74"><a href="#little-waves"><img src="../img/littlewaves.webp" alt="" width="1440" height="900"><span class="ix-txt"><span class="ix-n">06</span><span><span class="ix-name">Little Waves Surf School</span><span class="ix-meta">Surf school · Jaco Beach</span></span></span></a></li>
+      <li class="ix ix-wide" style="--ix-font:'Big Shoulders Display';--ix-w:800;--ix-case:uppercase;--ix-scale:1.25;--ix-track:.01em;--ix-acc:#7fd08a"><a href="#costa-outdoors"><img src="../img/work/costa/d-hero.webp" alt="" width="1440" height="840"><span class="ix-txt"><span class="ix-n">01</span><span><span class="ix-name">Costa Outdoors</span><span class="ix-meta">Landscaping &amp; hardscaping · Traverse City, Michigan</span></span></span></a></li>
+      <li class="ix" style="--ix-font:'Krona One';--ix-w:400;--ix-case:uppercase;--ix-scale:.78;--ix-track:.02em;--ix-acc:#5fb3b1"><a href="#great-marlin"><img src="../img/greatmarlin-360-poster.jpg" alt="" width="1440" height="900"><span class="ix-txt"><span class="ix-n">02</span><span><span class="ix-name">Great Marlin</span><span class="ix-meta">Sportfishing charter · Herradura Bay</span></span></span></a></li>
+      <li class="ix" style="--ix-font:'Anybody';--ix-w:700;--ix-vary:'wdth' 110;--ix-track:-.02em;--ix-acc:#3fa9c9"><a href="#go-fish"><img src="../img/gofishcr-after.webp" alt="" width="1440" height="900"><span class="ix-txt"><span class="ix-n">03</span><span><span class="ix-name">Go Fish Costa Rica</span><span class="ix-meta">Charters &amp; adventures · Tamarindo</span></span></span></a></li>
+      <li class="ix" style="--ix-font:'Fraunces';--ix-acc:#5fae96"><a href="#coconut-office"><img src="../img/coconut-after.webp" alt="" width="1440" height="900"><span class="ix-txt"><span class="ix-n">04</span><span><span class="ix-name">Coconut Office</span><span class="ix-meta">Coworking &amp; coliving · Playa Hermosa</span></span></span></a></li>
+      <li class="ix" style="--ix-font:'Cormorant Garamond';--ix-w:300;--ix-scale:1.2;--ix-acc:#2bb3c6"><a href="#jaco-transport"><img src="../img/jacotransport.webp" alt="" width="1440" height="900"><span class="ix-txt"><span class="ix-n">05</span><span><span class="ix-name">Jaco Transport</span><span class="ix-meta">Private transport · Jaco</span></span></span></a></li>
+      <li class="ix" style="--ix-font:'Playfair Display';--ix-w:400;--ix-acc:#4cb4e8"><a href="#infinite-discoveries"><img src="../img/infinitediscoveries.webp" alt="" width="1440" height="900"><span class="ix-txt"><span class="ix-n">06</span><span><span class="ix-name">Infinite Discoveries</span><span class="ix-meta">Tours &amp; charters · Jaco</span></span></span></a></li>
+      <li class="ix" style="--ix-font:'Young Serif';--ix-w:400;--ix-acc:#d08b74"><a href="#little-waves"><img src="../img/littlewaves.webp" alt="" width="1440" height="900"><span class="ix-txt"><span class="ix-n">07</span><span><span class="ix-name">Little Waves Surf School</span><span class="ix-meta">Surf school · Jaco Beach</span></span></span></a></li>
     </ol>
   </div>
 </header>
 
 <main>
 
-<!-- 01 · GREAT MARLIN (flagship) -->
+<!-- 01 · COSTA OUTDOORS (featured) -->
+<section class="site s-costa" id="costa-outdoors">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="reveal">
+        <div class="s-num">01 / 07 · Featured</div>
+        <span class="s-tag">Landscaping &amp; hardscaping · Traverse City, Michigan</span>
+        <h2>Costa <span>Outdoors</span></h2>
+      </div>
+      <div class="reveal" style="--d:.08s">
+        <p class="s-story">Jake's crew builds patios, retaining walls, shorelines and whole landscapes across Northern Michigan. His old site was a template that looked like everyone else's. I rebuilt it from scratch to look like his work: big bold type, an original contour-map pattern, only real job photos, and a direct line into Tradewind so every quote request lands on his phone.</p>
+        <div class="s-actions"><a class="btn s-btn" href="costa-outdoors/">Read the full case study →</a><a class="btn s-btn ghost" href="https://costaoutdoorsmi.com" target="_blank" rel="noopener">Visit costaoutdoorsmi.com ↗</a></div>
+      </div>
+    </div>
+
+    <a class="s-hero" href="costa-outdoors/">
+      <video autoplay muted loop playsinline preload="metadata" poster="../video/costa-scroll-poster.jpg" width="1280" height="800" aria-label="A slow scroll through the full Costa Outdoors homepage">
+        <source src="../video/costa-scroll.mp4" type="video/mp4">
+      </video>
+      <span class="s-flag">The whole homepage, one scroll</span>
+    </a>
+
+    <div class="s-body">
+      <div>
+        <div class="s-sub reveal">What it does for the business</div>
+        <ol class="feats">
+          <li class="reveal"><span class="fn">01</span><h3>Big, bold type</h3><p>Jake asked for a site that feels as solid as his stone work. Tall condensed headlines and giant outlined words, always whole, never cut off.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">02</span><h3>Real photos only</h3><p>86 photos from real Costa Outdoors jobs, from drone shots of finished patios to the excavator in the woods. Not one stock image.</p></li>
+          <li class="reveal"><span class="fn">03</span><h3>Seven service pages</h3><p>Landscaping, hardscaping, shoreline, lawn and turf, lighting, drainage and land clearing, each with its own photos, sub-services and FAQs.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">04</span><h3>A filterable project gallery</h3><p>Customers tap Hardscaping, Lighting or Shoreline and see only that kind of work, which is usually exactly what they came for.</p></li>
+          <li class="reveal"><span class="fn">05</span><h3>A free quote on every page</h3><p>The form asks the town, the property type, the services and the timing, so Jake can call back once instead of three times.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">06</span><h3>Straight into Tradewind</h3><p>Every quote request and chat lands in Jake's app the second it's sent. From there: quote, signature, invoice, paid.</p></li>
+          <li class="reveal"><span class="fn">07</span><h3>Jake edits it himself</h3><p>Photos, services and hours change right from the app. He taps Publish and the site updates.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">08</span><h3>Nothing lost in the move</h3><p>Every old link from the template redirects to its new page, so Google rankings carry over, and his email never went down.</p></li>
+        </ol>
+      </div>
+      <div class="phones">
+        <figure class="phone"><div class="frame"><img src="../img/work/costa/m-hero.webp" alt="Costa Outdoors homepage on a phone" width="780" height="1688" loading="lazy"></div><figcaption>Call, Text and Free Quote pinned to every page</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <figure class="shot"><div class="frame"><img src="../img/work/costa/d-hardscaping.webp" alt="Costa Outdoors hardscaping service page" width="1440" height="840" loading="lazy"></div><figcaption><b>A page for every service.</b> Written for people searching "hardscaping in Traverse City".</figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="../img/work/costa/d-projects.webp" alt="Costa Outdoors project gallery with filters" width="1440" height="840" loading="lazy"></div><figcaption><b>The project gallery.</b> Real jobs, filtered by the kind of work.</figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="../img/work/costa/d-manifesto.webp" alt="Costa Outdoors: The work you never see is what makes it last" width="1440" height="840" loading="lazy"></div><figcaption><b>The work you never see.</b> What goes under every job, set huge across the page.</figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="../img/work/costa/d-quote.webp" alt="Costa Outdoors free quote form" width="1440" height="840" loading="lazy"></div><figcaption><b>The free quote.</b> At the bottom of every page, straight into Tradewind.</figcaption></figure>
+    </div>
+
+    <div class="chips">
+      <span class="chip">20 pages</span>
+      <span class="chip">86 real photos</span>
+      <span class="chip">Original contour pattern</span>
+      <span class="chip">Connected to Tradewind</span>
+      <a class="live" href="costa-outdoors/">Full case study →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 02 · GREAT MARLIN -->
 <section class="site s-gm" id="great-marlin">
   <div class="wrap">
     <div class="s-head">
       <div class="reveal">
-        <div class="s-num">01 / 06 · The flagship</div>
+        <div class="s-num">02 / 07 · My own brand</div>
         <span class="s-tag">My own brand · Sportfishing charter · Herradura Bay</span>
         <h2>Great Marlin</h2>
       </div>
       <div class="reveal" style="--d:.08s">
-        <p class="s-story">Great Marlin is my own private charter: one 36-foot sportfisher working the drop off Herradura Bay, one crew, your group only. I built the site the way the big yacht builders present their boats, calm and confident, with the boat as the star. It is the most advanced site I've built, and it takes bookings on its own.</p>
+        <p class="s-story">Great Marlin is my own private charter: one 36-foot sportfisher working the drop off Herradura Bay, one crew, your group only. I built the site the way the big yacht builders present their boats, calm and confident, with the boat as the star. It takes bookings on its own.</p>
         <div class="s-actions"><a class="btn s-btn" href="https://greatmarlin.com" target="_blank" rel="noopener">Visit greatmarlin.com ↗</a></div>
       </div>
     </div>
@@ -359,7 +434,7 @@
   <div class="wrap">
     <div class="s-head">
       <div class="reveal">
-        <div class="s-num">02 / 06 · Paid client</div>
+        <div class="s-num">03 / 07 · Paid client</div>
         <span class="s-tag">Redesign · Fishing charters &amp; adventures · Tamarindo</span>
         <h2>Go Fish Costa Rica</h2>
       </div>
@@ -421,7 +496,7 @@
   <div class="wrap">
     <div class="s-head">
       <div class="reveal">
-        <div class="s-num">03 / 06</div>
+        <div class="s-num">04 / 07</div>
         <span class="s-tag">Redesign · Coworking &amp; coliving · Playa Hermosa</span>
         <h2>Coconut Office</h2>
       </div>
@@ -477,7 +552,7 @@
   <div class="wrap">
     <div class="s-head">
       <div class="reveal">
-        <div class="s-num">04 / 06</div>
+        <div class="s-num">05 / 07</div>
         <span class="s-tag">New build · Airport transfers &amp; private transport · Jaco</span>
         <h2>Jaco Transport</h2>
       </div>
@@ -532,7 +607,7 @@
   <div class="wrap">
     <div class="s-head">
       <div class="reveal">
-        <div class="s-num">05 / 06</div>
+        <div class="s-num">06 / 07</div>
         <span class="s-tag">New build · Tours &amp; fishing charters · Jaco</span>
         <h2>Infinite Discoveries</h2>
       </div>
@@ -588,7 +663,7 @@
   <div class="wrap">
     <div class="s-head">
       <div class="reveal">
-        <div class="s-num">06 / 06</div>
+        <div class="s-num">07 / 07</div>
         <span class="s-tag">New build · Surf school · Jaco Beach</span>
         <h2>Little Waves Surf School</h2>
       </div>
@@ -700,11 +775,11 @@
 
   // Great Marlin 360 clip: play only while on screen; reduced motion keeps the poster still.
   (function(){
-    const v = document.querySelector('.s-gm video');
-    if(!v) return;
-    if(matchMedia('(prefers-reduced-motion:reduce)').matches){ v.removeAttribute('autoplay'); v.pause(); return; }
-    if(!('IntersectionObserver' in window)) return;
-    new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? v.play().catch(()=>{}) : v.pause()), {threshold:.15}).observe(v);
+    document.querySelectorAll('.s-gm video, .s-costa video').forEach(v=>{
+      if(matchMedia('(prefers-reduced-motion:reduce)').matches){ v.removeAttribute('autoplay'); v.pause(); return; }
+      if(!('IntersectionObserver' in window)) return;
+      new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? v.play().catch(()=>{}) : v.pause()), {threshold:.15}).observe(v);
+    });
   })();
 
   // Text-only scroll reveal, with failsafes so nothing can stay hidden.
