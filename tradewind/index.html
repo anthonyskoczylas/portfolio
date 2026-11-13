@@ -182,6 +182,8 @@
   .fgroup ul{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:8px}
   .fgroup li{font-size:15px;line-height:1.5;color:var(--ink-soft);padding-left:16px;position:relative}
   .fgroup li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 1px var(--green) inset}
+  .all-feats{margin-top:44px;font-size:16px;color:var(--muted)}
+  .all-feats a{color:inherit;font-weight:700;text-underline-offset:3px}
   .soon{margin-top:52px;border:1.5px dashed #bfb7a3;border-radius:18px;padding:24px 26px;display:grid;grid-template-columns:auto 1fr;gap:10px 22px;align-items:center;background:var(--cream)}
   .soon .tag{background:#ece6d8;color:#5d5641;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:6px 13px;white-space:nowrap}
   .soon ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;font-size:15.5px;font-weight:500}
@@ -337,9 +339,10 @@
       <div class="tw-brand reveal"><svg class="tw-logo" viewBox="0 0 1024 1024" aria-hidden="true"><rect width="1024" height="1024" rx="230" fill="#2f5d3a"/><line x1="472" y1="200" x2="472" y2="776" stroke="#f6f4ee" stroke-width="40" stroke-linecap="round"/><path d="M512 226 C722 346 788 536 742 720 L512 720 Z" fill="#f6f4ee"/><path d="M432 306 C310 450 290 590 330 700 L432 700 Z" fill="#9fd1a8"/><path d="M245 830 Q512 748 779 830" stroke="#9fd1a8" stroke-width="40" fill="none" stroke-linecap="round"/></svg><span>Tradewind</span></div>
       <div class="kicker reveal">The business app behind your website</div>
       <h1 class="reveal"><span class="ln">Win more jobs.</span> <span class="ln">Get paid faster.</span> <span class="ln">Go home <span class="accent">on time.</span></span></h1>
-      <p class="hero-lead reveal" style="--d:.06s">Every request from your website lands on your phone with its photos. Replies, quotes and reminders get written for you. Customers approve and sign quotes online, and you always know who still owes you. Leads, quotes, jobs, invoices and reviews, all in one place.</p>
+      <p class="hero-lead reveal" style="--d:.06s">Every request from your website lands on your phone with its photos. Replies, quotes and reminders get written for you. Customers sign quotes and pay invoices by card online, texts go out from your own business number, and you always know who still owes you. Leads, quotes, jobs, invoices and reviews, all in one place.</p>
       <div class="hero-actions reveal" style="--d:.1s">
         <a class="btn btn-mint" href="https://wa.me/13213561951?text=Hi%20Tony%2C%20I%27d%20like%20to%20hear%20about%20Tradewind" target="_blank" rel="noopener">Ask me about Tradewind</a>
+        <a class="btn btn-ghost-dark" href="https://tradewindcrm.com" target="_blank" rel="noopener">Visit tradewindcrm.com ↗</a>
         <a class="btn btn-ghost-dark" href="#pricing">See pricing</a>
       </div>
       <ul class="hero-points reveal" style="--d:.14s">
@@ -421,7 +424,8 @@
         <p class="reveal">Money stops slipping through the cracks when every invoice has a link and a status.</p>
         <ul class="reveal">
           <li>Invoices from a job or quote, change orders included</li>
-          <li>Record cash, check, Venmo or Zelle</li>
+          <li>Customers pay by card online, straight to your own Stripe account</li>
+        <li>Record cash, check, Venmo or Zelle</li>
           <li>One monthly bill per customer for repeat visits</li>
           <li>A private page where each customer sees their quotes, invoices and visits</li>
           <li>Overdue reminders written for you</li>
@@ -600,6 +604,18 @@
         <li>Before and after photos</li>
         <li>"On my way" text with the arrival time</li>
       </ul></div>
+      <div class="fgroup reveal"><h3>Business texting</h3><ul>
+        <li>Your own business texting number</li>
+        <li>Two-way texts: replies land in the Messages tab and you answer from the app</li>
+        <li>Missed-call text-back, so a call you miss on the job still gets an answer</li>
+        <li>"On my way", quote and invoice texts from your business number</li>
+      </ul></div>
+      <div class="fgroup reveal"><h3>Your home screen</h3><ul>
+        <li>Up next: your current or next job with Directions and Call</li>
+        <li>A To do list: new leads, late invoices, jobs to bill</li>
+        <li>Money at a glance: quotes out, owed to you, jobs today</li>
+        <li>Step-by-step help for every feature</li>
+      </ul></div>
       <div class="fgroup reveal"><h3>Invoices and customers</h3><ul>
         <li>From a job or quote, change orders included</li>
         <li>Record cash, check, Venmo or Zelle</li>
@@ -631,21 +647,11 @@
       <div class="fgroup reveal"><h3>Works anywhere</h3><ul>
         <li>Runs on any phone, tablet or computer</li>
         <li>Push alerts for new leads</li>
-        <li>iPhone app coming soon</li>
+        <li>Add it to your home screen and it opens full screen, like an app</li>
         <li>Built in-house and connected to your Coastal CR site</li>
       </ul></div>
     </div>
-    <div class="soon">
-      <span class="tag reveal">Coming soon</span>
-      <ul class="reveal">
-        <li>Card payments and autopay</li>
-        <li>Automatic texting from your business number</li>
-        <li>Missed-call text-back</li>
-        <li>Two-way texts in the app</li>
-        <li>The iPhone app in the App Store</li>
-      </ul>
-      <p class="reveal">These are being built now. They're not part of Tradewind yet, so I'll tell you when each one is ready.</p>
-    </div>
+    <p class="all-feats reveal">See every feature, the live demo and how it works at <a href="https://tradewindcrm.com/features" target="_blank" rel="noopener">tradewindcrm.com</a>.</p>
   </div>
 </section>
 
@@ -740,10 +746,10 @@
     <div class="qs">
       <details><summary>Do I need a Coastal CR website to use Tradewind?</summary><p>Yes. Tradewind is connected to the website I build you. That's what sends every request straight into your app, and what lets you change your site from your phone without retyping anything.</p></details>
       <details><summary>Does the AI send messages on its own?</summary><p>No. It writes drafts and puts them in front of you. Nothing goes to a customer until you read it and tap send. When it drafts a quote, it only uses prices from your own price book. It never makes up a price.</p></details>
-      <details><summary>Can customers pay by card?</summary><p>Not yet. Card payments and autopay are coming soon. Today you send an invoice with a link, take cash, check, Venmo or Zelle the way you already do, and record it in Tradewind so you always know who still owes you.</p></details>
-      <details><summary>Is there an app in the App Store?</summary><p>The iPhone app is coming soon. Right now Tradewind works on any phone and on your computer, and you can add it to your home screen so it opens just like an app.</p></details>
+      <details><summary>Can customers pay by card?</summary><p>Yes. Customers pay their invoice by card from the link you send, and the money goes straight to your own Stripe account. You can still take cash, check, Venmo or Zelle and record it, so you always know who still owes you.</p></details>
+      <details><summary>Do I need to download anything?</summary><p>No. Tradewind works on any phone and on your computer. Add it to your home screen and it opens full screen, just like an app, with alerts for new leads.</p></details>
       <details><summary>Can my crew use it?</summary><p>Yes. Each crew member gets their own login with limited access. They see their jobs, checklists and photos, and never the money.</p></details>
-      <details><summary>How does texting work?</summary><p>When you send a quote or message by text, your phone's messages app opens with it ready to go, so it comes from your own phone. Automatic texting from your business number is coming soon, including missed-call text-back and two-way texts in the app.</p></details>
+      <details><summary>How does texting work?</summary><p>You get your own business texting number. Quotes, invoices and "On my way" texts go out from it, customer replies land in the Messages tab so you can answer from the app, and if you miss a call on the job, the customer gets a text right away. I register your number with the phone carriers during setup, which can take a couple of weeks.</p></details>
       <details><summary>Can I set up repeat jobs?</summary><p>Yes. Set any job to repeat weekly, every 2 weeks or monthly, and the visits fill in on your calendar. You can stop repeating any time.</p></details>
       <details><summary>Can I change my own website?</summary><p>Yes. Change your photos, services, hours and service areas, hit Publish, and your site updates in under a minute.</p></details>
       <details><summary>Is my data safe?</summary><p>Your business's data is walled off from every other business that uses Tradewind, connections are encrypted, and everything is backed up regularly. If you forget your password, you can reset it yourself.</p></details>
@@ -764,6 +770,7 @@
       <div class="btns">
         <a class="btn btn-mint" href="https://wa.me/13213561951?text=Hi%20Tony%2C%20I%27d%20like%20to%20hear%20about%20Tradewind" target="_blank" rel="noopener">Message on WhatsApp</a>
         <a class="btn btn-ghost-dark" href="mailto:coastalcrwebsites@gmail.com?subject=Tradewind">Email me</a>
+        <a class="btn btn-ghost-dark" href="https://tradewindcrm.com" target="_blank" rel="noopener">tradewindcrm.com ↗</a>
       </div>
     </div>
   </div>
@@ -785,6 +792,7 @@
     <div class="f-col">
       <h5>Grow</h5>
       <a href="../tradewind/">Tradewind app</a>
+      <a href="https://tradewindcrm.com" target="_blank" rel="noopener">tradewindcrm.com ↗</a>
       <a href="../services/">Monthly plans</a>
       <a href="../services/#growth">Google &amp; ads</a>
       <a href="../services/#transfer">Move my site over</a>
