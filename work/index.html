@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Projects · Coastal CR</title>
-<meta name="description" content="Every website Coastal CR has built, up close: Costa Outdoors, Great Marlin, Go Fish Costa Rica, Coconut Office, Jaco Transport, Infinite Discoveries and Little Waves Surf School. What each site does for the business, with real screenshots.">
+<meta name="description" content="Every website Coastal CR has built, up close: Costa Outdoors, Great Marlin, Go Fish Costa Rica, Coconut Office, Jaco Transport, Infinite Discoveries, Little Waves Surf School and Miller's Property Service. What each site does for the business, with real screenshots.">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=Krona+One&family=Fragment+Mono&family=Archivo:wght@400;600;700&family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=Krona+One&family=Fragment+Mono&family=Archivo:wdth,wght@62..125,400..900&family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@100..150,700&family=Hanken+Grotesk:wght@400;500;600&family=Cormorant+Garamond:wght@300;400&family=Geist:wght@400;500;600&family=Playfair+Display:wght@400;500&family=Lato:wght@400;700&family=Young+Serif&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -73,7 +73,7 @@
   .hero-anim>*:nth-child(3){animation-delay:.2s}
   @keyframes rise{to{opacity:1;transform:none}}
 
-  /* INDEX of the seven sites: each card wears that site's type */
+  /* INDEX of the eight sites: each card wears that site's type */
   .index{margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;list-style:none}
   .ix a{display:block;text-decoration:none;color:#f3f1ea;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden;height:100%;
     transition:transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, background .3s}
@@ -143,6 +143,7 @@
   /* site themes: each section wears its site's fonts + colours */
   .ix-wide{grid-column:1/-1}
   .ix-wide img{aspect-ratio:1440/560;object-position:top}
+  .ix-slim img{aspect-ratio:1440/300;object-position:center 62%}
   .s-costa{--bg:#131E18;--tx:#EDEAE2;--soft:rgba(237,234,226,.72);--ln:rgba(237,234,226,.14);--card:#1b2820;--acc:#2E9B3E;--acc-tx:#7fd08a;--btn-bg:#2E9B3E;--btn-tx:#fff;--btn-r:4px;--r:6px;
     --f-d:'Big Shoulders Display';--f-b:'Manrope';--h-w:800;--h-case:uppercase;--h-track:.005em;--h-scale:1.12;--h3-case:uppercase;--h3-scale:1.12;--h3-track:.01em;
     position:relative;isolation:isolate;border-top:none}
@@ -179,6 +180,14 @@
     --f-d:'Playfair Display';--f-b:'Lato';--h-w:400;--h-scale:1.02;--h3-scale:1.02;border-top:none}
   .s-lw{--bg:#f6eedf;--tx:#1d3d57;--soft:#55606a;--ln:#e5d8c2;--card:#fbf6ec;--acc:#b06a55;
     --f-d:'Young Serif';--f-b:'Jost';--h-w:400;--h3-scale:1}
+
+  .s-ml{--bg:#161413;--tx:#EDEAE2;--soft:rgba(237,234,226,.72);--ln:rgba(237,234,226,.14);--card:#221F1D;--acc:#CC1324;--acc-tx:#ff5a5f;--btn-bg:#CC1324;--btn-tx:#fff;--btn-r:2px;--r:4px;
+    --f-d:'Archivo';--f-b:'Archivo';--h-w:800;--h-vary:'wdth' 118;--h-case:uppercase;--h-track:0;--h-scale:.92;--h3-case:uppercase;--h3-scale:.78;--h3-track:.01em;border-top:none}
+  .s-ml h2 span{color:#CC1324}
+  .s-ml .s-flag{background:#CC1324;color:#fff}
+  .s-ml .phone .frame{border-color:#0d0c0b}
+  .s-ml .s-btn.ghost{background:transparent;border-color:rgba(237,234,226,.4);color:#EDEAE2}
+  .s-ml .s-btn.ghost:hover{border-color:#EDEAE2}
 
   /* BEFORE/AFTER SLIDER (from the homepage) */
   .ba{position:relative;margin-top:52px;border-radius:var(--r);overflow:hidden;box-shadow:0 40px 90px -46px rgba(0,0,0,.55);border:1px solid var(--ln);user-select:none;aspect-ratio:1440/900;background:#0b1c28}
@@ -293,7 +302,7 @@
 <header class="hero">
   <div class="wrap">
     <div class="hero-anim">
-      <div class="eyebrow">Projects · Seven sites</div>
+      <div class="eyebrow">Projects · Eight sites</div>
       <h1>Every site, <em>up close</em>.</h1>
       <p class="lead">The homepage gives you the short version. This is the long one: every site I've built, what each one actually does for the business behind it, and screenshots from the real pages. Each section wears that site's own fonts and colors.</p>
     </div>
@@ -306,6 +315,7 @@
       <li class="ix" style="--ix-font:'Cormorant Garamond';--ix-w:300;--ix-scale:1.2;--ix-acc:#2bb3c6"><a href="#jaco-transport"><img src="../img/jacotransport.webp" alt="" width="1440" height="900"><span class="ix-txt"><span class="ix-n">05</span><span><span class="ix-name">Jaco Transport</span><span class="ix-meta">Private transport · Jaco</span></span></span></a></li>
       <li class="ix" style="--ix-font:'Playfair Display';--ix-w:400;--ix-acc:#4cb4e8"><a href="#infinite-discoveries"><img src="../img/infinitediscoveries.webp" alt="" width="1440" height="900"><span class="ix-txt"><span class="ix-n">06</span><span><span class="ix-name">Infinite Discoveries</span><span class="ix-meta">Tours &amp; charters · Jaco</span></span></span></a></li>
       <li class="ix" style="--ix-font:'Young Serif';--ix-w:400;--ix-acc:#d08b74"><a href="#little-waves"><img src="../img/littlewaves.webp" alt="" width="1440" height="900"><span class="ix-txt"><span class="ix-n">07</span><span><span class="ix-name">Little Waves Surf School</span><span class="ix-meta">Surf school · Jaco Beach</span></span></span></a></li>
+      <li class="ix ix-wide ix-slim" style="--ix-font:'Archivo';--ix-w:800;--ix-vary:'wdth' 118;--ix-case:uppercase;--ix-scale:.95;--ix-acc:#ff5a5f"><a href="#millers"><img src="../img/work/millers/ix-photo.webp" alt="" width="1600" height="893" loading="lazy"><span class="ix-txt"><span class="ix-n">08</span><span><span class="ix-name">Miller's Property Service</span><span class="ix-meta">Landscaping &amp; hardscaping · New Hudson, Michigan</span></span></span></a></li>
     </ol>
   </div>
 </header>
@@ -317,7 +327,7 @@
   <div class="wrap">
     <div class="s-head">
       <div class="reveal">
-        <div class="s-num">01 / 07 · Featured</div>
+        <div class="s-num">01 / 08 · Featured</div>
         <span class="s-tag">Landscaping &amp; hardscaping · Traverse City, Michigan</span>
         <h2>Costa <span>Outdoors</span></h2>
       </div>
@@ -375,7 +385,7 @@
   <div class="wrap">
     <div class="s-head">
       <div class="reveal">
-        <div class="s-num">02 / 07</div>
+        <div class="s-num">02 / 08</div>
         <span class="s-tag">Private sportfishing charter · Herradura Bay</span>
         <h2>Great Marlin</h2>
       </div>
@@ -434,7 +444,7 @@
   <div class="wrap">
     <div class="s-head">
       <div class="reveal">
-        <div class="s-num">03 / 07</div>
+        <div class="s-num">03 / 08</div>
         <span class="s-tag">Redesign · Fishing charters &amp; adventures · Tamarindo</span>
         <h2>Go Fish Costa Rica</h2>
       </div>
@@ -496,7 +506,7 @@
   <div class="wrap">
     <div class="s-head">
       <div class="reveal">
-        <div class="s-num">04 / 07</div>
+        <div class="s-num">04 / 08</div>
         <span class="s-tag">Redesign · Coworking &amp; coliving · Playa Hermosa</span>
         <h2>Coconut Office</h2>
       </div>
@@ -552,7 +562,7 @@
   <div class="wrap">
     <div class="s-head">
       <div class="reveal">
-        <div class="s-num">05 / 07</div>
+        <div class="s-num">05 / 08</div>
         <span class="s-tag">New build · Airport transfers &amp; private transport · Jaco</span>
         <h2>Jaco Transport</h2>
       </div>
@@ -607,7 +617,7 @@
   <div class="wrap">
     <div class="s-head">
       <div class="reveal">
-        <div class="s-num">06 / 07</div>
+        <div class="s-num">06 / 08</div>
         <span class="s-tag">New build · Tours &amp; fishing charters · Jaco</span>
         <h2>Infinite Discoveries</h2>
       </div>
@@ -663,7 +673,7 @@
   <div class="wrap">
     <div class="s-head">
       <div class="reveal">
-        <div class="s-num">07 / 07</div>
+        <div class="s-num">07 / 08</div>
         <span class="s-tag">New build · Surf school · Jaco Beach</span>
         <h2>Little Waves Surf School</h2>
       </div>
@@ -707,6 +717,61 @@
       <span class="chip">English y Español</span>
       <span class="chip">Her own domain</span>
       <a class="live" href="https://littlewavessurf.com" target="_blank" rel="noopener">Visit live site ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- 08 · MILLER'S PROPERTY SERVICE -->
+<section class="site s-ml" id="millers">
+  <div class="wrap">
+    <div class="s-head">
+      <div class="reveal">
+        <div class="s-num">08 / 08</div>
+        <span class="s-tag">Revamp · Landscaping · New Hudson, Michigan</span>
+        <h2>Miller's <span>Property Service</span></h2>
+      </div>
+      <div class="reveal" style="--d:.08s">
+        <p class="s-story">Kyle's crew builds patios, retaining walls and pool decks and looks after properties across Southeast Michigan, all year round. His old site was a template that didn't show how good his work is. I rebuilt it around his real job photos, his 59 five-star reviews and the stories behind his best projects, in his own red and charcoal.</p>
+        <div class="s-actions"><a class="btn s-btn" href="https://millerspropertyservice.net" target="_blank" rel="noopener">Visit millerspropertyservice.net ↗</a></div>
+      </div>
+    </div>
+
+    <a class="s-hero" href="https://millerspropertyservice.net" target="_blank" rel="noopener">
+      <img src="../img/work/millers/d-hero.webp" alt="Miller's Property Service homepage: Built right the first time" width="1440" height="900" loading="lazy">
+    </a>
+
+    <div class="s-body">
+      <div>
+        <div class="s-sub reveal">What it does for the business</div>
+        <ol class="feats">
+          <li class="reveal"><span class="fn">01</span><h3>Built right the first time</h3><p>The homepage opens on one of Kyle's own patios at dusk and says what he does in one line: design, hardscaping and property maintenance.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">02</span><h3>Real photos only</h3><p>Every photo on the site is a real Miller's job, from pool decks to snow plowing. No stock.</p></li>
+          <li class="reveal"><span class="fn">03</span><h3>A page for every service</h3><p>Seven services, each with its own page, photos and answers to the questions customers actually ask.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">04</span><h3>Project stories</h3><p>Eight of his best jobs told start to finish: what went wrong underneath, how it was fixed, and what the client said.</p></li>
+          <li class="reveal"><span class="fn">05</span><h3>59 five-star reviews</h3><p>Every Google and Facebook review in one place, with the best ones right on the homepage.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">06</span><h3>A quote in three steps</h3><p>Customers pick their services and send the request as a text or an email, with yard photos attached, straight to Kyle.</p></li>
+          <li class="reveal"><span class="fn">07</span><h3>Call, text, quote on every page</h3><p>On a phone those three buttons stay pinned to the bottom of the screen, wherever you scroll.</p></li>
+          <li class="reveal" style="--d:.06s"><span class="fn">08</span><h3>Nothing lost in the move</h3><p>Every old link redirects to its new page, so Google rankings carry over, and his email never went down.</p></li>
+        </ol>
+      </div>
+      <div class="phones">
+        <figure class="phone"><div class="frame"><img src="../img/work/millers/m-hero.webp" alt="Miller's Property Service homepage on a phone" width="780" height="1688" loading="lazy"></div><figcaption>Call, Text and Free Quote pinned to every page</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <figure class="shot"><div class="frame"><img src="../img/work/millers/d-services.webp" alt="Miller's Property Service services page" width="1440" height="900" loading="lazy"></div><figcaption><b>Everything outside the house.</b> Seven services, one company.</figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="../img/work/millers/d-projects.webp" alt="Miller's Property Service projects page" width="1440" height="900" loading="lazy"></div><figcaption><b>Our projects.</b> Real jobs and the stories behind them.</figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="../img/work/millers/d-reviews.webp" alt="Miller's Property Service reviews page" width="1440" height="900" loading="lazy"></div><figcaption><b>59 reviews, all five stars.</b> Google and Facebook in one place.</figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="../img/work/millers/d-quote.webp" alt="Miller's Property Service free quote form" width="1440" height="900" loading="lazy"></div><figcaption><b>Free quote.</b> Three steps, sent by text or email.</figcaption></figure>
+    </div>
+
+    <div class="chips">
+      <span class="chip">18 pages</span>
+      <span class="chip">Real job photos</span>
+      <span class="chip">59 five-star reviews</span>
+      <span class="chip">8 project stories</span>
+      <a class="live" href="https://millerspropertyservice.net" target="_blank" rel="noopener">Visit live site ↗</a>
     </div>
   </div>
 </section>
