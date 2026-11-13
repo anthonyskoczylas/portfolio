@@ -476,6 +476,52 @@
     .co-btn{flex:1;justify-content:center}
     .co-tag{left:10px;bottom:10px;font-size:10px;padding:5px 10px}
   }
+
+  /* ---------- FEATURE · Great Marlin + Go Fish: same layout as Costa Outdoors, each in its own site's look ---------- */
+  .feat-gm{--co-pine:#131718;--co-moss:#1c2122;--co-stone:#ffffff;--co-green:#ffffff;--co-green-ink:#e9eeee;--co-mint:#5fb3b1;font-family:'Archivo',system-ui,sans-serif}
+  .feat-gm::before{-webkit-mask:none;mask:none;background:radial-gradient(70% 60% at 85% 18%,rgba(95,179,177,.14),transparent 62%),radial-gradient(60% 55% at 6% 94%,rgba(14,116,113,.16),transparent 60%)}
+  .feat-gm h2{font-family:'Krona One','Archivo',sans-serif;font-weight:400;font-size:clamp(40px,6vw,84px);line-height:1;letter-spacing:.02em}
+  .feat-gm h2 span{color:#5fb3b1;-webkit-text-stroke:0;font-weight:400}
+  .feat-gm .co-kicker{font-family:'Fragment Mono',monospace;font-weight:400;letter-spacing:.14em}
+  .feat-gm .co-lead{font-family:'Archivo',sans-serif;color:rgba(255,255,255,.72)}
+  .feat-gm .co-browser{border-radius:4px}
+  .feat-gm .co-browser video{aspect-ratio:16/9;object-position:center}
+  .feat-gm .co-tag{background:#fff;color:#131718;border-radius:0;font-family:'Fragment Mono',monospace;font-weight:400}
+  .feat-gm .co-facts b{font-family:'Krona One',sans-serif;font-weight:400;font-size:28px}
+  .feat-gm .co-facts span{font-family:'Archivo',sans-serif}
+  .feat-gm .chip{font-family:'Fragment Mono',monospace;font-weight:400;font-size:12px;letter-spacing:.06em;text-transform:uppercase;border-radius:0;color:rgba(255,255,255,.82)}
+  .feat-gm .chip:hover{background:#0e7471;border-color:#0e7471}
+  .feat-gm .co-btn{border-radius:0;font-family:'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.06em;font-size:14px}
+  .feat-gm .co-btn.g{background:#fff;color:#131718;border-color:#fff}
+  .feat-gm .co-btn.g:hover{background:transparent;color:#fff}
+  .co-shot{display:block;border-radius:4px;overflow:hidden;border:1px solid rgba(255,255,255,.14);box-shadow:0 30px 70px -40px rgba(0,0,0,.8)}
+  .co-shot img{display:block;width:100%;height:auto;aspect-ratio:1440/840;object-fit:cover;object-position:top}
+  .co-cap{font-size:13px;color:rgba(255,255,255,.6);margin-top:-8px}
+
+  .feat-gf{--co-pine:#f2f7f9;--co-moss:#0c1334;--co-stone:#0c1334;--co-green:#0b6f8d;--co-green-ink:#095a73;--co-mint:#0b6f8d;color:#0c1334;font-family:'Hanken Grotesk',system-ui,sans-serif;border-top:1px solid #d3e2e9}
+  .feat-gf::before{-webkit-mask:none;mask:none;background:radial-gradient(900px 620px at 88% 6%,rgba(19,144,180,.16),transparent 62%)}
+  .feat-gf h2{font-family:'Anybody',sans-serif;font-weight:700;font-variation-settings:'wdth' 110;text-transform:none;letter-spacing:-.02em;font-size:clamp(40px,5.4vw,80px);line-height:.98}
+  .feat-gf h2 span{color:#0b6f8d;-webkit-text-stroke:0;font-weight:700}
+  .feat-gf .co-lead{color:#4a5a68;font-family:'Hanken Grotesk',sans-serif}
+  .feat-gf .co-browser{border-color:#d3e2e9;box-shadow:0 40px 90px -46px rgba(12,19,52,.5)}
+  .feat-gf .co-tag{background:#0c1334;border-radius:999px}
+  .feat-gf .ba{border-color:#d3e2e9;box-shadow:0 30px 70px -40px rgba(12,19,52,.45)}
+  .feat-gf .ba .label.after{background:#0b6f8d}
+  .feat-gf .hint{color:#4a5a68}
+  .feat-gf .co-facts,.feat-gf .co-facts div,.feat-gf .co-facts div:nth-child(even),.feat-gf .co-facts div:nth-child(n+3){border-color:#d3e2e9}
+  .feat-gf .co-facts b{font-family:'Anybody',sans-serif;font-weight:700;font-variation-settings:'wdth' 110;color:#0c1334}
+  .feat-gf .co-facts span{color:#4a5a68}
+  .feat-gf .chip{font-family:'Hanken Grotesk',sans-serif;color:#0c1334;background:#fff;border-color:#d3e2e9;border-radius:999px}
+  .feat-gf .chip:hover{background:#0c1334;color:#fff;border-color:#0c1334}
+  .feat-gf .co-btn{border-radius:999px;font-family:'Hanken Grotesk',sans-serif}
+  .feat-gf .co-btn.l{color:#0c1334;border-color:rgba(12,19,52,.3)}
+  .feat-gf .co-btn.l:hover{border-color:#0c1334}
+  .feat-gf .co-stage{grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:56px;align-items:center}
+  .feat-gf .co-phone{justify-self:center;width:100%;max-width:340px;border:10px solid #0c1334;border-radius:52px;background:#0c1334;box-shadow:0 50px 100px -40px rgba(12,19,52,.55)}
+  .feat-gf .co-phone video{aspect-ratio:498/1080;object-fit:cover;border-radius:42px;background:#f2f7f9}
+  .feat-gf .co-phone .co-tag{left:50%;transform:translateX(-50%);bottom:18px;white-space:nowrap}
+  @media(max-width:980px){.feat-gf .co-stage{grid-template-columns:1fr;gap:36px}.feat-gf .co-phone{max-width:290px}}
+  .all-projects{padding:56px 0 64px;text-align:center;background:var(--paper)}
   /* ---------- FLAGSHIP · Great Marlin (the star) — wears Great Marlin's own colours ---------- */
   .flagship{--gm-hull:#131718;--gm-hull-2:#1c2122;--gm-teal:#5fb3b1;--gm-teal-deep:#0e7471;--gm-white:#ffffff;
     position:relative;isolation:isolate;overflow:hidden;
@@ -611,7 +657,7 @@
       <h1>Websites that make local businesses look <em>world-class</em>.</h1>
       <p class="lead">Fast, custom websites for local businesses in Costa Rica and across the US. No templates. Just a site that brings in customers.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#work">See the work</a>
+        <a class="btn btn-primary" href="#costa-outdoors">See the work</a>
         <a class="btn btn-ghost" href="#contact">Start a project</a>
       </div>
       <div class="hero-stats">
@@ -681,76 +727,103 @@
   </div>
 </section>
 
-<section class="flagship" id="flagship">
+<section class="feat-co feat-gm" id="flagship">
   <div class="wrap">
-    <div class="fl-head reveal">
-      <div>
-        <div class="kicker">My own brand · Sportfishing charter</div>
-        <h2>Great <em>Marlin</em></h2>
+    <div class="co-head">
+      <div class="reveal">
+        <div class="co-kicker">My own charter · Herradura Bay, Costa Rica</div>
+        <h2>Great <span>Marlin</span></h2>
+      </div>
+      <p class="co-lead reveal" style="--d:.08s">My own private sportfishing charter: one 36-foot boat, one crew, your group only. I built the site the way the big yacht builders present their boats. The boat turns a full 360° the moment the page opens, live sea conditions sit right on the page, and a four-step planner takes the booking.</p>
+    </div>
+
+    <div class="co-stage">
+      <a class="co-browser" href="work/great-marlin/">
+        <video autoplay muted loop playsinline preload="metadata" poster="img/greatmarlin-360-poster.jpg?v=2" aria-label="Great Marlin website: the boat turns a full 360 degrees on its own">
+          <source src="video/greatmarlin-360.mp4?v=2" type="video/mp4">
+        </video>
+        <span class="co-tag">360° · the boat turns on its own</span>
+      </a>
+      <div class="co-side">
+        <a class="co-shot" href="work/great-marlin/"><img src="img/work/gm/d-sec07.webp" alt="Great Marlin live sea conditions: today off Herradura" width="1440" height="840" loading="lazy"></a>
+        <div class="co-cap">Today off Herradura: sky, wind, seas, water and sunrise, live.</div>
+        <div class="co-facts">
+          <div><b>360°</b><span>boat that turns on its own</span></div>
+          <div><b>Live</b><span>sea conditions on the page</span></div>
+          <div><b>7</b><span>ways to spend the day</span></div>
+          <div><b>12</b><span>fish in the guide</span></div>
+        </div>
       </div>
     </div>
 
-    <p class="fl-lead reveal">My own private sportfishing charter out of Herradura Bay, and the site I put everything into. The boat turns a full 360° the moment the page opens, live sea conditions sit right on the page, and a trip planner takes the booking. Same care goes into every site I build for you.</p>
-
-    <a class="fl-media" href="https://greatmarlin.com" target="_blank" rel="noopener">
-      <video autoplay muted loop playsinline preload="metadata" poster="img/greatmarlin-360-poster.jpg?v=2" aria-label="Great Marlin website: the boat turns a full 360° on its own">
-        <source src="video/greatmarlin-360.mp4?v=2" type="video/mp4">
-      </video>
-      <span class="fl-tag">360° · the boat turns on its own</span>
-      <span class="fl-go">Visit greatmarlin.com ↗</span>
-    </a>
-
-    <div class="fl-foot reveal">
+    <div class="co-foot">
       <span class="chip">360° boat hero</span>
       <span class="chip">Live sea conditions</span>
-      <span class="chip">Feadship-inspired</span>
-      <span class="chip">Trip planner</span>
-      <span class="chip">Built to book</span>
-      <a class="btn btn-primary fl-btn" href="work/great-marlin/">See the full case study →</a>
+      <span class="chip">Fish guide</span>
+      <span class="chip">4-step trip planner</span>
+      <div class="co-acts">
+        <a class="co-btn g" href="work/great-marlin/">See the full case study →</a>
+        <a class="co-btn l" href="https://greatmarlin.com" target="_blank" rel="noopener">Visit live site ↗</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="work">
+
+<section class="feat-co feat-gf" id="go-fish">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="kicker">Selected work</div>
-      <h2>Real local businesses. Real before & after.</h2>
-      <p>Built for a real local business. Drag the slider to see the difference, or see every project on the Projects page.</p>
+    <div class="co-head">
+      <div class="reveal">
+        <div class="co-kicker">Paid client · Tamarindo &amp; Flamingo, Costa Rica</div>
+        <h2>Go Fish <span>Costa Rica</span></h2>
+      </div>
+      <p class="co-lead reveal" style="--d:.08s">Fifteen years of TripAdvisor Travelers' Choice, stuck on a dated brochure site. I rebuilt it as ninety-eight pages that tell one charter day from dawn to sunset, with every boat and adventure on its own page, a four-step trip planner, and a trip cart that sends a guest's whole week in one request.</p>
     </div>
 
-    <!-- CASE 0: Go Fish Costa Rica -->
-    <div class="case cs-gofish reveal">
-      <span class="case-tag">Redesign · Fishing Charters & Adventures · Tamarindo</span>
-      <h3>Go Fish Costa Rica</h3>
-      <p class="role">Fifteen years of TripAdvisor Travelers' Choice, stuck on a dated brochure site. I rebuilt it as ninety-eight pages that tell one charter day from dawn to sunset: fifteen sportfishing boats and three catamarans with real rates and a live price estimate, seventeen adventures, a four-step trip planner, and their reviews and awards front and center. Every request lands in their inbox ready to confirm.</p>
-
-      <div class="ba media-rev" id="ba2">
-        <img class="before-img" src="img/gofishcr-after.webp" alt="Go Fish Costa Rica new website">
-        <div class="after-wrap" id="aw2">
-          <div class="after-img-sizer" id="as2">
-            <img src="img/gofishcr-before.webp" alt="Go Fish Costa Rica old website">
+    <div class="co-stage">
+      <a class="co-browser co-phone" href="work/go-fish/">
+        <video autoplay muted loop playsinline preload="metadata" poster="video/gofish-phone-poster.jpg" width="498" height="1080" aria-label="A scroll through the Go Fish Costa Rica site on a phone">
+          <source src="video/gofish-phone.mp4" type="video/mp4">
+        </video>
+        <span class="co-tag">A whole day at sea, one scroll</span>
+      </a>
+      <div class="co-side">
+        <div class="ba media-rev" id="ba2">
+          <img class="before-img" src="img/gofishcr-after.webp" alt="Go Fish Costa Rica new website">
+          <div class="after-wrap" id="aw2">
+            <div class="after-img-sizer" id="as2">
+              <img src="img/gofishcr-before.webp" alt="Go Fish Costa Rica old website">
+            </div>
           </div>
+          <span class="label before">Before</span>
+          <span class="label after">After</span>
+          <div class="handle" id="h2"><div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 4 12 9 18"></polyline><polyline points="15 6 20 12 15 18"></polyline></svg></div></div>
         </div>
-        <span class="label before">Before</span>
-        <span class="label after">After</span>
-        <div class="handle" id="h2"><div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 4 12 9 18"></polyline><polyline points="15 6 20 12 15 18"></polyline></svg></div></div>
-      </div>
-      <div class="hint">← Drag to compare →</div>
-
-      <div class="case-foot">
-        <span class="chip">98 pages</span>
-        <span class="chip">18 boats, live pricing</span>
-        <span class="chip">4-step trip planner</span>
-        <span class="chip">SEO + schema</span>
-        <a class="live-link" href="work/go-fish/">See the full case study →</a>
-        <a class="live-link" href="https://gofishcr.com/" target="_blank" rel="noopener" style="margin-left:18px">Visit live site ↗</a>
+        <div class="hint">← Drag to compare →</div>
+        <div class="co-facts">
+          <div><b>98</b><span>pages, built from scratch</span></div>
+          <div><b>18</b><span>boats, each with its own page</span></div>
+          <div><b>17</b><span>adventures</span></div>
+          <div><b>444</b><span>of their own photos</span></div>
+        </div>
       </div>
     </div>
 
-    <div class="work-more reveal"><a class="btn btn-ghost" href="work/">See all projects →</a></div>
+    <div class="co-foot">
+      <span class="chip">One charter day, dawn to sunset</span>
+      <span class="chip">4-step trip planner</span>
+      <span class="chip">Whole week in one request</span>
+      <span class="chip">Reviews &amp; awards up front</span>
+      <div class="co-acts">
+        <a class="co-btn g" href="work/go-fish/">See the full case study →</a>
+        <a class="co-btn l" href="https://gofishcr.com" target="_blank" rel="noopener">Visit live site ↗</a>
+      </div>
+    </div>
   </div>
 </section>
+
+<div class="all-projects"><a class="btn btn-ghost" href="work/">See all projects →</a></div>
+
 
 <section style="background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
