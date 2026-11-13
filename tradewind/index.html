@@ -320,6 +320,41 @@
   nav.scrolled .nav-pages a{color:var(--ink,#0b1c28)}
   nav.scrolled .nav-pages a:hover{background:rgba(11,28,40,.07)}
   @media(max-width:980px){.nav-pages{display:none}}
+
+  /* CUSTOM CRM (11-13) */
+  .custom{background:var(--frame);color:var(--on-dark)}
+  .custom .accent{color:var(--mint)}
+  .custom .kicker{color:var(--mint)}
+  .custom .sec-head h2{color:var(--cream)}
+  .custom .sec-head p{color:var(--on-dark-soft)}
+  .cways{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:64px}
+  .cway{border:1px solid rgba(159,209,168,.22);border-radius:20px;padding:28px 28px 26px;background:rgba(255,255,255,.035)}
+  .cway.hl{border-color:var(--mint);background:rgba(159,209,168,.08)}
+  .cway small{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mint)}
+  .cway h3{margin-top:10px;font-size:24px;color:var(--cream);letter-spacing:-.02em}
+  .cway p{margin-top:10px;font-size:15.5px;line-height:1.55;color:var(--on-dark-soft)}
+  .cway ul{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:7px}
+  .cway li{position:relative;padding-left:24px;font-size:15px;color:var(--on-dark)}
+  .cway li::before{content:"";position:absolute;left:3px;top:7px;width:10px;height:5px;border-left:2px solid var(--mint);border-bottom:2px solid var(--mint);transform:rotate(-45deg)}
+  .c-sub{font-size:21px;color:var(--cream);letter-spacing:-.02em;margin-bottom:22px}
+  .c-sub span{display:block;margin-top:6px;font-size:15.5px;font-weight:400;color:var(--on-dark-soft);letter-spacing:0}
+  .cbuild{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 16px}
+  .c-note{margin-top:28px;font-size:15.5px;color:var(--on-dark-soft);max-width:70ch}
+  .custom .steps{grid-template-columns:repeat(4,1fr);margin-bottom:64px}
+  .cprice{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--card);color:var(--ink);border-radius:24px;overflow:hidden}
+  .cp-main{padding:40px}
+  .cp-main .pb-tag{background:var(--green)}
+  .cp-from{margin-top:18px;font-size:14px;color:var(--muted)}
+  .cp-main b.big{display:block;font-size:60px;font-weight:600;letter-spacing:-.04em;line-height:1}
+  .cp-main p{margin-top:14px;font-size:15.5px;color:var(--ink-soft);line-height:1.55}
+  .cp-side{padding:40px;background:var(--cream-2);border-left:1px solid var(--line);display:flex;flex-direction:column}
+  .cp-side ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .cp-side li{position:relative;padding-left:26px;font-size:15px;color:var(--ink-soft)}
+  .cp-side li::before{content:"";position:absolute;left:3px;top:6px;width:11px;height:6px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg)}
+  .cp-side .btns{margin-top:auto;padding-top:26px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .cp-side .more{font-size:15px;font-weight:600;color:var(--green)}
+  @media(max-width:900px){.cways,.cprice{grid-template-columns:1fr}.cbuild{grid-template-columns:1fr 1fr}.custom .steps{grid-template-columns:1fr 1fr}.cp-side{border-left:0;border-top:1px solid var(--line)}.cp-main,.cp-side{padding:30px 24px}}
+  @media(max-width:560px){.cbuild,.custom .steps{grid-template-columns:1fr}.cp-main b.big{font-size:48px}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -669,7 +704,7 @@
       <div class="trade"><b class="reveal">Home services</b><span class="reveal">Cleaning, pools, pest control, handyman and more.</span></div>
       <div class="trade"><b class="reveal">Fishing charters</b><span class="reveal">Every trip request answered fast, deposits tracked.</span></div>
       <div class="trade"><b class="reveal">Tours and activities</b><span class="reveal">Requests from your site in one inbox, reviews after every trip.</span></div>
-      <div class="trade"><b class="reveal">Not on the list?</b><span class="reveal">Message me. If you get requests and send quotes, it likely fits.</span></div>
+      <div class="trade"><b class="reveal">Not on the list?</b><span class="reveal">Message me. If you get requests and send quotes, it likely fits. If not, I can <a href="#custom">build you a custom CRM</a>.</span></div>
     </div>
   </div>
 </section>
@@ -735,6 +770,76 @@
   </div>
 </section>
 
+<!-- CUSTOM CRM (11-13, mirrors tradewindcrm.com/custom-crm) -->
+<section class="custom" id="custom">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal">Custom CRM · powered by Tradewind</div>
+      <h2 class="reveal">A CRM built for <span class="accent">your business only.</span></h2>
+      <p class="reveal">Tradewind is made for home service businesses. If yours works differently, I'll build you your own system on Tradewind, tailored strictly to how you run things. Same secure app, same login, but every screen is yours. From $7,500.</p>
+    </div>
+
+    <div class="cways">
+      <div class="cway reveal">
+        <small>Tradewind · ready today</small>
+        <h3>Ready-made</h3>
+        <p>Made for home service businesses like landscaping, cleaning, painting and pool service. I set it up with your services and logo, and you're running in days.</p>
+        <ul><li>Leads, quotes, jobs and invoices</li><li>Card payments and texting</li><li>Monthly plan, set up for you</li></ul>
+      </div>
+      <div class="cway hl reveal" style="--d:.06s">
+        <small>Custom CRM · built around you</small>
+        <h3>Made just for you</h3>
+        <p>Your business doesn't work like a landscaping company? I build you your own system, tailored strictly to how you already work, for any kind of business.</p>
+        <ul><li>Your steps, your screens, your words</li><li>Any industry</li><li>From $7,500, fixed price agreed up front</li></ul>
+      </div>
+    </div>
+
+    <h3 class="c-sub reveal">Only the parts your business needs.<span>No 40 menus you'll never use. Pick what fits, and I shape every screen around the way your team already works.</span></h3>
+    <div class="cbuild">
+      <div class="safe"><h3 class="reveal">Your own pipeline</h3><p class="reveal">Your stages, from first contact to done, named the way you talk.</p></div>
+      <div class="safe"><h3 class="reveal">Bookings and scheduling</h3><p class="reveal">Calendars, time slots, staff or boats or rooms, whatever you schedule.</p></div>
+      <div class="safe"><h3 class="reveal">Forms, quotes and contracts</h3><p class="reveal">Your intake forms, your quote layout, signed online.</p></div>
+      <div class="safe"><h3 class="reveal">Payments</h3><p class="reveal">Deposits, invoices and card payments that go to your own account.</p></div>
+      <div class="safe"><h3 class="reveal">Team logins</h3><p class="reveal">Each person sees only what their job needs, from owner to driver.</p></div>
+      <div class="safe"><h3 class="reveal">Texts and emails</h3><p class="reveal">Confirmations, reminders and follow-ups that send themselves.</p></div>
+      <div class="safe"><h3 class="reveal">Customer portal</h3><p class="reveal">A page where your customers see their bookings, quotes and invoices.</p></div>
+      <div class="safe"><h3 class="reveal">Reports</h3><p class="reveal">The numbers you actually check, on one screen.</p></div>
+    </div>
+    <p class="c-note reveal">Every system works on phones and computers, carries your logo and colours, and I bring in your customer list from spreadsheets or your old software.</p>
+
+    <h3 class="c-sub reveal" style="margin-top:64px">From one call to your own system.</h3>
+    <ol class="steps">
+      <li class="step reveal"><span class="when">Free call</span><h3>Walk me through your day</h3><p>How work comes in, who does what, and what slows you down.</p></li>
+      <li class="step reveal" style="--d:.06s"><span class="when">Plan and price</span><h3>Everything in writing</h3><p>A written plan of every screen and a fixed price before any work starts.</p></li>
+      <li class="step reveal" style="--d:.12s"><span class="when">I build it</span><h3>Try it as it grows</h3><p>You try a working preview along the way and tell me what to change.</p></li>
+      <li class="step reveal" style="--d:.18s"><span class="when">Launch and training</span><h3>Your team, up and running</h3><p>I load your data, show your team how it works, and stay on call after launch.</p></li>
+    </ol>
+
+    <div class="cprice reveal">
+      <div class="cp-main">
+        <span class="pb-tag">Custom CRM</span>
+        <div class="cp-from">From</div>
+        <b class="big">$7,500</b>
+        <p>One-time build, tailored strictly to your business. The final price depends on what your system needs to do. You get it in writing after the free call, before I start, so there are no surprises.</p>
+      </div>
+      <div class="cp-side">
+        <ul>
+          <li>Free planning call</li>
+          <li>Written plan and fixed price</li>
+          <li>Your logo, colours and words</li>
+          <li>Works on phones and computers</li>
+          <li>Your existing data brought in</li>
+          <li>Team training at launch</li>
+        </ul>
+        <div class="btns">
+          <a class="btn btn-green" href="https://wa.me/13213561951?text=Hi%20Tony%2C%20I%27d%20like%20to%20hear%20about%20a%20custom%20CRM" target="_blank" rel="noopener">Book a free call</a>
+          <a class="more" href="https://tradewindcrm.com/custom-crm" target="_blank" rel="noopener">More at tradewindcrm.com ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="faq" id="faq">
   <div class="wrap">
@@ -753,6 +858,7 @@
       <details><summary>Can I set up repeat jobs?</summary><p>Yes. Set any job to repeat weekly, every 2 weeks or monthly, and the visits fill in on your calendar. You can stop repeating any time.</p></details>
       <details><summary>Can I change my own website?</summary><p>Yes. Change your photos, services, hours and service areas, hit Publish, and your site updates in under a minute.</p></details>
       <details><summary>Is my data safe?</summary><p>Your business's data is walled off from every other business that uses Tradewind, connections are encrypted, and everything is backed up regularly. If you forget your password, you can reset it yourself.</p></details>
+      <details><summary>What's a custom CRM?</summary><p>It's your own system, built on Tradewind around one business: your steps, your screens and your words, for any industry, from tour and charter companies to rentals, transport, clinics, studios and contractors. It runs on the same secure app, and when your team logs in, they see your system. Custom CRMs start at $7,500 as a one-time build, with a fixed price in writing after a free call. <a href="#custom">See custom CRMs</a>.</p></details>
       <details><summary>What does it cost, and is there a contract?</summary><p>$2,000 to build your custom site when you pay up front, then $300 a month: the $200 care plan plus $100 for Tradewind. You can also split the build or start small, the same 3 ways to pay as my website plans. Tradewind itself has no minimum: either of us can end it any time with one message. When it ends, the app logins for you and your crew are switched off, you get a spreadsheet of your customers, quotes and invoices, your website quote form goes back to sending requests to your email, and your plan drops back to $200 a month. The care plan keeps its 6-month minimum.</p></details>
     </div>
   </div>
