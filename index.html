@@ -419,6 +419,20 @@
   }
 
 
+
+  /* ---------- moving strip between the hero and Costa Outdoors (Tony 11-12): breaks navy -> green, carries the referral deal ---------- */
+  .ticker{position:relative;background:#d2a55f;color:#0b1c28;overflow:hidden;border-top:1px solid rgba(11,28,40,.12);border-bottom:1px solid rgba(11,28,40,.12)}
+  .ticker-track{display:flex;width:max-content;animation:tick 48s linear infinite}
+  .ticker:hover .ticker-track{animation-play-state:paused}
+  .ticker-set{display:flex;align-items:center;flex:none}
+  .tk{display:flex;align-items:center;gap:14px;padding:18px 0;margin-right:42px;font-size:15px;font-weight:600;white-space:nowrap}
+  .tk svg{width:22px;height:22px;flex:none}
+  .tk.deal{font-weight:700}
+  .tk.deal b{background:#0b1c28;color:#f3e3c4;padding:4px 10px;border-radius:999px;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase}
+  .tk.deal a{color:#0b1c28;text-decoration:underline;text-underline-offset:3px}
+  @keyframes tick{to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.ticker-track{animation:none}.ticker{overflow-x:auto}}
+  @media(max-width:760px){.tk{font-size:14px;padding:15px 0;margin-right:32px}}
   /* ---------- FEATURED · Costa Outdoors (first case on the page) — wears Costa Outdoors' own look ---------- */
   .feat-co{--co-pine:#131E18;--co-moss:#2A4434;--co-stone:#EDEAE2;--co-green:#2E9B3E;--co-green-ink:#1F7A2D;--co-mint:#7fd08a;
     position:relative;isolation:isolate;overflow:hidden;background:var(--co-pine);color:var(--co-stone);padding:104px 0 108px;font-family:'Manrope',system-ui,sans-serif}
@@ -613,6 +627,8 @@
   </div>
 </header>
 
+<div class="ticker" role="region" aria-label="News and offers"><div class="ticker-track"><div class="ticker-set"><span class="tk deal"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 38 C16 30 20 46 30 38 S44 30 56 38" fill="none" stroke="#0b1c28" stroke-width="5" stroke-linecap="round"/><path d="M8 24 C16 16 20 32 30 24 S44 16 56 24" fill="none" stroke="#0e6f90" stroke-width="5" stroke-linecap="round"/></svg><b>Referral deal</b>Refer a business that buys a website, get 20% off six months of your care plan. <a href="#contact">Ask me</a></span><span class="tk"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 38 C16 30 20 46 30 38 S44 30 56 38" fill="none" stroke="#0b1c28" stroke-width="5" stroke-linecap="round"/><path d="M8 24 C16 16 20 32 30 24 S44 16 56 24" fill="none" stroke="#0e6f90" stroke-width="5" stroke-linecap="round"/></svg>Custom built, never a template</span><span class="tk"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 38 C16 30 20 46 30 38 S44 30 56 38" fill="none" stroke="#0b1c28" stroke-width="5" stroke-linecap="round"/><path d="M8 24 C16 16 20 32 30 24 S44 16 56 24" fill="none" stroke="#0e6f90" stroke-width="5" stroke-linecap="round"/></svg>English, Spanish or both</span><span class="tk"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 38 C16 30 20 46 30 38 S44 30 56 38" fill="none" stroke="#0b1c28" stroke-width="5" stroke-linecap="round"/><path d="M8 24 C16 16 20 32 30 24 S44 16 56 24" fill="none" stroke="#0e6f90" stroke-width="5" stroke-linecap="round"/></svg>Live in days, not weeks</span><span class="tk"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 38 C16 30 20 46 30 38 S44 30 56 38" fill="none" stroke="#0b1c28" stroke-width="5" stroke-linecap="round"/><path d="M8 24 C16 16 20 32 30 24 S44 16 56 24" fill="none" stroke="#0e6f90" stroke-width="5" stroke-linecap="round"/></svg>Connected to Tradewind</span><span class="tk"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 38 C16 30 20 46 30 38 S44 30 56 38" fill="none" stroke="#0b1c28" stroke-width="5" stroke-linecap="round"/><path d="M8 24 C16 16 20 32 30 24 S44 16 56 24" fill="none" stroke="#0e6f90" stroke-width="5" stroke-linecap="round"/></svg>Based in Costa Rica, clients anywhere</span></div><div class="ticker-set" aria-hidden="true"><span class="tk deal"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 38 C16 30 20 46 30 38 S44 30 56 38" fill="none" stroke="#0b1c28" stroke-width="5" stroke-linecap="round"/><path d="M8 24 C16 16 20 32 30 24 S44 16 56 24" fill="none" stroke="#0e6f90" stroke-width="5" stroke-linecap="round"/></svg><b>Referral deal</b>Refer a business that buys a website, get 20% off six months of your care plan. <a href="#contact" tabindex="-1">Ask me</a></span><span class="tk"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 38 C16 30 20 46 30 38 S44 30 56 38" fill="none" stroke="#0b1c28" stroke-width="5" stroke-linecap="round"/><path d="M8 24 C16 16 20 32 30 24 S44 16 56 24" fill="none" stroke="#0e6f90" stroke-width="5" stroke-linecap="round"/></svg>Custom built, never a template</span><span class="tk"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 38 C16 30 20 46 30 38 S44 30 56 38" fill="none" stroke="#0b1c28" stroke-width="5" stroke-linecap="round"/><path d="M8 24 C16 16 20 32 30 24 S44 16 56 24" fill="none" stroke="#0e6f90" stroke-width="5" stroke-linecap="round"/></svg>English, Spanish or both</span><span class="tk"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 38 C16 30 20 46 30 38 S44 30 56 38" fill="none" stroke="#0b1c28" stroke-width="5" stroke-linecap="round"/><path d="M8 24 C16 16 20 32 30 24 S44 16 56 24" fill="none" stroke="#0e6f90" stroke-width="5" stroke-linecap="round"/></svg>Live in days, not weeks</span><span class="tk"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 38 C16 30 20 46 30 38 S44 30 56 38" fill="none" stroke="#0b1c28" stroke-width="5" stroke-linecap="round"/><path d="M8 24 C16 16 20 32 30 24 S44 16 56 24" fill="none" stroke="#0e6f90" stroke-width="5" stroke-linecap="round"/></svg>Connected to Tradewind</span><span class="tk"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 38 C16 30 20 46 30 38 S44 30 56 38" fill="none" stroke="#0b1c28" stroke-width="5" stroke-linecap="round"/><path d="M8 24 C16 16 20 32 30 24 S44 16 56 24" fill="none" stroke="#0e6f90" stroke-width="5" stroke-linecap="round"/></svg>Based in Costa Rica, clients anywhere</span></div></div></div>
+
 <section class="feat-co" id="costa-outdoors">
   <div class="wrap">
     <div class="co-head">
@@ -690,7 +706,7 @@
       <span class="chip">Feadship-inspired</span>
       <span class="chip">Trip planner</span>
       <span class="chip">Built to book</span>
-      <a class="btn btn-primary fl-btn" href="https://greatmarlin.com" target="_blank" rel="noopener">Visit greatmarlin.com →</a>
+      <a class="btn btn-primary fl-btn" href="work/great-marlin/">See the full case study →</a>
     </div>
   </div>
 </section>
