@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Great Marlin case study · Coastal CR</title>
+<meta name="description" content="How I built the website for Great Marlin, my own private sportfishing charter in Herradura Bay, Costa Rica: a boat that turns 360 degrees, live sea conditions, a fish guide and a trip planner that takes the booking.">
+<meta property="og:title" content="Great Marlin · a Coastal CR case study">
+<meta property="og:description" content="One boat, presented like a yacht. Every page, up close.">
+<meta property="og:image" content="https://coastalcr.com/img/work/gm/d-home.webp">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Krona+One&family=Archivo:wght@400;500;600;700&family=Fragment+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Coastal CR chrome */
+    --ink:#0b1c28;--paper:#eef4f8;--line:#c7dae6;--accent:#0e6f90;--accent-soft:#1390b4;--sand:#d2a55f;
+    /* Great Marlin palette (from greatmarlin.com) */
+    --pine:#131718;--moss:#1c2122;--stone:#f6f2ea;--cpaper:#ece6da;--green:#0e7471;--green-ink:#0a5c5a;--granite:#43494b;--muted:#4b5355;--seafoam:#5fb3b1;--gsand:#c3ccd6;
+    --display:'Krona One','Archivo',sans-serif;--body:'Archivo',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  html,body{overflow-x:hidden;max-width:100%}
+  body{font-family:var(--body);color:var(--pine);background:var(--stone);-webkit-font-smoothing:antialiased;line-height:1.6}
+  img,video{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+
+  /* ---------- Coastal CR nav (same as the rest of coastalcr.com) ---------- */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;background:transparent;border-bottom:1px solid transparent;transition:box-shadow .3s ease, background .3s ease}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:1160px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:19px;font-weight:600;letter-spacing:-0.02em;color:#f3f1ea;text-decoration:none}
+  .brand span{color:var(--sand)}
+  .logomark{width:30px;height:30px;flex:none;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  .nav-right{display:flex;align-items:center;gap:10px;font-family:'Inter',sans-serif}
+  .nav-pages{display:flex;gap:4px;margin-right:6px}
+  .nav-pages a{font-size:14px;font-weight:600;padding:9px 14px;border-radius:999px;color:#f3f1ea;text-decoration:none;transition:background .2s}
+  .nav-pages a:hover{background:rgba(255,255,255,.12)}
+  .nav-link{font-size:14px;font-weight:700;padding:9px 18px;border-radius:999px;background:var(--sand);color:#0b1c28;border:1px solid var(--sand);text-decoration:none;transition:.2s;white-space:nowrap}
+  .nav-link:hover{background:#e0b673;border-color:#e0b673}
+  .nav-cta{font-size:14px;font-weight:600;padding:9px 18px;border-radius:999px;background:rgba(255,255,255,.12);color:#f3f1ea;border:1px solid rgba(255,255,255,.25);text-decoration:none;transition:.25s}
+  .nav-cta:hover{background:var(--accent);border-color:var(--accent)}
+  nav.scrolled{background:rgba(238,244,248,.97);border-bottom-color:var(--line);box-shadow:0 10px 30px -22px rgba(11,28,40,.5)}
+  nav.scrolled .brand{color:var(--ink)}
+  nav.scrolled .brand span{color:var(--accent)}
+  nav.scrolled .nav-pages a{color:var(--ink)}
+  nav.scrolled .nav-pages a:hover{background:rgba(11,28,40,.07)}
+  nav.scrolled .nav-cta{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:linear-gradient(90deg,var(--green),var(--seafoam));transition:width .08s linear}
+  @media(max-width:980px){.nav-pages{display:none}}
+
+  /* ---------- buttons ---------- */
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--body);font-size:15px;font-weight:700;text-decoration:none;padding:14px 24px;border-radius:0;text-transform:uppercase;letter-spacing:.06em;font-size:13.5px;transition:transform .25s cubic-bezier(.2,.7,.2,1), background .2s, border-color .2s, color .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-green{background:#fff;color:#131718;border:1px solid #fff}
+  .btn-green:hover{background:transparent;color:#fff}
+  .btn-line{border:1px solid rgba(237,234,226,.45);color:var(--stone)}
+  .btn-line:hover{border-color:var(--stone)}
+
+  /* ---------- topo contour pattern (Jake's own pattern from his site) ---------- */
+  .topo{position:relative;isolation:isolate}
+  .topo::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 600px at 90% 0%,rgba(14,111,144,.10),transparent 62%)}
+  .dark{background:var(--pine);color:var(--stone)}
+  .dark.topo::before{background:radial-gradient(900px 640px at 85% 0%,rgba(180,215,213,.14),transparent 62%),radial-gradient(800px 600px at 0% 100%,rgba(14,111,144,.22),transparent 60%)}
+
+  /* ---------- type ---------- */
+  .eb{font-family:'Fragment Mono',monospace;font-size:12.5px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--green-ink);display:flex;align-items:center;gap:12px}
+  .eb::before{content:"";width:28px;height:2px;background:currentColor}
+  .dark .eb{color:var(--seafoam)}
+  h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:1.02;letter-spacing:.02em}
+  h2{font-size:clamp(30px,4.2vw,56px);margin-top:18px}
+  h2 b{font-weight:400;color:var(--green)}
+  .dark h2 b{color:var(--seafoam)}
+  h3{font-size:19px;line-height:1.15}
+  .lead{font-size:18.5px;line-height:1.62;color:var(--muted);max-width:60ch;margin-top:22px}
+  .dark .lead{color:rgba(237,234,226,.74)}
+  .bigword{display:block;font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.8;white-space:nowrap;color:transparent;-webkit-text-stroke:2px rgba(19,30,24,.22);user-select:none;pointer-events:none}
+  .dark .bigword{-webkit-text-stroke-color:rgba(237,234,226,.2)}
+  .fit{font-size:14vw}
+
+  section{padding:120px 0}
+
+  /* ---------- HERO ---------- */
+  header.hero{padding:140px 0 0;overflow:hidden}
+  .crumbs{font-family:'Inter',sans-serif;font-size:13px;color:rgba(237,234,226,.6);margin-bottom:26px}
+  .crumbs a{text-decoration:none;color:rgba(237,234,226,.85)}
+  .crumbs a:hover{color:var(--seafoam)}
+  .hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:40px 64px;align-items:end}
+  header.hero h1{font-size:clamp(40px,6vw,86px);color:var(--stone);margin-top:18px}
+  header.hero h1 b{display:block;color:var(--seafoam);font-weight:700}
+  .hero-side .lead{margin-top:0}
+  .hero-acts{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+  .facts{margin-top:64px;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid rgba(237,234,226,.16);border-bottom:1px solid rgba(237,234,226,.16)}
+  .fact{padding:24px 18px 22px;border-left:1px solid rgba(237,234,226,.16)}
+  .fact:first-child{border-left:none;padding-left:0}
+  .fact b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(34px,4vw,54px);line-height:.9;color:var(--stone)}
+  .fact span{display:block;margin-top:8px;font-size:13.5px;color:rgba(237,234,226,.66);line-height:1.4}
+  .stage{margin-top:64px;position:relative}
+  .browser{border-radius:12px 12px 0 0;overflow:hidden;background:#1d1f1e;box-shadow:0 -10px 80px -30px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.07)}
+  .browser .bar{height:38px;display:flex;align-items:center;gap:7px;padding:0 14px;background:#1d1f1e}
+  .browser .bar i{width:11px;height:11px;border-radius:50%;display:block}
+  .browser .bar i:nth-child(1){background:#ff5f57}.browser .bar i:nth-child(2){background:#febc2e}.browser .bar i:nth-child(3){background:#28c840}
+  .browser .bar span{flex:1;margin:0 70px 0 30px;height:23px;border-radius:12px;background:#2b2e2c;color:#d8dbd9;font-family:'Inter',sans-serif;font-size:12.5px;display:flex;align-items:center;justify-content:center}
+  .browser video,.browser img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;background:#131E18}
+  .stage-tag{position:absolute;right:18px;top:-15px;z-index:2;font-family:var(--body);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--green);color:#fff;padding:8px 13px;border-radius:3px}
+
+  /* ---------- section heads ---------- */
+  .head{display:grid;grid-template-columns:1fr 1fr;gap:28px 64px;align-items:end;margin-bottom:56px}
+  .head .lead{margin-top:0}
+  .head.solo{display:block;max-width:820px}
+  .head.solo .lead{margin-top:22px}
+
+  /* ---------- the brief ---------- */
+  .brief-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px}
+  .goal{background:var(--cpaper);border:1px solid rgba(19,30,24,.1);border-radius:6px;padding:26px 22px}
+  .goal h3{font-size:24px}
+  .goal p{margin-top:10px;font-size:15px;line-height:1.55;color:var(--muted)}
+  .goal .who{display:block;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green-ink);margin-bottom:14px}
+
+  /* before/after slider (same as the homepage) */
+  .ba{position:relative;border-radius:8px;overflow:hidden;box-shadow:0 40px 90px -46px rgba(0,0,0,.55);border:1px solid rgba(19,30,24,.12);user-select:none;aspect-ratio:1440/900;background:#0b1c28}
+  .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+  .ba .after-wrap{position:absolute;inset:0;width:50%;overflow:hidden;border-right:2px solid #fff;transition:width .5s cubic-bezier(.2,.7,.2,1)}
+  .ba .after-img-sizer{position:absolute;top:0;left:0;height:100%}
+  .ba .label{position:absolute;top:16px;z-index:4;font-family:'Inter',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:7px 13px;border-radius:999px;color:#fff}
+  .ba .label.before{left:16px;background:rgba(11,28,40,.78)}
+  .ba .label.after{right:16px;background:var(--green)}
+  .ba .handle{position:absolute;top:0;bottom:0;left:50%;width:44px;margin-left:-22px;z-index:5;cursor:ew-resize;display:flex;align-items:center;justify-content:center;transition:left .5s cubic-bezier(.2,.7,.2,1)}
+  .ba .handle::before{content:"";position:absolute;top:0;bottom:0;left:21px;width:2px;background:#fff}
+  .ba .knob{position:relative;width:44px;height:44px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.3);color:#0b1c28}
+  .ba .knob svg{width:20px;height:20px}
+  .ba.dragging .after-wrap,.ba.dragging .handle{transition:none}
+  .hint{margin-top:14px;font-size:13.5px;color:var(--muted);text-align:center}
+  .vs{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid rgba(19,30,24,.12);border-radius:6px;overflow:hidden;background:var(--cpaper)}
+  .vs>div{padding:26px 28px}
+  .vs>div+div{border-left:1px solid rgba(19,30,24,.12)}
+  .vs h4{font-family:var(--body);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--granite);margin-bottom:14px}
+  .vs .now h4{color:var(--green-ink)}
+  .vs ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .vs li{font-size:15.5px;line-height:1.45;padding-left:26px;position:relative}
+  .vs .was li{color:var(--muted)}
+  .vs .was li::before{content:"";position:absolute;left:2px;top:10px;width:12px;height:2px;background:#a9aea9}
+  .vs .now li::before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.3 2.3 4.7-5' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+
+  /* ---------- design ---------- */
+  .design-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .dcard{background:rgba(237,234,226,.05);border:1px solid rgba(237,234,226,.13);border-radius:6px;padding:28px 24px;display:flex;flex-direction:column}
+  .dcard h3{color:var(--stone)}
+  .dcard p{margin-top:12px;font-size:15px;line-height:1.58;color:rgba(237,234,226,.7)}
+  .specimen{margin-bottom:22px;min-height:132px;display:flex;flex-direction:column;justify-content:flex-end}
+  .spec-big{font-family:var(--display);font-weight:900;font-size:76px;line-height:.82;text-transform:uppercase;color:var(--stone)}
+  .spec-big i{font-style:normal;color:transparent;-webkit-text-stroke:1.5px var(--stone)}
+  .spec-small{font-family:var(--body);font-size:14px;margin-top:10px;color:rgba(237,234,226,.7)}
+  .swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+  .sw{height:96px;border-radius:4px;border:1px solid rgba(237,234,226,.16);display:flex;align-items:flex-end;padding:6px;font-family:'Fragment Mono',monospace;font-size:9.5px;letter-spacing:.02em}
+  .topo-tile{height:132px;border-radius:4px;border:1px solid rgba(237,234,226,.16);background:var(--stone);position:relative;overflow:hidden;isolation:isolate}
+  .topo-tile::before{content:"";position:absolute;inset:0;-webkit-mask:url(../../img/work/costa/topo.svg) -380px -220px/900px 900px repeat;mask:url(../../img/work/costa/topo.svg) -380px -220px/900px 900px repeat;background:rgba(19,30,24,.55)}
+  .design-shots{margin-top:56px;display:grid;grid-template-columns:1.2fr 1fr;gap:22px;align-items:start}
+
+  /* screenshots */
+  .shot{margin:0}
+  .shot .frame{border-radius:6px;overflow:hidden;border:1px solid rgba(19,30,24,.12);background:#1d1f1e;box-shadow:0 26px 60px -38px rgba(0,0,0,.55)}
+  .dark .shot .frame{border-color:rgba(237,234,226,.12)}
+  .shot img{width:100%;height:auto;aspect-ratio:1440/840;object-fit:cover;object-position:top}
+  .shot figcaption{margin-top:12px;font-size:14px;line-height:1.5;color:var(--muted)}
+  .dark .shot figcaption{color:rgba(237,234,226,.66)}
+  .shot figcaption b{color:var(--pine);font-weight:700}
+  .dark .shot figcaption b{color:var(--stone)}
+
+  /* ---------- page tour ---------- */
+  .tour{display:flex;flex-direction:column;gap:96px}
+  .stop{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:56px;align-items:center}
+  .stop:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,1.5fr)}
+  .stop:nth-child(even) .shot{order:2}
+  .stop .where{font-family:'Fragment Mono',monospace;font-size:12.5px;color:var(--green-ink);letter-spacing:.02em}
+  .stop h3{font-size:clamp(34px,3.6vw,48px);margin-top:12px}
+  .stop p{margin-top:16px;font-size:16.5px;line-height:1.62;color:var(--muted)}
+  .stop ul{margin-top:18px;list-style:none;display:flex;flex-direction:column;gap:8px}
+  .stop li{font-size:15px;padding-left:22px;position:relative}
+  .stop li::before{content:"";position:absolute;left:0;top:9px;width:10px;height:2px;background:var(--green)}
+
+  /* ---------- services ---------- */
+  .svc{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid rgba(19,30,24,.14)}
+  .svc>div{padding:28px 28px 30px 0;border-bottom:1px solid rgba(19,30,24,.14)}
+  .svc>div:nth-child(even){padding-left:28px;border-left:1px solid rgba(19,30,24,.14)}
+  .svc h3{font-size:32px}
+  .svc p{margin-top:8px;font-size:15.5px;line-height:1.55;color:var(--muted)}
+  .subs{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
+  .subs span{font-size:12.5px;font-weight:600;padding:5px 10px;border-radius:3px;background:var(--cpaper);border:1px solid rgba(19,30,24,.12)}
+  .svc .url{display:block;margin-top:12px;font-family:'Fragment Mono',monospace;font-size:12px;color:var(--green-ink)}
+
+  /* ---------- photos ---------- */
+  .photos{display:grid;grid-template-columns:repeat(5,1fr);grid-auto-rows:190px;gap:10px}
+  .photos figure{margin:0;border-radius:5px;overflow:hidden;position:relative;background:#2A4434}
+  .photos img{width:100%;height:100%;object-fit:cover}
+  .photos figure:nth-child(1){grid-column:span 2;grid-row:span 2}
+  .photos figure:nth-child(6),.photos figure:nth-child(10){grid-column:span 2}
+  .photos figcaption{position:absolute;left:8px;bottom:8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(19,30,24,.82);color:var(--stone);padding:5px 8px;border-radius:3px}
+
+  /* ---------- phones ---------- */
+  .phones{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:start}
+  .phone{margin:0}
+  .phone .frame{border:8px solid #0d0f0e;border-radius:34px;overflow:hidden;background:#0d0f0e;box-shadow:0 34px 70px -36px rgba(0,0,0,.6)}
+  .phone img{width:100%;height:auto;aspect-ratio:390/844;object-fit:cover;object-position:top}
+  .phone figcaption{margin-top:14px;font-size:14px;line-height:1.45;text-align:center;color:rgba(237,234,226,.7)}
+  .phone figcaption b{display:block;color:var(--stone);font-weight:700}
+  .phones-note{margin-top:56px;display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap}
+  .phones-note span{font-size:14px;font-weight:700;padding:11px 18px;border-radius:3px;border:1px solid rgba(237,234,226,.2)}
+  .phones-note span.g{background:var(--green);border-color:var(--green);color:#fff}
+
+  /* ---------- timelapse ---------- */
+  .tl{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:56px;align-items:center}
+  .tl video{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:6px;box-shadow:0 34px 80px -40px rgba(0,0,0,.6);background:#2A4434}
+
+  /* ---------- behind the scenes ---------- */
+  .bts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .bt{background:var(--cpaper);border:1px solid rgba(19,30,24,.1);border-radius:6px;padding:26px 24px}
+  .bt h3{font-size:25px}
+  .bt p{margin-top:10px;font-size:15px;line-height:1.56;color:var(--muted)}
+  .bt code{font-family:'Fragment Mono',monospace;font-size:12.5px;background:var(--stone);padding:2px 6px;border-radius:3px}
+
+  /* ---------- tradewind ---------- */
+  .tw{background:#eef5ef;position:relative}
+  .tw .eb{color:#2f6b3c}
+  .tw h2 b{color:#2f6b3c}
+  .tw-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:start}
+  .tw-flow .phone .frame{border-color:#13261a}
+  .tw-flow .phone figcaption{color:#3d5545}
+  .tw-flow .phone figcaption b{color:#13261a}
+  .tw-mark{display:inline-flex;align-items:center;gap:12px;font-family:'Inter',sans-serif;font-weight:700;font-size:15px;color:#13261a;margin-top:28px;text-decoration:none;border-bottom:2px solid #2f6b3c;padding-bottom:3px}
+  .tw-mark svg{width:30px;height:30px}
+
+  /* ---------- launch ---------- */
+  .launch{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(237,234,226,.16)}
+  .launch>div{padding:28px 22px 0 0}
+  .launch>div+div{padding-left:22px;border-left:1px solid rgba(237,234,226,.16)}
+  .launch h3{font-size:26px;color:var(--stone)}
+  .launch p{margin-top:10px;font-size:15px;line-height:1.55;color:rgba(237,234,226,.7)}
+  .golive{margin-top:64px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:30px 32px;border-radius:6px;background:rgba(237,234,226,.06);border:1px solid rgba(237,234,226,.14)}
+  .golive b{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(20px,2.4vw,30px);line-height:1;color:var(--stone)}
+  .golive small{display:block;font-size:14px;color:rgba(237,234,226,.66);margin-top:6px}
+
+  /* ---------- CTA + footer (Coastal CR) ---------- */
+  .closing{padding:96px 0 84px;background:var(--paper)}
+  .cta{background:var(--ink);color:var(--paper);border-radius:22px;padding:64px 48px;text-align:center;font-family:'Inter',sans-serif}
+  .cta h2{font-family:'Fraunces',Georgia,serif;font-weight:500;text-transform:none;letter-spacing:-.01em;line-height:1.05;font-size:clamp(30px,4.6vw,50px);color:var(--paper);max-width:20ch;margin:0 auto}
+  .cta h2 b{font-weight:500;color:var(--sand)}
+  .cta p{margin:18px auto 0;max-width:48ch;color:#b3c6d3;font-size:17px}
+  .cta .acts{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .cta .btn{border-radius:999px;font-family:'Inter',sans-serif;font-weight:600}
+  .cta .btn-primary{background:var(--accent);color:#fff}
+  .cta .btn-primary:hover{background:var(--accent-soft)}
+  .cta .btn-ghost{border:1px solid rgba(255,255,255,.25);color:var(--paper)}
+  .cta .btn-ghost:hover{border-color:var(--paper)}
+  .cta .mail{margin-top:20px;font-size:14px;color:#8fa6b6}
+  footer{padding:64px 0 40px;background:#0b1c28;color:#b3c6d3;font-size:14px;font-family:'Inter',sans-serif}
+  footer .wrap{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:32px;max-width:1160px}
+  footer .brand{color:#f3f1ea;margin-bottom:14px}
+  footer .f-brand p{max-width:30ch;line-height:1.55}
+  footer h5{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sand);margin-bottom:14px}
+  footer .f-col{display:flex;flex-direction:column;gap:9px}
+  footer .f-col a{text-decoration:none;color:#dde9f1;overflow-wrap:anywhere}
+  footer .f-col a:hover{color:var(--sand)}
+  footer .f-base-wrap{display:block}
+  footer .f-base{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:#7f97a8}
+
+  /* text-only reveal (images never hide) */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:1020px){
+    .hero-grid,.head,.stop,.stop:nth-child(even),.tl,.design-shots{grid-template-columns:1fr}
+    .stop:nth-child(even) .shot{order:0}
+    .brief-grid{grid-template-columns:1fr 1fr}
+    .design-grid,.bts{grid-template-columns:1fr 1fr}
+    .phones,.tw-flow{grid-template-columns:1fr 1fr}
+    .launch{grid-template-columns:1fr 1fr}
+    .launch>div:nth-child(3){border-left:none;padding-left:0}
+    .launch>div{padding-bottom:28px}
+    .facts{grid-template-columns:repeat(3,1fr)}
+    .fact:nth-child(4){border-left:none;padding-left:0}
+    .fact:nth-child(n+4){border-top:1px solid rgba(237,234,226,.16)}
+    .photos{grid-template-columns:repeat(3,1fr);grid-auto-rows:160px}
+    .photos figure:nth-child(6),.photos figure:nth-child(10){grid-column:span 1}
+  }
+  @media(max-width:860px){footer .wrap{grid-template-columns:1fr 1fr}footer .f-brand{grid-column:1/-1}}
+  @media(max-width:700px){
+    .wrap{padding:0 16px}
+    nav .wrap{height:62px}
+    nav .nav-cta{display:none}
+    section{padding:76px 0}
+    header.hero{padding:112px 0 0}
+    .facts{grid-template-columns:1fr 1fr}
+    .fact,.fact:nth-child(4){border-left:none;padding-left:0}
+    .fact:nth-child(even){border-left:1px solid rgba(237,234,226,.16);padding-left:16px}
+    .fact:nth-child(n+3){border-top:1px solid rgba(237,234,226,.16)}
+    .fact:last-child{grid-column:1/-1;border-left:none;padding-left:0}
+    .browser .bar span{margin:0 0 0 14px}
+    .stage-tag{left:10px;top:48px;font-size:10px;padding:6px 10px}
+    .brief-grid,.design-grid,.bts,.svc,.launch{grid-template-columns:1fr}
+    .svc>div,.svc>div:nth-child(even){padding:22px 0;border-left:none}
+    .launch>div,.launch>div+div{padding:22px 0;border-left:none;border-bottom:1px solid rgba(237,234,226,.16)}
+    .vs{grid-template-columns:1fr}
+    .vs>div+div{border-left:none;border-top:1px solid rgba(19,30,24,.12)}
+    .photos{grid-template-columns:1fr 1fr;grid-auto-rows:140px}
+    .photos figure:nth-child(1){grid-column:span 2}
+    .tour{gap:64px}
+    .stop{gap:24px}
+    .ba .label{top:10px;font-size:10px;padding:5px 10px}
+    .closing{padding:64px 0 56px}
+    .cta{padding:48px 22px}
+    .golive{padding:24px 20px}
+  }
+  @media(max-width:480px){footer .wrap{grid-template-columns:1fr}.phones,.tw-flow{gap:14px}.phone .frame{border-width:5px;border-radius:22px}}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1!important;transform:none!important}
+  }
+
+  /* Go Fish extras */
+  .chapters{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
+  .chap{border-top:2px solid var(--seafoam);padding-top:14px}
+  .chap b{display:block;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:20px;line-height:1;color:rgba(238,244,246,.22);letter-spacing:-.01em}
+  .chap span{display:block;margin-top:8px;font-size:14.5px;line-height:1.45;color:rgba(238,244,246,.78)}
+  .swatches .sw{font-size:9px}
+  .tl-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+  .awards{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(238,244,246,.16);margin-top:44px}
+  .awards>div{padding:24px 18px 0 0}
+  .awards>div+div{padding-left:18px;border-left:1px solid rgba(238,244,246,.16)}
+  .awards b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(22px,2.4vw,32px);line-height:.95;color:var(--stone)}
+  .awards span{display:block;margin-top:8px;font-size:14px;line-height:1.45;color:rgba(238,244,246,.68)}
+  @media(max-width:1020px){.chapters{grid-template-columns:1fr 1fr}.awards{grid-template-columns:1fr 1fr}.awards>div:nth-child(3){border-left:none;padding-left:0}.awards>div{padding-bottom:22px}}
+  @media(max-width:700px){.chapters{grid-template-columns:1fr 1fr}.awards>div,.awards>div+div{padding-left:0;border-left:none}.awards>div:nth-child(even){padding-left:16px;border-left:1px solid rgba(238,244,246,.16)}}
+
+  .gm-light .golive{background:transparent}
+  .mono-chips{margin-top:22px;display:flex;gap:8px;flex-wrap:wrap}
+  .mono-chips span{font-family:'Fragment Mono',monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.82);padding:7px 11px}
+  .stage-tag,.ba .label.after{background:#fff!important;color:#131718!important;border-radius:0!important;font-family:'Fragment Mono',monospace!important;font-weight:400!important}
+  .browser video{aspect-ratio:16/9!important;object-position:center!important}
+  .ba{border-radius:4px}
+  .stop h3{font-size:clamp(22px,2.3vw,30px)}
+  .golive b{line-height:1.15}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="../../"><svg class="logomark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0e6f90"/><path d="M10 38 C18 30 22 46 32 38 S46 30 54 38" fill="none" stroke="#eef4f8" stroke-width="4.5" stroke-linecap="round"/><path d="M10 26 C18 18 22 34 32 26 S46 18 54 26" fill="none" stroke="#d2a55f" stroke-width="4.5" stroke-linecap="round"/></svg>Coastal <span>CR</span></a>
+    <div class="nav-right"><span class="nav-pages"><a href="../">Projects</a><a href="../../websites/">Websites</a><a href="../../tradewind/">Tradewind</a></span><a class="nav-link" href="../../services/">Monthly plans</a><a class="nav-cta" href="../../#contact">Get a website</a></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero dark topo">
+  <div class="wrap">
+    <div class="crumbs"><a href="../">Projects</a> &nbsp;/&nbsp; Great Marlin</div>
+    <div class="hero-grid">
+      <div class="reveal in">
+        <div class="eb">Case study · My own charter · Herradura Bay, Costa Rica</div>
+        <h1>Great <b>Marlin</b></h1>
+        <div class="mono-chips"><span>09° 38' 43" N · 84° 39' 35" W</span><span>36-foot sportfisher</span><span>Your group only</span></div>
+      </div>
+      <div class="hero-side reveal in">
+        <p class="lead">Great Marlin is my own private charter: one 36-foot sportfisher working the drop off Herradura Bay, one crew, your group only. I built the site the way the big yacht builders present their boats, calm and confident, with the boat as the star. It shows the water, answers the questions, and takes the booking on its own.</p>
+        <div class="hero-acts">
+          <a class="btn btn-green" href="https://greatmarlin.com" target="_blank" rel="noopener">Visit greatmarlin.com ↗</a>
+          <a class="btn btn-line" href="#pages">Tour the site</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="facts">
+      <div class="fact"><b>360°</b><span>the boat turns on its own the moment the page opens</span></div>
+      <div class="fact"><b>Live</b><span>sea conditions off Herradura, right on the page</span></div>
+      <div class="fact"><b>7</b><span>ways to spend the day</span></div>
+      <div class="fact"><b>12</b><span>fish in the guide, with their seasons</span></div>
+      <div class="fact"><b>4</b><span>steps to book, price on screen</span></div>
+    </div>
+
+    <div class="stage">
+      <span class="stage-tag">360° · the boat turns on its own</span>
+      <div class="browser">
+        <div class="bar"><i></i><i></i><i></i><span>greatmarlin.com</span></div>
+        <video autoplay muted loop playsinline preload="metadata" poster="../../img/greatmarlin-360-poster.jpg?v=2" width="1440" height="810" aria-label="Great Marlin website: the boat turns a full 360 degrees on its own">
+          <source src="../../video/greatmarlin-360.mp4?v=2" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- THE BRIEF -->
+<section class="topo" id="brief" style="background:var(--stone)">
+  <div class="wrap">
+    <div class="head">
+      <div class="reveal">
+        <div class="eb">The brief</div>
+        <h2>One boat. <b>Presented like a yacht.</b></h2>
+      </div>
+      <p class="lead reveal" style="--d:.08s">Most charter websites look the same: a stock marlin, a price table and a contact form. A private charter with one boat has nothing to hide behind, so the boat had to carry the whole site. I studied how the world's top yacht builders show their boats, then built the opposite of a template: quiet, confident, and focused on what you'll actually step onto.</p>
+    </div>
+    <div class="brief-grid">
+      <div class="goal reveal"><span class="who">Show</span><h3>The boat</h3><p>From every side, before a guest reads a word. The opening screen is the boat turning slowly on the water.</p></div>
+      <div class="goal reveal" style="--d:.05s"><span class="who">Show</span><h3>The water</h3><p>Where it fishes, how close the sailfish are, and what the sea is doing right now.</p></div>
+      <div class="goal reveal" style="--d:.1s"><span class="who">Answer</span><h3>Every question</h3><p>What's included, what bites when, how to get to the beach, what a first offshore day is like.</p></div>
+      <div class="goal reveal" style="--d:.15s"><span class="who">Take</span><h3>The booking</h3><p>Four questions, the price for the whole group on screen, several days in one request.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE DESIGN -->
+<section class="dark topo" id="design">
+  <div class="wrap">
+    <div class="head">
+      <div class="reveal">
+        <div class="eb">The design</div>
+        <h2>Calm, confident, <b>built around the boat.</b></h2>
+      </div>
+      <p class="lead reveal" style="--d:.08s">Nothing shouts. Wide, engineered capitals for headlines, a typewriter font for the coordinates and live readouts, and the boat's own teal as the only color. Square buttons, straight lines, lots of space. It reads like a yacht spec sheet, not a tour flyer.</p>
+    </div>
+    <div class="design-grid">
+      <div class="dcard reveal">
+        <div class="specimen"><div style="font-family:'Krona One';text-transform:uppercase;font-size:40px;line-height:1.05;color:#fff">Great<br>Marlin</div><div class="spec-small" style="font-family:'Fragment Mono'">Krona One · Archivo · Fragment Mono</div></div>
+        <h3>The type</h3>
+        <p>A wide, engineered headline font with the feel of a hull name, a clean font for reading, and a typewriter font for every number: coordinates, sea height, water temperature.</p>
+      </div>
+      <div class="dcard reveal" style="--d:.06s">
+        <div class="specimen"><div class="swatches">
+          <div class="sw" style="background:#131718;color:#fff">HULL</div>
+          <div class="sw" style="background:#5fb3b1;color:#131718">TEAL</div>
+          <div class="sw" style="background:#0e7471;color:#fff">DEEP</div>
+          <div class="sw" style="background:#f6f2ea;color:#131718">DECK</div>
+          <div class="sw" style="background:#ffffff;color:#131718">WHITE</div>
+        </div></div>
+        <h3>The colors</h3>
+        <p>The dark of the hull, the teal of the boat's own paint, and warm deck tones for the light sections. One accent color, used sparingly.</p>
+      </div>
+      <div class="dcard reveal" style="--d:.12s">
+        <div class="specimen"><div style="font-family:'Fragment Mono';font-size:13px;letter-spacing:.08em;color:rgba(255,255,255,.85);line-height:2.1;text-transform:uppercase">[ 09° 38' 43" N · 84° 39' 35" W ]<br>● Seas 4.2 ft · Water 87°F<br>↓ Scroll for more</div></div>
+        <h3>The details</h3>
+        <p>Real coordinates in the corner, a live seas and water readout on the first screen, and small mono labels everywhere. The kind of details people feel even if they never notice them.</p>
+      </div>
+    </div>
+    <div class="design-shots">
+      <figure class="shot reveal"><div class="frame"><img src="../../img/work/gm/d-sec02.webp" alt="Great Marlin: this stretch of Pacific releases more sailfish than almost anywhere on earth" width="1440" height="840" loading="lazy"></div><figcaption><b>The water.</b> A map of the bay, the airport and the sailfish grounds, next to a real release.</figcaption></figure>
+      <figure class="shot reveal" style="--d:.06s"><div class="frame"><img src="../../img/work/gm/d-sec03.webp" alt="Great Marlin: set up the way a fishing day runs" width="1440" height="840" loading="lazy"></div><figcaption><b>The boat.</b> Tower, outriggers, shade and the head, explained the way a fishing day actually runs.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE TOUR -->
+<section class="topo" id="pages" style="background:var(--stone)">
+  <div class="wrap">
+    <div class="head solo reveal">
+      <div class="eb">Every page, up close</div>
+      <h2>A tour of <b>the site.</b></h2>
+      <p class="lead">A homepage that walks from the boat to the booking, plus pages for every trip and every question a first-time guest has.</p>
+    </div>
+
+    <div class="tour">
+      <div class="stop">
+        <figure class="shot"><div class="frame"><img src="../../img/work/gm/d-home.webp" alt="Great Marlin homepage first screen" width="1440" height="840"></div></figure>
+        <div class="reveal">
+          <span class="where">greatmarlin.com</span>
+          <h3>The first screen</h3>
+          <p>The boat turns a full 360° on its own as the page opens. The name and three buttons stay put: plan my day, WhatsApp, email. In the corners, the real coordinates and today's seas and water temperature.</p>
+          <ul><li>Plays only while it's on screen, so it's easy on phone batteries</li><li>A separate, lighter version of the video for phones</li></ul>
+        </div>
+      </div>
+
+      <div class="stop">
+        <figure class="shot"><div class="frame"><img src="../../img/work/gm/d-sec04.webp" alt="Great Marlin rates: one boat, seven ways to spend the day" width="1440" height="840" loading="lazy"></div></figure>
+        <div class="reveal">
+          <span class="where">Homepage · trips</span>
+          <h3>One boat, seven ways to spend the day</h3>
+          <p>Offshore full and three-quarter days, an inshore half day, a surf day by boat, and more. Every price is for the whole group, not per head, with a plan button and a WhatsApp shortcut on every line, the question already written.</p>
+        </div>
+      </div>
+
+      <div class="stop">
+        <figure class="shot"><div class="frame"><img src="../../img/work/gm/d-sec06.webp" alt="Great Marlin fish guide with twelve species" width="1440" height="840" loading="lazy"></div></figure>
+        <div class="reveal">
+          <span class="where">Homepage · what we chase</span>
+          <h3>A real fish guide</h3>
+          <p>Twelve species, from Pacific sailfish to cubera snapper, each with its peak season and where it's found. Billfish released, meat fish kept, explained in plain words with real catch photos from this boat.</p>
+        </div>
+      </div>
+
+      <div class="stop">
+        <figure class="shot"><div class="frame"><img src="../../img/work/gm/d-sec07.webp" alt="Great Marlin live conditions: today off Herradura" width="1440" height="840" loading="lazy"></div></figure>
+        <div class="reveal">
+          <span class="where">Homepage · today off Herradura</span>
+          <h3>Live sea conditions</h3>
+          <p>Sky, wind, seas and swell, water temperature, sunrise and sunset, updated on their own. Guests check the water before they book, and come back the night before to check it again.</p>
+        </div>
+      </div>
+
+      <div class="stop">
+        <figure class="shot"><div class="frame"><img src="../../img/work/gm/d-planner.webp" alt="Great Marlin trip planner" width="1440" height="840" loading="lazy"></div></figure>
+        <div class="reveal">
+          <span class="where">/book.html</span>
+          <h3>A trip planner that takes the booking</h3>
+          <p>Four questions: the day, when, the beach, send. The price is on screen before they hit send, and they can add several days in one request. Every request lands in my inbox and the guest gets a confirmation from bookings@greatmarlin.com.</p>
+          <ul><li>Several days in one request</li><li>Asks where they're staying, with rides through Jaco Transport</li><li>Answered from the same email thread</li></ul>
+        </div>
+      </div>
+
+      <div class="stop">
+        <figure class="shot"><div class="frame"><img src="../../img/work/gm/d-offshore.webp" alt="Great Marlin offshore fishing charter page" width="1440" height="840" loading="lazy"></div></figure>
+        <div class="reveal">
+          <span class="where">/full-day-fishing-charter.html · /half-day-fishing-charter.html · /surf-trip.html</span>
+          <h3>A page for every trip</h3>
+          <p>Offshore, inshore and the surf day each get their own page: what the day looks like, what's included, who it's for, and a plan button, written for the people searching for exactly that trip.</p>
+        </div>
+      </div>
+
+      <div class="stop">
+        <figure class="shot"><div class="frame"><img src="../../img/work/gm/d-firsttime.webp" alt="Great Marlin: your first day offshore" width="1440" height="840" loading="lazy"></div></figure>
+        <div class="reveal">
+          <span class="where">/first-time-offshore.html · /costa-rica-fishing.html</span>
+          <h3>Guides for first-timers</h3>
+          <p>A first-day-offshore guide that walks through the whole day, and a guide to fishing Costa Rica's central Pacific: the seasons, the fish, the method. Pages that answer the nervous questions before anyone has to ask.</p>
+        </div>
+      </div>
+
+      <div class="stop">
+        <figure class="shot"><div class="frame"><img src="../../img/work/gm/d-getting.webp" alt="Great Marlin: getting to Herradura Bay" width="1440" height="840" loading="lazy"></div></figure>
+        <div class="reveal">
+          <span class="where">/getting-here.html · /transportation.html · /tours.html</span>
+          <h3>Door to the beach, and the days off</h3>
+          <p>How to get to Herradura Bay, rides from hotels and the airport through Jaco Transport, and tours for the days you're not fishing: waterfalls, rainforest, the coast.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHONES -->
+<section class="dark topo" id="phones">
+  <div class="wrap">
+    <div class="head">
+      <div class="reveal">
+        <div class="eb">On phones</div>
+        <h2>The same calm, <b>in a pocket.</b></h2>
+      </div>
+      <p class="lead reveal" style="--d:.08s">Every page was tested on real iPhone screens, down to the small ones. On the smallest phones the menu trims to just the logo, the video swaps to a lighter file, and a tap wakes it up if the phone is in Low Power Mode.</p>
+    </div>
+    <div class="phones">
+      <figure class="phone"><div class="frame"><img src="../../img/work/gm/m-home.webp" alt="Great Marlin homepage on a phone" width="780" height="1688" loading="lazy"></div><figcaption><b>First screen</b>The boat, the name, three buttons</figcaption></figure>
+      <figure class="phone"><div class="frame"><img src="../../img/work/gm/m-offshore.webp" alt="Great Marlin offshore page on a phone" width="780" height="1688" loading="lazy"></div><figcaption><b>Offshore</b>One trip, one page</figcaption></figure>
+      <figure class="phone"><div class="frame"><img src="../../img/work/gm/m-surf.webp" alt="Great Marlin surf day page on a phone" width="780" height="1688" loading="lazy"></div><figcaption><b>Surf day</b>A boat-access reef</figcaption></figure>
+      <figure class="phone"><div class="frame"><img src="../../img/work/gm/m-planner.webp" alt="Great Marlin planner on a phone" width="780" height="1688" loading="lazy"></div><figcaption><b>The planner</b>Four steps, price on screen</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- BEHIND THE SCENES -->
+<section id="behind" style="background:var(--cpaper)">
+  <div class="wrap">
+    <div class="head">
+      <div class="reveal">
+        <div class="eb">Behind the scenes</div>
+        <h2>The stuff <b>you don't see.</b></h2>
+      </div>
+      <p class="lead reveal" style="--d:.08s">A site this visual has to stay fast and reliable, or the boat never gets booked.</p>
+    </div>
+    <div class="bts">
+      <div class="bt reveal"><h3>Booking emails</h3><p>Every request sends the guest a confirmation and lands with me in the same thread I answer from. Nothing gets lost.</p></div>
+      <div class="bt reveal" style="--d:.05s"><h3>Conditions update themselves</h3><p>The sea, wind and water readouts refresh on their own. Nobody has to touch the site for them to be right.</p></div>
+      <div class="bt reveal" style="--d:.1s"><h3>Easy on batteries</h3><p>Videos only play while they're on screen, and phones get a smaller file, so the site stays smooth on a beach signal.</p></div>
+      <div class="bt reveal"><h3>WhatsApp, pre-written</h3><p>Every trip has a WhatsApp button with the question already typed, so asking takes one tap.</p></div>
+      <div class="bt reveal" style="--d:.05s"><h3>Always the newest version</h3><p>Styles and scripts are stamped with each update, so nobody sees an old layout after a change.</p></div>
+      <div class="bt reveal" style="--d:.1s"><h3>Built to be found</h3><p>Separate pages for each trip and each question, a sitemap, and every old address pointing to the new site.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LAUNCH -->
+<section class="dark topo" id="launch">
+  <div class="wrap">
+    <div class="head solo reveal">
+      <div class="eb">How it came together</div>
+      <h2>From first draft <b>to live.</b></h2>
+    </div>
+    <div class="launch">
+      <div class="reveal"><h3>Study</h3><p>I studied how the top yacht builders present their boats and wrote down the rules that make a site feel expensive.</p></div>
+      <div class="reveal" style="--d:.05s"><h3>Build</h3><p>The 360° boat, the live conditions, the trips, the fish guide and the planner, page by page.</p></div>
+      <div class="reveal" style="--d:.1s"><h3>Test</h3><p>Booking emails tested end to end, every page checked on real iPhone screens, a private test link first.</p></div>
+      <div class="reveal" style="--d:.15s"><h3>Launch</h3><p>Switched greatmarlin.com over with the old site saved, so going back would take one step.</p></div>
+    </div>
+    <div class="golive reveal">
+      <div><b>Live at greatmarlin.com</b><small>Great Marlin · Private sportfishing charter · Herradura Bay, Costa Rica</small></div>
+      <a class="btn btn-green" href="https://greatmarlin.com" target="_blank" rel="noopener">Visit the live site ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="closing" id="contact">
+  <div class="wrap" style="max-width:1160px">
+    <div class="cta reveal">
+      <h2>Want a site like this for <b>your business?</b></h2>
+      <p>Send me your business and I'll show you what your new site could be. Free, no pressure, in English or Spanish.</p>
+      <div class="acts">
+        <a class="btn btn-primary" href="https://wa.me/13213561951" target="_blank" rel="noopener">Message on WhatsApp</a>
+        <a class="btn btn-ghost" href="mailto:coastalcrwebsites@gmail.com">Email me</a>
+        <a class="btn btn-ghost" href="../">See all projects</a>
+      </div>
+      <div class="mail">coastalcrwebsites@gmail.com · WhatsApp +1 321-356-1951</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">
+      <div class="brand"><svg class="logomark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0e6f90"/><path d="M10 38 C18 30 22 46 32 38 S46 30 54 38" fill="none" stroke="#eef4f8" stroke-width="4.5" stroke-linecap="round"/><path d="M10 26 C18 18 22 34 32 26 S46 18 54 26" fill="none" stroke="#d2a55f" stroke-width="4.5" stroke-linecap="round"/></svg>Coastal <span>CR</span></div>
+      <p>Custom websites for local businesses, wherever you are. Based in Jaco, Costa Rica.</p>
+    </div>
+    <div class="f-col">
+      <h5>Websites</h5>
+      <a href="../">All projects</a>
+      <a href="../../websites/">Website packages</a>
+      <a href="../../plans/">3 ways to pay</a>
+      <a href="../../care/">Care plan terms</a>
+    </div>
+    <div class="f-col">
+      <h5>Grow</h5>
+      <a href="../../tradewind/">Tradewind app</a>
+      <a href="../../services/">Monthly plans</a>
+      <a href="../../services/#growth">Google &amp; ads</a>
+      <a href="../../services/#transfer">Move my site over</a>
+    </div>
+    <div class="f-col">
+      <h5>Contact</h5>
+      <a href="https://wa.me/13213561951" target="_blank" rel="noopener">WhatsApp +1 321-356-1951</a>
+      <a href="mailto:coastalcrwebsites@gmail.com">coastalcrwebsites@gmail.com</a>
+      <span>English &amp; Español</span>
+    </div>
+  </div>
+  <div class="wrap f-base-wrap"><div class="f-base">© <span id="yr"></span> Coastal CR · Infinite Discoveries LLC · Playa Hermosa, Jaco, Costa Rica</div></div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Nav turns solid once scrolled + progress bar.
+  (function(){
+    const nav = document.querySelector('nav'), bar = document.getElementById('progress');
+    const on = ()=>{
+      nav.classList.toggle('scrolled', window.scrollY > 12);
+      const h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    };
+    window.addEventListener('scroll', on, {passive:true});
+    window.addEventListener('resize', on);
+    on();
+  })();
+
+  // Walkthrough video: play only on screen; reduced motion keeps the poster.
+  (function(){
+    const v = document.querySelector('.browser video');
+    if(!v) return;
+    if(matchMedia('(prefers-reduced-motion:reduce)').matches){ v.removeAttribute('autoplay'); v.pause(); return; }
+    if(!('IntersectionObserver' in window)) return;
+    new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? v.play().catch(()=>{}) : v.pause()), {threshold:.15}).observe(v);
+  })();
+
+  // Text-only reveal with failsafes.
+  (function(){
+    const els = [...document.querySelectorAll('.reveal')];
+    const show = e => e.classList.add('in');
+    if(!('IntersectionObserver' in window)){ els.forEach(show); return; }
+    const io = new IntersectionObserver(en => en.forEach(x => { if(x.isIntersecting){ show(x.target); io.unobserve(x.target); } }), {threshold:0.12, rootMargin:'0px 0px -6% 0px'});
+    els.forEach(e => io.observe(e));
+    const sweep = ()=>els.forEach(e=>{ if(e.classList.contains('in')) return; const r = e.getBoundingClientRect(); if(r.top < innerHeight*0.94 && r.bottom > 0) show(e); });
+    window.addEventListener('load', ()=>setTimeout(sweep, 150));
+    window.addEventListener('scroll', sweep, {passive:true});
+    setTimeout(()=>els.forEach(show), 5000);
+  })();
+
+  // Before/after slider.
+  (function(){
+    const ba = document.getElementById('ba1'), aw = document.getElementById('aw1'), as = document.getElementById('as1'), h = document.getElementById('h1');
+    if(!ba) return;
+    let dragging = false, touched = false;
+    const sizeAfter = ()=>{ as.style.width = ba.clientWidth + 'px'; };
+    const apply = pct=>{ aw.style.width = pct + '%'; h.style.left = pct + '%'; };
+    const setPos = cx=>{ const r = ba.getBoundingClientRect(); apply(Math.max(0, Math.min(1, (cx - r.left) / r.width)) * 100); };
+    const start = ()=>{ dragging = true; touched = true; ba.classList.add('dragging'); };
+    const end = ()=>{ dragging = false; ba.classList.remove('dragging'); };
+    const move = e=>{ if(!dragging) return; setPos(e.touches ? e.touches[0].clientX : e.clientX); };
+    h.addEventListener('mousedown', start);
+    h.addEventListener('touchstart', start, {passive:true});
+    window.addEventListener('mouseup', end);
+    window.addEventListener('touchend', end);
+    window.addEventListener('mousemove', move);
+    window.addEventListener('touchmove', move, {passive:true});
+    ba.addEventListener('mousedown', e=>{ start(); setPos(e.clientX); });
+    window.addEventListener('resize', sizeAfter);
+    window.addEventListener('load', sizeAfter);
+    sizeAfter();
+    if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion:reduce)').matches){
+      const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ io.unobserve(ba); setTimeout(()=>{ if(touched) return; apply(62); setTimeout(()=>{ if(!touched) apply(50); }, 650); }, 450); } }), {threshold:0.35});
+      io.observe(ba);
+    }
+  })();
+</script>
+</body>
+</html>
