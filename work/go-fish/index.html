@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Go Fish Costa Rica case study · Coastal CR</title>
+<meta name="description" content="How I rebuilt the website for Go Fish Costa Rica, a fishing charter and adventure company in Tamarindo and Flamingo: one charter day from dawn to sunset, 98 pages, a trip planner and a trip cart that sends the whole week in one request.">
+<meta property="og:title" content="Go Fish Costa Rica · a Coastal CR case study">
+<meta property="og:description" content="From a dated brochure to a 98-page site that books whole trips. Every page, up close.">
+<meta property="og:image" content="https://coastalcr.com/img/work/gofish/d-home.webp">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Anybody:wdth,wght@100..150,700&family=Hanken+Grotesk:wght@400;500;600;700&family=Fragment+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Coastal CR chrome */
+    --ink:#0b1c28;--paper:#eef4f8;--line:#c7dae6;--accent:#0e6f90;--accent-soft:#1390b4;--sand:#d2a55f;
+    /* Go Fish palette (from gofishcr.com) */
+    --pine:#0c1334;--moss:#16224f;--stone:#eef4f6;--cpaper:#f7fafb;--green:#0e6f90;--green-ink:#0b5d78;--granite:#5a6878;--muted:#4a5a68;--seafoam:#b4d7d5;--gsand:#d2a55f;
+    --display:'Anybody',Impact,sans-serif;--body:'Hanken Grotesk',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  html,body{overflow-x:hidden;max-width:100%}
+  body{font-family:var(--body);color:var(--pine);background:var(--stone);-webkit-font-smoothing:antialiased;line-height:1.6}
+  img,video{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+
+  /* ---------- Coastal CR nav (same as the rest of coastalcr.com) ---------- */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;background:transparent;border-bottom:1px solid transparent;transition:box-shadow .3s ease, background .3s ease}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:1160px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:19px;font-weight:600;letter-spacing:-0.02em;color:#f3f1ea;text-decoration:none}
+  .brand span{color:var(--sand)}
+  .logomark{width:30px;height:30px;flex:none;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  .nav-right{display:flex;align-items:center;gap:10px;font-family:'Inter',sans-serif}
+  .nav-pages{display:flex;gap:4px;margin-right:6px}
+  .nav-pages a{font-size:14px;font-weight:600;padding:9px 14px;border-radius:999px;color:#f3f1ea;text-decoration:none;transition:background .2s}
+  .nav-pages a:hover{background:rgba(255,255,255,.12)}
+  .nav-link{font-size:14px;font-weight:700;padding:9px 18px;border-radius:999px;background:var(--sand);color:#0b1c28;border:1px solid var(--sand);text-decoration:none;transition:.2s;white-space:nowrap}
+  .nav-link:hover{background:#e0b673;border-color:#e0b673}
+  .nav-cta{font-size:14px;font-weight:600;padding:9px 18px;border-radius:999px;background:rgba(255,255,255,.12);color:#f3f1ea;border:1px solid rgba(255,255,255,.25);text-decoration:none;transition:.25s}
+  .nav-cta:hover{background:var(--accent);border-color:var(--accent)}
+  nav.scrolled{background:rgba(238,244,248,.97);border-bottom-color:var(--line);box-shadow:0 10px 30px -22px rgba(11,28,40,.5)}
+  nav.scrolled .brand{color:var(--ink)}
+  nav.scrolled .brand span{color:var(--accent)}
+  nav.scrolled .nav-pages a{color:var(--ink)}
+  nav.scrolled .nav-pages a:hover{background:rgba(11,28,40,.07)}
+  nav.scrolled .nav-cta{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:linear-gradient(90deg,var(--green),var(--seafoam));transition:width .08s linear}
+  @media(max-width:980px){.nav-pages{display:none}}
+
+  /* ---------- buttons ---------- */
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--body);font-size:15px;font-weight:700;text-decoration:none;padding:14px 24px;border-radius:999px;transition:transform .25s cubic-bezier(.2,.7,.2,1), background .2s, border-color .2s, color .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-green{background:var(--green);color:#fff;border:1px solid var(--green)}
+  .btn-green:hover{background:var(--green-ink);border-color:var(--green-ink)}
+  .btn-line{border:1px solid rgba(237,234,226,.45);color:var(--stone)}
+  .btn-line:hover{border-color:var(--stone)}
+
+  /* ---------- topo contour pattern (Jake's own pattern from his site) ---------- */
+  .topo{position:relative;isolation:isolate}
+  .topo::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 600px at 90% 0%,rgba(14,111,144,.10),transparent 62%)}
+  .dark{background:var(--pine);color:var(--stone)}
+  .dark.topo::before{background:radial-gradient(900px 640px at 85% 0%,rgba(180,215,213,.14),transparent 62%),radial-gradient(800px 600px at 0% 100%,rgba(14,111,144,.22),transparent 60%)}
+
+  /* ---------- type ---------- */
+  .eb{font-family:var(--body);font-size:12.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green-ink);display:flex;align-items:center;gap:12px}
+  .eb::before{content:"";width:28px;height:2px;background:currentColor}
+  .dark .eb{color:var(--seafoam)}
+  h1,h2,h3{font-family:var(--display);font-weight:700;font-variation-settings:'wdth' 110;line-height:.98;letter-spacing:-.02em}
+  h2{font-size:clamp(44px,6.4vw,88px);margin-top:18px}
+  h2 b{font-weight:700;color:var(--green)}
+  .dark h2 b{color:var(--seafoam)}
+  h3{font-size:26px;line-height:1}
+  .lead{font-size:18.5px;line-height:1.62;color:var(--muted);max-width:60ch;margin-top:22px}
+  .dark .lead{color:rgba(237,234,226,.74)}
+  .bigword{display:block;font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.8;white-space:nowrap;color:transparent;-webkit-text-stroke:2px rgba(19,30,24,.22);user-select:none;pointer-events:none}
+  .dark .bigword{-webkit-text-stroke-color:rgba(237,234,226,.2)}
+  .fit{font-size:14vw}
+
+  section{padding:120px 0}
+
+  /* ---------- HERO ---------- */
+  header.hero{padding:140px 0 0;overflow:hidden}
+  .crumbs{font-family:'Inter',sans-serif;font-size:13px;color:rgba(237,234,226,.6);margin-bottom:26px}
+  .crumbs a{text-decoration:none;color:rgba(237,234,226,.85)}
+  .crumbs a:hover{color:var(--seafoam)}
+  .hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:40px 64px;align-items:end}
+  header.hero h1{font-size:clamp(52px,7.6vw,112px);color:var(--stone);margin-top:18px}
+  header.hero h1 b{display:block;color:var(--seafoam);font-weight:700}
+  .hero-side .lead{margin-top:0}
+  .hero-acts{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+  .facts{margin-top:64px;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid rgba(237,234,226,.16);border-bottom:1px solid rgba(237,234,226,.16)}
+  .fact{padding:24px 18px 22px;border-left:1px solid rgba(237,234,226,.16)}
+  .fact:first-child{border-left:none;padding-left:0}
+  .fact b{display:block;font-family:var(--display);font-weight:700;font-variation-settings:'wdth' 110;font-size:clamp(34px,4vw,54px);line-height:.9;color:var(--stone)}
+  .fact span{display:block;margin-top:8px;font-size:13.5px;color:rgba(237,234,226,.66);line-height:1.4}
+  .stage{margin-top:64px;position:relative}
+  .browser{border-radius:12px 12px 0 0;overflow:hidden;background:#1d1f1e;box-shadow:0 -10px 80px -30px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.07)}
+  .browser .bar{height:38px;display:flex;align-items:center;gap:7px;padding:0 14px;background:#1d1f1e}
+  .browser .bar i{width:11px;height:11px;border-radius:50%;display:block}
+  .browser .bar i:nth-child(1){background:#ff5f57}.browser .bar i:nth-child(2){background:#febc2e}.browser .bar i:nth-child(3){background:#28c840}
+  .browser .bar span{flex:1;margin:0 70px 0 30px;height:23px;border-radius:12px;background:#2b2e2c;color:#d8dbd9;font-family:'Inter',sans-serif;font-size:12.5px;display:flex;align-items:center;justify-content:center}
+  .browser video,.browser img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;background:#131E18}
+  .stage-tag{position:absolute;right:18px;top:-15px;z-index:2;font-family:var(--body);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--green);color:#fff;padding:8px 13px;border-radius:3px}
+
+  /* ---------- section heads ---------- */
+  .head{display:grid;grid-template-columns:1fr 1fr;gap:28px 64px;align-items:end;margin-bottom:56px}
+  .head .lead{margin-top:0}
+  .head.solo{display:block;max-width:820px}
+  .head.solo .lead{margin-top:22px}
+
+  /* ---------- the brief ---------- */
+  .brief-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px}
+  .goal{background:var(--cpaper);border:1px solid rgba(19,30,24,.1);border-radius:6px;padding:26px 22px}
+  .goal h3{font-size:24px}
+  .goal p{margin-top:10px;font-size:15px;line-height:1.55;color:var(--muted)}
+  .goal .who{display:block;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green-ink);margin-bottom:14px}
+
+  /* before/after slider (same as the homepage) */
+  .ba{position:relative;border-radius:8px;overflow:hidden;box-shadow:0 40px 90px -46px rgba(0,0,0,.55);border:1px solid rgba(19,30,24,.12);user-select:none;aspect-ratio:1440/900;background:#0b1c28}
+  .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+  .ba .after-wrap{position:absolute;inset:0;width:50%;overflow:hidden;border-right:2px solid #fff;transition:width .5s cubic-bezier(.2,.7,.2,1)}
+  .ba .after-img-sizer{position:absolute;top:0;left:0;height:100%}
+  .ba .label{position:absolute;top:16px;z-index:4;font-family:'Inter',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:7px 13px;border-radius:999px;color:#fff}
+  .ba .label.before{left:16px;background:rgba(11,28,40,.78)}
+  .ba .label.after{right:16px;background:var(--green)}
+  .ba .handle{position:absolute;top:0;bottom:0;left:50%;width:44px;margin-left:-22px;z-index:5;cursor:ew-resize;display:flex;align-items:center;justify-content:center;transition:left .5s cubic-bezier(.2,.7,.2,1)}
+  .ba .handle::before{content:"";position:absolute;top:0;bottom:0;left:21px;width:2px;background:#fff}
+  .ba .knob{position:relative;width:44px;height:44px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.3);color:#0b1c28}
+  .ba .knob svg{width:20px;height:20px}
+  .ba.dragging .after-wrap,.ba.dragging .handle{transition:none}
+  .hint{margin-top:14px;font-size:13.5px;color:var(--muted);text-align:center}
+  .vs{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid rgba(19,30,24,.12);border-radius:6px;overflow:hidden;background:var(--cpaper)}
+  .vs>div{padding:26px 28px}
+  .vs>div+div{border-left:1px solid rgba(19,30,24,.12)}
+  .vs h4{font-family:var(--body);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--granite);margin-bottom:14px}
+  .vs .now h4{color:var(--green-ink)}
+  .vs ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .vs li{font-size:15.5px;line-height:1.45;padding-left:26px;position:relative}
+  .vs .was li{color:var(--muted)}
+  .vs .was li::before{content:"";position:absolute;left:2px;top:10px;width:12px;height:2px;background:#a9aea9}
+  .vs .now li::before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.3 2.3 4.7-5' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+
+  /* ---------- design ---------- */
+  .design-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .dcard{background:rgba(237,234,226,.05);border:1px solid rgba(237,234,226,.13);border-radius:6px;padding:28px 24px;display:flex;flex-direction:column}
+  .dcard h3{color:var(--stone)}
+  .dcard p{margin-top:12px;font-size:15px;line-height:1.58;color:rgba(237,234,226,.7)}
+  .specimen{margin-bottom:22px;min-height:132px;display:flex;flex-direction:column;justify-content:flex-end}
+  .spec-big{font-family:var(--display);font-weight:900;font-size:76px;line-height:.82;text-transform:uppercase;color:var(--stone)}
+  .spec-big i{font-style:normal;color:transparent;-webkit-text-stroke:1.5px var(--stone)}
+  .spec-small{font-family:var(--body);font-size:14px;margin-top:10px;color:rgba(237,234,226,.7)}
+  .swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+  .sw{height:96px;border-radius:4px;border:1px solid rgba(237,234,226,.16);display:flex;align-items:flex-end;padding:6px;font-family:'Fragment Mono',monospace;font-size:9.5px;letter-spacing:.02em}
+  .topo-tile{height:132px;border-radius:4px;border:1px solid rgba(237,234,226,.16);background:var(--stone);position:relative;overflow:hidden;isolation:isolate}
+  .topo-tile::before{content:"";position:absolute;inset:0;-webkit-mask:url(../../img/work/costa/topo.svg) -380px -220px/900px 900px repeat;mask:url(../../img/work/costa/topo.svg) -380px -220px/900px 900px repeat;background:rgba(19,30,24,.55)}
+  .design-shots{margin-top:56px;display:grid;grid-template-columns:1.2fr 1fr;gap:22px;align-items:start}
+
+  /* screenshots */
+  .shot{margin:0}
+  .shot .frame{border-radius:6px;overflow:hidden;border:1px solid rgba(19,30,24,.12);background:#1d1f1e;box-shadow:0 26px 60px -38px rgba(0,0,0,.55)}
+  .dark .shot .frame{border-color:rgba(237,234,226,.12)}
+  .shot img{width:100%;height:auto;aspect-ratio:1440/840;object-fit:cover;object-position:top}
+  .shot figcaption{margin-top:12px;font-size:14px;line-height:1.5;color:var(--muted)}
+  .dark .shot figcaption{color:rgba(237,234,226,.66)}
+  .shot figcaption b{color:var(--pine);font-weight:700}
+  .dark .shot figcaption b{color:var(--stone)}
+
+  /* ---------- page tour ---------- */
+  .tour{display:flex;flex-direction:column;gap:96px}
+  .stop{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:56px;align-items:center}
+  .stop:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,1.5fr)}
+  .stop:nth-child(even) .shot{order:2}
+  .stop .where{font-family:'Fragment Mono',monospace;font-size:12.5px;color:var(--green-ink);letter-spacing:.02em}
+  .stop h3{font-size:clamp(34px,3.6vw,48px);margin-top:12px}
+  .stop p{margin-top:16px;font-size:16.5px;line-height:1.62;color:var(--muted)}
+  .stop ul{margin-top:18px;list-style:none;display:flex;flex-direction:column;gap:8px}
+  .stop li{font-size:15px;padding-left:22px;position:relative}
+  .stop li::before{content:"";position:absolute;left:0;top:9px;width:10px;height:2px;background:var(--green)}
+
+  /* ---------- services ---------- */
+  .svc{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid rgba(19,30,24,.14)}
+  .svc>div{padding:28px 28px 30px 0;border-bottom:1px solid rgba(19,30,24,.14)}
+  .svc>div:nth-child(even){padding-left:28px;border-left:1px solid rgba(19,30,24,.14)}
+  .svc h3{font-size:32px}
+  .svc p{margin-top:8px;font-size:15.5px;line-height:1.55;color:var(--muted)}
+  .subs{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
+  .subs span{font-size:12.5px;font-weight:600;padding:5px 10px;border-radius:3px;background:var(--cpaper);border:1px solid rgba(19,30,24,.12)}
+  .svc .url{display:block;margin-top:12px;font-family:'Fragment Mono',monospace;font-size:12px;color:var(--green-ink)}
+
+  /* ---------- photos ---------- */
+  .photos{display:grid;grid-template-columns:repeat(5,1fr);grid-auto-rows:190px;gap:10px}
+  .photos figure{margin:0;border-radius:5px;overflow:hidden;position:relative;background:#2A4434}
+  .photos img{width:100%;height:100%;object-fit:cover}
+  .photos figure:nth-child(1){grid-column:span 2;grid-row:span 2}
+  .photos figure:nth-child(6),.photos figure:nth-child(10){grid-column:span 2}
+  .photos figcaption{position:absolute;left:8px;bottom:8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(19,30,24,.82);color:var(--stone);padding:5px 8px;border-radius:3px}
+
+  /* ---------- phones ---------- */
+  .phones{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:start}
+  .phone{margin:0}
+  .phone .frame{border:8px solid #0d0f0e;border-radius:34px;overflow:hidden;background:#0d0f0e;box-shadow:0 34px 70px -36px rgba(0,0,0,.6)}
+  .phone img{width:100%;height:auto;aspect-ratio:390/844;object-fit:cover;object-position:top}
+  .phone figcaption{margin-top:14px;font-size:14px;line-height:1.45;text-align:center;color:rgba(237,234,226,.7)}
+  .phone figcaption b{display:block;color:var(--stone);font-weight:700}
+  .phones-note{margin-top:56px;display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap}
+  .phones-note span{font-size:14px;font-weight:700;padding:11px 18px;border-radius:3px;border:1px solid rgba(237,234,226,.2)}
+  .phones-note span.g{background:var(--green);border-color:var(--green);color:#fff}
+
+  /* ---------- timelapse ---------- */
+  .tl{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:56px;align-items:center}
+  .tl video{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:6px;box-shadow:0 34px 80px -40px rgba(0,0,0,.6);background:#2A4434}
+
+  /* ---------- behind the scenes ---------- */
+  .bts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .bt{background:var(--cpaper);border:1px solid rgba(19,30,24,.1);border-radius:6px;padding:26px 24px}
+  .bt h3{font-size:25px}
+  .bt p{margin-top:10px;font-size:15px;line-height:1.56;color:var(--muted)}
+  .bt code{font-family:'Fragment Mono',monospace;font-size:12.5px;background:var(--stone);padding:2px 6px;border-radius:3px}
+
+  /* ---------- tradewind ---------- */
+  .tw{background:#eef5ef;position:relative}
+  .tw .eb{color:#2f6b3c}
+  .tw h2 b{color:#2f6b3c}
+  .tw-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:start}
+  .tw-flow .phone .frame{border-color:#13261a}
+  .tw-flow .phone figcaption{color:#3d5545}
+  .tw-flow .phone figcaption b{color:#13261a}
+  .tw-mark{display:inline-flex;align-items:center;gap:12px;font-family:'Inter',sans-serif;font-weight:700;font-size:15px;color:#13261a;margin-top:28px;text-decoration:none;border-bottom:2px solid #2f6b3c;padding-bottom:3px}
+  .tw-mark svg{width:30px;height:30px}
+
+  /* ---------- launch ---------- */
+  .launch{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(237,234,226,.16)}
+  .launch>div{padding:28px 22px 0 0}
+  .launch>div+div{padding-left:22px;border-left:1px solid rgba(237,234,226,.16)}
+  .launch h3{font-size:26px;color:var(--stone)}
+  .launch p{margin-top:10px;font-size:15px;line-height:1.55;color:rgba(237,234,226,.7)}
+  .golive{margin-top:64px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:30px 32px;border-radius:6px;background:rgba(237,234,226,.06);border:1px solid rgba(237,234,226,.14)}
+  .golive b{font-family:var(--display);font-weight:700;font-variation-settings:'wdth' 110;font-size:clamp(26px,3vw,40px);line-height:1;color:var(--stone)}
+  .golive small{display:block;font-size:14px;color:rgba(237,234,226,.66);margin-top:6px}
+
+  /* ---------- CTA + footer (Coastal CR) ---------- */
+  .closing{padding:96px 0 84px;background:var(--paper)}
+  .cta{background:var(--ink);color:var(--paper);border-radius:22px;padding:64px 48px;text-align:center;font-family:'Inter',sans-serif}
+  .cta h2{font-family:'Fraunces',Georgia,serif;font-weight:500;text-transform:none;letter-spacing:-.01em;line-height:1.05;font-size:clamp(30px,4.6vw,50px);color:var(--paper);max-width:20ch;margin:0 auto}
+  .cta h2 b{font-weight:500;color:var(--sand)}
+  .cta p{margin:18px auto 0;max-width:48ch;color:#b3c6d3;font-size:17px}
+  .cta .acts{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .cta .btn{border-radius:999px;font-family:'Inter',sans-serif;font-weight:600}
+  .cta .btn-primary{background:var(--accent);color:#fff}
+  .cta .btn-primary:hover{background:var(--accent-soft)}
+  .cta .btn-ghost{border:1px solid rgba(255,255,255,.25);color:var(--paper)}
+  .cta .btn-ghost:hover{border-color:var(--paper)}
+  .cta .mail{margin-top:20px;font-size:14px;color:#8fa6b6}
+  footer{padding:64px 0 40px;background:#0b1c28;color:#b3c6d3;font-size:14px;font-family:'Inter',sans-serif}
+  footer .wrap{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:32px;max-width:1160px}
+  footer .brand{color:#f3f1ea;margin-bottom:14px}
+  footer .f-brand p{max-width:30ch;line-height:1.55}
+  footer h5{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sand);margin-bottom:14px}
+  footer .f-col{display:flex;flex-direction:column;gap:9px}
+  footer .f-col a{text-decoration:none;color:#dde9f1;overflow-wrap:anywhere}
+  footer .f-col a:hover{color:var(--sand)}
+  footer .f-base-wrap{display:block}
+  footer .f-base{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:#7f97a8}
+
+  /* text-only reveal (images never hide) */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:1020px){
+    .hero-grid,.head,.stop,.stop:nth-child(even),.tl,.design-shots{grid-template-columns:1fr}
+    .stop:nth-child(even) .shot{order:0}
+    .brief-grid{grid-template-columns:1fr 1fr}
+    .design-grid,.bts{grid-template-columns:1fr 1fr}
+    .phones,.tw-flow{grid-template-columns:1fr 1fr}
+    .launch{grid-template-columns:1fr 1fr}
+    .launch>div:nth-child(3){border-left:none;padding-left:0}
+    .launch>div{padding-bottom:28px}
+    .facts{grid-template-columns:repeat(3,1fr)}
+    .fact:nth-child(4){border-left:none;padding-left:0}
+    .fact:nth-child(n+4){border-top:1px solid rgba(237,234,226,.16)}
+    .photos{grid-template-columns:repeat(3,1fr);grid-auto-rows:160px}
+    .photos figure:nth-child(6),.photos figure:nth-child(10){grid-column:span 1}
+  }
+  @media(max-width:860px){footer .wrap{grid-template-columns:1fr 1fr}footer .f-brand{grid-column:1/-1}}
+  @media(max-width:700px){
+    .wrap{padding:0 16px}
+    nav .wrap{height:62px}
+    nav .nav-cta{display:none}
+    section{padding:76px 0}
+    header.hero{padding:112px 0 0}
+    .facts{grid-template-columns:1fr 1fr}
+    .fact,.fact:nth-child(4){border-left:none;padding-left:0}
+    .fact:nth-child(even){border-left:1px solid rgba(237,234,226,.16);padding-left:16px}
+    .fact:nth-child(n+3){border-top:1px solid rgba(237,234,226,.16)}
+    .fact:last-child{grid-column:1/-1;border-left:none;padding-left:0}
+    .browser .bar span{margin:0 0 0 14px}
+    .stage-tag{left:10px;top:48px;font-size:10px;padding:6px 10px}
+    .brief-grid,.design-grid,.bts,.svc,.launch{grid-template-columns:1fr}
+    .svc>div,.svc>div:nth-child(even){padding:22px 0;border-left:none}
+    .launch>div,.launch>div+div{padding:22px 0;border-left:none;border-bottom:1px solid rgba(237,234,226,.16)}
+    .vs{grid-template-columns:1fr}
+    .vs>div+div{border-left:none;border-top:1px solid rgba(19,30,24,.12)}
+    .photos{grid-template-columns:1fr 1fr;grid-auto-rows:140px}
+    .photos figure:nth-child(1){grid-column:span 2}
+    .tour{gap:64px}
+    .stop{gap:24px}
+    .ba .label{top:10px;font-size:10px;padding:5px 10px}
+    .closing{padding:64px 0 56px}
+    .cta{padding:48px 22px}
+    .golive{padding:24px 20px}
+  }
+  @media(max-width:480px){footer .wrap{grid-template-columns:1fr}.phones,.tw-flow{gap:14px}.phone .frame{border-width:5px;border-radius:22px}}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1!important;transform:none!important}
+  }
+
+  /* Go Fish extras */
+  .chapters{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
+  .chap{border-top:2px solid var(--seafoam);padding-top:14px}
+  .chap b{display:block;font-family:var(--display);font-weight:700;font-variation-settings:'wdth' 125;font-size:30px;line-height:1;color:rgba(238,244,246,.22);letter-spacing:-.01em}
+  .chap span{display:block;margin-top:8px;font-size:14.5px;line-height:1.45;color:rgba(238,244,246,.78)}
+  .swatches .sw{font-size:9px}
+  .tl-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+  .awards{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(238,244,246,.16);margin-top:44px}
+  .awards>div{padding:24px 18px 0 0}
+  .awards>div+div{padding-left:18px;border-left:1px solid rgba(238,244,246,.16)}
+  .awards b{display:block;font-family:var(--display);font-weight:700;font-variation-settings:'wdth' 110;font-size:clamp(30px,3.4vw,44px);line-height:.95;color:var(--stone)}
+  .awards span{display:block;margin-top:8px;font-size:14px;line-height:1.45;color:rgba(238,244,246,.68)}
+  @media(max-width:1020px){.chapters{grid-template-columns:1fr 1fr}.awards{grid-template-columns:1fr 1fr}.awards>div:nth-child(3){border-left:none;padding-left:0}.awards>div{padding-bottom:22px}}
+  @media(max-width:700px){.chapters{grid-template-columns:1fr 1fr}.awards>div,.awards>div+div{padding-left:0;border-left:none}.awards>div:nth-child(even){padding-left:16px;border-left:1px solid rgba(238,244,246,.16)}}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="../../"><svg class="logomark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0e6f90"/><path d="M10 38 C18 30 22 46 32 38 S46 30 54 38" fill="none" stroke="#eef4f8" stroke-width="4.5" stroke-linecap="round"/><path d="M10 26 C18 18 22 34 32 26 S46 18 54 26" fill="none" stroke="#d2a55f" stroke-width="4.5" stroke-linecap="round"/></svg>Coastal <span>CR</span></a>
+    <div class="nav-right"><span class="nav-pages"><a href="../">Projects</a><a href="../../websites/">Websites</a><a href="../../tradewind/">Tradewind</a></span><a class="nav-link" href="../../services/">Monthly plans</a><a class="nav-cta" href="../../#contact">Get a website</a></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero dark topo">
+  <div class="wrap">
+    <div class="crumbs"><a href="../">Projects</a> &nbsp;/&nbsp; Go Fish Costa Rica</div>
+    <div class="hero-grid">
+      <div class="reveal in">
+        <div class="eb">Case study · Tamarindo &amp; Flamingo, Costa Rica</div>
+        <h1>Go Fish <b>Costa Rica</b></h1>
+      </div>
+      <div class="hero-side reveal in">
+        <p class="lead">Steve and Liisa have run Go Fish out of Tamarindo since 2010, with a TripAdvisor Travelers' Choice award every year since 2012. Their old website was a dated brochure that didn't come close. I rebuilt it as ninety-eight pages that tell one charter day from dawn to sunset, and plan a guest's whole week in one request.</p>
+        <div class="hero-acts">
+          <a class="btn btn-green" href="https://gofishcr.com" target="_blank" rel="noopener">Visit gofishcr.com ↗</a>
+          <a class="btn btn-line" href="#before-after">See the before &amp; after</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="facts">
+      <div class="fact"><b>98</b><span>pages, built from scratch</span></div>
+      <div class="fact"><b>18</b><span>boats: 15 sportfishers and 3 private catamarans</span></div>
+      <div class="fact"><b>17</b><span>adventures, each with its own page</span></div>
+      <div class="fact"><b>444</b><span>of their own photos</span></div>
+      <div class="fact"><b>1</b><span>request for the whole week</span></div>
+    </div>
+
+    <div class="stage">
+      <span class="stage-tag">The whole homepage, one scroll</span>
+      <div class="browser">
+        <div class="bar"><i></i><i></i><i></i><span>gofishcr.com</span></div>
+        <video autoplay muted loop playsinline preload="metadata" poster="../../video/gofish-scroll-poster.jpg" width="1280" height="800" aria-label="A slow scroll through the full Go Fish Costa Rica homepage">
+          <source src="../../video/gofish-scroll.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- THE BRIEF -->
+<section class="topo" id="before-after">
+  <div class="wrap">
+    <div class="head">
+      <div class="reveal">
+        <div class="eb">The starting point</div>
+        <h2>From a brochure to <b>a booking machine.</b></h2>
+      </div>
+      <p class="lead reveal" style="--d:.08s">Go Fish had fifteen years of awards, hundreds of five-star reviews and one of the biggest fleets on the coast. The old site buried all of it. Guests couldn't compare boats, see what a day actually looks like, or ask for more than one trip at a time. Drag the slider to see the difference.</p>
+    </div>
+
+    <div class="ba" id="ba1">
+      <img src="../../img/gofishcr-after.webp" alt="New Go Fish Costa Rica website" width="1440" height="900">
+      <div class="after-wrap" id="aw1">
+        <div class="after-img-sizer" id="as1">
+          <img src="../../img/gofishcr-before.webp" alt="Old Go Fish Costa Rica website" width="1440" height="900">
+        </div>
+      </div>
+      <span class="label before">Before</span>
+      <span class="label after">After</span>
+      <div class="handle" id="h1"><div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 4 12 9 18"></polyline><polyline points="15 6 20 12 15 18"></polyline></svg></div></div>
+    </div>
+    <div class="hint">← Drag to compare →</div>
+
+    <div class="vs reveal">
+      <div class="was">
+        <h4>The old site</h4>
+        <ul>
+          <li>A dated brochure layout</li>
+          <li>Boats listed with little to compare them by</li>
+          <li>Awards and reviews hard to find</li>
+          <li>One contact form for everything</li>
+        </ul>
+      </div>
+      <div class="now">
+        <h4>The new site</h4>
+        <ul>
+          <li>A homepage that walks through one charter day, dawn to sunset</li>
+          <li>Every boat and adventure on its own page, with filters to find the right one</li>
+          <li>Fifteen years of Travelers' Choice and 590 TripAdvisor reviews front and center</li>
+          <li>A four-step trip planner and a trip cart that sends the whole week as one request</li>
+          <li>Every request lands in their inbox ready to confirm, and the guest gets a copy</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="brief-grid">
+      <div class="goal reveal"><span class="who">The guest wants</span><h3>To see the day</h3><p>What it's like on the boat, where they go, what bites. Before they book, not after.</p></div>
+      <div class="goal reveal" style="--d:.05s"><span class="who">The guest wants</span><h3>The right boat</h3><p>Eighteen boats is a lot. Filters by location, group size and budget get them to the two or three that fit.</p></div>
+      <div class="goal reveal" style="--d:.1s"><span class="who">Go Fish needs</span><h3>Whole trips, not one-offs</h3><p>A family might want a fishing day, a catamaran sunset and a zipline. One request, not three emails.</p></div>
+      <div class="goal reveal" style="--d:.15s"><span class="who">Go Fish needs</span><h3>Requests ready to confirm</h3><p>Dates, group, picks and where they're staying, all in one email, so Steve, Liisa and Tyler can answer fast.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE IDEA -->
+<section class="dark topo" id="design">
+  <div class="wrap">
+    <div class="head">
+      <div class="reveal">
+        <div class="eb">The big idea</div>
+        <h2>One charter day, <b>dawn to sunset.</b></h2>
+      </div>
+      <p class="lead reveal" style="--d:.08s">Most charter sites open with a price list. This one opens on the water. The homepage scrolls through a real Go Fish day in chapters, each one answering the questions a guest actually has, in the order they have them. By the end, they know exactly what they're booking.</p>
+    </div>
+
+    <div class="chapters">
+      <div class="chap reveal"><b>Dawn</b><span>Costa Rica's sportfishing operation, with the reviews and awards right up top</span></div>
+      <div class="chap reveal" style="--d:.04s"><b>Boats</b><span>Pick your boat. Steve and Liisa already picked the top captains</span></div>
+      <div class="chap reveal" style="--d:.08s"><b>Launch</b><span>From the beach in Tamarindo, or from the dock in Flamingo</span></div>
+      <div class="chap reveal" style="--d:.12s"><b>Offshore</b><span>Forty minutes out, a thousand feet down</span></div>
+      <div class="chap reveal"><b>Hookup</b><span>Roosterfish inshore, sails and marlin off the edge</span></div>
+      <div class="chap reveal" style="--d:.04s"><b>Lunch</b><span>Cold beer, a sandwich and the story you'll tell for years</span></div>
+      <div class="chap reveal" style="--d:.08s"><b>Beach</b><span>Golden hour over Tamarindo bay</span></div>
+      <div class="chap reveal" style="--d:.12s"><b>Sunset</b><span>The ones who didn't fish get their day too: catamarans, ATVs, ziplines</span></div>
+    </div>
+
+    <div class="design-shots" style="margin-top:56px">
+      <figure class="shot reveal"><div class="frame"><img src="../../img/work/gofish/d-sec05.webp" alt="Go Fish homepage chapter: Roosters inshore, sails and marlin off the edge" width="1440" height="840" loading="lazy"></div><figcaption><b>Hookup.</b> What bites where, with real catch photos from their own boats.</figcaption></figure>
+      <figure class="shot reveal" style="--d:.06s"><div class="frame"><img src="../../img/work/gofish/d-sec06.webp" alt="Go Fish homepage chapter: Cold beer, a sandwich, and the story you'll tell for years" width="1440" height="840" loading="lazy"></div><figcaption><b>Lunch.</b> The small details that make people picture themselves on the boat.</figcaption></figure>
+    </div>
+
+    <div class="design-grid" style="margin-top:22px">
+      <div class="dcard reveal">
+        <div class="specimen"><div class="spec-big" style="font-family:'Anybody';font-weight:700;font-variation-settings:'wdth' 125;text-transform:uppercase;font-size:64px;color:rgba(238,244,246,.25)">Launch</div><div class="spec-small">Anybody + Hanken Grotesk</div></div>
+        <h3>The type</h3>
+        <p>A wide, confident headline font that feels like a boat name on a transom, with huge faded chapter words behind each section, paired with a clean, friendly font for reading.</p>
+      </div>
+      <div class="dcard reveal" style="--d:.06s">
+        <div class="specimen"><div class="swatches">
+          <div class="sw" style="background:#0c1334;color:#eef4f6">NAVY</div>
+          <div class="sw" style="background:#0e6f90;color:#fff">OCEAN</div>
+          <div class="sw" style="background:#b4d7d5;color:#0c1334">SEAFOAM</div>
+          <div class="sw" style="background:#d2a55f;color:#0c1334">SAND</div>
+          <div class="sw" style="background:#eef4f6;color:#0c1334">MIST</div>
+        </div></div>
+        <h3>The colors</h3>
+        <p>Deep navy for offshore water, ocean blue and seafoam for the inshore, and warm sand for the beach and the sunset chapters. The site's colors follow the day.</p>
+      </div>
+      <div class="dcard reveal" style="--d:.12s">
+        <div class="specimen"><div class="spec-big" style="font-family:'Anybody';font-weight:700;font-variation-settings:'wdth' 110;font-size:56px;text-transform:none;line-height:.95">444<br><span style="font-size:20px;font-family:'Hanken Grotesk';font-weight:500;color:rgba(238,244,246,.7)">of their own photos</span></div></div>
+        <h3>Their photos</h3>
+        <p>Fifteen years of real catches, crews and happy guests. I sorted, resized and compressed them so every boat and tour shows the real thing and still loads fast.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE TOUR -->
+<section class="topo" id="pages">
+  <div class="wrap">
+    <div class="head solo reveal">
+      <div class="eb">Every page, up close</div>
+      <h2>A tour of <b>the site.</b></h2>
+      <p class="lead">Ninety-eight pages: every boat, every adventure, every restaurant, the seasons, a blog and the planner. Here's what a guest sees, and why it's there.</p>
+    </div>
+
+    <div class="tour">
+      <div class="stop">
+        <figure class="shot"><div class="frame"><img src="../../img/work/gofish/d-home.webp" alt="Go Fish homepage first screen" width="1440" height="840"></div></figure>
+        <div class="reveal">
+          <span class="where">gofishcr.com</span>
+          <h3>The first screen</h3>
+          <p>Half above the water, half below, with a sailfish under the hull. One clear line about who they are, and two buttons: plan my day, or skip straight to the boats.</p>
+          <ul><li>Star rating and review count right on the first screen</li><li>"Plan my trip" and "My trip" always in the menu</li></ul>
+        </div>
+      </div>
+
+      <div class="stop">
+        <figure class="shot"><div class="frame"><img src="../../img/work/gofish/d-fleet.webp" alt="Go Fish fleet page with filters" width="1440" height="840" loading="lazy"></div></figure>
+        <div class="reveal">
+          <span class="where">/charters/</span>
+          <h3>The whole fleet, sorted for you</h3>
+          <p>Fifteen sportfishing boats and three private catamarans. Guests filter by location, group size, budget and washroom, and sort by size, so they only see the boats that fit their group.</p>
+        </div>
+      </div>
+
+      <div class="stop">
+        <figure class="shot"><div class="frame"><img src="../../img/work/gofish/d-boat.webp" alt="Go Fish boat page: 43' Ocean" width="1440" height="840" loading="lazy"></div></figure>
+        <div class="reveal">
+          <span class="where">/charters/43-ocean.html</span>
+          <h3>A page for every boat</h3>
+          <p>Photos, the captain, what's included, inshore or offshore, and the fish that style targets. The page works out an estimate for their group as they fill it in, then one tap adds the boat to their trip.</p>
+          <ul><li>Half, three-quarter and full day options</li><li>Target fish change with inshore or offshore</li><li>"Add to my trip" on every boat and tour</li></ul>
+        </div>
+      </div>
+
+      <div class="stop">
+        <figure class="shot"><div class="frame"><img src="../../img/work/gofish/d-adventures.webp" alt="Go Fish adventures page" width="1440" height="840" loading="lazy"></div></figure>
+        <div class="reveal">
+          <span class="where">/adventures/</span>
+          <h3>Seventeen adventures</h3>
+          <p>Zipline, ATVs, the sunset catamaran, Rio Celeste, the estuary, surf lessons, a spa day and more. All tours Steve and Liisa have done themselves, each with its own page and bookable in the same request as the fishing.</p>
+        </div>
+      </div>
+
+      <div class="stop">
+        <figure class="shot"><div class="frame"><img src="../../img/work/gofish/d-planner.webp" alt="Go Fish four-step trip planner" width="1440" height="840" loading="lazy"></div></figure>
+        <div class="reveal">
+          <span class="where">/book.html</span>
+          <h3>A four-step trip planner</h3>
+          <p>Trip, when, pick, send. It asks what kind of day they want, which location is closer, their dates and their group, then points them to the boats and tours that fit. They can add another day and keep going.</p>
+        </div>
+      </div>
+
+      <div class="stop">
+        <figure class="shot"><div class="frame"><img src="../../img/work/gofish/d-trip.webp" alt="Go Fish My trip page" width="1440" height="840" loading="lazy"></div></figure>
+        <div class="reveal">
+          <span class="where">/trip.html</span>
+          <h3>The whole week, in one request</h3>
+          <p>Everything a guest adds from any page collects in My trip. They drop a pin on where they're staying, say if they need transportation, and send the whole week at once.</p>
+          <ul><li>Map pin for where they're staying</li><li>Asks about transportation to the boat</li><li>One email to Go Fish with the full itinerary</li></ul>
+        </div>
+      </div>
+
+      <div class="stop">
+        <figure class="shot"><div class="frame"><img src="../../img/work/gofish/d-seasons.webp" alt="Go Fish fish and seasons page" width="1440" height="840" loading="lazy"></div></figure>
+        <div class="reveal">
+          <span class="where">/discover/fish-seasons.html</span>
+          <h3>What's biting, month by month</h3>
+          <p>A season calendar so guests can plan their trip around the fish they want, plus pages on the crews and equipment, the weather, and Steve and Liisa's pledge to every guest.</p>
+        </div>
+      </div>
+
+      <div class="stop">
+        <figure class="shot"><div class="frame"><img src="../../img/work/gofish/d-dining.webp" alt="Go Fish dining guide" width="1440" height="840" loading="lazy"></div></figure>
+        <div class="reveal">
+          <span class="where">/dining/ · /discover/blog.html</span>
+          <h3>Where to eat, and a real blog</h3>
+          <p>Ten restaurants they actually recommend, and twenty-nine blog posts with fishing reports, festivals and local tips. Pages people search for, that bring them back to the boats.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="dark topo" id="trust">
+  <div class="wrap">
+    <div class="head">
+      <div class="reveal">
+        <div class="eb">Trust, up front</div>
+        <h2>Fifteen years <b>of proof.</b></h2>
+      </div>
+      <p class="lead reveal" style="--d:.08s">Go Fish had earned the trust; the old site just didn't show it. Now the awards, the reviews and the faces behind the business sit right where a guest decides whether to book.</p>
+    </div>
+    <div class="design-shots">
+      <figure class="shot reveal"><div class="frame"><img src="../../img/work/gofish/d-sec11.webp" alt="Go Fish awards: fifteen years of Travelers' Choice" width="1440" height="840" loading="lazy"></div><figcaption><b>The awards.</b> Travelers' Choice every year since 2012, top 10% of attractions worldwide.</figcaption></figure>
+      <figure class="shot reveal" style="--d:.06s"><div class="frame"><img src="../../img/work/gofish/d-sec10.webp" alt="Steve and Liisa, owners of Go Fish" width="1440" height="840" loading="lazy"></div><figcaption><b>The people.</b> "We're not a call center. We're the people you'll wave to on the beach."</figcaption></figure>
+    </div>
+    <div class="awards">
+      <div class="reveal"><b>2012 to 2026</b><span>TripAdvisor Travelers' Choice, every year</span></div>
+      <div class="reveal" style="--d:.05s"><b>590</b><span>TripAdvisor reviews, 581 of them Excellent</span></div>
+      <div class="reveal" style="--d:.1s"><b>5.0</b><span>on TripAdvisor and on Google</span></div>
+      <div class="reveal" style="--d:.15s"><b>10 years</b><span>Ducks Unlimited partnership award</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PHONES -->
+<section class="topo" id="phones" style="background:var(--cpaper)">
+  <div class="wrap">
+    <div class="head">
+      <div class="reveal">
+        <div class="eb">On phones</div>
+        <h2>Planned from <b>a beach chair.</b></h2>
+      </div>
+      <p class="lead reveal" style="--d:.08s">Most guests plan on their phone, often already in Tamarindo. Every page is built for a thumb: the planner, the filters, the boat pages and My trip, with WhatsApp a tap away. On a laptop that tap opens WhatsApp Web; on a phone it opens the app.</p>
+    </div>
+    <div class="phones" style="--x:0">
+      <figure class="phone"><div class="frame"><img src="../../img/work/gofish/m-home.webp" alt="Go Fish homepage on a phone" width="780" height="1688" loading="lazy"></div><figcaption style="color:var(--muted)"><b style="color:var(--pine)">First screen</b>Above and below the water</figcaption></figure>
+      <figure class="phone"><div class="frame"><img src="../../img/work/gofish/m-fleet.webp" alt="Go Fish fleet on a phone" width="780" height="1688" loading="lazy"></div><figcaption style="color:var(--muted)"><b style="color:var(--pine)">The fleet</b>Filters that fit a thumb</figcaption></figure>
+      <figure class="phone"><div class="frame"><img src="../../img/work/gofish/m-boat.webp" alt="Go Fish boat page on a phone" width="780" height="1688" loading="lazy"></div><figcaption style="color:var(--muted)"><b style="color:var(--pine)">A boat</b>Estimate as they type</figcaption></figure>
+      <figure class="phone"><div class="frame"><img src="../../img/work/gofish/m-planner.webp" alt="Go Fish planner on a phone" width="780" height="1688" loading="lazy"></div><figcaption style="color:var(--muted)"><b style="color:var(--pine)">The planner</b>Four steps, one thumb</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- BEHIND THE SCENES -->
+<section id="behind">
+  <div class="wrap">
+    <div class="head">
+      <div class="reveal">
+        <div class="eb">Behind the scenes</div>
+        <h2>The stuff <b>you don't see.</b></h2>
+      </div>
+      <p class="lead reveal" style="--d:.08s">The part guests never notice, and the part that turns a visit into a booking that actually gets answered.</p>
+    </div>
+    <div class="bts">
+      <div class="bt reveal"><h3>Booking emails</h3><p>Every request lands in the Go Fish inbox with the dates, group, picks and where they're staying already laid out. The guest gets a copy from charters@gofishcr.com.</p></div>
+      <div class="bt reveal" style="--d:.05s"><h3>Never yesterday's info</h3><p>Every page checks it's the newest version and refreshes itself once if not, so guests never see old boat details.</p></div>
+      <div class="bt reveal" style="--d:.1s"><h3>Google understands it</h3><p>Built-in business details tell Google exactly what Go Fish is and where it runs, plus a full sitemap, and old links from the previous site pointing to their new homes.</p></div>
+      <div class="bt reveal"><h3>A map pin, free</h3><p>Guests drop a pin on where they're staying and the team gets a Google Maps link. No paid map service, no monthly fee.</p></div>
+      <div class="bt reveal" style="--d:.05s"><h3>Same email, new domain</h3><p>The site moved onto gofishcr.com with only the website records changed. Their email kept working the whole time.</p></div>
+      <div class="bt reveal" style="--d:.1s"><h3>Fast everywhere</h3><p>Hundreds of photos resized and compressed, so pages open quickly even on hotel Wi-Fi.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LAUNCH -->
+<section class="dark topo" id="launch">
+  <div class="wrap">
+    <div class="head solo reveal">
+      <div class="eb">How it came together</div>
+      <h2>From first draft <b>to live.</b></h2>
+    </div>
+    <div class="launch">
+      <div class="reveal"><h3>Build</h3><p>I pulled every boat, tour, photo and review from the old site and built the first version of all ninety-eight pages.</p></div>
+      <div class="reveal" style="--d:.05s"><h3>Rethink</h3><p>The first homepage looked like a lot of other sites, so I rebuilt it around one charter day, dawn to sunset.</p></div>
+      <div class="reveal" style="--d:.1s"><h3>Refine</h3><p>Go Fish sent their change list: charter lengths, adults and kids, target fish, the map pin, their top boats. All of it went in.</p></div>
+      <div class="reveal" style="--d:.15s"><h3>Launch</h3><p>Moved onto gofishcr.com with email untouched, booking emails tested end to end, and every page checked on phones.</p></div>
+    </div>
+    <div class="golive reveal">
+      <div><b>Live at gofishcr.com</b><small>Go Fish Costa Rica · Fishing charters &amp; adventures · Tamarindo &amp; Flamingo</small></div>
+      <a class="btn btn-green" href="https://gofishcr.com" target="_blank" rel="noopener">Visit the live site ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="closing" id="contact">
+  <div class="wrap" style="max-width:1160px">
+    <div class="cta reveal">
+      <h2>Want a site like this for <b>your business?</b></h2>
+      <p>Send me your business and I'll show you what your new site could be. Free, no pressure, in English or Spanish.</p>
+      <div class="acts">
+        <a class="btn btn-primary" href="https://wa.me/13213561951" target="_blank" rel="noopener">Message on WhatsApp</a>
+        <a class="btn btn-ghost" href="mailto:coastalcrwebsites@gmail.com">Email me</a>
+        <a class="btn btn-ghost" href="../">See all projects</a>
+      </div>
+      <div class="mail">coastalcrwebsites@gmail.com · WhatsApp +1 321-356-1951</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">
+      <div class="brand"><svg class="logomark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0e6f90"/><path d="M10 38 C18 30 22 46 32 38 S46 30 54 38" fill="none" stroke="#eef4f8" stroke-width="4.5" stroke-linecap="round"/><path d="M10 26 C18 18 22 34 32 26 S46 18 54 26" fill="none" stroke="#d2a55f" stroke-width="4.5" stroke-linecap="round"/></svg>Coastal <span>CR</span></div>
+      <p>Custom websites for local businesses, wherever you are. Based in Jaco, Costa Rica.</p>
+    </div>
+    <div class="f-col">
+      <h5>Websites</h5>
+      <a href="../">All projects</a>
+      <a href="../../websites/">Website packages</a>
+      <a href="../../plans/">3 ways to pay</a>
+      <a href="../../care/">Care plan terms</a>
+    </div>
+    <div class="f-col">
+      <h5>Grow</h5>
+      <a href="../../tradewind/">Tradewind app</a>
+      <a href="../../services/">Monthly plans</a>
+      <a href="../../services/#growth">Google &amp; ads</a>
+      <a href="../../services/#transfer">Move my site over</a>
+    </div>
+    <div class="f-col">
+      <h5>Contact</h5>
+      <a href="https://wa.me/13213561951" target="_blank" rel="noopener">WhatsApp +1 321-356-1951</a>
+      <a href="mailto:coastalcrwebsites@gmail.com">coastalcrwebsites@gmail.com</a>
+      <span>English &amp; Español</span>
+    </div>
+  </div>
+  <div class="wrap f-base-wrap"><div class="f-base">© <span id="yr"></span> Coastal CR · Infinite Discoveries LLC · Playa Hermosa, Jaco, Costa Rica</div></div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Nav turns solid once scrolled + progress bar.
+  (function(){
+    const nav = document.querySelector('nav'), bar = document.getElementById('progress');
+    const on = ()=>{
+      nav.classList.toggle('scrolled', window.scrollY > 12);
+      const h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    };
+    window.addEventListener('scroll', on, {passive:true});
+    window.addEventListener('resize', on);
+    on();
+  })();
+
+  // Walkthrough video: play only on screen; reduced motion keeps the poster.
+  (function(){
+    const v = document.querySelector('.browser video');
+    if(!v) return;
+    if(matchMedia('(prefers-reduced-motion:reduce)').matches){ v.removeAttribute('autoplay'); v.pause(); return; }
+    if(!('IntersectionObserver' in window)) return;
+    new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? v.play().catch(()=>{}) : v.pause()), {threshold:.15}).observe(v);
+  })();
+
+  // Text-only reveal with failsafes.
+  (function(){
+    const els = [...document.querySelectorAll('.reveal')];
+    const show = e => e.classList.add('in');
+    if(!('IntersectionObserver' in window)){ els.forEach(show); return; }
+    const io = new IntersectionObserver(en => en.forEach(x => { if(x.isIntersecting){ show(x.target); io.unobserve(x.target); } }), {threshold:0.12, rootMargin:'0px 0px -6% 0px'});
+    els.forEach(e => io.observe(e));
+    const sweep = ()=>els.forEach(e=>{ if(e.classList.contains('in')) return; const r = e.getBoundingClientRect(); if(r.top < innerHeight*0.94 && r.bottom > 0) show(e); });
+    window.addEventListener('load', ()=>setTimeout(sweep, 150));
+    window.addEventListener('scroll', sweep, {passive:true});
+    setTimeout(()=>els.forEach(show), 5000);
+  })();
+
+  // Before/after slider.
+  (function(){
+    const ba = document.getElementById('ba1'), aw = document.getElementById('aw1'), as = document.getElementById('as1'), h = document.getElementById('h1');
+    if(!ba) return;
+    let dragging = false, touched = false;
+    const sizeAfter = ()=>{ as.style.width = ba.clientWidth + 'px'; };
+    const apply = pct=>{ aw.style.width = pct + '%'; h.style.left = pct + '%'; };
+    const setPos = cx=>{ const r = ba.getBoundingClientRect(); apply(Math.max(0, Math.min(1, (cx - r.left) / r.width)) * 100); };
+    const start = ()=>{ dragging = true; touched = true; ba.classList.add('dragging'); };
+    const end = ()=>{ dragging = false; ba.classList.remove('dragging'); };
+    const move = e=>{ if(!dragging) return; setPos(e.touches ? e.touches[0].clientX : e.clientX); };
+    h.addEventListener('mousedown', start);
+    h.addEventListener('touchstart', start, {passive:true});
+    window.addEventListener('mouseup', end);
+    window.addEventListener('touchend', end);
+    window.addEventListener('mousemove', move);
+    window.addEventListener('touchmove', move, {passive:true});
+    ba.addEventListener('mousedown', e=>{ start(); setPos(e.clientX); });
+    window.addEventListener('resize', sizeAfter);
+    window.addEventListener('load', sizeAfter);
+    sizeAfter();
+    if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion:reduce)').matches){
+      const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ io.unobserve(ba); setTimeout(()=>{ if(touched) return; apply(62); setTimeout(()=>{ if(!touched) apply(50); }, 650); }, 450); } }), {threshold:0.35});
+      io.observe(ba);
+    }
+  })();
+</script>
+</body>
+</html>
